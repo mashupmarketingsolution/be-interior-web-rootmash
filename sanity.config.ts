@@ -13,8 +13,7 @@ import { structureTool } from "sanity/structure";
 import { apiVersion, dataset, projectId } from "./src/sanity/env";
 import { schema } from "./src/sanity/schemaTypes";
 import { structure } from "./src/sanity/structure";
-import { customStatsWidgetPlugin } from "@/sanity/widgets/CustomStatsWidget";
-
+import { customStatsWidgetPlugin } from "./src/sanity/widgets/CustomStatsWidget";
 export default defineConfig({
   basePath: "/beinterior/studio",
   projectId,

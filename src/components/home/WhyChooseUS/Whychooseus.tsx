@@ -5,13 +5,13 @@ import { ShieldCheck, Clock, Tag, Headset } from "lucide-react"; // lucide-react
 const Whychooseus = () => {
   const features = [
     {
-      title: "Unmatched Value",
-      desc: "Top-tier aesthetics that align perfectly with your financial comfort. No surprises, just honest and upfront pricing.",
+      title: "Thoughtful Value",
+      desc: "Design choices are planned around your priorities, scope and budget, with clear pricing and material discussions before execution.",
       icon: <Tag size={32} className="text-primary" />,
     },
     {
       title: "Express 45-Day Execution",
-      desc: "Watch your dream space come alive in just a month and a half. We deliver speed without compromising on precision.",
+      desc: "Project timelines are planned based on scope, site conditions and approvals, with clear milestones and regular progress updates.",
       icon: <Clock size={32} className="text-primary" />,
     },
     {

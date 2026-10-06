@@ -7,7 +7,7 @@ const AboutFounders = () => {
   return (
     <section className="bg-ivory py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        
+
         {/* Section Header */}
         <div className="text-center md:text-left mb-16">
           <p className="text-primary font-bold uppercase tracking-widest text-sm mb-3">
@@ -21,11 +21,11 @@ const AboutFounders = () => {
 
         {/* Founder Card */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center bg-white p-8 md:p-12 lg:p-16 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-[#111111]/5">
-          
+
           {/* Image Side */}
           <div className="w-full lg:w-5/12 shrink-0">
             <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-xl group">
-              
+
               <Image
                 src={founder}
                 alt="Hossain Al Mahmud - Managing Director"
@@ -39,9 +39,9 @@ const AboutFounders = () => {
           {/* Text/Content Side */}
           <div className="w-full lg:w-7/12 flex flex-col justify-center">
             <Quote className="w-12 h-12 text-primary/20 mb-6 rotate-180" />
-            
+
             <p className="text-lg md:text-xl lg:text-2xl text-zinc-600 font-serif leading-relaxed mb-10 italic">
-              "We don't just design spaces; we craft experiences. Our goal is to blend aesthetics with functionality, creating environments that inspire and elevate everyday living. Every detail matters, because your space is a reflection of your unique story."
+              &quot;We don&apos;t just design spaces; we craft experiences. Our goal is to blend aesthetics with functionality, creating environments that inspire and elevate everyday living. Every detail matters, because your space is a reflection of your unique story.&quot;
             </p>
 
             <div className="flex items-center gap-6">
@@ -55,7 +55,7 @@ const AboutFounders = () => {
                 </p>
               </div>
             </div>
-            
+
           </div>
         </div>
 

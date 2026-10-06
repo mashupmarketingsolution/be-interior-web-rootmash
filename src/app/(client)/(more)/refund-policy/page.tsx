@@ -13,12 +13,12 @@ export default function CancellationsAndRefunds() {
   return (
     <section className="bg-ivory py-16 px-6 md:px-12 lg:px-24 font-sans text-zinc-800 mt-20">
       <div className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-[#111111]/5">
-        
+
         {/* Page Header */}
         <div className="border-b border-[#111111]/10 pb-6 mb-8">
-          <h2 className="text-3xl md:text-4xl font-montagu font-bold text-[#111111] tracking-wide">
+          <h1 className="text-3xl md:text-4xl font-montagu font-bold text-[#111111] tracking-wide">
             Cancellations & Refunds
-          </h2>
+          </h1>
           <p className="text-sm text-zinc-500 mt-2">
             Be Interior Project Guidelines & Policies
           </p>
@@ -26,7 +26,7 @@ export default function CancellationsAndRefunds() {
 
         {/* Content Body */}
         <div className="space-y-8 text-sm md:text-base text-zinc-600 leading-relaxed font-normal">
-          
+
           {/* Intro Paragraphs */}
           <div className="space-y-4">
             <p>
@@ -42,7 +42,7 @@ export default function CancellationsAndRefunds() {
               Purchase Order and receiving an invoice. Once a purchase order has
               been placed and an invoice raised, modifications, replacements, or
               cancellations of any items will no longer be possible. Please
-              don't worry; your Project Representative will review and confirm
+              don&apos;t worry; your Project Representative will review and confirm
               each item with you before raising an invoice.
             </p>
             <p>

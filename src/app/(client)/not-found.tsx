@@ -15,7 +15,7 @@ export default function NotFound() {
         Oops! Page Not Found
       </h2>
       <p className="text-zinc-600 font-poppins max-w-md mb-10">
-        It seems like the space you are looking for doesn't exist. Let's guide
+        It seems like the space you are looking for doesn&apos;t exist. Let&apos;s guide
         you back to your ideal home.
       </p>
 

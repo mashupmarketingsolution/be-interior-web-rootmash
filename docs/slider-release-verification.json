@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-04T18:21:26.256Z",
+  "results": [
+    {
+      "url": "https://web.beinterior.com.bd",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/about",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/about",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/contact",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/contact",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/hire-architect",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/hire-architect",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/blogs",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/blogs",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/interior-projects",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/interior-projects",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/services/home-interior",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/services/home-interior",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/services/office-interior",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/services/office-interior",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/services/budget-calculator",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/services/budget-calculator",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/terms",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/terms",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/privacy-policy",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/privacy-policy",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/refund-policy",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/refund-policy",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/interior-projects/modern-square",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/interior-projects/modern-square",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/interior-projects/shakil-rahman-s-home-interior",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/interior-projects/shakil-rahman-s-home-interior",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/interior-projects/mr-hasan-s-home-interior",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/interior-projects/mr-hasan-s-home-interior",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/interior-projects/farhana-yasmin-s-home-interior",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/interior-projects/farhana-yasmin-s-home-interior",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/interior-projects/nexus-space",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/interior-projects/nexus-space",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/interior-projects/redwan-islam-s-home-interior",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/interior-projects/redwan-islam-s-home-interior",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/blogs/10-modern-minimalist-living-room-ideas",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/blogs/10-modern-minimalist-living-room-ideas",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/interior-projects/one-workspace",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/interior-projects/one-workspace",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "url": "https://web.beinterior.com.bd/interior-projects/worship-bd",
+      "status": 200,
+      "canonical": "https://web.beinterior.com.bd/interior-projects/worship-bd",
+      "robots": "noindex, nofollow"
+    }
+  ],
+  "errors": []
+}

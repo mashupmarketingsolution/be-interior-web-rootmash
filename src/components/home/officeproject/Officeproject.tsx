@@ -31,15 +31,15 @@ const fetchOfficeProjects = async () => {
     }
 
     return res.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (process.env.NODE_ENV === "development") {
-      console.error("Office Project Fetch Error:", error.message);
+      console.error("Office Project Fetch Error:", (error instanceof Error ? error.message : "Unknown error"));
     }
     throw error;
   }
 };
 
-const homeOfficeproject = () => {
+const HomeOfficeproject = () => {
   const { data, isLoading, isError } = useQuery<OfficeProject>({
     queryKey: ["office-interior"],
     queryFn: fetchOfficeProjects,
@@ -86,7 +86,9 @@ const homeOfficeproject = () => {
                 640: { slidesPerView: 2, spaceBetween: 20 },
                 1024: { slidesPerView: 3, spaceBetween: 30 },
               }}
-              loop={true}
+              key={result.length > 3 ? "loop" : "rewind"}
+              loop={result.length > 3}
+              rewind={result.length <= 3}
               modules={[Autoplay]}
               autoplay={{
                 delay: 3000,
@@ -156,4 +158,4 @@ const homeOfficeproject = () => {
   );
 };
 
-export default homeOfficeproject;
+export default HomeOfficeproject;

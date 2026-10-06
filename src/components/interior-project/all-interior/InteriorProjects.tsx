@@ -30,9 +30,9 @@ const fetchAllInteriorItem = async () => {
     }
 
     return res.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (process.env.NODE_ENV === "development") {
-      console.error(`All Interior Item Fetch Error`, error.message);
+      console.error(`All Interior Item Fetch Error`, (error instanceof Error ? error.message : "Unknown error"));
     }
     throw error;
   }

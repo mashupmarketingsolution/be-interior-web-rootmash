@@ -56,12 +56,12 @@ export default function TermsAndConditions() {
   return (
     <section className="bg-ivory py-16 px-6 md:px-12 lg:px-24 font-sans text-zinc-800 mt-20">
       <div className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-[#111111]/5">
-        
+
         {/* Page Header */}
         <div className="border-b border-[#111111]/10 pb-6 mb-10">
-          <h2 className="text-3xl md:text-4xl font-montagu font-bold text-[#111111] tracking-wide">
+          <h1 className="text-3xl md:text-4xl font-montagu font-bold text-[#111111] tracking-wide">
             Terms and Conditions
-          </h2>
+          </h1>
           <p className="text-sm text-zinc-500 mt-2">
             Please read our project rules and regulations carefully
           </p>

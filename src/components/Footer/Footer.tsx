@@ -19,7 +19,10 @@ import { useQuery } from "@tanstack/react-query";
 import { footerContactApi } from "@/axios/axios";
 import Image from "next/image";
 import logo from "@/logo/Gemini_Generated_Image_be-interior.png";
-
+import {
+  trackPhoneClick,
+  trackEmailClick,
+} from "@/components/Analytics/dataLayer";
 interface FooterContactType {
   ms: number;
   query: string;
@@ -45,9 +48,9 @@ const fetchFooterLinks = async () => {
       throw new Error("Error While Fetching");
     }
     return res.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (process.env.NODE_ENV === "development") {
-      console.log("Footer Err", error.message);
+      console.log("Footer Err", (error instanceof Error ? error.message : "Unknown error"));
     }
     return;
   }
@@ -63,15 +66,27 @@ const Footer = () => {
   // if (process.env.NODE_ENV === "development") {
   //   console.log("footer data", footerItems);
   // }
-  const footerNumberOne = footerItems[0]?.footercontactnumber1 || "01818383239";
-  const footerNumberTwo = footerItems[0]?.footercontactnumber2 || "01818383239";
-  const footerEmail =
-    footerItems[0]?.footercontactemail || "info@beinterior.com";
+const footerNumberOne =
+  footerItems[0]?.footercontactnumber1 || "01618995918";
+
+const footerNumberTwo =
+  footerItems[0]?.footercontactnumber2 || "01618995918";
+
+const footerEmail =
+  footerItems[0]?.footercontactemail || "beinteriorbd@gmail.com";
   const footerLocation = footerItems[0]?.footerlocation || "Dhaka, Bangladesh";
-  const footerFB = footerItems[0]?.links[1]?.url || "/";
-  const footerInsta = footerItems[0]?.links[2]?.url || "/";
-  const footerLinkdIn = "/";
-  const footerYT = footerItems[0]?.links[0]?.url || "/";
+
+  const socialLinks = footerItems[0]?.links || [];
+
+const getSocialLink = (platform: string) =>
+  socialLinks.find(
+    (item) => item.platformName?.toLowerCase() === platform.toLowerCase(),
+  )?.url || "/";
+
+const footerFB = getSocialLink("Facebook");
+const footerInsta = getSocialLink("Instagram");
+const footerLinkdIn = getSocialLink("LinkedIn");
+const footerYT = getSocialLink("YouTube");
 
   return (
     <footer className="relative w-full bg-secondary/90 text-white pt-20 pb-20 overflow-hidden">
@@ -84,31 +99,34 @@ const Footer = () => {
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
           {/* Column 1: Branding */}
-          <div className="flex flex-col gap-6 -translate-y-17">
-            <NavLogo className="" />
-            <p className="text-sm font-medium text-zinc-400 leading-relaxed max-w-xs">
-              Transforming your living spaces into masterpieces of comfort and
-              style. Your vision is our expertise.
-            </p>
-            <div className="flex gap-4">
+          <div className="flex flex-col -translate-y-17">
+              <NavLogo className="" />
+
+              <p className="-mt-8 text-sm font-medium text-zinc-400 leading-relaxed max-w-xs">
+                Transforming your living spaces into masterpieces of comfort and
+                style. Your vision is our expertise.
+              </p>
+
+              <div className="flex gap-4 mt-4">
               {[
-                { icon: <FaFacebookF size={14} />, link: footerFB },
+                { icon: <FaFacebookF size={14} />, label: "Facebook", link: footerFB },
                 {
-                  icon: <FaInstagram size={14} />,
+                  icon: <FaInstagram size={14} />, label: "Instagram",
                   link: footerInsta,
                 },
                 {
-                  icon: <FaLinkedinIn size={14} />,
+                  icon: <FaLinkedinIn size={14} />, label: "LinkedIn",
                   link: footerLinkdIn,
                 },
                 {
-                  icon: <FaYoutube size={14} />,
+                  icon: <FaYoutube size={14} />, label: "YouTube",
                   link: footerYT,
                 },
-              ].map((Icon, i) => (
+              ].filter((item) => item.link && item.link !== "/").map((Icon, i) => (
                 <Link
                   key={i}
-                  href={Icon.link || "/"}
+                  href={Icon.link}
+                  aria-label={Icon.label}
                   className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-primary hover:border-primary hover:text-white transition-all duration-300"
                 >
                   {Icon.icon}
@@ -133,11 +151,11 @@ const Footer = () => {
                   link: "/services/office-interior",
                 },
                 {
-                  name: "Building Design",
+                  name: "Our Projects",
                   link: "/interior-projects",
                 },
                 {
-                  name: "Furniture Customization",
+                  name: "Interior Blogs",
                   link: "/blogs",
                 },
               ].map((link) => (
@@ -196,12 +214,14 @@ const Footer = () => {
                 <div className="flex flex-col gap-1">
                   <a
                     href={`tel:${footerNumberOne}`}
+                    onClick={() => trackPhoneClick("footer_phone_1")}
                     className="hover:text-white transition-colors"
                   >
                     {isLoading ? "..." : footerNumberOne}
                   </a>
                   <a
                     href={`tel:${footerNumberTwo}`}
+                    onClick={() => trackPhoneClick("footer_phone_2")}
                     className="hover:text-white transition-colors"
                   >
                     {isLoading ? "..." : footerNumberTwo}
@@ -212,6 +232,7 @@ const Footer = () => {
                 <FaEnvelope className="text-primary" />
                 <a
                   href={`mailto:${footerEmail}`}
+                  onClick={() => trackEmailClick("footer_email")}
                   className="hover:text-white transition-colors truncate"
                 >
                   {isLoading ? "..." : `${footerEmail}`}
@@ -232,7 +253,7 @@ const Footer = () => {
             </h4>
 
             <Link
-              href="https://www.facebook.com/beinteriors"
+              href={footerFB}
               target="_blank"
               rel="noopener noreferrer"
               className="group block border relative max-w-3xl w-full h-48 bg-zinc-900 overflow-hidden border-[#111111]/5 shadow-sm rounded-2xl transition-all duration-500 hover:shadow-md hover:-translate-y-0.5"

@@ -23,16 +23,20 @@ export const ClientType = defineType({
       title: "Review Category",
       type: "string",
       options: {
-        list: [
-          {
-            title: "Home Interior",
-            value: "home",
-          },
-          {
-            title: "Office Interior",
-            value: "office",
-          },
-        ],
+     list: [
+            {
+              title: "Home Interior",
+              value: "home",
+            },
+            {
+              title: "Office Interior",
+              value: "office",
+            },
+            {
+              title: "Home Renovation",
+              value: "renovation",
+            },
+          ],
         layout: "dropdown",
       },
       validation: (Rule) => Rule.required(),
@@ -54,9 +58,9 @@ export const ClientType = defineType({
   ],
    preview: {
     select: {
-      title: 'name',         
-      subtitle: 'designation', 
-      media: 'clientimage',   
+      title: 'name',
+      subtitle: 'designation',
+      media: 'clientimage',
     },
     prepare(selection) {
       const { title, subtitle, media } = selection;

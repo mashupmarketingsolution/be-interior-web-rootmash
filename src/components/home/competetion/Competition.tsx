@@ -19,7 +19,8 @@ export default function Competition() {
     },
     {
       title: "Project Timeline",
-      points: ["Delivery in 45 days, guaranteed"],
+      points: ["Planned project timeline with clear milestone tracking"],
+
     },
     {
       title: "Communication",
@@ -51,7 +52,7 @@ export default function Competition() {
   return (
     <section className="bg-ivory py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center">
-        
+
         {/* Left Side Column - Impactful Typography */}
         <div className="lg:col-span-5 flex flex-col justify-center text-center lg:text-left order-1 lg:order-1">
           <div className="mb-8">
@@ -65,12 +66,12 @@ export default function Competition() {
           </div>
 
           <p className="text-zinc-600 text-base md:text-lg max-w-md mx-auto lg:mx-0 leading-relaxed mb-10">
-            We redefine premium interior experiences with strict quality benchmarks, flawless execution, and complete transparency at every stage.
+           We deliver carefully planned interior solutions with defined quality standards, coordinated execution, and clear communication at every stage.
           </p>
 
           <div className="flex justify-center lg:justify-start">
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="group flex items-center gap-3 px-8 py-4 bg-[#111111] hover:bg-primary text-white font-bold rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_40px_rgba(200,122,49,0.3)] transition-all duration-300 transform hover:-translate-y-1 text-sm md:text-base"
             >
               Talk To Our Designers
@@ -82,7 +83,7 @@ export default function Competition() {
         {/* Right Side Column - Minimalistic Premium Table */}
         <div className="lg:col-span-7 order-1 lg:order-2">
           <div className="bg-white rounded-[2rem] shadow-[0_20px_60px_rgba(0,0,0,0.05)] border border-black/5 overflow-hidden">
-            
+
             {/* Table Header */}
             <div className="grid grid-cols-12 items-stretch border-b border-black/5">
               <div className="col-span-6 p-6 flex items-center">
@@ -144,7 +145,7 @@ export default function Competition() {
 
           </div>
         </div>
-        
+
       </div>
     </section>
   );

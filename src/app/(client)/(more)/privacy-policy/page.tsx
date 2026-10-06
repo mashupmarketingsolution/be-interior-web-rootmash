@@ -18,12 +18,12 @@ export default function PrivacyPolicy() {
   return (
     <section className="bg-ivory py-16 px-6 md:px-12 lg:px-24 font-sans text-zinc-800 mt-20">
       <div className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-[#111111]/5">
-        
+
         {/* Page Header */}
         <div className="border-b border-[#111111]/10 pb-6 mb-8">
-          <h2 className="text-3xl md:text-4xl font-montagu font-bold text-[#111111] tracking-wide">
+          <h1 className="text-3xl md:text-4xl font-montagu font-bold text-[#111111] tracking-wide">
             Privacy Policy
-          </h2>
+          </h1>
           <p className="text-sm text-zinc-500 mt-2">
             Last updated: {new Date().toLocaleDateString()}
           </p>
@@ -31,14 +31,20 @@ export default function PrivacyPolicy() {
 
         {/* Content Body */}
         <div className="space-y-8 text-sm md:text-base text-zinc-600 leading-relaxed font-normal">
-          
+
           <div>
             <h3 className="font-bold text-[#111111] tracking-wide text-lg mb-2">Who we are</h3>
             <p>
-              Our website address is:{" "}
-              <a href="http://beinterior.com.bd" target="_blank" rel="noopener noreferrer" className="text-[#c35e00] hover:text-[#a34e00] underline font-medium transition-colors">
-                http://beinterior.com.bd
-              </a>.
+             Our website address is:{" "}
+              <a
+                href="https://beinterior.com.bd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#c35e00] hover:text-[#a34e00] underline font-medium transition-colors"
+              >
+                https://beinterior.com.bd
+              </a>
+              .
             </p>
           </div>
 

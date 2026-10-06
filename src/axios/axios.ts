@@ -13,11 +13,13 @@ import {
   officeInteriorPageClientReview,
   officeProjectQuery,
   packageQuery,
+
+  officePackageQuery,
   topFiveOfficeProjects,
   whatsAppNumber,
 } from "./query";
 
-const api = axios.create({});
+const api = axios.create({ timeout: 20000 });
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string;
 
@@ -99,8 +101,19 @@ interface FormDataType {
   projectInfo: string;
 }
 
-export const createLeadApi = (formData: FormDataType ) => {
-  return api.post("/api/lead", formData);
+const submissionIds = new Map<string, { id: string; expires: number }>();
+export const createLeadApi = async (formData: FormDataType) => {
+  const fingerprint = JSON.stringify(formData);
+  const now = Date.now();
+  for (const [key, entry] of submissionIds) if (entry.expires < now) submissionIds.delete(key);
+  let entry = submissionIds.get(fingerprint);
+  if (!entry) { entry = { id: crypto.randomUUID(), expires: now + 600000 }; submissionIds.set(fingerprint, entry); }
+  return api.post("/api/lead", { ...formData, eventId: entry.id });
+};
+
+export const leadErrorMessage = (error: unknown) => {
+  if (axios.isAxiosError(error) && typeof error.response?.data?.error === "string") return error.response.data.error;
+  return "We could not send your enquiry. Please check your connection and try again.";
 };
 
 export const fetchtopFiveOfficeProjects = () => {
@@ -114,3 +127,8 @@ export const allBlogApi = () => {
 export const packageItemsApi = () => {
   return api.get(`https://${projectId}.api.sanity.io/v2026-06-03/data/query/production?query=${packageQuery}`)
 }
+export const officePackageItemsApi = () => {
+  return api.get(
+    `https://${projectId}.api.sanity.io/v2026-06-03/data/query/production?query=${officePackageQuery}`,
+  );
+};

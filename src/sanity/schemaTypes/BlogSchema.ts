@@ -7,6 +7,7 @@ export const BlogSchemtype = defineType({
   type: "document",
   icon: Flame,
   fields: [
+    defineField({ name: "seo", title: "SEO (optional)", type: "seo" }),
     defineField({
       name: "blogname",
       title: "Blog Title",
@@ -89,9 +90,9 @@ export const BlogSchemtype = defineType({
       title: "Content",
       type: "array",
       of: [
-        { type: "block" }, 
+        { type: "block" },
         {
-          type: "image", 
+          type: "image",
           options: { hotspot: true },
         },
       ],

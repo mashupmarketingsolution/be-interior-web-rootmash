@@ -1,7 +1,9 @@
 "use client";
+import { whatsappNumber } from "@/lib/contact-links";
 import { whatsAppApi } from "@/axios/axios";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import React from "react";
+import { trackWhatsAppClick } from "@/components/Analytics/dataLayer";
 import { MessageCircle, ArrowRight, Sparkles } from "lucide-react";
 
 interface WhatsAppApiType {
@@ -19,9 +21,9 @@ const fetchWhatsAppNumber = async () => {
     const res = await whatsAppApi();
     if (res.status !== 200) throw new Error("Error fetching");
     return res.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (process.env.NODE_ENV === "development") {
-      console.error("WhatsApp Fetch Error:", error.message);
+      console.error("WhatsApp Fetch Error:", (error instanceof Error ? error.message : "Unknown error"));
     }
     throw error;
   }
@@ -35,20 +37,22 @@ const JustClick = () => {
   });
 
   const result = data?.result || [];
-  
+
   if (process.env.NODE_ENV === "development") {
     console.log("wp", result);
   }
-  
-  const wpNumber = result[0]?.WhatsAppNumber || ""; 
-  const phoneNumber = `88${wpNumber}`;
+
+  const wpNumber = result[0]?.WhatsAppNumber || "";
+  const phoneNumber = whatsappNumber(wpNumber);
 
   const defaultMessage = "Hi BE INTERIOR, I want to consult about my space interior design.";
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(defaultMessage)}`;
 
-  const handleWhatsAppRedirect = () => {
-    window.open(whatsappUrl, "_blank");
-  };
+const handleWhatsAppRedirect = () => {
+  trackWhatsAppClick("home_justclick");
+
+  window.open(whatsappUrl, "_blank");
+};
 
   return (
     <section className="bg-ivory py-24 px-6 md:px-12">
@@ -56,11 +60,11 @@ const JustClick = () => {
 
         {/* Content Box */}
         <div className="relative z-10 flex flex-col items-center justify-center">
-          
+
           {/* Top Badge */}
           <div className="flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-primary">
-              Let's Connect
+              Let&apos;s Connect
             </span>
           </div>
 
@@ -72,7 +76,7 @@ const JustClick = () => {
           </h3>
 
           <p className="text-zinc-500 text-sm md:text-base max-w-lg mx-auto mb-12 leading-relaxed">
-            Ready to transform your space? Drop us a message on WhatsApp and get a free expert consultation instantly.
+           Ready to discuss your space? Message us on WhatsApp and our team will get back to you with the next steps.
           </p>
 
           {/* Action Button */}
@@ -89,7 +93,7 @@ const JustClick = () => {
             </span>
             <ArrowRight size={20} className="relative z-10 transform group-hover:translate-x-1 transition-transform duration-300" />
           </button>
-          
+
         </div>
       </div>
     </section>

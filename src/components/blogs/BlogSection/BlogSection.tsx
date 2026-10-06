@@ -28,9 +28,9 @@ const fetchAllBlogs = async () => {
       throw new Error("Failed to fetch blogs");
     }
     return res.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if(process.env.NODE_ENV === "development") {
-      console.error("FetchBlog Failed", error.message);
+      console.error("FetchBlog Failed", (error instanceof Error ? error.message : "Unknown error"));
     }
     throw error;
   }
@@ -179,7 +179,7 @@ const BlogSection = () => {
             Oops! Something went wrong
           </h3>
           <p className="text-red-600/80 text-sm">
-            We couldn't load the articles right now. Please check your internet
+            We couldn&apos;t load the articles right now. Please check your internet
             connection or try refreshing the page.
           </p>
         </div>

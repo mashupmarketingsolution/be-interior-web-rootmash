@@ -7,6 +7,7 @@ export const OfficeProjectType = defineType({
   type: "document",
   icon: DesktopIcon,
   fields: [
+    defineField({ name: "seo", title: "SEO (optional)", type: "seo" }),
     defineField({
       name: "name",
       title: "Project Name",

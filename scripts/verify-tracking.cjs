@@ -1,0 +1,12 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const root=require('node:path').resolve(__dirname, '..'),ts=require(root+'/node_modules/typescript');
+const code=ts.transpileModule(fs.readFileSync(root+'/src/components/Analytics/dataLayer.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText;
+const pixel=[],window={dataLayer:[],fbq:(...args)=>pixel.push(args)},exportsObject={};
+vm.runInNewContext(code,{exports:exportsObject,window,Set});
+exportsObject.trackLead('contact_form','a-lead-id');exportsObject.trackLead('contact_form','a-lead-id');
+assert.equal(window.dataLayer.filter(e=>e.event==='generate_lead').length,1);
+assert.equal(pixel.length,1);assert.equal(pixel[0][3].eventID,'a-lead-id');
+for(const fn of ['trackWhatsAppClick','trackPhoneClick','trackEmailClick'])exportsObject[fn]('footer');
+assert.equal(window.dataLayer.length,4);
+assert.ok(window.dataLayer.every(e=>!('email' in e)&&!('phone' in e)&&!('name' in e)));
+console.log('PASS: browser lead deduplication, shared event ID, contact events and no contact PII in dataLayer.');

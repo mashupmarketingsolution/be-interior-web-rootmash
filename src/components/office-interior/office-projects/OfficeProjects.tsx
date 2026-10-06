@@ -30,9 +30,9 @@ const fetchOfficeProjects = async () => {
     }
 
     return res.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (process.env.NODE_ENV === "development") {
-      console.error("Office Project Fetch Error:", error.message);
+      console.error("Office Project Fetch Error:", (error instanceof Error ? error.message : "Unknown error"));
     }
     throw error;
   }

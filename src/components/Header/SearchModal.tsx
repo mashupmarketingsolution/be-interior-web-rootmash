@@ -2,7 +2,7 @@
 import { allModalInteriorApi } from "@/axios/axios";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Search, X, ChevronRight, LayoutGrid, Loader2 } from "lucide-react"; // lucide-react আইকন
 
 interface SearchModalProps {
@@ -33,11 +33,11 @@ const fetchAllInteriorItems = async () => {
       throw new Error("Error fetching data");
     }
     return res.data;
-  } catch (error: any) {
+  } catch (error) {
     if (process.env.NODE_ENV === "development") {
       console.error("Error Fetching Interior Items:", error);
     }
-    return null;
+    throw error;
   }
 };
 
@@ -47,19 +47,26 @@ export default function SearchModal({
 }: SearchModalProps) {
   const [searchQuery, setSearchQuery] = useState("");
 
-  // // Lock body scroll when modal is open
-  // useEffect(() => {
-  //   if (searchModal) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "unset";
-  //   }
-  //   return () => {
-  //     document.body.style.overflow = "unset";
-  //   }
-  // }, [searchModal]);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!searchModal || !dialog) return;
+    const previousFocus = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.documentElement.style.overflow;
+    dialog.showModal();
+    document.documentElement.style.overflow = "hidden";
+    const mobile = window.matchMedia("(max-width: 1023px)");
+    const closeOnMobile = () => { if (mobile.matches) setSearchModal(false); };
+    mobile.addEventListener("change", closeOnMobile);
+    return () => {
+      dialog.close();
+      previousFocus?.focus();
+      document.documentElement.style.overflow = previousOverflow;
+      mobile.removeEventListener("change", closeOnMobile);
+    };
+  }, [searchModal, setSearchModal]);
 
-  const { data, isLoading, isError, error } = useQuery<AllInteriorProjectstype>({
+  const { data, isLoading, isError, refetch } = useQuery<AllInteriorProjectstype>({
     queryKey: ["all-interior"],
     queryFn: fetchAllInteriorItems,
     staleTime: 1000 * 60 * 5,
@@ -68,8 +75,8 @@ export default function SearchModal({
 
   const result = data?.result || [];
 
-  let filteredResults = result.filter((item) => {
-    if (!searchQuery) return false;
+  const filteredResults = result.filter((item) => {
+    if (!searchQuery.trim()) return false;
     const query = searchQuery.toLowerCase().trim().replace(/['"‘“”]/g, "'");
     const name = item.name?.toLowerCase().replace(/['"‘“”]/g, "'") || "";
     const type = item._type?.toLowerCase().replace(/['"‘“”]/g, "'") || "";
@@ -89,8 +96,14 @@ export default function SearchModal({
     <>
 
       {/* Modal Container */}
-      <div className="fixed top-20 md:top-32 left-1/2 -translate-x-1/2 w-[85%] max-w-3xl bg-[#111111]/95 backdrop-blur-2xl border border-white/10 rounded-[28px] shadow-[0_30px_100px_rgba(0,0,0,0.6)] z-[110] overflow-hidden flex flex-col animate-in fade-in zoom-in-95 slide-in-from-top-10 duration-300">
-        
+      <dialog ref={dialogRef} aria-label="Search projects" onCancel={() => setSearchModal(false)}
+        onClick={(event) => {
+          if (event.target !== event.currentTarget) return;
+          const rect = event.currentTarget.getBoundingClientRect();
+          if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) setSearchModal(false);
+        }}
+        className="fixed inset-x-0 top-28 bottom-auto mx-auto my-0 w-[85%] max-w-3xl max-h-[75dvh] p-0 bg-[#111111] text-white border border-white/10 rounded-[28px] shadow-2xl overflow-hidden backdrop:bg-black/60 backdrop:backdrop-blur-sm">
+
         {/* Top Search Input Area */}
         <div className="p-4 md:p-5 border-b border-white/10 flex items-center gap-4 bg-white/5 relative group">
           <Search className="w-6 h-6 text-white/40 group-focus-within:text-primary transition-colors" />
@@ -98,7 +111,7 @@ export default function SearchModal({
           <form onSubmit={(e) => e.preventDefault()} className="flex-1">
             <input
               type="text"
-              autoFocus
+              aria-label="Search projects by name, space, or style"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-transparent text-white placeholder:text-white/30 outline-none text-lg md:text-xl py-1 focus:ring-0"
@@ -106,27 +119,13 @@ export default function SearchModal({
             />
           </form>
 
-          {/* Clear Input or Close Modal */}
-          {searchQuery ? (
-            <button
-              onClick={() => setSearchQuery("")}
-              className="text-white/40 hover:text-white bg-white/5 hover:bg-white/10 p-1.5 rounded-full transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          ) : (
-            <button
-              onClick={() => setSearchModal(false)}
-              className="text-white/40 hover:text-white bg-white/5 hover:bg-white/10 p-1.5 rounded-full transition-colors"
-            >
-              <span className="text-xs font-bold uppercase tracking-widest px-2">Esc</span>
-            </button>
-          )}
+          {searchQuery && <button type="button" onClick={() => setSearchQuery("")} className="p-2 text-sm hover:text-primary focus-visible:outline-2 focus-visible:outline-primary">Clear</button>}
+          <button type="button" aria-label="Close search" onClick={() => setSearchModal(false)} className="p-2.5 rounded-full hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-primary"><X size={22} /></button>
         </div>
 
         {/* Results Area */}
-        <div className="max-h-[60vh] overflow-y-auto custom-scrollbar">
-          
+        <div className="max-h-[calc(75dvh-96px)] overflow-y-auto custom-scrollbar">
+
           {/* Loading State (Fixed) */}
           {isLoading ? (
             <div className="flex flex-col items-center justify-center py-20 text-white/50 gap-3">
@@ -135,9 +134,10 @@ export default function SearchModal({
             </div>
           ) : isError ? (
             <div className="text-center py-20 text-red-400 text-sm">
-              Failed to load projects: {(error as Error)?.message}
+              Unable to load projects. Please try again.
+              <button type="button" onClick={() => void refetch()} className="block mx-auto mt-4 underline">Try again</button>
             </div>
-          ) : searchQuery === "" ? (
+          ) : searchQuery.trim() === "" ? (
             <div className="flex flex-col items-center justify-center py-20 text-white/30">
               <LayoutGrid className="w-12 h-12 mb-4 opacity-20" />
               <p className="text-sm tracking-wide">Discover your dream interior</p>
@@ -178,7 +178,7 @@ export default function SearchModal({
                   </div>
                 </Link>
               ))}
-              
+
               {/* Show All Projects Button */}
               <div className="px-2 pt-4 pb-2">
                 <Link
@@ -192,12 +192,12 @@ export default function SearchModal({
             </div>
           ) : (
             <div className="text-center py-20">
-              <p className="text-white/50 text-sm font-medium mb-1">No projects found for "{searchQuery}"</p>
+              <p className="text-white/50 text-sm font-medium mb-1">No projects found for &quot;{searchQuery}&quot;</p>
               <p className="text-white/30 text-xs">Check for typos or try different keywords</p>
             </div>
           )}
         </div>
-      </div>
+      </dialog>
     </>
   );
 }

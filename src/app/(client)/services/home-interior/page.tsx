@@ -19,6 +19,7 @@ import { ErrorBoundary } from "react-error-boundary";
 const HomeInterior = () => {
   return (
     <div className="">
+      <h1 className="sr-only">Home Interior Design in Dhaka</h1>
       <ErrorBoundary fallback={<div>প্রজেক্ট লোড করতে সমস্যা হয়েছে।</div>}>
         <HomeInteriorSlider />
       </ErrorBoundary>

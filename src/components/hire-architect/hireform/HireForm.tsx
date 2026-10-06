@@ -1,10 +1,13 @@
 "use client";
-import { createLeadApi } from "@/axios/axios";
+import Link from "next/link";
+import { createLeadApi, leadErrorMessage } from "@/axios/axios";
 import { CheckCircle2 } from "lucide-react";
 import React, { ChangeEvent, FormEvent } from "react";
 import imgOne from "@/logo/HomePage/Gemini_Generated_Image_Office1.png";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { trackLead } from "@/components/Analytics/dataLayer";
 import Image from "next/image";
+
 
 interface FormType {
   name: string;
@@ -27,6 +30,7 @@ const HireForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [loading, setLoading] = useState(false);
+  const submittingRef = useRef(false);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -41,9 +45,9 @@ const HireForm = () => {
   };
 
   const validateForm = (): boolean => {
-    let tempErrors: FormErrors = {};
+    const tempErrors: FormErrors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^(?:\+88|88)?(01[3-9]\d{8})$/;
+    const phoneRegex = /^(?:\+88|88)?01[3-9]\d{8}$/;
 
     if (!formData.name.trim()) tempErrors.name = "Name is required";
 
@@ -57,9 +61,8 @@ const HireForm = () => {
       tempErrors.phone = "Phone number is required";
     } else if (!phoneRegex.test(formData.phone.replace(/[-\s]/g, ""))) {
       tempErrors.phone = "Valid BD phone number required (e.g. 017xxxxxxxx)";
-    } else if (formData.phone.length > 11) {
-      tempErrors.phone = "Phone number can't be over 11 charecters";
     }
+
 
     if (!formData.projectInfo.trim()) {
       tempErrors.projectInfo = "Project information is required";
@@ -71,27 +74,28 @@ const HireForm = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!validateForm()) return;
+    if (submittingRef.current || !validateForm()) return;
+    submittingRef.current = true;
 
     setLoading(true);
     setSubmitError("");
     setIsSubmitted(false);
     try {
       if (validateForm()) {
-        if (process.env.NODE_ENV === "development") {
-          console.log("Form Submitted Successfully:", formData);
-        }
-        await createLeadApi(formData);
+        const response = await createLeadApi(formData);
+        trackLead("hire_architect", response.data.eventId);
         setIsSubmitted(true);
 
         setFormData({ name: "", email: "", phone: "", projectInfo: "" });
         setTimeout(() => setIsSubmitted(false), 5000);
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
+      setSubmitError(leadErrorMessage(error));
       if (process.env.NODE_ENV === "development") {
         console.error("Form Submission Error");
       }
     } finally {
+      submittingRef.current = false;
       setLoading(false);
     }
   };
@@ -133,6 +137,7 @@ const HireForm = () => {
           )}
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            {submitError && <p role="alert" className="rounded-xl bg-red-50 text-red-800 p-4 text-sm">{submitError}</p>}
             {/* Input fields */}
             {[
               { name: "name", type: "text", placeholder: "Name" },
@@ -141,6 +146,7 @@ const HireForm = () => {
             ].map((field) => (
               <div key={field.name} className="flex flex-col w-full">
                 <input
+                  aria-label={field.placeholder}
                   type={field.type}
                   name={field.name}
                   placeholder={field.placeholder}
@@ -162,8 +168,7 @@ const HireForm = () => {
 
             {/* Textarea */}
             <div className="flex flex-col w-full">
-              <textarea
-                name="projectInfo"
+              <textarea aria-label="Project details" name="projectInfo"
                 rows={4}
                 placeholder="Project information (location, floor area, etc.)"
                 value={formData.projectInfo}
@@ -183,6 +188,7 @@ const HireForm = () => {
 
             <button
               type="submit"
+              disabled={loading}
               className="w-full py-4 mt-2 bg-white text-[#1b332a] font-extrabold text-sm sm:text-base tracking-wider rounded-xl shadow-md hover:bg-zinc-100 transition-all duration-200 cursor-pointer uppercase"
             >
               {loading ? (
@@ -195,13 +201,13 @@ const HireForm = () => {
 
           <p className="text-[10px] text-gray-500 mt-4 leading-tight">
             By submitting this form, you agree to the <br />
-            <a href="#" className="text-red-700 underline">
+           <Link href="/privacy-policy" className="text-red-700 underline">
               Privacy policy
-            </a>
+            </Link>
             ,
-            <a href="#" className="text-red-700 underline ml-1">
-              terms and conditions
-            </a>
+            <Link href="/terms" className="text-red-700 underline ml-1">
+            terms and conditions
+          </Link>
           </p>
         </div>
       </div>

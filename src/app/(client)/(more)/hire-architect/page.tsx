@@ -6,6 +6,7 @@ import React from "react";
 const HireArchitect = () => {
   return (
     <div className="mt-24">
+      <h1 className="sr-only">Hire an Architect in Dhaka</h1>
       <HireForm />
       <ArchitectInterior />
     </div>

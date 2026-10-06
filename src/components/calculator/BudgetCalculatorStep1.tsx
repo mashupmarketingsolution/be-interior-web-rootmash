@@ -1,6 +1,7 @@
 "use client";
+import { leadErrorMessage } from "@/axios/axios";
 import Image from "next/image";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import {
   FiChevronDown,
   FiCheckCircle,
@@ -16,8 +17,16 @@ import { FaCrown, FaRegStar } from "react-icons/fa";
 import { LuGem } from "react-icons/lu";
 import { DivergencesProvider } from "sanity";
 import { preconnect } from "react-dom";
-import { packageItemsApi } from "@/axios/axios";
+
+import {
+  createLeadApi,
+  officePackageItemsApi,
+  packageItemsApi,
+} from "@/axios/axios";
+
+import { trackLead } from "@/components/Analytics/dataLayer";
 import { useQuery } from "@tanstack/react-query";
+import { useSearchParams } from "next/navigation";
 
 // --- Data Arrays ---
 const options3BHK = [
@@ -59,6 +68,21 @@ const otherRooms = [
 ];
 const allRoomOptions = [...bedroomTypes, ...otherRooms];
 
+const officeSpaceOptions = [
+  "Reception",
+  "Workstation Area",
+  "MD/CEO Room",
+  "Manager Cabin",
+  "Meeting Room",
+  "Conference Room",
+  "Pantry",
+  "Waiting/Lounge",
+  "Storage",
+  "Prayer Space",
+  "Server/IT Room",
+
+];
+
 export interface PackageItem {
   name: string;
   price: string;
@@ -77,7 +101,26 @@ export interface PackageType {
   result: PackageResult[];
   syncTags: string[];
 }
+export interface OfficePackageItem {
+  name: string;
+  price: number;
+}
 
+export interface OfficePackageResult {
+  packagename: string;
+  ratePerSft: number;
+  description?: string;
+  inclusions?: string[];
+  exclusions?: string[];
+  addOns?: OfficePackageItem[];
+}
+
+export interface OfficePackageType {
+  ms: number;
+  query: string;
+  result: OfficePackageResult[];
+  syncTags: string[];
+}
 const fetchPackageItems = async () => {
   try {
     const res = await packageItemsApi();
@@ -85,9 +128,9 @@ const fetchPackageItems = async () => {
       throw new Error("Status Code Error");
     }
     return res.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (process.env.NODE_ENV === "development") {
-      console.error("Error Package Api Fetch", error.message);
+      console.error("Error Package Api Fetch", (error instanceof Error ? error.message : "Unknown error"));
     }
     throw error;
   }
@@ -100,8 +143,10 @@ interface Formtype {
 }
 
 type FormErrors = Partial<Formtype>;
-
+type ProjectType = "" | "home" | "office";
 const BudgetCalculator = () => {
+  const searchParams = useSearchParams();
+  const [projectType, setProjectType] = useState<ProjectType>(() => { const type = searchParams.get("type"); return type === "home" || type === "office" ? type : ""; });
   const { data, isLoading, isError , error } = useQuery<PackageType>({
     queryKey: ["package-type"],
     queryFn: fetchPackageItems,
@@ -110,6 +155,22 @@ const BudgetCalculator = () => {
   if (process.env.NODE_ENV === "development") {
     console.log("Package Data", data?.result);
   }
+const {
+  data: officePackageData,
+  isLoading: officePackageLoading,
+  isError: officePackageError,
+} = useQuery<OfficePackageType>({
+  queryKey: ["office-package-type"],
+  queryFn: async () => {
+    const res = await officePackageItemsApi();
+
+    if (res.status !== 200) {
+      throw new Error("Office package fetch failed");
+    }
+
+    return res.data;
+  },
+});
 
   const fetchResult = data?.result || [];
 
@@ -145,12 +206,53 @@ const BudgetCalculator = () => {
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedBHK, setSelectedBHK] = useState("");
   const [openAccordion, setOpenAccordion] = useState("");
+  const [customArea, setCustomArea] = useState("");
 
+  const [officeArea, setOfficeArea] = useState("");
+  const [employeeCount, setEmployeeCount] = useState("");
+  const [selectedOfficeSpaces, setSelectedOfficeSpaces] = useState<
+    Record<string, number>
+  >({});
+  const [officeScope, setOfficeScope] = useState("");
+  const [targetBudget, setTargetBudget] = useState("");
+  const [customOfficeSpace, setCustomOfficeSpace] = useState("");
+const [officeSpaceDropdownOpen, setOfficeSpaceDropdownOpen] = useState(false);
+const officeSpaceDropdownRef = useRef<HTMLDivElement>(null);
   const [selectedRooms, setSelectedRooms] = useState<Record<string, number>>(
     {},
   );
 
+
+
+const [roomDropdownOpen, setRoomDropdownOpen] = useState(false);
+const roomDropdownRef = useRef<HTMLDivElement>(null);
+useEffect(() => {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      roomDropdownRef.current &&
+      !roomDropdownRef.current.contains(event.target as Node)
+    ) {
+      setRoomDropdownOpen(false);
+    }
+    if (
+  officeSpaceDropdownRef.current &&
+  !officeSpaceDropdownRef.current.contains(event.target as Node)
+) {
+  setOfficeSpaceDropdownOpen(false);
+}
+  };
+
+  document.addEventListener("click", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("click", handleClickOutside);
+  };
+}, []);
+
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const submittingRef = useRef(false);
 
   // Step 3
   const [selectedPackage, setSelectedPackage] = useState("");
@@ -176,30 +278,71 @@ const BudgetCalculator = () => {
   };
 
   const maxBedrooms = parseInt(selectedBHK) || 0;
+  const selectedOfficePackage = officePackageData?.result?.find(
+    (pkg) => pkg.packagename === selectedPackage,
+  );
 
+ const officeScopeMultiplier =
+  officeScope === "Interior Work Only"
+    ? 0.65
+    : officeScope === "Furniture Only"
+      ? 0.4
+      : officeScope === "Complete Interior + Furniture"
+        ? 1
+        : 0;
+
+const officeEstimatedCost =
+  projectType === "office" && selectedOfficePackage
+    ? Number(officeArea) *
+      selectedOfficePackage.ratePerSft *
+      officeScopeMultiplier
+    : 0;
   // --- Handlers ---
   const handleNext = () => {
     if (currentStep === 1) {
-      if (!selectedSize || !selectedBHK) {
+    if (projectType === "home") {
+      if (!Number.isFinite(Number(selectedSize)) || Number(selectedSize) <= 0 || !selectedBHK) {
         return triggerError(
-          "Please select both size and BHK type before proceeding.",
+          "Please enter your flat size and select a BHK type.",
         );
       }
-    } else if (currentStep === 2) {
+
       if (Object.keys(selectedRooms).length === 0) {
         return triggerError("Please select at least one room to design.");
       }
-    } else if (currentStep === 3) {
-      if (!selectedPackage) {
-        return triggerError("Please select a package.");
+    }
+
+    if (projectType === "office") {
+      if (!Number.isFinite(Number(officeArea)) || Number(officeArea) <= 0) {
+        return triggerError("Please enter your office size.");
+      }
+
+      if (!Number.isInteger(Number(employeeCount)) || Number(employeeCount) <= 0) {
+        return triggerError("Please enter the number of employees.");
+      }
+
+      if (Object.keys(selectedOfficeSpaces).length === 0) {
+        return triggerError("Please select at least one office space.");
       }
     }
+  } else if (currentStep === 2) {
+  if (projectType === "office" && !officeScope) {
+    return triggerError("Please select what you need for your office.");
+  }
+
+  if (!selectedPackage) {
+    return triggerError("Please select a package.");
+  }
+}
+
     window.scrollTo({
       top: 0,
       behavior: "auto",
     });
     setCurrentStep((prev) => prev + 1);
   };
+
+
 
   const handlePrev = () => {
     window.scrollTo({
@@ -208,7 +351,42 @@ const BudgetCalculator = () => {
     });
     setCurrentStep((prev) => prev - 1);
   };
+const resetCalculator = () => {
+  setRoomDropdownOpen(false);
+  setOfficeSpaceDropdownOpen(false);
+  setCurrentStep(1);
+  setSelectedSize("");
+  setSelectedBHK("");
+  setOpenAccordion("");
+  setCustomArea("");
 
+  setOfficeArea("");
+  setEmployeeCount("");
+  setSelectedOfficeSpaces({});
+  setOfficeScope("");
+  setTargetBudget("");
+  setCustomOfficeSpace("");
+
+  setSelectedRooms({});
+  setSelectedPackage("");
+
+  setFormData({
+    name: "",
+    phone: "",
+    email: "",
+  });
+
+  setSubmitError("");
+  setFormError({});
+  setIsSubmitted(false);
+  setErrorModal(false);
+  setErrorMsg("");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "auto",
+  });
+};
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget;
     setFormData((prev) => ({
@@ -224,9 +402,9 @@ const BudgetCalculator = () => {
   };
 
   const validateForm = () => {
-    let tempErrors: FormErrors = {};
+    const tempErrors: FormErrors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^(?:\+88|88)?(01[3-9]\d{8})$/;
+    const phoneRegex = /^(?:\+88|88)?01[3-9]\d{8}$/;
     if (!formData.name.trim()) {
       tempErrors.name = "Name is Required";
     }
@@ -240,30 +418,88 @@ const BudgetCalculator = () => {
       tempErrors.phone = "Phone number is required";
     } else if (!phoneRegex.test(formData.phone.replace(/[-\s]/g, ""))) {
       tempErrors.phone = "Valid BD phone number required (e.g. 017xxxxxxxx)";
-    } else if (formData.phone.length > 11) {
-      tempErrors.phone = "Phone number can't be over 11 charecters";
     }
 
     setFormError(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      if (validateForm()) {
-        setIsSubmitted(true);
-        setCurrentStep(5);
-        if (process.env.NODE_ENV === "development") {
-          console.log("Final Data:", {
-            selectedSize,
-            selectedBHK,
-            selectedRooms,
-            selectedPackage,
-            formData,
-          });
-        }
-        alert("Form Submitted Successfully!");
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  if (submittingRef.current || !validateForm()) return;
+  submittingRef.current = true;
+  setSubmitting(true);
+  setSubmitError("");
+  try {
+    if (validateForm()) {
+      const totalRooms = Object.values(selectedRooms).reduce(
+        (sum, qty) => sum + qty,
+        0,
+      );
+
+      const roomSummary = Object.entries(selectedRooms)
+        .map(([room, qty]) => `${room} x${qty}`)
+        .join(", ");
+        const estimatedCost =
+          selectedPackage === "essential"
+            ? essentialTotalPrice
+            : selectedPackage === "premium"
+              ? premiumTotalPrice
+              : selectedPackage === "luxury"
+                ? luxuryTotalPrice
+                : 0;
+
+
+const projectInfo =
+  projectType === "office"
+    ? [
+        "Project Type: Office Interior",
+        `Area: ${officeArea} sft`,
+        `Employees: ${employeeCount}`,
+        `Spaces: ${Object.entries(selectedOfficeSpaces)
+          .map(([space, qty]) => `${space} x${qty}`)
+          .join(", ")}`,
+        `Scope: ${officeScope}`,
+        `Package: ${
+          selectedPackage.charAt(0).toUpperCase() +
+          selectedPackage.slice(1)
+        }`,
+        `Target Budget: ${targetBudget || "Not decided yet"}`,
+        `Estimated Cost: ${
+          officeEstimatedCost > 0
+            ? `${officeEstimatedCost.toLocaleString("en-IN")} Tk`
+            : "Rate not configured yet"
+        }`,
+        "Source: Budget Calculator",
+      ].join("\n")
+    : [
+        "Project Type: Home Interior",
+        `Area: ${selectedSize} sft`,
+        `BHK: ${selectedBHK.toUpperCase()}`,
+        `Rooms: ${roomSummary}`,
+        `Total Rooms: ${totalRooms}`,
+        `Package: ${
+          selectedPackage.charAt(0).toUpperCase() +
+          selectedPackage.slice(1)
+        }`,
+        `Estimated Cost: ${
+          estimatedCost > 0
+            ? `${estimatedCost.toLocaleString("en-IN")} Tk`
+            : "Depends on requirement"
+        }`,
+        "Source: Budget Calculator",
+      ].join("\n");
+      const response = await createLeadApi({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        projectInfo,
+      });
+
+      trackLead("budget_calculator", response.data.eventId);
+      setIsSubmitted(true);
+      setCurrentStep(4);
+
         window.scrollTo({
           top: 0,
           behavior: "auto",
@@ -272,10 +508,11 @@ const BudgetCalculator = () => {
           console.log("Form Submitted successfully");
         }
       }
-    } catch (err: any) {
-      if (process.env.NODE_ENV === "development") {
-        console.log("calculate err", err.message);
-      }
+    } catch (err: unknown) {
+      setSubmitError(leadErrorMessage(err));
+    } finally {
+      submittingRef.current = false;
+      setSubmitting(false);
     }
   };
 
@@ -340,6 +577,367 @@ const BudgetCalculator = () => {
   };
 
   // --- Render Steps Functions ---
+  const renderProjectTypeSelector = () => (
+  <div className="w-full max-w-4xl mx-auto">
+    <div className="text-center mb-8">
+      <p className="text-sm font-semibold tracking-widest uppercase text-[#C87A31] mb-2">
+        Budget Calculator
+      </p>
+
+      <h2 className="text-2xl md:text-4xl font-bold text-[#111111]">
+        What would you like to design?
+      </h2>
+
+      <p className="text-zinc-500 mt-3">
+        Choose your project type to get a more relevant preliminary estimate.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <button
+        type="button"
+        onClick={() => {
+          setProjectType("home");
+          setCurrentStep(1);
+        }}
+        className="group bg-white border-2 border-[#C87A31]/40 md:border-transparent md:hover:border-[#C87A31] rounded-2xl p-5 md:p-7 text-left shadow-md md:shadow-sm md:hover:shadow-lg transition-all active:scale-[0.98]"
+      >
+        <div className="text-4xl mb-4">🏠</div>
+
+        <h3 className="text-xl font-bold text-[#111111] mb-2">
+          Home Interior
+        </h3>
+
+        <p className="text-sm text-zinc-500 leading-relaxed">
+          Estimate your flat interior based on size, BHK, rooms and package.
+        </p>
+        <div className="mt-5 md:hidden flex items-center justify-between rounded-xl bg-[#C87A31] px-4 py-3 text-white font-semibold text-sm">
+        <span>Start Home Estimate</span>
+        <span>→</span>
+      </div>
+      </button>
+
+      <button
+        type="button"
+        onClick={() => {
+          setProjectType("office");
+          setCurrentStep(1);
+        }}
+
+        className="group bg-white border-2 border-[#C87A31]/40 md:border-transparent md:hover:border-[#C87A31] rounded-2xl p-5 md:p-7 text-left shadow-md md:shadow-sm md:hover:shadow-lg transition-all active:scale-[0.98]"
+      >
+        <div className="text-4xl mb-4">🏢</div>
+
+        <h3 className="text-xl font-bold text-[#111111] mb-2">
+          Office Interior
+        </h3>
+
+        <p className="text-sm text-zinc-500 leading-relaxed">
+          Estimate your office interior based on area, employees, spaces and package.
+        </p>
+        <div className="mt-5 md:hidden flex items-center justify-between rounded-xl bg-[#C87A31] px-4 py-3 text-white font-semibold text-sm">
+        <span>Start Office Estimate</span>
+        <span>→</span>
+      </div>
+      </button>
+    </div>
+  </div>
+);
+const renderHomeStep1 = () => (
+  <div className="w-full max-w-4xl mx-auto space-y-8">
+    <div>
+      <label className="block text-sm font-semibold text-zinc-700 mb-2">
+        Flat Size (sft)
+      </label>
+
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_220px] gap-3">
+        <input
+                  aria-label="Enter exact flat size, e.g. 1450"
+                  type="number"
+          min="300"
+          placeholder="Enter exact flat size, e.g. 1450"
+          value={customArea}
+          onChange={(e) => {
+            setCustomArea(e.target.value);
+            setSelectedSize(e.target.value);
+          }}
+          className="w-full px-4 py-4 rounded-xl bg-white border-2 border-transparent focus:border-[#C87A31] outline-none"
+        />
+
+        <select
+          value={selectedSize}
+          onChange={(e) => {
+            setSelectedSize(e.target.value);
+            setCustomArea(e.target.value);
+          }}
+          className="w-full px-4 py-4 rounded-xl bg-white border-2 border-transparent focus:border-[#C87A31] outline-none"
+        >
+          <option value="">Quick Select</option>
+          <option value="800">800 sft</option>
+          <option value="1000">1000 sft</option>
+          <option value="1200">1200 sft</option>
+          <option value="1500">1500 sft</option>
+          <option value="1800">1800 sft</option>
+          <option value="2200">2200 sft</option>
+          <option value="2700">2700 sft</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <label className="block text-sm font-semibold text-zinc-700 mb-2">
+        BHK Type
+      </label>
+
+      <select
+        value={selectedBHK}
+        onChange={(e) => setSelectedBHK(e.target.value)}
+        className="w-full px-4 py-4 rounded-xl bg-white border-2 border-transparent focus:border-[#C87A31] outline-none"
+      >
+        <option value="">Select BHK</option>
+        <option value="1bhk">1 BHK</option>
+        <option value="2bhk">2 BHK</option>
+        <option value="3bhk">3 BHK</option>
+        <option value="4bhk">4 BHK</option>
+        <option value="5bhk">5 BHK</option>
+        <option value="6bhk">6+ BHK</option>
+      </select>
+    </div>
+
+<div>
+  <label className="block text-sm font-semibold text-zinc-700 mb-3">
+    Rooms to Design
+  </label>
+
+ <div ref={roomDropdownRef} className="relative" onKeyDown={(event) => { if (event.key === "Escape") { setRoomDropdownOpen(false); roomDropdownRef.current?.querySelector("button")?.focus(); } }}>
+    <button
+      type="button"
+      aria-expanded={roomDropdownOpen}
+      aria-controls="calculator-rooms"
+      onClick={() => setRoomDropdownOpen((prev) => !prev)}
+      className="w-full bg-white border-2 border-transparent focus:border-[#C87A31] rounded-xl px-4 py-4 flex items-center justify-between text-left"
+    >
+      <span className="text-[#111111] font-medium">
+        {Object.keys(selectedRooms).length > 0
+          ? `${Object.keys(selectedRooms).length} room type(s) selected`
+          : "Select rooms"}
+      </span>
+
+      <FiChevronDown
+        className={`transition-transform ${
+          roomDropdownOpen ? "rotate-180" : ""
+        }`}
+      />
+    </button>
+
+    {roomDropdownOpen && (
+      <div id="calculator-rooms" className="mt-2 w-full bg-white border border-zinc-200 rounded-xl shadow-sm p-3 max-h-72 overflow-y-auto">
+        {allRoomOptions.map((room) => {
+          const selected = selectedRooms[room] || 0;
+
+          return (
+            <button
+              key={room}
+              aria-pressed={selected > 0}
+              type="button"
+              onClick={() => toggleRoomCheckbox(room)}
+              className="w-full flex items-center justify-between px-3 py-3 hover:bg-[#FAF5E9] rounded-lg transition-colors"
+            >
+              <span className="text-sm font-medium text-[#111111]">
+                {room}
+              </span>
+
+              <span
+                className={`w-5 h-5 rounded border flex items-center justify-center ${
+                  selected
+                    ? "bg-[#C87A31] border-[#C87A31] text-white"
+                    : "border-zinc-300"
+                }`}
+              >
+                {selected ? <FiCheck size={13} /> : null}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    )}
+  </div>
+
+  {Object.keys(selectedRooms).length > 0 && (
+    <div className="flex flex-wrap gap-2 mt-3">
+      {Object.entries(selectedRooms).map(([room, qty]) => (
+        <span
+          key={room}
+          className="inline-flex items-center gap-1.5 bg-white border border-[#C87A31]/20 text-[#111111] text-xs font-medium px-3 py-1.5 rounded-full"
+        >
+          {room}
+          {qty > 1 ? ` ×${qty}` : ""}
+        </span>
+      ))}
+    </div>
+  )}
+</div>
+  </div>
+);
+const renderOfficeStep1 = () => (
+  <div className="w-full max-w-4xl mx-auto space-y-8">
+    <div>
+      <label className="block text-sm font-semibold text-zinc-700 mb-2">
+        Office Size (sft)
+      </label>
+
+      <input
+                  aria-label="Enter office size, e.g. 2200"
+                  type="number"
+        min="200"
+        placeholder="Enter office size, e.g. 2200"
+        value={officeArea}
+        onChange={(e) => setOfficeArea(e.target.value)}
+        className="w-full px-4 py-4 rounded-xl bg-white border-2 border-transparent focus:border-[#C87A31] outline-none"
+      />
+    </div>
+
+    <div>
+      <label className="block text-sm font-semibold text-zinc-700 mb-2">
+        Number of Employees
+      </label>
+
+      <input
+                  aria-label="Enter employee count, e.g. 30"
+                  type="number"
+        min="1"
+        placeholder="Enter employee count, e.g. 30"
+        value={employeeCount}
+        onChange={(e) => setEmployeeCount(e.target.value)}
+        className="w-full px-4 py-4 rounded-xl bg-white border-2 border-transparent focus:border-[#C87A31] outline-none"
+      />
+    </div>
+
+    <div>
+      <label className="block text-sm font-semibold text-zinc-700 mb-3">
+        Spaces Required
+      </label>
+
+      <div ref={officeSpaceDropdownRef} className="relative" onKeyDown={(event) => { if (event.key === "Escape") { setOfficeSpaceDropdownOpen(false); officeSpaceDropdownRef.current?.querySelector("button")?.focus(); } }}>
+        <button
+          type="button"
+          onClick={() =>
+            setOfficeSpaceDropdownOpen((prev) => !prev)
+          }
+          aria-expanded={officeSpaceDropdownOpen}
+          aria-controls="calculator-office-spaces"
+          className="w-full bg-white border-2 border-transparent focus:border-[#C87A31] rounded-xl px-4 py-4 flex items-center justify-between text-left"
+        >
+          <span className="text-[#111111] font-medium">
+            {Object.keys(selectedOfficeSpaces).length > 0
+              ? `${Object.keys(selectedOfficeSpaces).length} space type(s) selected`
+              : "Select office spaces"}
+          </span>
+
+          <FiChevronDown
+            className={`transition-transform ${
+              officeSpaceDropdownOpen ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+
+        {officeSpaceDropdownOpen && (
+          <div id="calculator-office-spaces" className="mt-2 w-full bg-white border border-zinc-200 rounded-xl shadow-sm p-3 max-h-72 overflow-y-auto">
+            {officeSpaceOptions.map((space) => {
+              const qty = selectedOfficeSpaces[space] || 0;
+
+              return (
+                <button
+                  key={space}
+                  aria-pressed={qty > 0}
+                  type="button"
+                  onClick={() => {
+                    if (qty > 0) {
+                      const updated = { ...selectedOfficeSpaces };
+                      delete updated[space];
+                      setSelectedOfficeSpaces(updated);
+                    } else {
+                      setSelectedOfficeSpaces({
+                        ...selectedOfficeSpaces,
+                        [space]: 1,
+                      });
+                    }
+                  }}
+                  className="w-full flex items-center justify-between px-3 py-3 hover:bg-[#FAF5E9] rounded-lg transition-colors"
+                >
+                  <span className="text-sm font-medium text-[#111111]">
+                    {space}
+                  </span>
+
+                  <span
+                    className={`w-5 h-5 rounded border flex items-center justify-center ${
+                      qty > 0
+                        ? "bg-[#C87A31] border-[#C87A31] text-white"
+                        : "border-zinc-300"
+                    }`}
+                  >
+                    {qty > 0 ? <FiCheck size={13} /> : null}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </div>
+
+    <div className="rounded-2xl bg-white p-4 border border-zinc-200">
+      <label className="block text-sm font-semibold text-zinc-700 mb-2">
+        Add Custom Space
+      </label>
+
+      <div className="flex flex-col sm:flex-row gap-3">
+        <input
+                  aria-label="e.g. Training Room"
+                  type="text"
+          placeholder="e.g. Training Room"
+          value={customOfficeSpace}
+          onChange={(e) => setCustomOfficeSpace(e.target.value)}
+          className="flex-1 px-4 py-3 rounded-xl border border-zinc-200 focus:border-[#C87A31] outline-none"
+        />
+
+        <button
+          type="button"
+          onClick={() => {
+            const value = customOfficeSpace.trim();
+
+            if (!value) return;
+
+            setSelectedOfficeSpaces({
+              ...selectedOfficeSpaces,
+              [value]: 1,
+            });
+
+            setCustomOfficeSpace("");
+          }}
+          className="px-5 py-3 rounded-xl bg-[#111111] hover:bg-[#C87A31] text-white font-semibold transition-colors"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+
+    {Object.keys(selectedOfficeSpaces).length > 0 && (
+      <div className="flex flex-wrap gap-2">
+        {Object.entries(selectedOfficeSpaces).map(([space, qty]) => (
+          <span
+            key={space}
+            className="inline-flex items-center gap-1.5 bg-white border border-[#C87A31]/20 text-[#111111] text-xs font-medium px-3 py-1.5 rounded-full"
+          >
+            {space}
+            {qty > 1 ? ` ×${qty}` : ""}
+          </span>
+        ))}
+      </div>
+    )}
+  </div>
+);
+
   const renderStep1 = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5">
       {flatSizes.map((size) => {
@@ -489,13 +1087,12 @@ const BudgetCalculator = () => {
         img: officeEssential,
         icon: <FaRegStar className="text-white text-2xl opacity-90" />,
         headerBg: "from-[#ff6b8b] to-[#ff8e53]",
+
         features: [
-          "Affordable Pricing",
           "Functional 2D Layout",
-          "Convenient 3D Design",
-          "Standard Accessories",
-          "Durable Materials",
-          "Execution",
+          "3D Interior Design",
+          "Standard Materials & Accessories",
+          "Complete Execution",
         ],
       },
       {
@@ -505,14 +1102,11 @@ const BudgetCalculator = () => {
         icon: <LuGem className="text-white text-2xl opacity-90" />,
         headerBg: "from-[#20b2aa] to-[#48d1cc]",
         features: [
-          "Value Driven Pricing",
-          "Functional 2D Layout",
-          "High-end 3D Design",
-          "Wide Range Accessories",
-          "High Grade Materials",
-          "Laminate Finish",
-          "Execution",
-        ],
+      "Functional 2D Layout",
+      "High-end 3D Design",
+      "High Grade Materials & Accessories",
+      "Complete Execution",
+    ],
         isFeatured: true,
       },
       {
@@ -522,14 +1116,10 @@ const BudgetCalculator = () => {
         icon: <FaCrown className="text-white text-2xl opacity-90" />,
         headerBg: "from-[#ff9f43] to-[#ffbe76]",
         features: [
-          "Exclusive Pricing",
           "Functional 2D Layout",
           "Luxury 3D Design",
-          "Branded Accessories",
-          "Premium Materials",
-          "Laminate, Acrylic & Mirror Sheet Finish",
-          "Designer Decorative Items",
-          "Execution",
+          "Premium Materials & Branded Accessories",
+          "Designer Finish & Complete Execution",
         ],
       },
       {
@@ -541,24 +1131,27 @@ const BudgetCalculator = () => {
         desc: "Design a package that fits you best",
         features: [
           "Fully Personalized Layout",
-          "Custom 3D Design",
-          "Material selection of your choice",
-          "Our Designers will get in touch to customise your package.",
+          "Custom 3D Interior Design",
+          "Flexible Material Selection",
+          "Tailored With Our Design Team",
         ],
       },
     ];
 
     return (
-      <div className="w-full py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center font-poppins">
+      <div className="w-full py-8 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center font-poppins">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 items-stretch justify-center w-full max-w-7xl px-2 lg:px-0">
           {packages.map((pkg, index) => {
             const isSelected = selectedPackage === pkg.id;
             return (
-              <div
+              <button
+                type="button"
+                aria-label={`${pkg.name} package`}
+                aria-pressed={isSelected}
                 key={index}
                 onClick={() => setSelectedPackage(pkg.id)}
-                className={`cursor-pointer w-full bg-white rounded-[32px] shadow-[0_15px_40px_rgba(0,0,0,0.04)] border-2 overflow-hidden transition-all duration-500 flex flex-col group relative
-              ${pkg.isFeatured ? "lg:-translate-y-6 lg:shadow-[0_25px_60px_rgba(54,88,86,0.15)] z-10" : "hover:-translate-y-2 z-0"}
+                className={`text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C87A31] cursor-pointer w-full bg-white rounded-[32px] shadow-[0_15px_40px_rgba(0,0,0,0.04)] border-2 overflow-hidden transition-all duration-500 flex flex-col group relative
+             ${pkg.isFeatured ? "lg:shadow-[0_25px_60px_rgba(54,88,86,0.15)] z-10" : "hover:-translate-y-2 z-0"}
               ${isSelected ? "border-[#C87A31] ring-4 ring-[#C87A31]/20 shadow-2xl" : "border-zinc-100 hover:border-zinc-300"}
             `}
               >
@@ -579,7 +1172,7 @@ const BudgetCalculator = () => {
                 </div>
 
                 <div className="px-6 -mt-8 relative z-20">
-                  <div className="w-full aspect-[16/10] relative rounded-2xl overflow-hidden bg-zinc-100 shadow-md border-2 border-white">
+                  <div className="w-full aspect-[16/8] relative rounded-2xl overflow-hidden bg-zinc-100 shadow-md border-2 border-white">
                     <Image
                       src={pkg.img || "/img.jpg"}
                       alt={`${pkg.name} package`}
@@ -617,13 +1210,141 @@ const BudgetCalculator = () => {
                     {isSelected ? "Selected" : "Select Package"}
                   </div>
                 </div>
-              </div>
+              </button>
             );
           })}
         </div>
       </div>
     );
   };
+const renderOfficePackageStep = () => {
+  const packageOrder = ["essential", "premium", "luxury"];
+
+const officePackages = [...(officePackageData?.result || [])].sort(
+  (a, b) =>
+    packageOrder.indexOf(a.packagename) -
+    packageOrder.indexOf(b.packagename),
+);
+
+  if (officePackageLoading) {
+    return (
+      <div className="text-center py-12 text-zinc-500">
+        Loading office packages...
+      </div>
+    );
+  }
+
+  if (officePackageError) {
+    return (
+      <div className="text-center py-12 text-red-500">
+        Failed to load office packages.
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-full py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto mb-6">
+  <p className="text-sm font-semibold text-zinc-700 mb-3">
+    What do you need?
+  </p>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+    {[
+      "Interior Work Only",
+      "Furniture Only",
+      "Complete Interior + Furniture",
+    ].map((scope) => {
+      const isSelected = officeScope === scope;
+
+      return (
+        <button
+          key={scope}
+          type="button"
+          onClick={() => setOfficeScope(scope)}
+          className={`px-4 py-4 rounded-xl border-2 text-sm font-semibold transition-all ${
+            isSelected
+              ? "border-[#C87A31] bg-[#FFF8F0] text-[#111111]"
+              : "border-zinc-200 bg-white text-zinc-600 hover:border-zinc-300"
+          }`}
+        >
+          {scope}
+        </button>
+      );
+    })}
+  </div>
+</div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        {officePackages.map((pkg) => {
+          const isSelected = selectedPackage === pkg.packagename;
+
+          return (
+            <button
+              key={pkg.packagename}
+              type="button"
+              onClick={() => setSelectedPackage(pkg.packagename)}
+              className={`text-left bg-white rounded-2xl border-2 p-5 transition-all shadow-sm ${
+                isSelected
+                  ? "border-[#C87A31] ring-4 ring-[#C87A31]/10"
+                  : "border-zinc-100 hover:border-zinc-300"
+              }`}
+            >
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-[#C87A31] font-semibold">
+                    Office Package
+                  </p>
+
+                  <h3 className="text-xl font-bold text-[#111111] capitalize mt-1">
+                    {pkg.packagename}
+                  </h3>
+                </div>
+
+                {isSelected && (
+                  <span className="w-7 h-7 rounded-full bg-[#C87A31] text-white flex items-center justify-center">
+                    <FiCheck size={15} />
+                  </span>
+                )}
+              </div>
+
+
+
+              {pkg.description && (
+                <p className="text-sm text-zinc-500 mb-4 leading-relaxed">
+                  {pkg.description}
+                </p>
+              )}
+
+              {pkg.inclusions && pkg.inclusions.length > 0 && (
+                <ul className="space-y-2 mb-4">
+                  {pkg.inclusions.slice(0, 4).map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-2 text-sm text-zinc-600"
+                    >
+                      <span className="text-[#C87A31]">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              <div
+                className={`mt-4 w-full text-center py-2.5 rounded-full text-sm font-bold ${
+                  isSelected
+                    ? "bg-[#C87A31] text-white"
+                    : "bg-zinc-100 text-zinc-500"
+                }`}
+              >
+                {isSelected ? "Selected" : "Select Package"}
+              </div>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
   const renderStep4 = () => {
     return (
@@ -643,9 +1364,57 @@ const BudgetCalculator = () => {
           className="w-full md:w-1/2 flex flex-col gap-4"
           onSubmit={handleSubmit}
         >
+          {submitError && <p role="alert" className="p-4 rounded-xl bg-red-50 text-red-800">{submitError}</p>}
           <p className="text-center text-gray-500 font-medium mb-2">
             Your free quote is just a few clicks away!
           </p>
+          <div className="rounded-2xl bg-[#FAF5E9] border border-[#C87A31]/20 p-4 mb-2">
+            <p className="text-xs uppercase tracking-widest text-[#C87A31] font-semibold mb-2">
+              Your Selection
+            </p>
+
+           <p className="text-sm md:text-base font-semibold text-[#111111] leading-relaxed">
+            {projectType === "home" ? (
+              <>
+                {selectedSize} sft · {selectedBHK.toUpperCase()} ·{" "}
+                {Object.values(selectedRooms).reduce((sum, qty) => sum + qty, 0)} Rooms ·{" "}
+                {selectedPackage
+                  ? selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)
+                  : ""}
+              </>
+            ) : (
+              <>
+                {officeArea} sft · {employeeCount} Employees ·{" "}
+                {Object.keys(selectedOfficeSpaces).length} Space Types ·{" "}
+                {officeScope} ·{" "}
+                {selectedPackage
+                  ? selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)
+                  : ""}
+              </>
+            )}
+          </p>
+
+          </div>
+          {projectType === "office" && (
+          <div className="flex flex-col w-full">
+            <label className="text-sm font-semibold text-zinc-700 mb-2">
+              Target Budget <span className="text-zinc-400 font-normal">(Optional)</span>
+            </label>
+
+            <select
+              value={targetBudget}
+              onChange={(e) => setTargetBudget(e.target.value)}
+              className="w-full px-4 py-3.5 bg-white text-zinc-800 rounded-xl border-2 border-black focus:border-[#C87A31] outline-none"
+            >
+              <option value="">Not decided yet</option>
+              <option value="Under 10 Lakh">Under ৳10 Lakh</option>
+              <option value="10-20 Lakh">৳10–20 Lakh</option>
+              <option value="20-40 Lakh">৳20–40 Lakh</option>
+              <option value="40-70 Lakh">৳40–70 Lakh</option>
+              <option value="70 Lakh+">৳70 Lakh+</option>
+            </select>
+          </div>
+        )}
           {[
             { name: "name", type: "text", placeholder: "Name" },
             { name: "phone", type: "text", placeholder: "Phone" },
@@ -653,7 +1422,8 @@ const BudgetCalculator = () => {
           ].map((field) => (
             <div key={field.name} className="flex flex-col w-full">
               <input
-                type={field.type}
+                  aria-label={field.placeholder}
+                  type={field.type}
                 name={field.name}
                 placeholder={field.placeholder}
                 value={formData[field.name as keyof Formtype]}
@@ -671,12 +1441,25 @@ const BudgetCalculator = () => {
               )}
             </div>
           ))}
-          <button
-            type="submit"
-            className="w-full mt-2 bg-[#111111] hover:bg-[#C87A31] text-white font-bold py-4 rounded-xl transition-colors duration-300 shadow-md"
-          >
-            Submit Form
-          </button>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+            <button
+              type="button"
+              onClick={handlePrev}
+              className="w-full bg-white border-2 border-[#111111]/10 hover:border-[#C87A31] text-[#111111] font-bold py-4 rounded-xl transition-all duration-300"
+            >
+              ← Back
+            </button>
+
+            <button
+              type="submit"
+              disabled={submitting}
+              className="w-full bg-[#111111] hover:bg-[#C87A31] text-white font-bold py-4 rounded-xl transition-colors duration-300 shadow-md"
+            >
+              {submitting ? "Sending…" : "Get My Estimate →"}
+            </button>
+          </div>
+
           <p className="text-[10px] text-gray-400 text-center mt-2">
             By submitting this form, you agree to the Privacy Policy & Terms and
             conditions.
@@ -685,7 +1468,151 @@ const BudgetCalculator = () => {
       </div>
     );
   };
+  const getTargetBudgetRange = (budget: string) => {
+  if (!budget) return null;
 
+  if (budget === "Under 10 Lakh") {
+    return { min: 0, max: 1000000 };
+  }
+
+  if (budget === "10-20 Lakh") {
+    return { min: 1000000, max: 2000000 };
+  }
+
+  if (budget === "20-40 Lakh") {
+    return { min: 2000000, max: 4000000 };
+  }
+
+  if (budget === "40-70 Lakh") {
+    return { min: 4000000, max: 7000000 };
+  }
+
+  if (budget === "70 Lakh+") {
+    return { min: 7000000, max: Infinity };
+  }
+
+  return null;
+};
+
+
+const renderOfficeResult = () => {
+  const targetBudgetRange = getTargetBudgetRange(targetBudget);
+
+let budgetComparisonMessage = "";
+
+if (targetBudgetRange && officeEstimatedCost > 0) {
+  if (officeEstimatedCost < targetBudgetRange.min) {
+    budgetComparisonMessage =
+      "Your preliminary estimate is below your target budget range.";
+  } else if (officeEstimatedCost > targetBudgetRange.max) {
+    budgetComparisonMessage =
+      "Your preliminary estimate is above your target budget range. We can help adjust scope, materials or furniture to better align with your budget.";
+  } else {
+    budgetComparisonMessage =
+      "Your preliminary estimate is within your target budget range.";
+  }
+}
+  const packageName = selectedPackage
+    ? selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)
+    : "Office Package";
+
+  const spacesSummary = Object.entries(selectedOfficeSpaces)
+    .map(([space, qty]) => `${space}${qty > 1 ? ` ×${qty}` : ""}`)
+    .join(", ");
+
+  return (
+    <div className="w-full max-w-4xl mx-auto bg-white rounded-2xl border border-zinc-200 shadow-sm p-6 md:p-8">
+      <div className="mb-6">
+        <p className="text-sm font-semibold uppercase tracking-widest text-[#C87A31] mb-2">
+          Preliminary Office Estimate
+        </p>
+
+        <h2 className="text-2xl md:text-3xl font-bold text-[#111111]">
+          {packageName}
+        </h2>
+        <div className="flex flex-wrap gap-2 mt-4 mb-4">
+
+
+          <span className="inline-flex items-center rounded-full bg-[#FAF5E9] px-3 py-1.5 text-xs font-semibold text-[#111111]">
+            Scope: {officeScope}
+          </span>
+
+        </div>
+        <p className="text-sm text-zinc-500 mb-1">
+          Scope-adjusted preliminary estimate
+        </p>
+        <p className="text-3xl md:text-4xl font-bold text-[#C87A31] mt-3">
+          {officeEstimatedCost > 0
+            ? `৳${officeEstimatedCost.toLocaleString("en-IN")}`
+            : "Rate not configured yet"}
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div className="bg-[#FAF5E9] rounded-xl p-4">
+          <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">
+            Office Area
+          </p>
+          <p className="font-semibold text-[#111111]">
+            {officeArea} sft
+          </p>
+        </div>
+
+        <div className="bg-[#FAF5E9] rounded-xl p-4">
+          <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">
+            Employees
+          </p>
+          <p className="font-semibold text-[#111111]">
+            {employeeCount}
+          </p>
+        </div>
+
+        <div className="bg-[#FAF5E9] rounded-xl p-4">
+          <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">
+            Scope
+          </p>
+          <p className="font-semibold text-[#111111]">
+            {officeScope}
+          </p>
+        </div>
+
+        <div className="bg-[#FAF5E9] rounded-xl p-4">
+          <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">
+            Target Budget
+          </p>
+          <p className="font-semibold text-[#111111]">
+            {targetBudget || "Not decided yet"}
+          </p>
+        </div>
+        {budgetComparisonMessage && (
+          <div className="md:col-span-2 rounded-xl border border-[#C87A31]/20 bg-[#FFF8F0] p-4">
+            <p className="text-sm font-semibold text-[#111111]">
+              {budgetComparisonMessage}
+            </p>
+          </div>
+        )}
+      </div>
+
+      <div className="bg-[#FAF5E9] rounded-xl p-4 mb-6">
+        <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">
+          Selected Spaces
+        </p>
+
+        <p className="text-sm text-[#111111] leading-relaxed">
+          {spacesSummary || "No spaces selected"}
+        </p>
+      </div>
+
+      <div className="border-t border-zinc-200 pt-5">
+        <p className="text-sm text-zinc-500 leading-relaxed">
+          This is a preliminary planning estimate. Final quotation may vary
+          based on final measurements, materials, furniture, MEP requirements,
+          site conditions and approved scope of work.
+        </p>
+      </div>
+    </div>
+  );
+};
   const renderStep5 = () => {
     return (
       <div className="overflow-y-auto flex flex-col gap-8 items-center justify-start max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-lg shadow-[0_10px_40px_rgba(0,0,0,0.08)] h-[60vh] min-h-125 border border-[#111111]/5 custom-scrollbar">
@@ -711,7 +1638,7 @@ const BudgetCalculator = () => {
                                     </span>
                                   </h3>
                                   <p className="text-sm text-zinc-500 italic">
-                                    "{items.slogan}"
+                                    &quot;{items.slogan}&quot;
                                   </p>
                                 </div>
 
@@ -777,7 +1704,7 @@ const BudgetCalculator = () => {
                                     </span>
                                   </h3>
                                   <p className="text-sm text-zinc-500 italic">
-                                    "{items.slogan}"
+                                    &quot;{items.slogan}&quot;
                                   </p>
                                 </div>
 
@@ -843,7 +1770,7 @@ const BudgetCalculator = () => {
                                     </span>
                                   </h3>
                                   <p className="text-sm text-zinc-500 italic">
-                                    "{items.slogan}"
+                                    &quot;{items.slogan}&quot;
                                   </p>
                                 </div>
 
@@ -913,7 +1840,7 @@ const BudgetCalculator = () => {
 
               {/* Slogan / Note */}
               <p className="text-base font-medium text-[#111111] italic font-serif">
-                "Depends entirely on your requirements and budget range."
+                &quot;Depends entirely on your requirements and budget range.&quot;
               </p>
             </div>
           </div>
@@ -926,11 +1853,11 @@ const BudgetCalculator = () => {
           width: 6px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-          background: #f1f1f1; 
+          background: #f1f1f1;
           border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #c35e00; 
+          background: #c35e00;
           border-radius: 10px;
         }
       `,
@@ -1013,7 +1940,13 @@ const BudgetCalculator = () => {
       </div>
     );
   }
-
+if (!projectType) {
+  return (
+    <div className="min-h-screen bg-linear-to-b from-[#FFFFF0] to-[#EFEADA] px-4 py-12">
+      {renderProjectTypeSelector()}
+    </div>
+  );
+}
   return (
     <div className="min-h-screen flex items-center justify-center p-4 md:p-6 bg-ivory font-poppins">
       <div className="relative w-full h-auto min-h-150 max-w-6xl bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-[#111111]/10 flex flex-col">
@@ -1027,6 +1960,12 @@ const BudgetCalculator = () => {
           </div>
         )}
 
+        <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-4 bg-white border-b border-zinc-200">
+          <span className="font-semibold text-zinc-800">{projectType === "home" ? "Home Interior" : "Office Interior"}</span>
+          <button type="button" disabled={submitting} onClick={() => { resetCalculator(); setProjectType(""); }} className="text-sm font-semibold text-[#a34e00] underline underline-offset-4 rounded focus-visible:outline-2 focus-visible:outline-offset-4 disabled:opacity-50">
+            Start over / Change project type
+          </button>
+        </div>
         {/* Dynamic Header Section */}
         <div className="text-center py-10 relative overflow-hidden flex flex-col justify-center min-h-[180px] bg-[#111111]">
           {currentStep === 1 && (
@@ -1043,94 +1982,102 @@ const BudgetCalculator = () => {
 
           <div className="relative z-10 px-4 w-full border ">
             <p className="text-[#C87A31] font-semibold text-sm md:text-base mb-3 tracking-widest uppercase">
-              Step: {currentStep}/5
+              Step: {currentStep}/4
             </p>
 
-            {currentStep === 1 && (
+          {currentStep === 1 && (
               <h2 className="text-[#FFFFF0] text-2xl md:text-4xl font-bold tracking-wide">
-                <span className="text-white">Select</span> Your Flat Size{" "}
-                <span className="font-light">(sft)</span> &{" "}
-                <span className="text-[#C87A31]">BHK</span> Type
+                Tell Us About Your{" "}
+                <span className="text-[#C87A31]">
+                  {projectType === "office" ? "Office" : "Home"}
+                </span>
               </h2>
             )}
             {currentStep === 2 && (
-              <h2 className="text-[#FFFFF0] text-2xl md:text-4xl font-bold tracking-wide">
-                <span className="text-[#C87A31]">Select</span> Which Room You
-                Want to <span className="text-white">Design</span>
-              </h2>
-            )}
-            {currentStep === 3 && (
               <h2 className="text-[#FFFFF0] text-2xl md:text-4xl font-bold tracking-wide">
                 Pick The <span className="text-[#C87A31]">Package</span> That
                 Suits You Best
               </h2>
             )}
-            {currentStep === 4 && (
+            {currentStep === 3 && (
               <h2 className="text-[#FFFFF0] text-2xl md:text-3xl font-bold tracking-wide">
                 <span className="text-white">We are excited</span> to be part of
                 your Dream interior Journey!
               </h2>
             )}
-            {currentStep === 5 && (
-              <div className="w-full max-w-3xl mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-zinc-200 mt-8">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                  {/* Package Info Section */}
-                  <div>
-                    <p className="text-sm font-medium text-zinc-500 mb-1">
-                      Your Estimate Is Ready
-                    </p>
-                    <h2 className="text-2xl font-semibold text-zinc-800 mb-2">
-                      {selectedPackage === "essential"
-                        ? "Essential Package"
-                        : selectedPackage === "premium"
-                          ? "Premium Package"
-                          : selectedPackage === "luxury"
-                            ? "Luxury Package"
-                            : "Custom Package"}
-                    </h2>
-                    <p className="text-3xl font-bold text-primary">
-                      {selectedPackage === "essential"
-                        ? `${essentialTotalPrice.toLocaleString("en-IN")} Tk`
-                        : selectedPackage === "premium"
-                          ? `${premiumTotalPrice.toLocaleString("en-IN")} Tk`
-                          : selectedPackage === "luxury"
-                            ? `${luxuryTotalPrice.toLocaleString("en-IN")} Tk`
-                            : "Depends on Your requirement"}
-                    </p>
-                    <p className="text-sm text-zinc-500 mt-2">
-                      The First Step Towards Your Dream Home
-                    </p>
-                  </div>
+           {currentStep === 4 && (
+                <div className="w-full max-w-3xl mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-zinc-200 mt-8">
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div>
+                      <p className="text-sm font-medium text-zinc-500 mb-1">
+                        {projectType === "office"
+                          ? "Your Office Estimate Is Ready"
+                          : "Your Estimate Is Ready"}
+                      </p>
 
-                  {/* Action Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto mt-4 md:mt-0">
-                    <button className="px-6 py-2.5 bg-primary hover:bg-[#a34e00] text-white text-sm font-medium rounded-lg transition-colors w-full sm:w-auto">
-                      Call Now
-                    </button>
-                    <button
-                      onClick={() => window.location.reload()}
-                      className="px-6 py-2.5 bg-white border border-zinc-300 hover:bg-zinc-50 text-zinc-700 text-sm font-medium rounded-lg transition-colors w-full sm:w-auto"
-                    >
-                      Calculate Again
-                    </button>
+                      <h2 className="text-2xl font-semibold text-zinc-800 mb-2 capitalize">
+                        {selectedPackage} Package
+                      </h2>
+
+                      <p className="text-3xl font-bold text-primary">
+                        {projectType === "office"
+                          ? officeEstimatedCost > 0
+                            ? `৳${officeEstimatedCost.toLocaleString("en-IN")}`
+                            : "Rate not configured yet"
+                          : selectedPackage === "essential"
+                            ? `${essentialTotalPrice.toLocaleString("en-IN")} Tk`
+                            : selectedPackage === "premium"
+                              ? `${premiumTotalPrice.toLocaleString("en-IN")} Tk`
+                              : selectedPackage === "luxury"
+                                ? `${luxuryTotalPrice.toLocaleString("en-IN")} Tk`
+                                : "Depends on Your requirement"}
+                      </p>
+
+                      <p className="text-sm text-zinc-500 mt-2">
+                        {projectType === "office"
+                          ? "Preliminary office interior planning estimate"
+                          : "Preliminary estimate based on your selected rooms and package. Final quotation may vary based on measurements, materials, design details and site conditions."}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto mt-4 md:mt-0">
+                      <a
+                        href="tel:01618995918"
+                        className="px-6 py-2.5 bg-primary hover:bg-[#a34e00] text-white text-sm font-medium rounded-lg transition-colors w-full sm:w-auto text-center"
+                      >
+                        Call Now
+                      </a>
+
+                      <button
+
+                        onClick={resetCalculator}
+                        className="px-6 py-2.5 bg-white border border-zinc-300 hover:bg-zinc-50 text-zinc-700 text-sm font-medium rounded-lg transition-colors w-full sm:w-auto"
+                      >
+                        Calculate Again
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
           </div>
         </div>
 
         {/* Dynamic Body Section */}
         <div className="bg-linear-to-b from-[#FFFFF0] to-[#EFEADA] p-6 md:p-12 grow">
-          {currentStep === 1 && renderStep1()}
-          {currentStep === 2 && renderStep2()}
-          {currentStep === 3 && renderStep3()}
-          {currentStep === 4 && renderStep4()}
-          {currentStep === 5 && renderStep5()}
+
+          {currentStep === 1 &&
+          (projectType === "home" ? renderHomeStep1() : renderOfficeStep1())}
+         {currentStep === 2 &&
+          (projectType === "home"
+            ? renderStep3()
+            : renderOfficePackageStep())}
+          {currentStep === 3 && renderStep4()}
+          {currentStep === 4 &&
+      (projectType === "home" ? renderStep5() : renderOfficeResult())}
         </div>
 
         {/* Footer Buttons Section */}
-        {currentStep < 4 && (
+        {currentStep < 3 && (
           <div className="bg-[#FFFFF0] p-6 flex justify-center gap-4 border-t border-[#111111]/5">
             {currentStep > 1 && (
               <button

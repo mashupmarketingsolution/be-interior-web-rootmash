@@ -7,6 +7,7 @@ import { ErrorBoundary } from "react-error-boundary";
 const ContactUs = () => {
   return (
     <div className="mt-24">
+      <h1 className="sr-only">Contact BE Interior</h1>
       <Contact />
       <Location />
       <ContactForm />

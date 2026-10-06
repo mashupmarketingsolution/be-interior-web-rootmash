@@ -1,11 +1,12 @@
 "use client";
+import { whatsappNumber } from "@/lib/contact-links";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import Image from "next/image";
-
+import { trackWhatsAppClick } from "@/components/Analytics/dataLayer";
 import slideOne from "@/logo/HomePage/Gemini_Generated_Image_interior1.png";
 import slideTwo from "@/logo/HomePage/Gemini_Generated_Image_interior2.png";
 import { FaWhatsapp } from "react-icons/fa";
@@ -27,9 +28,9 @@ const fetchWhatsAppNumber = async () => {
     const res = await whatsAppApi();
     if (res.status !== 200) throw new Error("Error fetching");
     return res.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (process.env.NODE_ENV === "development") {
-      console.error("WhatsApp Fetch Error:", error.message);
+      console.error("WhatsApp Fetch Error:", (error instanceof Error ? error.message : "Unknown error"));
     }
     throw error;
   }
@@ -41,8 +42,7 @@ const HomeInteriorSlider = () => {
     queryFn: fetchWhatsAppNumber,
   });
 
-  const whatsappNumber = data?.result?.[0]?.WhatsAppNumber || "01818383239";
-  const phoneNumber = `88${whatsappNumber}`;
+  const phoneNumber = whatsappNumber(data?.result?.[0]?.WhatsAppNumber);
 
   if (process.env.NODE_ENV === "development") {
     console.log("slider-wp", data?.result);
@@ -53,9 +53,11 @@ const HomeInteriorSlider = () => {
 
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(defaultMessage)}`;
 
-  const handleWhatsAppRedirect = () => {
-    window.open(whatsappUrl, "_blank");
-  };
+    const handleWhatsAppRedirect = () => {
+      trackWhatsAppClick("home_interior");
+
+      window.open(whatsappUrl, "_blank");
+    };
 
   if (isLoading) {
     return (
@@ -87,9 +89,9 @@ const HomeInteriorSlider = () => {
 
             <div className="absolute inset-0 z-20 flex flex-col justify-center items-center md:items-start text-center md:text-left px-6 sm:px-12 md:pl-20 lg:pl-32 xl:pl-40 pt-16 md:pt-24">
               <div className="max-w-2xl flex flex-col items-center md:items-start">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white">
                   The Art of Luxury Living
-                </h1>
+                </h2>
 
                 <p className="text-xs sm:text-sm md:text-base font-normal max-w-md mt-4 text-zinc-200 font-poppins capitalize">
                   Bespoke interiors for your living, dining, bedroom, and
@@ -120,12 +122,12 @@ const HomeInteriorSlider = () => {
 
             <div className="absolute inset-0 z-20 flex flex-col justify-center items-center md:items-start text-center md:text-left px-6 sm:px-12 md:pl-20 lg:pl-32 xl:pl-40 pt-16 md:pt-24">
             <div className="max-w-2xl flex flex-col items-center md:items-start">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl  font-black tracking-tight leading-none text-primary font-montagu">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl  font-black tracking-tight leading-none text-primary font-montagu">
                 No Hidden Charges
-              </h1>
-              <h1 className="text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white mt-1">
+              </h2>
+              <h2 className="text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white mt-1">
                 Plan Your Investment
-              </h1>
+              </h2>
               <p className="text-xs sm:text-sm md:text-base font-normal max-w-md mt-4 text-zinc-200 font-poppins capitalize tracking-wide">
                 Discover the true value of your dream space with our smart
                 estimation tool.
@@ -170,9 +172,9 @@ const HomeInteriorSlider = () => {
 
           <div className="absolute inset-0 z-20 flex flex-col justify-center items-center md:items-start text-center md:text-left px-6 sm:px-12 md:pl-20 lg:pl-32 xl:pl-40 pt-16 md:pt-24">
             <div className="max-w-2xl flex flex-col items-center md:items-start">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white">
                 The Art of Luxury Living
-              </h1>
+              </h2>
 
               <p className="text-xs sm:text-sm md:text-base font-normal max-w-md mt-4 text-zinc-200 font-poppins capitalize">
                 Bespoke interiors for your living, dining, bedroom, and kitchen
@@ -203,12 +205,12 @@ const HomeInteriorSlider = () => {
 
           <div className="absolute inset-0 z-20 flex flex-col justify-center items-center md:items-start text-center md:text-left px-6 sm:px-12 md:pl-20 lg:pl-32 xl:pl-40 pt-16 md:pt-24">
             <div className="max-w-2xl flex flex-col items-center md:items-start">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl  font-black tracking-tight leading-none text-primary font-montagu">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl  font-black tracking-tight leading-none text-primary font-montagu">
                 No Hidden Charges
-              </h1>
-              <h1 className="text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white mt-1">
+              </h2>
+              <h2 className="text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white mt-1">
                 Plan Your Investment
-              </h1>
+              </h2>
               <p className="text-xs sm:text-sm md:text-base font-normal max-w-md mt-4 text-zinc-200 font-poppins capitalize tracking-wide">
                 Discover the true value of your dream space with our smart
                 estimation tool.

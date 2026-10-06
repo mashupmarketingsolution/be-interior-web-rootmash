@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState, useRef } from "react";
 import logo from "@/logo/HomePage/ContactImage.jpg";
-import { createLeadApi } from "@/axios/axios";
+import { createLeadApi, leadErrorMessage } from "@/axios/axios";
 import { User, Mail, Phone, Send, CheckCircle2, Loader2 } from "lucide-react";
-
+import { trackLead } from "@/components/Analytics/dataLayer";
 interface FormType {
   name: string;
   email: string;
@@ -26,6 +26,7 @@ const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [loading, setLoading] = useState(false);
+  const submittingRef = useRef(false);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -40,9 +41,10 @@ const ContactForm = () => {
   };
 
   const validateForm = (): boolean => {
-    let tempErrors: FormErrors = {};
+    const tempErrors: FormErrors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^(?:\+88|88)?(01[3-9]\d{8})$/;
+    const phoneRegex = /^(?:\+88|88)?01[3-9]\d{8}$/;
+
 
     if (!formData.name.trim()) tempErrors.name = "Name is required";
 
@@ -56,9 +58,8 @@ const ContactForm = () => {
       tempErrors.phone = "Phone number is required";
     } else if (!phoneRegex.test(formData.phone.replace(/[-\s]/g, ""))) {
       tempErrors.phone = "Valid BD phone number required (e.g. 017xxxxxxxx)";
-    } else if (formData.phone.length > 11) {
-      tempErrors.phone = "Phone number can't be over 11 charecters";
     }
+
 
     if (!formData.projectInfo.trim()) {
       tempErrors.projectInfo = "Project information is required";
@@ -70,27 +71,30 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!validateForm()) return;
+    if (submittingRef.current || !validateForm()) return;
+    submittingRef.current = true;
 
     setLoading(true);
     setSubmitError("");
     setIsSubmitted(false);
     try {
       if (validateForm()) {
-        if (process.env.NODE_ENV === "development") {
-          console.log("Form Submitted Successfully:", formData);
-        }
-        await createLeadApi(formData);
+        const response = await createLeadApi(formData);
+
+        trackLead("contact_form", response.data.eventId);
+
         setIsSubmitted(true);
 
         setFormData({ name: "", email: "", phone: "", projectInfo: "" });
         setTimeout(() => setIsSubmitted(false), 5000);
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
+      setSubmitError(leadErrorMessage(error));
       if (process.env.NODE_ENV === "development") {
         console.error("Form Submission Error");
       }
     } finally {
+      submittingRef.current = false;
       setLoading(false);
     }
   };
@@ -112,7 +116,7 @@ const ContactForm = () => {
 
           <div className="absolute bottom-0 left-0 w-full p-10 text-white">
             <h3 className="font-montagu text-3xl font-bold mb-3 leading-tight">
-              Let's craft your <br />{" "}
+              Let&apos;s craft your <br />{" "}
               <span className="text-primary">dream space</span>
             </h3>
             <p className="text-white/70 text-sm leading-relaxed">
@@ -145,6 +149,7 @@ const ContactForm = () => {
           )}
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            {submitError && <p role="alert" className="rounded-xl bg-red-50 text-red-800 p-4 text-sm">{submitError}</p>}
             {/* Input fields */}
             {[
               {
@@ -172,7 +177,8 @@ const ContactForm = () => {
                     className={`absolute left-4 w-5 h-5 transition-colors duration-300 ${errors[field.name as keyof FormType] ? "text-red-400" : "text-zinc-400 group-focus-within:text-primary"}`}
                   />
                   <input
-                    type={field.type}
+                  aria-label={field.placeholder}
+                  type={field.type}
                     name={field.name}
                     placeholder={field.placeholder}
                     value={formData[field.name as keyof FormType]}
@@ -194,8 +200,7 @@ const ContactForm = () => {
 
             {/* Textarea */}
             <div className="flex flex-col w-full">
-              <textarea
-                name="projectInfo"
+              <textarea aria-label="Project details" name="projectInfo"
                 rows={4}
                 placeholder="Tell us about your project (location, floor area, style preferences, etc.)"
                 value={formData.projectInfo}

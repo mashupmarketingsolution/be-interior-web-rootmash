@@ -1,10 +1,11 @@
 "use client";
+import { whatsappNumber } from "@/lib/contact-links";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import Image from "next/image";
-
+import { trackWhatsAppClick } from "@/components/Analytics/dataLayer";
 import slideOne from "@/logo/HomePage/Gemini_Generated_Image_Office1.png";
 import slideTwo from "@/logo/HomePage/Gemini_Generated_Image_Office2.png";
 import { FaWhatsapp } from "react-icons/fa";
@@ -25,9 +26,9 @@ const fetchWhatsAppNumber = async () => {
     const res = await whatsAppApi();
     if (res.status !== 200) throw new Error("Error fetching");
     return res.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (process.env.NODE_ENV === "development") {
-      console.error("WhatsApp Fetch Error:", error.message);
+      console.error("WhatsApp Fetch Error:", (error instanceof Error ? error.message : "Unknown error"));
     }
     throw error;
   }
@@ -39,7 +40,7 @@ const OfficeInteriorSlider = () => {
     queryFn: fetchWhatsAppNumber,
   });
 
-  const phoneNumber = `88${data?.result[0].WhatsAppNumber}`;
+  const phoneNumber = whatsappNumber(data?.result?.[0]?.WhatsAppNumber);
 
   const defaultMessage =
     "Hi BE INTERIOR, I want to consult about my space interior design.";
@@ -47,6 +48,8 @@ const OfficeInteriorSlider = () => {
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(defaultMessage)}`;
 
   const handleWhatsAppRedirect = () => {
+    trackWhatsAppClick("office_interior");
+
     window.open(whatsappUrl, "_blank");
   };
   return (
@@ -78,9 +81,9 @@ const OfficeInteriorSlider = () => {
 
           <div className="absolute inset-0 z-20 flex flex-col justify-center items-center md:items-start text-center md:text-left px-6 sm:px-12 md:pl-20 lg:pl-32 xl:pl-40 pt-16 md:pt-24">
             <div className="max-w-2xl flex flex-col items-center md:items-start">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white">
                 Stress-free
-              </h1>
+              </h2>
 
               <p className="text-xs sm:text-sm md:text-base font-normal max-w-md mt-4 text-zinc-200 font-poppins capitalize">
                 Relocation To Your New Professional Space
@@ -110,12 +113,12 @@ const OfficeInteriorSlider = () => {
 
           <div className="absolute inset-0 z-20 flex flex-col justify-center items-center md:items-start text-center md:text-left px-6 sm:px-12 md:pl-20 lg:pl-32 xl:pl-40 pt-16 md:pt-24">
             <div className="max-w-2xl flex flex-col items-center md:items-start">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black tracking-tight leading-none text-primary font-montagu">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black tracking-tight leading-none text-primary font-montagu">
                 Get Premium
-              </h1>
-              <h1 className="text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white mt-1">
+              </h2>
+              <h2 className="text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white mt-1">
                 Office Interior
-              </h1>
+              </h2>
               <p className="text-xs sm:text-sm md:text-base font-normal max-w-md mt-4 text-zinc-200 font-poppins capitalize tracking-wide">
                 That Your Employee will love
               </p>

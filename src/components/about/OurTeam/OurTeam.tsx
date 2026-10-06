@@ -24,9 +24,9 @@ const fetchInteriorTeam = async () => {
     }
 
     return res.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (process.env.NODE_ENV === "development") {
-      console.error(`Interior team fetch error`, error.message);
+      console.error(`Interior team fetch error`, (error instanceof Error ? error.message : "Unknown error"));
     }
     throw error;
   }
@@ -47,7 +47,7 @@ const OurTeam = () => {
   return (
     <section className="w-full py-24 bg-[#FAF5E9]">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-8">
-        
+
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-primary font-bold uppercase tracking-widest text-xs mb-3">
@@ -73,11 +73,11 @@ const OurTeam = () => {
               <div className="relative w-full aspect-[4/5] overflow-hidden bg-zinc-100">
                 {/* Subtle Primary Overlay on Hover */}
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-multiply"></div>
-                
-                <Image 
-                  src={member.memberImage} 
-                  alt={member.name} 
-                  fill 
+
+                <Image
+                  src={member.memberImage}
+                  alt={member.name}
+                  fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 />

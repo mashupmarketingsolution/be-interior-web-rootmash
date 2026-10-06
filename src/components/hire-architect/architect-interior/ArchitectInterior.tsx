@@ -1,10 +1,12 @@
 "use client";
+import { whatsappNumber } from "@/lib/contact-links";
 import { whatsAppApi } from "@/axios/axios";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Loader2 } from "lucide-react";
 import imgtwo from "@/logo/HomePage/Gemini_Generated_Image_Office2.png";
 import Image from "next/image";
+import { trackWhatsAppClick } from "@/components/Analytics/dataLayer";
 
 interface WhatsAppApiType {
   ms: number;
@@ -21,9 +23,9 @@ const fetchWhatsAppNumber = async () => {
     const res = await whatsAppApi();
     if (res.status !== 200) throw new Error("Error fetching");
     return res.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (process.env.NODE_ENV === "development") {
-      console.error("WhatsApp Fetch Error:", error.message);
+      console.error("WhatsApp Fetch Error:", (error instanceof Error ? error.message : "Unknown error"));
     }
     throw error;
   }
@@ -35,7 +37,7 @@ const ArchitectInterior = () => {
     queryFn: fetchWhatsAppNumber,
   });
 
-  const phoneNumber = data?.result?.[0]?.WhatsAppNumber || "01818383239";
+  const phoneNumber = whatsappNumber(data?.result?.[0]?.WhatsAppNumber);
 
   if (process.env.NODE_ENV === "development") {
     console.log(phoneNumber);
@@ -48,6 +50,9 @@ const ArchitectInterior = () => {
 
   const handleWhatsAppRedirect = () => {
     if (isLoading || isError) return;
+
+    trackWhatsAppClick("hire_architect");
+
     window.open(whatsappUrl, "_blank");
   };
 

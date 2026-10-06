@@ -1,9 +1,10 @@
 "use client";
+import { whatsappNumber } from "@/lib/contact-links";
 import { whatsAppApi } from "@/axios/axios";
 import Navbtn from "@/components/Header/Navbtn";
 import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
 import React from "react";
-
+import { trackWhatsAppClick } from "@/components/Analytics/dataLayer";
 interface WhatsAppApiType {
   ms: number;
   query: string;
@@ -19,9 +20,9 @@ const fetchWhatsAppNumber = async () => {
     const res = await whatsAppApi();
     if (res.status !== 200) throw new Error("Error fetching");
     return res.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (process.env.NODE_ENV === "development") {
-      console.error("WhatsApp Fetch Error:", error.message);
+      console.error("WhatsApp Fetch Error:", (error instanceof Error ? error.message : "Unknown error"));
     }
     throw error;
   }
@@ -39,14 +40,15 @@ const HomeDream = () => {
     console.log("wp", result);
   }
 
-  const phoneNumber = `88${result.map((i) => i.WhatsAppNumber as string)}`;
+  const phoneNumber = whatsappNumber(result[0]?.WhatsAppNumber);
 
   const defaultMessage =
     "Hi BE INTERIOR, I want to consult about my space interior design.";
 
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(defaultMessage)}`;
 
-  const handleWhatsAppRedirect = () => {
+    const handleWhatsAppRedirect = () => {
+    trackWhatsAppClick("home_dream");
     window.open(whatsappUrl, "_blank");
   };
 

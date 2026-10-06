@@ -1,8 +1,8 @@
 "use client";
-import { ErrorBoundary } from "react-error-boundary";
+import type { FallbackProps } from "react-error-boundary";
 import { Suspense } from "react";
 
-function WhatsappErrorFallback({ error, resetErrorBoundary }: any) {
+function WhatsappErrorFallback({ resetErrorBoundary }: FallbackProps) {
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center bg-zinc-100">
       <p className="text-red-500">স্লাইডার লোড করতে সমস্যা হয়েছে।</p>

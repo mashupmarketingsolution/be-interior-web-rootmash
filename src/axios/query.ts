@@ -48,7 +48,7 @@ export const footerContactItems = encodeURIComponent(`
 }`);
 
 export const homeInteriorPageClientReview = encodeURIComponent(`
-  *[_type == "clients" && reviewCategory == "home"]{
+  *[_type == "clients" && reviewCategory in ["home", "renovation"]]{
   _id,
   name,
   review,
@@ -138,3 +138,13 @@ export const packageQuery = encodeURIComponent(`*[_type == "packageType"]{
   packagename,
   packageitems
 }`);
+export const officePackageQuery = encodeURIComponent(`
+  *[_type == "officePackageType"]{
+    packagename,
+    ratePerSft,
+    description,
+    inclusions,
+    exclusions,
+    addOns
+  }
+`);

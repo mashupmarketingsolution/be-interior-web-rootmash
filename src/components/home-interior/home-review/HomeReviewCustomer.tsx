@@ -28,9 +28,9 @@ const fetchHomeInteriorPageClientReview = async () => {
       throw new Error("Error While Feching Data");
     }
     return res.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (process.env.NODE_ENV === "development") {
-      console.error("HomeInteriorClientReviewFetchError", error.message);
+      console.error("HomeInteriorClientReviewFetchError", (error instanceof Error ? error.message : "Unknown error"));
     }
     throw error;
   }
@@ -86,7 +86,9 @@ const HomeCustomerReview = () => {
                 1024: { slidesPerView: 3, spaceBetween: 25 },
                 1280: { slidesPerView: 3, spaceBetween: 30 },
               }}
-              loop={true}
+              key={result.length > 3 ? "loop" : "rewind"}
+              loop={result.length > 3}
+              rewind={result.length <= 3}
               modules={[Autoplay]}
               autoplay={{
                 delay: 3000,
@@ -98,15 +100,17 @@ const HomeCustomerReview = () => {
               {result.map((data) => (
                 <SwiperSlide key={data._id} className="pt-16 pb-8 px-4 h-auto">
                   <div className="relative bg-white rounded-[2rem] p-8 sm:px-12 sm:pb-12 text-center shadow-sm hover:shadow-md transition-shadow duration-300 max-w-lg mx-auto h-full flex flex-col">
-                    {/* Top Centered Floating Avatar */}
-                    <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 rounded-full border-[4px] border-white overflow-hidden bg-gray-200 shadow-sm shrink-0">
-                      <Image
-                        src={data.clientimage}
-                        alt={data.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
+               {/* Top Centered Floating Avatar */}
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 rounded-full border-[4px] border-white bg-primary shadow-sm shrink-0 flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold tracking-wide">
+                    {data.name
+                      .split(" ")
+                      .map((part) => part[0])
+                      .slice(0, 2)
+                      .join("")
+                      .toUpperCase()}
+                  </span>
+                </div>
 
                     {/* Name and Designation */}
                     <div className="mt-8 shrink-0">
@@ -116,26 +120,10 @@ const HomeCustomerReview = () => {
                     </div>
 
                     <p className="mt-5 text-[#5C544D] text-lg leading-relaxed font-light flex-grow">
-                      "{data.review}"
+                      &quot;{data.review}&quot;
                     </p>
 
-                    <div className="mt-auto pt-6 flex justify-center gap-1.5 text-primary shrink-0">
-                      {[...Array(5)].map((_, index) => (
-                        <svg
-                          key={index}
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          className="w-7 h-7"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      ))}
-                    </div>
+
                   </div>
                 </SwiperSlide>
               ))}

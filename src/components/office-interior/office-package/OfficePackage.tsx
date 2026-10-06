@@ -60,7 +60,7 @@ const OfficePackage = () => {
   ];
 
   return (
-    <section className="w-full bg-ivory py-24 px-6 md:px-12 lg:px-20 font-sans">
+    <section className="w-full bg-ivory py-14 md:py-24 px-6 md:px-12 lg:px-20 font-sans">
       {/* Header */}
       <div className="text-center mb-20 max-w-2xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-montagu font-bold text-[#111111]">
@@ -95,8 +95,8 @@ const OfficePackage = () => {
 
               {/* Image Section */}
               <div
-                className={`w-full lg:w-1/2 aspect-[4/3] lg:aspect-[5/4] relative rounded-3xl overflow-hidden bg-zinc-100 ${isEven ? "lg:order-1" : "lg:order-2"}`}
-              >
+                className={`w-full lg:w-1/2 aspect-[16/10] lg:aspect-[5/4] relative rounded-3xl overflow-hidden bg-zinc-100 ${isEven ? "lg:order-1" : "lg:order-2"}`}
+                >
                 <Image
                   src={pkg.img}
                   alt={`${pkg.name} interior design`}
@@ -140,7 +140,7 @@ const OfficePackage = () => {
                   ))}
                 </ul>
 
-                <Link href={"/services/budget-calculator"}>
+                <Link href="/services/budget-calculator?type=office">
                   {" "}
                   <button className="w-fit mx-auto px-8 py-3.5 bg-[#111111] text-white rounded-xl font-bold tracking-widest text-xs uppercase hover:bg-[#c35e00] transition-colors duration-300">
                     Select {pkg.name}

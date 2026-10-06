@@ -8,6 +8,7 @@ import InteriorProjectsSkeleton from "@/components/interior-project/skeleton/Int
 const Allinteriorpage = () => {
   return (
     <div>
+      <h1 className="sr-only">Home and Office Interior Projects</h1>
       <InteriorProjects />
     </div>
   );

@@ -7,6 +7,7 @@ export const HomeProjectType = defineType({
   type: "document",
   icon: HomeIcon,
   fields: [
+    defineField({ name: "seo", title: "SEO (optional)", type: "seo" }),
     defineField({
       name: "name",
       title: "Project Name",

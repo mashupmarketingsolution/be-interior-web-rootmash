@@ -31,9 +31,9 @@ const homeInteriorProjects = async () => {
     }
 
     return res.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (process.env.NODE_ENV === "development") {
-      console.error("Home Interior Projects Fetch Error", error.message);
+      console.error("Home Interior Projects Fetch Error", (error instanceof Error ? error.message : "Unknown error"));
     }
     throw error;
   }
@@ -89,7 +89,9 @@ const HomeInteriorProjects = () => {
                 640: { slidesPerView: 2, spaceBetween: 20 },
                 1024: { slidesPerView: 3, spaceBetween: 30 },
               }}
-              loop={true}
+              key={result.length > 3 ? "loop" : "rewind"}
+              loop={result.length > 3}
+              rewind={result.length <= 3}
               modules={[Autoplay]}
               autoplay={{
                 delay: 3000,

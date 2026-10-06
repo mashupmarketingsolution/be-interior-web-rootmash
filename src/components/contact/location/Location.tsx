@@ -20,9 +20,9 @@ const fetchContactItems = async () => {
       throw new Error(`Error while Fetching`);
     }
     return res.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (process.env.NODE_ENV === "development") {
-      console.error(`Contact Location fetch error`, error.message);
+      console.error(`Contact Location fetch error`, (error instanceof Error ? error.message : "Unknown error"));
     }
     throw error;
   }
@@ -54,7 +54,7 @@ const LocationSection = () => {
           <AlertCircle className="w-12 h-12 text-red-500 mb-4" />
           <h3 className="text-xl font-bold mb-2 text-[#111111]">Location Unavailable</h3>
           <p className="text-sm text-zinc-500 mb-6">
-            {error instanceof Error ? error.message : "Something went wrong"}
+            {error instanceof Error ? (error instanceof Error ? error.message : "Unknown error") : "Something went wrong"}
           </p>
           <button
             onClick={() => refetch()}
@@ -74,9 +74,9 @@ const LocationSection = () => {
   return (
     <section className="bg-[#FAF5E9] py-16 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto">
-        
+
         <div className="flex flex-col md:flex-row rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] min-h-[450px]">
-          
+
           {/* Left Side: Address Details (Dark Theme) */}
           <div className="w-full md:w-1/3 bg-[#111111] p-10 lg:p-14 flex flex-col justify-center relative">
             {/* Background Accent */}
@@ -120,12 +120,12 @@ const LocationSection = () => {
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Volumetric Designers Location"
+              title="BE Interior office location"
             />
-           
+
             <div className="absolute inset-0 bg-primary/10 pointer-events-none group-hover:opacity-0 transition-opacity duration-700"></div>
           </div>
-          
+
         </div>
 
       </div>

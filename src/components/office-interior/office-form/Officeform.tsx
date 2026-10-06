@@ -1,9 +1,9 @@
 "use client";
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, useRef, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
 import formImg from "@/logo/HomePage/Gemini_Generated_Image_interior3.png";
-import { createLeadApi } from "@/axios/axios";
-
+import { createLeadApi, leadErrorMessage } from "@/axios/axios";
+import { trackLead } from "@/components/Analytics/dataLayer";
 interface FormType {
   name: string;
   email: string;
@@ -26,6 +26,7 @@ const OfficeForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [loading, setLoading] = useState(false);
+  const submittingRef = useRef(false);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -40,9 +41,9 @@ const OfficeForm = () => {
   };
 
   const validateForm = (): boolean => {
-    let tempErrors: FormErrors = {};
+    const tempErrors: FormErrors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^(?:\+88|88)?(01[3-9]\d{8})$/;
+    const phoneRegex = /^(?:\+88|88)?01[3-9]\d{8}$/;
 
     if (!formData.name.trim()) tempErrors.name = "Name is required";
 
@@ -56,8 +57,6 @@ const OfficeForm = () => {
       tempErrors.phone = "Phone number is required";
     } else if (!phoneRegex.test(formData.phone.replace(/[-\s]/g, ""))) {
       tempErrors.phone = "Valid BD phone number required (e.g. 017xxxxxxxx)";
-    } else if (formData.phone.length > 11) {
-      tempErrors.phone = "Phone number can't be over 11 charecters";
     }
 
     if (!formData.projectInfo.trim()) {
@@ -70,35 +69,38 @@ const OfficeForm = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!validateForm()) return; 
+    if (submittingRef.current || !validateForm()) return;
+    submittingRef.current = true;
 
     setLoading(true);
     setSubmitError("");
     setIsSubmitted(false);
     try {
       if (validateForm()) {
-        if (process.env.NODE_ENV === "development") {
-          console.log("Form Submitted Successfully:", formData);
-        }
-        await createLeadApi(formData);
+       const response = await createLeadApi(formData);
+
+        trackLead("office_form", response.data.eventId);
+
         setIsSubmitted(true);
-        
+
 
         setFormData({ name: "", email: "", phone: "", projectInfo: "" });
         setTimeout(() => setIsSubmitted(false), 5000);
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
+      setSubmitError(leadErrorMessage(error));
       if (process.env.NODE_ENV === "development") {
         console.error("Form Submission Error");
-      } 
+      }
     } finally {
+      submittingRef.current = false;
       setLoading(false)
     }
   };
 
   return (
     <div className="w-full px-4 md:px-12 py-12 md:py-16 lg:py-20 mx-auto my-16 sm:px-6 bg-ivory">
-      <div className="flex flex-col lg:flex-row w-full bg-secondary rounded-3xl overflow-hidden shadow-2xl min-h-137.5 md:max-w-4xl lg:max-w-6xl mx-auto">
+      <div className="flex flex-col-reverse lg:flex-row w-full bg-secondary rounded-3xl overflow-hidden shadow-2xl min-h-137.5 md:max-w-4xl lg:max-w-6xl mx-auto">
         {/* Image Section */}
         <div className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-full bg-zinc-800">
           <Image
@@ -131,6 +133,7 @@ const OfficeForm = () => {
           )}
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            {submitError && <p role="alert" className="rounded-xl bg-red-50 text-red-800 p-4 text-sm">{submitError}</p>}
             {/* Input fields */}
             {[
               { name: "name", type: "text", placeholder: "Name" },
@@ -139,6 +142,7 @@ const OfficeForm = () => {
             ].map((field) => (
               <div key={field.name} className="flex flex-col w-full">
                 <input
+                  aria-label={field.placeholder}
                   type={field.type}
                   name={field.name}
                   placeholder={field.placeholder}
@@ -160,8 +164,7 @@ const OfficeForm = () => {
 
             {/* Textarea */}
             <div className="flex flex-col w-full">
-              <textarea
-                name="projectInfo"
+              <textarea aria-label="Project details" name="projectInfo"
                 rows={4}
                 placeholder="Project information (location, floor area, etc.)"
                 value={formData.projectInfo}
@@ -181,11 +184,11 @@ const OfficeForm = () => {
 
             <button
               type="submit"
-              disabled={loading} 
+              disabled={loading}
               className="w-full h-14 mt-2 flex items-center justify-center bg-white text-[#111111] font-bold text-sm sm:text-base tracking-widest rounded-xl shadow-sm hover:bg-zinc-50 transition-all duration-300 uppercase disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {loading ? (
-                
+
                 <div className="w-6 h-6 border-2 border-zinc-200 border-t-primary rounded-full animate-spin" />
               ) : (
                 "Get Free Quote"
