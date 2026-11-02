@@ -1,4 +1,5 @@
 "use client";
+import { CmsText, CmsLink, CmsImage, CmsSection } from "@/components/cms/Editable";
 import { fetchtopFiveOfficeProjects } from "@/axios/axios";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
@@ -77,21 +78,17 @@ const OfficeProjects = () => {
   console.log("mappedProjects", mappedProjects);
 
   return (
-    <div className="w-full bg-ivory py-24 px-4 sm:px-6 lg:px-8 font-poppins">
+    <CmsSection section="section-11179bfeccff"><div className="w-full bg-ivory py-24 px-4 sm:px-6 lg:px-8 font-poppins">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
             <div className="flex items-center gap-2 text-secondary font-bold text-sm tracking-widest uppercase mb-2">
-              <FiCornerDownRight /> Featured Works
-            </div>
-            <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-black text-zinc-800 tracking-wide font-montagu uppercase">
+              <FiCornerDownRight /><CmsText section="section-11179bfeccff" entryKey="text-a8ecedb46d44" fallback={" Featured Works"} /></div>
+            <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-black text-zinc-800 tracking-wide font-montagu uppercase"><CmsText section="section-11179bfeccff" entryKey="heading-79451a99c955" fallback={"Our projects"} original={<>
               Our <span className="text-inherit">projects</span>
-            </h2>
+            </>} /></h2>
           </div>
-          <p className="text-zinc-500 text-sm max-w-xs font-medium leading-relaxed">
-            A glimpse of modern workspaces designed and executed perfectly to
-            boost corporate culture.
-          </p>
+          <p className="text-zinc-500 text-sm max-w-xs font-medium leading-relaxed"><CmsText section="section-11179bfeccff" entryKey="text-7f73f3e97171" fallback={"A glimpse of modern workspaces designed and executed perfectly to boost corporate culture."} /></p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 auto-rows-fr">
@@ -115,9 +112,7 @@ const OfficeProjects = () => {
 
           {isError && !isLoading && (
             <div className="col-span-full py-20 text-center flex flex-col items-center justify-center bg-red-50/50 rounded-[28px] border border-red-100">
-              <p className="text-red-500 font-medium font-poppins">
-                Failed to load projects. Please refresh the page.
-              </p>
+              <p className="text-red-500 font-medium font-poppins"><CmsText section="section-11179bfeccff" entryKey="text-e452540bcc29" fallback={"Failed to load projects. Please refresh the page."} /></p>
             </div>
           )}
 
@@ -126,7 +121,7 @@ const OfficeProjects = () => {
             mappedProjects &&
             mappedProjects.length > 0 &&
             mappedProjects.map((project) => (
-              <Link
+              <CmsLink section="section-11179bfeccff"
                 key={project._id}
                 href={`/interior-projects/${project.slug}?type=${project._type}`}
                 className={project.gridClass}
@@ -135,7 +130,7 @@ const OfficeProjects = () => {
                   <div className="absolute inset-0 bg-linear-to-br from-zinc-50 via-zinc-100 to-zinc-200/80 group-hover:scale-105 transition-transform duration-700 ease-out flex items-center justify-center">
                     <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-size-[24px_24px]" />
 
-                    <Image
+                    <CmsImage section="section-11179bfeccff"
                       src={project.coverImage}
                       alt={project.name}
                       fill
@@ -150,10 +145,9 @@ const OfficeProjects = () => {
                   <div className="relative z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out w-full flex items-end justify-between">
                     <div>
                       <span className="text-xs font-semibold text-amber-400 tracking-wider uppercase opacity-90 block mb-1">
-                        {project.location} • corporate office
-                      </span>
+                        {project.location}<CmsText section="section-11179bfeccff" entryKey="text-621538572a06" fallback={" • corporate office"} /></span>
                       <h3 data-heading-tone="light" className="text-xl sm:text-2xl font-extrabold text-white tracking-wide font-poppins">
-                        {project.name}
+                        <CmsText section="section-11179bfeccff" fallback={project.name} />
                       </h3>
                     </div>
 
@@ -162,19 +156,17 @@ const OfficeProjects = () => {
                     </div>
                   </div>
                 </div>
-              </Link>
+              </CmsLink>
             ))}
 
           {!isLoading && !isError && mappedProjects?.length === 0 && (
             <div className="col-span-full py-20 text-center bg-zinc-50 rounded-[28px] border border-zinc-200/60">
-              <p className="text-zinc-500 font-medium font-poppins">
-                No projects found at the moment.
-              </p>
+              <p className="text-zinc-500 font-medium font-poppins"><CmsText section="section-11179bfeccff" entryKey="text-d58bc3079868" fallback={"No projects found at the moment."} /></p>
             </div>
           )}
         </div>
       </div>
-    </div>
+    </div></CmsSection>
   );
 };
 

@@ -8,5 +8,7 @@ export const structure: StructureResolver = (S) =>
       S.listItem().id('siteSettings').title('Site Settings').child(
         S.document().schemaType('siteSettings').documentId('siteSettings').title('Site Settings')
       ),
-      ...S.documentTypeListItems().filter((item) => item.getId() !== 'siteSettings'),
+      S.documentTypeListItem('sitePage').title('Pages — text, sections & SEO'),
+      S.documentTypeListItem('siteSection').title('Designed sections — images & content'),
+      ...S.documentTypeListItems().filter((item) => !['siteSettings', 'sitePage', 'siteSection'].includes(item.getId() || '')),
     ])

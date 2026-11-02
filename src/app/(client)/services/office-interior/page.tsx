@@ -1,3 +1,4 @@
+import { PageSections } from "@/components/cms/PageSections";
 import OfficeChoose from "@/components/office-interior/office-choose/OfficeChoose";
 import OfficeClients from "@/components/office-interior/office-clients/OfficeClients";
 import OfficeReview from "@/components/office-interior/office-customers/OfficeReview";
@@ -17,19 +18,18 @@ const OfficePage = () => {
   return (
     <div>
       <h1 data-heading-tone="dark" className="sr-only">Office interior design in Dhaka</h1>
-      <OfficeInteriorSlider />
-      <OfficeService />
-      <OfficeChoose />
-      <OfficePackage />
-      <OfficeWork />
-      <ErrorBoundary fallback={<OfficeProjectErr/>}>
+      <PageSections path="/services/office-interior" slots={[{ id: "section-ada934298a1e", node: (<OfficeInteriorSlider />) },
+{ id: "section-8abdd6e09c4b", node: (<OfficeService />) },
+{ id: "section-0173da3c8617", node: (<OfficeChoose />) },
+{ id: "section-1cef778566e8", node: (<OfficePackage />) },
+{ id: "section-03eac0d150b1", node: (<OfficeWork />) },
+{ id: "section-11179bfeccff", node: (<ErrorBoundary fallback={<OfficeProjectErr/>}>
         <OfficeProjects />
-      </ErrorBoundary>
-
-      <ErrorBoundary fallback={<HappyCustomererr />}>
+      </ErrorBoundary>) },
+{ id: "section-c4c19a2b7607", node: (<ErrorBoundary fallback={<HappyCustomererr />}>
           <OfficeReview />
-      </ErrorBoundary>
-      <Officeform />
+      </ErrorBoundary>) },
+{ id: "section-e1663bf0af5e", node: (<Officeform />) }]} />
     </div>
   );
 };

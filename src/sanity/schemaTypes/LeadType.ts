@@ -7,6 +7,11 @@ export const LeadType = defineType({
   type: "document",
   icon: UserIcon,
   fields: [
+    defineField({name:"receivedAt",title:"Enquiry received",type:"datetime",readOnly:true}),
+    defineField({name:"status",title:"Follow-up status",type:"string",initialValue:"new",options:{list:["new","contacted","quoted","won","lost"]}}),
+    defineField({name:"assignedTo",title:"Assigned team member",type:"string"}),
+    defineField({name:"followUpAt",title:"Next follow-up",type:"datetime"}),
+    defineField({name:"internalNotes",title:"Internal notes",type:"text",rows:6}),
     defineField({
       name: "name",
       title: "Name",

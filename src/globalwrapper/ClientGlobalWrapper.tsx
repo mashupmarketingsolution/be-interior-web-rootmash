@@ -1,6 +1,9 @@
 "use client";
+import { Announcement } from "@/components/cms/Announcement";
 import React, { useEffect, useState } from "react";
 import SiteTheme from "@/components/SiteTheme";
+import { ContentProvider } from "@/components/cms/ContentProvider";
+import type { CmsBundle } from "@/lib/cms";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Navbar from "@/components/Header/Navbar";
 import Footer from "@/components/Footer/Footer";
@@ -9,8 +12,10 @@ import MobileBottomMenu from "@/components/Footer/MobileBottomMenu";
 import { useRouter } from "next/navigation";
 const ClientGlobalWrapper = ({
   children,
+  initialCms,
 }: Readonly<{
   children: React.ReactNode;
+  initialCms?: CmsBundle;
 }>) => {
   const [queryClient] = useState(() => new QueryClient());
 
@@ -36,13 +41,15 @@ const ClientGlobalWrapper = ({
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <SiteTheme>
+        <ContentProvider initialData={initialCms}>
+        <Announcement /><SiteTheme>
         <Navbar />
         {children}
         <BlogDirect />
         <MobileBottomMenu />
         <Footer />
         </SiteTheme>
+        </ContentProvider>
       </QueryClientProvider>
     </>
   );

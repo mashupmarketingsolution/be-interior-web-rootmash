@@ -31,7 +31,7 @@ const request=(body,extra={})=>({url:'http://localhost:3000/api/lead',headers:ne
  assert.equal(documents.size,0);
  const eventId=crypto.randomUUID();
  const result=await route.POST(request({...sample,eventId}));assert.equal(result.status,200);assert.equal(result.body.eventId,eventId);assert.equal(result.body.data,undefined);
- await route.POST(request({...sample,eventId}));assert.equal(documents.size,1);
+ await route.POST(request({...sample,eventId}));assert.equal(documents.size,1);assert.ok([...documents.keys()][0].startsWith("drafts.lead."));assert.equal([...documents.values()][0].status,"new");
  fail=true;const failure=await route.POST(request({...sample,email:'failure@example.com'}));assert.equal(failure.status,502);assert.ok(!failure.body.error.includes('private'));
  fail=false;for(let i=0;i<3;i++)await route.POST(request({...sample,eventId}));
  assert.equal((await route.POST(request({...sample,eventId}))).status,429);

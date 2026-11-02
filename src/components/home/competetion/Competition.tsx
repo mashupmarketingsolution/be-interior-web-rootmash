@@ -1,10 +1,11 @@
 "use client";
+import { CmsText, CmsLink, useCmsList, CmsSection } from "@/components/cms/Editable";
 import React from "react";
 import { Check, X, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Competition() {
-  const factors = [
+  const factors = useCmsList("section-8829bda372d5", "factors", [
     {
       title: "Price",
       points: ["Competitive & transparent pricing", "No hidden cost"],
@@ -47,36 +48,30 @@ export default function Competition() {
         "Functionally, aesthetically pleasing environment",
       ],
     },
-  ];
+  ]);
 
   return (
-    <section className="bg-ivory py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
+    <CmsSection section="section-8829bda372d5"><section className="bg-ivory py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center">
 
         {/* Left Side Column - Impactful Typography */}
         <div className="lg:col-span-5 flex flex-col justify-center text-center lg:text-left order-1 lg:order-1">
           <div className="mb-8">
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">
-              Why Choose Us
-            </span>
-            <h2 data-heading-tone="dark" className="text-4xl lg:text-5xl font-montagu text-[#111111] font-bold leading-[1.15]">
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block"><CmsText section="section-8829bda372d5" entryKey="text-57ec289be482" fallback={"Why Choose Us"} /></span>
+            <h2 data-heading-tone="dark" className="text-4xl lg:text-5xl font-montagu text-[#111111] font-bold leading-[1.15]"><CmsText section="section-8829bda372d5" entryKey="heading-53ad708fcdfe" fallback={"How we stand out  from the rest"} original={<>
               How we stand out <br />
               <span className="text-inherit">from the rest</span>
-            </h2>
+            </>} /></h2>
           </div>
 
-          <p className="text-zinc-600 text-base md:text-lg max-w-md mx-auto lg:mx-0 leading-relaxed mb-10">
-           We deliver carefully planned interior solutions with defined quality standards, coordinated execution, and clear communication at every stage.
-          </p>
+          <p className="text-zinc-600 text-base md:text-lg max-w-md mx-auto lg:mx-0 leading-relaxed mb-10"><CmsText section="section-8829bda372d5" entryKey="text-1670c3255f8a" fallback={"We deliver carefully planned interior solutions with defined quality standards, coordinated execution, and clear communication at every stage."} /></p>
 
           <div className="flex justify-center lg:justify-start">
-            <Link
+            <CmsLink section="section-8829bda372d5" entryKey="link-b9fa380fee68"
               href="/contact"
               className="group flex items-center gap-3 px-8 py-4 bg-[#111111] hover:bg-primary text-white font-bold rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_40px_rgba(200,122,49,0.3)] transition-all duration-300 transform hover:-translate-y-1 text-sm md:text-base"
-            >
-              Talk to our designers
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            ><CmsText section="section-8829bda372d5" entryKey="text-69b8ac7272eb" fallback={"Talk to our designers"} /><ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </CmsLink>
           </div>
         </div>
 
@@ -87,19 +82,13 @@ export default function Competition() {
             {/* Table Header */}
             <div className="grid grid-cols-12 items-stretch border-b border-black/5">
               <div className="col-span-6 p-6 flex items-center">
-                <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest">
-                  Key Factors
-                </span>
+                <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest"><CmsText section="section-8829bda372d5" entryKey="text-45da5b772335" fallback={"Key Factors"} /></span>
               </div>
               <div className="col-span-3 bg-[#111111] p-6 flex flex-col items-center justify-center text-center">
-                <span className="text-[10px] sm:text-xs font-bold text-white uppercase tracking-widest leading-tight">
-                  Be Interior
-                </span>
+                <span className="text-[10px] sm:text-xs font-bold text-white uppercase tracking-widest leading-tight"><CmsText section="section-8829bda372d5" entryKey="text-447e1f67af4c" fallback={"Be Interior"} /></span>
               </div>
               <div className="col-span-3 bg-zinc-50 p-6 flex flex-col items-center justify-center text-center">
-                <span className="text-[10px] sm:text-xs font-bold text-zinc-400 uppercase tracking-widest leading-tight">
-                  Others
-                </span>
+                <span className="text-[10px] sm:text-xs font-bold text-zinc-400 uppercase tracking-widest leading-tight"><CmsText section="section-8829bda372d5" entryKey="text-3f2bdbd06b89" fallback={"Others"} /></span>
               </div>
             </div>
 
@@ -113,7 +102,7 @@ export default function Competition() {
                   {/* Title & Points */}
                   <div className="col-span-6 p-5 sm:p-6 flex flex-col justify-center">
                     <h4 data-heading-tone="dark" className="font-bold text-[#111111] text-sm md:text-base mb-2  transition-colors">
-                      {factor.title}
+                      <CmsText section="section-8829bda372d5" fallback={factor.title} />
                     </h4>
                     <ul className="space-y-1.5">
                       {factor.points.map((pt, pIdx) => (
@@ -147,6 +136,6 @@ export default function Competition() {
         </div>
 
       </div>
-    </section>
+    </section></CmsSection>
   );
 }

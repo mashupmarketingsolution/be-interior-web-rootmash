@@ -1,3 +1,4 @@
+import { PageSections } from "@/components/cms/PageSections";
 import HomeComment from "@/components/home-interior/home-comment/HomeComment";
 import HomeInteriorProjects from "@/components/home-interior/home-interior-projects/HomeInteriorProject";
 import HomeInteriorSlider from "@/components/home-interior/home-interior-slider/HomeInteriorSlider";
@@ -20,23 +21,22 @@ const HomeInterior = () => {
   return (
     <div className="">
       <h1 data-heading-tone="dark" className="sr-only">Home interior design in Dhaka</h1>
-      <ErrorBoundary fallback={<div>প্রজেক্ট লোড করতে সমস্যা হয়েছে।</div>}>
+      <PageSections path="/services/home-interior" slots={[{ id: "section-4d67118a0e1e", node: (<ErrorBoundary fallback={<div>প্রজেক্ট লোড করতে সমস্যা হয়েছে।</div>}>
         <HomeInteriorSlider />
-      </ErrorBoundary>
-      <HomeSolution />
-      <HomeOurPackage />
-      <ErrorBoundary fallback={""}>
+      </ErrorBoundary>) },
+{ id: "section-8c426c953f30", node: (<HomeSolution />) },
+{ id: "section-bef92f830c4e", node: (<HomeOurPackage />) },
+{ id: "section-0fb53cd24278", node: (<ErrorBoundary fallback={""}>
         <HomeDream />
-      </ErrorBoundary>
-      <ErrorBoundary fallback={<BeInteriorError />}>
+      </ErrorBoundary>) },
+{ id: "section-7d2161405ba7", node: (<ErrorBoundary fallback={<BeInteriorError />}>
         <HomeInteriorProjects />
-      </ErrorBoundary>
-      <HomePromise />
-
-      <ErrorBoundary fallback={<HappyCustomererr />}>
+      </ErrorBoundary>) },
+{ id: "section-64ef308122c5", node: (<HomePromise />) },
+{ id: "section-b308599ab361", node: (<ErrorBoundary fallback={<HappyCustomererr />}>
         <HomeCustomerReview />
-      </ErrorBoundary>
-      <HomeComment />
+      </ErrorBoundary>) },
+{ id: "section-f0e0d8d7c3c1", node: (<HomeComment />) }]} />
     </div>
   );
 };

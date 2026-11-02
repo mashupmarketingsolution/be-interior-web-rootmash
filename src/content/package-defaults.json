@@ -1,0 +1,80 @@
+[
+  {
+    "type": "officePackageType",
+    "name": "Essential",
+    "features": [
+      "Affordable Pricing",
+      "Functional 2D Layout",
+      "Convenient 3D Design",
+      "Standard Accessories",
+      "Durable Materials",
+      "Execution"
+    ]
+  },
+  {
+    "type": "officePackageType",
+    "name": "Premium",
+    "features": [
+      "Value Driven Pricing",
+      "Functional 2D Layout",
+      "High-end 3D Design",
+      "Wide Range Accessories",
+      "High Grade Materials",
+      "Laminate Finish",
+      "Execution"
+    ]
+  },
+  {
+    "type": "officePackageType",
+    "name": "Luxury",
+    "features": [
+      "Exclusive Pricing",
+      "Functional 2D Layout",
+      "Luxury 3D Design",
+      "Branded Accessories",
+      "Premium Materials",
+      "Laminate, Acrylic & Mirror Sheet Finish",
+      "Designer Decorative Items",
+      "Execution"
+    ]
+  },
+  {
+    "type": "packageType",
+    "name": "Essential",
+    "features": [
+      "Budget-Friendly Material Selection",
+      "Functional 2D Layout",
+      "Convenient 3D Design",
+      "Standard Accessories",
+      "Durable Materials",
+      "Execution"
+    ]
+  },
+  {
+    "type": "packageType",
+    "name": "Premium",
+    "features": [
+      "Balanced Material & Finish Selection",
+      "Functional 2D Layout",
+      "High-end 3D Design",
+      "Wide Range Accessories",
+      "High Grade Materials",
+      "Laminate Finish",
+      "Execution"
+    ]
+  },
+  {
+    "type": "packageType",
+    "name": "Luxury",
+    "features": [
+      "Premium Material & Finish Selection",
+      "Functional 2D Layout",
+      "Luxury 3D Design",
+      "Branded Accessories",
+      "Premium Materials",
+      "Laminate, Acrylic & Mirror Sheet Finish",
+      "Designer Decorative Items",
+      "Execution"
+    ]
+  }
+]

@@ -1,4 +1,5 @@
 "use client";
+import { CmsText, CmsSection } from "@/components/cms/Editable";
 import { homeInteriorPageClientReviewApi } from "@/axios/axios";
 import SwiperButtons from "@/components/home/Home-section/SwiperButtons";
 import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
@@ -46,13 +47,13 @@ const HomeCustomerReview = () => {
     console.log("homeinteriorClientReview", result);
   }
   return (
-    <div className="flex flex-col w-full items-center justify-center mt-16 px-4 p-10 bg- h-180 mb-30">
-      <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-secondary tracking-wide font-bold ">
+    <CmsSection section="section-b308599ab361"><div className="flex flex-col w-full items-center justify-center mt-16 px-4 p-10 bg- h-180 mb-30">
+      <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-secondary tracking-wide font-bold "><CmsText section="section-b308599ab361" entryKey="heading-2475089572c2" fallback={"Check some review"} original={<>
         Check some review
-      </h2>
-      <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-[#111111] tracking-wide font-bold ">
+      </>} /></h2>
+      <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-[#111111] tracking-wide font-bold "><CmsText section="section-b308599ab361" entryKey="heading-4cf8c789ace3" fallback={"Of our customers"} original={<>
         Of our customers
-      </h2>
+      </>} /></h2>
 
       <div className="flex flex-col  md:flex-row items-center justify-center gap-8 mt-8 w-full max-w-7xl">
         <div className="w-full max-w-8xl mt-10 h-110 rounded-lg">
@@ -74,9 +75,9 @@ const HomeCustomerReview = () => {
             </div>
           ) : isError ? (
             <div className="flex flex-col items-center justify-center text-rose-500 h-100 w-full bg-white rounded-xl p-6 border border-rose-100 shadow-md">
-              <h3 data-heading-tone="dark" className="font-bold text-lg text-center">
+              <h3 data-heading-tone="dark" className="font-bold text-lg text-center"><CmsText section="section-b308599ab361" entryKey="heading-c34a8716d5ab" fallback={"Failed to load projects. Please try again!"} original={<>
                 Failed to load projects. Please try again!
-              </h3>
+              </>} /></h3>
             </div>
           ) : result && result.length > 0 ? (
             <Swiper
@@ -115,7 +116,7 @@ const HomeCustomerReview = () => {
                     {/* Name and Designation */}
                     <div className="mt-8 shrink-0">
                       <h3 data-heading-tone="dark" className="text-2xl text-[#4A3F35] font-serif tracking-wide">
-                        {data.name}
+                        <CmsText section="section-b308599ab361" fallback={data.name} />
                       </h3>
                     </div>
 
@@ -131,23 +132,17 @@ const HomeCustomerReview = () => {
           ) : (
             <div className="w-full max-w-7xl mt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.75 md:gap-[20px] lg:gap-7.5 mt-10 h-100 w-full">
-                <div className=" flex flex-col items-center justify-center h-full min-h-[350px] bg-zinc-200/80 rounded-xl border text-primary font-medium text-xl border-zinc-200 shadow-sm overflow-hidden">
-                  Oops ! Project Will be Uploaded
-                </div>
+                <div className=" flex flex-col items-center justify-center h-full min-h-[350px] bg-zinc-200/80 rounded-xl border text-primary font-medium text-xl border-zinc-200 shadow-sm overflow-hidden"><CmsText section="section-b308599ab361" entryKey="text-e4cafc33c365" fallback={"Oops ! Project Will be Uploaded"} /></div>
 
-                <div className="hidden md:flex flex-col items-center justify-center h-full min-h-[350px] bg-zinc-200/80 rounded-xl border text-primary font-medium text-xl border-zinc-200 shadow-sm overflow-hidden">
-                  Oops ! Project Will be Uploaded
-                </div>
+                <div className="hidden md:flex flex-col items-center justify-center h-full min-h-[350px] bg-zinc-200/80 rounded-xl border text-primary font-medium text-xl border-zinc-200 shadow-sm overflow-hidden"><CmsText section="section-b308599ab361" entryKey="text-0b44347bbeab" fallback={"Oops ! Project Will be Uploaded"} /></div>
 
-                <div className="hidden lg:flex flex-col items-center justify-center h-full min-h-[350px] bg-zinc-200/80 rounded-xl border text-primary font-medium text-xl border-zinc-200 shadow-sm overflow-hidden">
-                  Oops ! Project Will be Uploaded
-                </div>
+                <div className="hidden lg:flex flex-col items-center justify-center h-full min-h-[350px] bg-zinc-200/80 rounded-xl border text-primary font-medium text-xl border-zinc-200 shadow-sm overflow-hidden"><CmsText section="section-b308599ab361" entryKey="text-237a3d0a1227" fallback={"Oops ! Project Will be Uploaded"} /></div>
               </div>
             </div>
           )}
         </div>
       </div>
-    </div>
+    </div></CmsSection>
   );
 };
 

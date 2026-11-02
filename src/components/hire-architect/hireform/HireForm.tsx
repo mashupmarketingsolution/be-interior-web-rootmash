@@ -1,4 +1,5 @@
 "use client";
+import { CmsText, CmsImage, CmsTextarea, CmsLink, CmsSection } from "@/components/cms/Editable";
 import Link from "next/link";
 import { createLeadApi, leadErrorMessage } from "@/axios/axios";
 import { CheckCircle2 } from "lucide-react";
@@ -100,19 +101,19 @@ const HireForm = () => {
     }
   };
   return (
-    <section className="bg-ivory py-16 px-6 md:px-20 lg:px-32">
+    <CmsSection section="section-39bbb4c8a8d9"><section className="bg-ivory py-16 px-6 md:px-20 lg:px-32">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left Side: Content & Illustration */}
         <div className="space-y-8">
-          <h2 data-heading-tone="dark" className="text-4xl md:text-5xl font-serif text-[#283b33] leading-tight">
+          <h2 data-heading-tone="dark" className="text-4xl md:text-5xl font-serif text-[#283b33] leading-tight"><CmsText section="section-39bbb4c8a8d9" entryKey="heading-411654ff994f" fallback={"Leave us a message for your  dream interior"} original={<>
             Leave us a <span className="font-bold">message</span> for your{" "}
             <br />
             dream interior
-          </h2>
+          </>} /></h2>
 
           <div className="w-full h-80 flex items-center justify-center">
             <div className="w-full h-full relative bg-gray-200 rounded-lg flex items-center justify-center text-gray-500">
-              <Image
+              <CmsImage section="section-39bbb4c8a8d9"
                 src={imgOne}
                 alt="img"
                 fill
@@ -129,10 +130,7 @@ const HireForm = () => {
         <div className="bg-white p-8 rounded-lg shadow-sm w-full max-w-md mx-auto">
           {isSubmitted && (
             <div className="mb-8 p-4 bg-green-50 border border-green-200 text-green-700 flex items-start gap-3 rounded-xl animate-in fade-in slide-in-from-top-4 duration-300">
-              <p className="text-sm font-medium">
-                Thank you! Your request has been received. Our team will contact
-                you shortly.
-              </p>
+              <p className="text-sm font-medium"><CmsText section="section-39bbb4c8a8d9" entryKey="text-468a2e6ff475" fallback={"Thank you! Your request has been received. Our team will contact you shortly."} /></p>
             </div>
           )}
 
@@ -168,7 +166,7 @@ const HireForm = () => {
 
             {/* Textarea */}
             <div className="flex flex-col w-full">
-              <textarea aria-label="Project details" name="projectInfo"
+              <CmsTextarea section="section-39bbb4c8a8d9" aria-label="Project details" name="projectInfo"
                 rows={4}
                 placeholder="Project information (location, floor area, etc.)"
                 value={formData.projectInfo}
@@ -199,19 +197,14 @@ const HireForm = () => {
             </button>
           </form>
 
-          <p className="text-[10px] text-gray-500 mt-4 leading-tight">
-            By submitting this form, you agree to the <br />
-           <Link href="/privacy-policy" className="text-red-700 underline">
-              Privacy policy
-            </Link>
+          <p className="text-[10px] text-gray-500 mt-4 leading-tight"><CmsText section="section-39bbb4c8a8d9" entryKey="text-ec0a66685be3" fallback={"By submitting this form, you agree to the "} /><br />
+           <CmsLink section="section-39bbb4c8a8d9" entryKey="link-bebe8f4e0989" href="/privacy-policy" className="text-red-700 underline"><CmsText section="section-39bbb4c8a8d9" entryKey="text-7e0fd173bb59" fallback={"Privacy policy"} /></CmsLink>
             ,
-            <Link href="/terms" className="text-red-700 underline ml-1">
-            Terms and conditions
-          </Link>
+            <CmsLink section="section-39bbb4c8a8d9" entryKey="link-367c44cef187" href="/terms" className="text-red-700 underline ml-1"><CmsText section="section-39bbb4c8a8d9" entryKey="text-59fd725a045c" fallback={"Terms and conditions"} /></CmsLink>
           </p>
         </div>
       </div>
-    </section>
+    </section></CmsSection>
   );
 };
 

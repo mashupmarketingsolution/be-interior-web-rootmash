@@ -103,6 +103,7 @@ interface FormDataType {
 
 const submissionIds = new Map<string, { id: string; expires: number }>();
 export const createLeadApi = async (formData: FormDataType) => {
+  if (typeof window !== "undefined" && window.parent !== window && new URLSearchParams(window.location.search).get("cmsPreview") === "1") throw new Error("Enquiries are disabled in draft preview. Open the published website to submit.");
   const fingerprint = JSON.stringify(formData);
   const now = Date.now();
   for (const [key, entry] of submissionIds) if (entry.expires < now) submissionIds.delete(key);

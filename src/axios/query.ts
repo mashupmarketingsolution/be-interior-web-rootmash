@@ -1,5 +1,5 @@
 export const homeProjectQuery =
-  encodeURIComponent(` *[_type == "home-projects"]{
+  encodeURIComponent(` *[_type == "home-projects" && enabled != false] | order(sortOrder asc, featured desc, _createdAt desc){
   _id,
   name,
   _type,
@@ -12,7 +12,7 @@ export const homeProjectQuery =
 }`);
 
 export const officeProjectQuery =
-  encodeURIComponent(` *[_type == "office-projects"]{
+  encodeURIComponent(` *[_type == "office-projects" && enabled != false] | order(sortOrder asc, featured desc, _createdAt desc){
   _id,
   name,
   _type,
@@ -24,7 +24,7 @@ export const officeProjectQuery =
    location
 }`);
 
-export const homePageClientReview = encodeURIComponent(`*[_type == "clients"]{
+export const homePageClientReview = encodeURIComponent(`*[_type == "clients" && enabled != false] | order(sortOrder asc, featured desc, _createdAt desc){
   _id,
   name,
   designation,
@@ -48,7 +48,7 @@ export const footerContactItems = encodeURIComponent(`
 }`);
 
 export const homeInteriorPageClientReview = encodeURIComponent(`
-  *[_type == "clients" && reviewCategory in ["home", "renovation"]]{
+  *[_type == "clients" && enabled != false && reviewCategory in ["home", "renovation"]] | order(sortOrder asc, featured desc, _createdAt desc){
   _id,
   name,
   review,
@@ -56,7 +56,7 @@ export const homeInteriorPageClientReview = encodeURIComponent(`
 }`);
 
 export const officeInteriorPageClientReview = encodeURIComponent(`
-  *[_type == "clients" && reviewCategory == "office"]{
+  *[_type == "clients" && enabled != false && reviewCategory == "office"] | order(sortOrder asc, featured desc, _createdAt desc){
   _id,
   name,
   designation,
@@ -65,7 +65,7 @@ export const officeInteriorPageClientReview = encodeURIComponent(`
 }`);
 
 export const interiorTeam = encodeURIComponent(`
-  *[_type == "interior-team"]{
+  *[_type == "interior-team" && enabled != false] | order(sortOrder asc, featured desc, _createdAt desc){
   name,
   designation,
   "memberImage" : memberimage.asset->url
@@ -85,7 +85,7 @@ export const contactLocation = encodeURIComponent(`
 }`);
 
 export const allinteriorItem = encodeURIComponent(`
- *[_type in ["home-projects", "office-projects"]] | order(_createdAt desc) {
+ *[_type in ["home-projects", "office-projects"] && enabled != false] | order(sortOrder asc, featured desc, _createdAt desc) {
   _id,
   _type,
   name,
@@ -97,7 +97,7 @@ export const allinteriorItem = encodeURIComponent(`
 } `);
 
 export const allModalinteriorItem = encodeURIComponent(`
- *[_type in ["home-projects", "office-projects"]] | order(_createdAt desc) {
+ *[_type in ["home-projects", "office-projects"] && enabled != false] | order(sortOrder asc, featured desc, _createdAt desc) {
   _id,
   name,
   _type,
@@ -105,7 +105,7 @@ export const allModalinteriorItem = encodeURIComponent(`
 } `);
 
 export const topFiveOfficeProjects = encodeURIComponent(`
- *[_type == "office-projects" && projectCategory == "top"][0...4]{
+ *[_type == "office-projects" && enabled != false && projectCategory == "top"][0...4] | order(sortOrder asc, featured desc, _createdAt desc){
   _id,
   name,
   _type,
@@ -134,12 +134,12 @@ export const allBlogQuery = encodeURIComponent(`*[_type == "blogs"]{
   publishedDate
 }`);
 
-export const packageQuery = encodeURIComponent(`*[_type == "packageType"]{
+export const packageQuery = encodeURIComponent(`*[_type == "packageType" && enabled != false] | order(sortOrder asc, _createdAt asc){
   packagename,
   packageitems
 }`);
 export const officePackageQuery = encodeURIComponent(`
-  *[_type == "officePackageType"]{
+  *[_type == "officePackageType" && enabled != false] | order(sortOrder asc, _createdAt asc){
     packagename,
     ratePerSft,
     description,

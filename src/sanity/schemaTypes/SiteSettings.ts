@@ -9,6 +9,19 @@ export const SiteSettingsType = defineType({
   icon: ImageIcon,
   groups: [{ name: "branding", title: "Logo & favicon", default: true }, { name: "appearance", title: "Appearance" }, { name: "navigation", title: "Navigation" }],
   fields: [
+    defineField({name:"announcement",title:"Announcement / offer",type:"object",fields:[
+      defineField({name:"enabled",title:"Show announcement",type:"boolean",initialValue:false}),
+      defineField({name:"text",title:"Message",type:"string",validation:r=>r.max(180)}),
+      defineField({name:"href",title:"Page link (optional)",type:"string",validation:r=>r.custom(v=>!v||(/^\/(?!\/)/.test(v)||/^https:\/\//.test(v))||"Use a page path or HTTPS address")}),
+      defineField({name:"startsAt",title:"Start date / time (optional)",type:"datetime"}),
+      defineField({name:"endsAt",title:"End date / time (optional)",type:"datetime"})
+    ]}),
+    defineField({name:"pricing",title:"Office calculation rules",type:"object",description:"Multiplier applied to the package rate per square foot. Changes affect new estimates immediately after Publish.",fields:[
+      defineField({name:"interiorMultiplier",title:"Interior work only",type:"number",initialValue:0.65,validation:r=>r.min(0).max(5)}),
+      defineField({name:"furnitureMultiplier",title:"Furniture only",type:"number",initialValue:0.4,validation:r=>r.min(0).max(5)}),
+      defineField({name:"completeMultiplier",title:"Complete interior + furniture",type:"number",initialValue:1,validation:r=>r.min(0).max(5)})
+    ]}),
+
     appearanceField,
     menuField,
     menuCtaField,

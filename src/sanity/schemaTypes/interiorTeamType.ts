@@ -6,6 +6,10 @@ export const InteriorTeamType = defineType({
   type: "document",
   icon: UsersIcon,
   fields: [
+    defineField({name:"enabled",title:"Show on website",type:"boolean",initialValue:true}),
+    defineField({name:"sortOrder",title:"Display order (smaller first)",type:"number",initialValue:0}),
+    defineField({name:"featured",title:"Featured item",type:"boolean",initialValue:false}),
+
     defineField({
       name: "name",
       title: "Team Member Name",

@@ -1,4 +1,5 @@
 "use client";
+import { CmsText, CmsSection } from "@/components/cms/Editable";
 import React from "react";
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -25,12 +26,12 @@ const journeySteps = [
 
 const HomeSolution = () => {
   return (
-    <div className="flex flex-col w-full items-center justify-center mt-16 px-4 bg-ivory/50 py-20">
+    <CmsSection section="section-8c426c953f30"><div className="flex flex-col w-full items-center justify-center mt-16 px-4 bg-ivory/50 py-20">
       {/* Header Section */}
       <div className="text-center mb-6">
-        <h2 data-heading-tone="dark" className="text-3xl md:text-4xl lg:text-5xl font-montagu text-secondary tracking-wide font-bold">
+        <h2 data-heading-tone="dark" className="text-3xl md:text-4xl lg:text-5xl font-montagu text-secondary tracking-wide font-bold"><CmsText section="section-8c426c953f30" entryKey="heading-b336d24858f2" fallback={"The complete interior journey"} original={<>
           The complete <span className="text-inherit">interior journey</span>
-        </h2>
+        </>} /></h2>
       </div>
 
       <div className="w-full max-w-7xl mt-8">
@@ -69,10 +70,10 @@ const HomeSolution = () => {
                   {/* Text Content */}
                   <div className="mt-auto">
                     <h3 data-heading-tone="dark" className="font-bold font-montagu text-2xl text-zinc-800 group-hover:-translate-y-1 transition-transform duration-500">
-                      {step.title}
+                      <CmsText section="section-8c426c953f30" fallback={step.title} />
                     </h3>
                     <p className="text-sm text-zinc-500 font-poppins mt-4 leading-relaxed group-hover:-translate-y-1 transition-transform duration-500 delay-75">
-                      {step.desc}
+                      <CmsText section="section-8c426c953f30" fallback={step.desc} />
                     </p>
                   </div>
                 </div>
@@ -84,7 +85,7 @@ const HomeSolution = () => {
           ))}
         </Swiper>
       </div>
-    </div>
+    </div></CmsSection>
   );
 };
 

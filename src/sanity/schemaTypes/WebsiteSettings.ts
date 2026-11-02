@@ -7,6 +7,8 @@ export const WebsiteSettingsType = defineType({
   type: "document",
   icon: WrenchIcon,
   fields: [
+    defineField({name:"openingHours",title:"Opening hours",type:"string"}),
+    defineField({name:"whatsappMessage",title:"Default WhatsApp greeting",type:"text",rows:3}),
     defineField({
       name: "WebSiteSettings",
       title: "WebSite Settings",

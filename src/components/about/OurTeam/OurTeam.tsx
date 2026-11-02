@@ -1,4 +1,5 @@
 "use client";
+import { CmsText, CmsImage, CmsSection } from "@/components/cms/Editable";
 import React from "react";
 import Image from "next/image";
 import { interiorTeamApi } from "@/axios/axios";
@@ -45,21 +46,16 @@ const OurTeam = () => {
   const teamMembers = data?.result || [];
 
   return (
-    <section className="w-full py-24 bg-[#FAF5E9]">
+    <CmsSection section="section-16c0083fc386"><section className="w-full py-24 bg-[#FAF5E9]">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-8">
 
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-primary font-bold uppercase tracking-widest text-xs mb-3">
-            Our Experts
-          </p>
-          <h2 data-heading-tone="dark" className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111111] font-montagu tracking-wide">
+          <p className="text-primary font-bold uppercase tracking-widest text-xs mb-3"><CmsText section="section-16c0083fc386" entryKey="text-a04b8499622c" fallback={"Our Experts"} /></p>
+          <h2 data-heading-tone="dark" className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111111] font-montagu tracking-wide"><CmsText section="section-16c0083fc386" entryKey="heading-e8057e6f53d7" fallback={"The minds behind the design"} original={<>
             The minds behind the design
-          </h2>
-          <p className="mt-4 text-zinc-600 max-w-2xl mx-auto text-base">
-            Meet the talented architects and designers who turn your vision into
-            reality with precision, passion, and creativity.
-          </p>
+          </>} /></h2>
+          <p className="mt-4 text-zinc-600 max-w-2xl mx-auto text-base"><CmsText section="section-16c0083fc386" entryKey="text-603a4347fa37" fallback={"Meet the talented architects and designers who turn your vision into reality with precision, passion, and creativity."} /></p>
         </div>
 
         {/* Team Grid */}
@@ -74,7 +70,7 @@ const OurTeam = () => {
                 {/* Subtle Primary Overlay on Hover */}
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-multiply"></div>
 
-                <Image
+                <CmsImage section="section-16c0083fc386"
                   src={member.memberImage}
                   alt={member.name}
                   fill
@@ -86,7 +82,7 @@ const OurTeam = () => {
               {/* Info Section */}
               <div className="p-6 md:p-8 text-center flex-grow flex flex-col justify-center">
                 <h3 data-heading-tone="dark" className="text-xl font-bold font-montagu text-[#111111] mb-1  transition-colors duration-300">
-                  {member.name}
+                  <CmsText section="section-16c0083fc386" fallback={member.name} />
                 </h3>
                 <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1">
                   {member.designation}
@@ -97,7 +93,7 @@ const OurTeam = () => {
         </div>
 
       </div>
-    </section>
+    </section></CmsSection>
   );
 };
 

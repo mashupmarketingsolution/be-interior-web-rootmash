@@ -1,4 +1,5 @@
 "use client";
+import { CmsText, CmsLink, CmsImage, CmsSection } from "@/components/cms/Editable";
 import { homeProjectApi } from "@/axios/axios";
 import { useQuery } from "@tanstack/react-query"; // 🎯 useSuspenseQuery পরিবর্তন করে useQuery আনা হলো
 import { error } from "console";
@@ -57,11 +58,11 @@ const BeinteriorProject = () => {
   }
 
   return (
-    <div className="flex flex-col w-full items-center justify-center mt-16 px-4 p-10 pb-22 lg:pb-26">
-      <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-montagu text-[#111111] tracking-wide font-bold text-center lg:mb-16">
+    <CmsSection section="section-37b8a2c22aa5"><div className="flex flex-col w-full items-center justify-center mt-16 px-4 p-10 pb-22 lg:pb-26">
+      <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-montagu text-[#111111] tracking-wide font-bold text-center lg:mb-16"><CmsText section="section-37b8a2c22aa5" entryKey="heading-90a082e45433" fallback={"Exclusive residential projects"} original={<>
   Exclusive{" "}
   <span className="font-medium text-inherit">residential projects</span>
-</h2>
+</>} /></h2>
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-8 w-full max-w-7xl">
         <div className="w-full max-w-8xl mt-10 h-100 rounded-lg">
@@ -83,9 +84,9 @@ const BeinteriorProject = () => {
             </div>
           ) : isError ? (
             <div className="flex flex-col items-center justify-center text-rose-500 h-100 w-full bg-white rounded-xl p-6 border border-rose-100 shadow-md">
-              <h3 data-heading-tone="dark" className="font-bold text-lg text-center">
+              <h3 data-heading-tone="dark" className="font-bold text-lg text-center"><CmsText section="section-37b8a2c22aa5" entryKey="heading-b1978df082ab" fallback={"Failed to load projects. Please try again!"} original={<>
                 Failed to load projects. Please try again!
-              </h3>
+              </>} /></h3>
             </div>
           ) : result && result.length > 0 ? (
             <Swiper
@@ -106,13 +107,13 @@ const BeinteriorProject = () => {
             >
               {result.map((data) => (
                 <SwiperSlide key={data._id}>
-                  <Link
+                  <CmsLink section="section-37b8a2c22aa5"
                     href={`/interior-projects/${data.slug}?type=${data._type}`}
                     className="group relative flex flex-col h-100 bg-white rounded-3xl overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-zinc-100"
                   >
                     {/* Image Container with Overlay */}
                     <div className="relative w-full h-full overflow-hidden">
-                      <Image
+                      <CmsImage section="section-37b8a2c22aa5"
                         src={data.coverImage}
                         alt={data.name}
                         fill
@@ -129,41 +130,33 @@ const BeinteriorProject = () => {
                         {data._type}
                       </span>
                       <h3 data-heading-tone="light" className="font-montagu text-2xl font-bold mt-3 leading-tight  transition-colors">
-                        {data.name}
+                        <CmsText section="section-37b8a2c22aa5" fallback={data.name} />
                       </h3>
 
                       {/* Subtle Hover Reveal Arrow */}
                       <div className="flex items-center gap-2 mt-4 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                        <span className="text-sm font-medium">
-                         view projects
-                        </span>
+                        <span className="text-sm font-medium"><CmsText section="section-37b8a2c22aa5" entryKey="text-ea587e69e610" fallback={"view projects"} /></span>
 
                       </div>
                     </div>
-                  </Link>
+                  </CmsLink>
                 </SwiperSlide>
               ))}
             </Swiper>
           ) : (
             <div className="w-full max-w-7xl mt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.75 md:gap-5 lg:gap-7.5 mt-10 h-100 w-full">
-                <div className=" flex flex-col items-center justify-center h-full min-h-87.5 bg-zinc-200/80 rounded-xl border text-primary font-medium text-xl border-zinc-200 shadow-sm overflow-hidden">
-                  Oops ! Project Will be Uploaded
-                </div>
+                <div className=" flex flex-col items-center justify-center h-full min-h-87.5 bg-zinc-200/80 rounded-xl border text-primary font-medium text-xl border-zinc-200 shadow-sm overflow-hidden"><CmsText section="section-37b8a2c22aa5" entryKey="text-c67ddbc2ba9b" fallback={"Oops ! Project Will be Uploaded"} /></div>
 
-                <div className="hidden md:flex flex-col items-center justify-center h-full min-h-87.5 bg-zinc-200/80 rounded-xl border text-primary font-medium text-xl border-zinc-200 shadow-sm overflow-hidden">
-                  Oops ! Project Will be Uploaded
-                </div>
+                <div className="hidden md:flex flex-col items-center justify-center h-full min-h-87.5 bg-zinc-200/80 rounded-xl border text-primary font-medium text-xl border-zinc-200 shadow-sm overflow-hidden"><CmsText section="section-37b8a2c22aa5" entryKey="text-5de77d93bc5a" fallback={"Oops ! Project Will be Uploaded"} /></div>
 
-                <div className="hidden lg:flex flex-col items-center justify-center h-full min-h-87.5 bg-zinc-200/80 rounded-xl border text-primary font-medium text-xl border-zinc-200 shadow-sm overflow-hidden">
-                  Oops ! Project Will be Uploaded
-                </div>
+                <div className="hidden lg:flex flex-col items-center justify-center h-full min-h-87.5 bg-zinc-200/80 rounded-xl border text-primary font-medium text-xl border-zinc-200 shadow-sm overflow-hidden"><CmsText section="section-37b8a2c22aa5" entryKey="text-b894dba8f34d" fallback={"Oops ! Project Will be Uploaded"} /></div>
               </div>
             </div>
           )}
         </div>
       </div>
-    </div>
+    </div></CmsSection>
   );
 };
 

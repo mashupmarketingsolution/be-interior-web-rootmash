@@ -1,4 +1,5 @@
 "use client";
+import { CmsText, CmsLink, CmsImage, CmsSection } from "@/components/cms/Editable";
 import React, { useState } from "react";
 import Link from "next/link";
 import { FiArrowRight, FiAlertCircle } from "react-icons/fi";
@@ -139,13 +140,13 @@ const BlogSection = () => {
   };
 
   return (
-    <div className="py-16 md:py-24 px-4 sm:px-6 md:px-16 w-full max-w-7xl mx-auto font-poppins min-h-screen">
+    <CmsSection section="section-720af0ba771b"><div className="py-16 md:py-24 px-4 sm:px-6 md:px-16 w-full max-w-7xl mx-auto font-poppins min-h-screen">
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
         <div>
-          <h2 data-heading-tone="dark" className="text-3xl md:text-4xl font-bold text-zinc-800 font-montagu">
+          <h2 data-heading-tone="dark" className="text-3xl md:text-4xl font-bold text-zinc-800 font-montagu"><CmsText section="section-720af0ba771b" entryKey="heading-1c7d14349aa2" fallback={"Latest articles"} original={<>
             Latest <span className="text-inherit">articles</span>
-          </h2>
+          </>} /></h2>
           <div className="h-1 w-20 bg-primary mt-3 rounded-full"></div>
         </div>
       </div>
@@ -175,22 +176,19 @@ const BlogSection = () => {
           <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
             <FiAlertCircle className="w-8 h-8 text-red-500" />
           </div>
-          <h3 data-heading-tone="dark" className="text-xl font-bold text-red-800 mb-2 font-montagu">
+          <h3 data-heading-tone="dark" className="text-xl font-bold text-red-800 mb-2 font-montagu"><CmsText section="section-720af0ba771b" entryKey="heading-a9ef6c8d0294" fallback={"Oops! Something went wrong"} original={<>
             Oops! Something went wrong
-          </h3>
-          <p className="text-red-600/80 text-sm">
-            We couldn&apos;t load the articles right now. Please check your internet
-            connection or try refreshing the page.
-          </p>
+          </>} /></h3>
+          <p className="text-red-600/80 text-sm"><CmsText section="section-720af0ba771b" entryKey="text-ade7b92cbd1f" fallback={"We couldn't load the articles right now. Please check your internet connection or try refreshing the page."} /></p>
         </div>
       ) : !isLoading && !isError && blogs.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentBlog.map((blog) => (
-            <Link href={`/blogs/${blog.slug}`} key={blog.slug}>
+            <CmsLink section="section-720af0ba771b" href={`/blogs/${blog.slug}`} key={blog.slug}>
               <article className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-zinc-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 cursor-pointer">
                 {/* Image Container */}
                 <div className="relative h-60 w-full overflow-hidden bg-zinc-100">
-                  <Image
+                  <CmsImage section="section-720af0ba771b"
                     src={blog.coverImage || "/placeholder-image.jpg"}
                     fill
                     quality={100}
@@ -208,7 +206,7 @@ const BlogSection = () => {
                   <div className="flex items-center gap-2 text-xs text-zinc-400 font-medium mb-3">
                     <span>{formatDate(blog.publishedDate)}</span>
                     <span className="w-1 h-1 rounded-full bg-zinc-300" />
-                    <span>by {blog.authorname}</span>
+                    <span><CmsText section="section-720af0ba771b" entryKey="text-e98ad8c3c4ec" fallback={"by "} />{blog.authorname}</span>
                   </div>
 
                   <h3 data-heading-tone="dark" className="text-xl font-bold text-zinc-800 mb-4  transition-colors duration-300 font-montagu leading-snug line-clamp-2 flex-grow">
@@ -216,13 +214,11 @@ const BlogSection = () => {
                   </h3>
 
                   {/* Read More Link */}
-                  <div className="mt-auto flex items-center text-sm font-bold text-zinc-800 group-hover:text-primary transition-colors duration-300 pt-4 border-t border-zinc-50">
-                    read article
-                    <FiArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
+                  <div className="mt-auto flex items-center text-sm font-bold text-zinc-800 group-hover:text-primary transition-colors duration-300 pt-4 border-t border-zinc-50"><CmsText section="section-720af0ba771b" entryKey="text-fabdb4a64001" fallback={"read article"} /><FiArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
                   </div>
                 </div>
               </article>
-            </Link>
+            </CmsLink>
           ))}
         </div>
       ) : (
@@ -230,17 +226,13 @@ const BlogSection = () => {
         !isError &&
         blogs.length === 0 && (
           <div className="py-20 text-center bg-zinc-50 rounded-2xl border border-zinc-100">
-            <p className="text-zinc-500 font-medium">
-              No articles have been published yet. Check back soon!
-            </p>
+            <p className="text-zinc-500 font-medium"><CmsText section="section-720af0ba771b" entryKey="text-835de4a5c931" fallback={"No articles have been published yet. Check back soon!"} /></p>
           </div>
         )
       )}
       {!isLoading && !isError && totalPages > 1 && (
         <div className="flex flex-col gap-5 lg:flex-row items-center justify-between mt-16 border-t border-zinc-200 pt-8">
-          <span className="text-zinc-500 font-medium text-sm">
-            Showing {currentPage} of {totalPages} Pages
-          </span>
+          <span className="text-zinc-500 font-medium text-sm"><CmsText section="section-720af0ba771b" entryKey="text-47e8168063bd" fallback={"Showing "} />{currentPage}<CmsText section="section-720af0ba771b" entryKey="text-49642a246ad0" fallback={" of "} />{totalPages}<CmsText section="section-720af0ba771b" entryKey="text-27dd0ee9135a" fallback={" Pages"} /></span>
           <div className="flex items-center gap-5">
             <button
               onClick={handlePrevious}
@@ -260,17 +252,13 @@ const BlogSection = () => {
                   strokeWidth={2}
                   d="M15 19l-7-7 7-7"
                 />
-              </svg>
-              Previous
-            </button>
+              </svg><CmsText section="section-720af0ba771b" entryKey="text-7a38027b5b9d" fallback={"Previous"} /></button>
 
             <button
               onClick={handleNext}
               disabled={currentPage === totalPages}
               className="px-6 py-3 rounded-xl transition-all duration-300 font-medium tracking-wide flex items-center gap-2 border border-primary text-white bg-primary hover:bg-primary/90 disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-              Next
-              <svg
+            ><CmsText section="section-720af0ba771b" entryKey="text-00a53855053f" fallback={"Next"} /><svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
                 fill="none"
@@ -288,7 +276,7 @@ const BlogSection = () => {
           </div>
         </div>
       )}
-    </div>
+    </div></CmsSection>
   );
 };
 

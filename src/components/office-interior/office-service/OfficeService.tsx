@@ -1,11 +1,12 @@
 "use client";
+import { CmsText, useCmsList, CmsSection } from "@/components/cms/Editable";
 import React from "react";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { BiBuildingHouse } from "react-icons/bi";
 import { MdOutlineCamera } from "react-icons/md";
 
 const OfficeService = () => {
-  const services = [
+  const services = useCmsList("section-8abdd6e09c4b", "services", [
     {
       title: "New Office Design",
       desc: "Modern, functional office designs tailored for productivity and style.",
@@ -21,16 +22,16 @@ const OfficeService = () => {
       desc: "Revitalize your office with fresh designs and space optimization.",
       icon: <MdOutlineCamera className="text-3xl text-primary" />,
     },
-  ];
+  ]);
 
   return (
-    <section className="w-full bg-ivory py-24 px-6 md:px-12 lg:px-20">
+    <CmsSection section="section-8abdd6e09c4b"><section className="w-full bg-ivory py-24 px-6 md:px-12 lg:px-20">
       <div className="max-w-6xl mx-auto">
         {/* Simple & Clean Header */}
         <div className="text-center mb-16">
-          <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-montagu font-bold text-[#111111]">
+          <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-montagu font-bold text-[#111111]"><CmsText section="section-8abdd6e09c4b" entryKey="heading-0e5ecd8383d4" fallback={"Services we offer"} original={<>
             Services <span className="text-inherit">we offer</span>
-          </h2>
+          </>} /></h2>
           <div className="w-20 h-1 bg-primary mt-4 rounded-full mb-14 mx-auto" />
         </div>
 
@@ -48,17 +49,17 @@ const OfficeService = () => {
 
               {/* Text Content */}
               <h3 data-heading-tone="dark" className="text-lg md:text-xl font-bold text-[#111111] mb-3 font-montagu">
-                {service.title}
+                <CmsText section="section-8abdd6e09c4b" fallback={service.title} />
               </h3>
 
               <p className="text-zinc-600 text-sm md:text-base leading-relaxed">
-                {service.desc}
+                <CmsText section="section-8abdd6e09c4b" fallback={service.desc} />
               </p>
             </div>
           ))}
         </div>
       </div>
-    </section>
+    </section></CmsSection>
   );
 };
 

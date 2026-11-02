@@ -1,4 +1,5 @@
 "use client";
+import { CmsText, CmsLink, CmsImage, CmsSection } from "@/components/cms/Editable";
 import { allInteriorApi } from "@/axios/axios";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
@@ -79,17 +80,14 @@ const InteriorProjects = () => {
   }
 
   return (
-    <div className="w-full bg-[#fafafa] py-20 px-4 sm:px-6 lg:px-8 font-poppins min-h-screen ">
+    <CmsSection section="section-31892f5d6fc3"><div className="w-full bg-[#fafafa] py-20 px-4 sm:px-6 lg:px-8 font-poppins min-h-screen ">
       <div className="max-w-7xl mx-auto mt-10">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-bold text-zinc-800 font-montagu uppercase tracking-wide">
+          <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-bold text-zinc-800 font-montagu uppercase tracking-wide"><CmsText section="section-31892f5d6fc3" entryKey="heading-999dad0559f8" fallback={"Our portfolio"} original={<>
             Our <span className="text-inherit">portfolio</span>
-          </h2>
-          <p className="text-zinc-500 mt-4 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            Discover our latest interior design projects, showcasing our
-            commitment to quality, aesthetics, and functional living spaces.
-          </p>
+          </>} /></h2>
+          <p className="text-zinc-500 mt-4 max-w-2xl mx-auto text-sm md:text-base leading-relaxed"><CmsText section="section-31892f5d6fc3" entryKey="text-95f7ac86a75b" fallback={"Discover our latest interior design projects, showcasing our commitment to quality, aesthetics, and functional living spaces."} /></p>
         </div>
 
         {/* Loading Skeleton */}
@@ -111,14 +109,13 @@ const InteriorProjects = () => {
           </div>
         ) : isError ? (
           <div className="text-center py-20 bg-red-50 rounded-[24px] border border-red-100">
-            <p className="text-red-500 font-medium min-h-200">
-              Failed to load projects. {error?.message}
+            <p className="text-red-500 font-medium min-h-200"><CmsText section="section-31892f5d6fc3" entryKey="text-885d988526dc" fallback={"Failed to load projects. "} />{error?.message}
             </p>
           </div>
         ) : !isLoading && !isError && currentProjects.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 min-h-200">
             {currentProjects.map((project) => (
-              <Link
+              <CmsLink section="section-31892f5d6fc3"
                 key={project._id}
                 href={`/interior-projects/${project.slug}?type=${project._type}`}
                 className="group flex flex-col bg-white rounded-3xl overflow-hidden border border-zinc-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.12)] transition-all duration-500 h-130"
@@ -126,7 +123,7 @@ const InteriorProjects = () => {
                 {/* Top Image Container */}
                 <div className="relative h-64 sm:h-72 w-full overflow-hidden block bg-zinc-100">
                   {project.coverImage && project.coverImage !== "/" ? (
-                    <Image
+                    <CmsImage section="section-31892f5d6fc3"
                       src={project.coverImage}
                       alt={project.name}
                       fill
@@ -135,9 +132,7 @@ const InteriorProjects = () => {
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-xs font-medium text-zinc-400">
-                      no image available
-                    </div>
+                    <div className="w-full h-full flex items-center justify-center text-xs font-medium text-zinc-400"><CmsText section="section-31892f5d6fc3" entryKey="text-957ace2666b0" fallback={"no image available"} /></div>
                   )}
 
                   {/* Dark Gradient Overlay on Hover */}
@@ -164,17 +159,15 @@ const InteriorProjects = () => {
 
                   {/* Project Name */}
                   <h3 data-heading-tone="dark" className="text-xl sm:text-2xl font-bold text-zinc-800 mb-6  transition-colors duration-300 font-montagu leading-snug line-clamp-2">
-                    {project.name}
+                    <CmsText section="section-31892f5d6fc3" fallback={project.name} />
                   </h3>
 
                   {/* Footer / Read More Button */}
                   <div className="mt-auto pt-5 border-t border-zinc-100">
-                    <Link
+                    <CmsLink section="section-31892f5d6fc3"
                       href={`/interior-projects/${project.slug}?type=${project._type}`}
                       className="inline-flex items-center text-sm font-bold text-zinc-800 group-hover:text-primary transition-colors duration-300"
-                    >
-                      View project
-                      <svg
+                    ><CmsText section="section-31892f5d6fc3" entryKey="text-bb8ff6eb0892" fallback={"View project"} /><svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
                         fill="none"
@@ -188,10 +181,10 @@ const InteriorProjects = () => {
                           d="M9 5l7 7-7 7"
                         />
                       </svg>
-                    </Link>
+                    </CmsLink>
                   </div>
                 </div>
-              </Link>
+              </CmsLink>
             ))}
           </div>
         ) : (
@@ -199,9 +192,7 @@ const InteriorProjects = () => {
           !isError &&
           interiorProjects.length === 0 && (
             <div className="text-center py-20 bg-white rounded-3xl border border-zinc-100">
-              <p className="text-zinc-500 font-medium">
-                No interior projects found at the moment.
-              </p>
+              <p className="text-zinc-500 font-medium"><CmsText section="section-31892f5d6fc3" entryKey="text-467564d87c38" fallback={"No interior projects found at the moment."} /></p>
             </div>
           )
         )}
@@ -209,9 +200,7 @@ const InteriorProjects = () => {
         {/* Pagination Controls */}
         {!isLoading && !isError && totalPages > 1 && (
           <div className="flex flex-col gap-5 lg:flex-row items-center justify-between mt-16 border-t border-zinc-200 pt-8">
-            <span className="text-zinc-500 font-medium text-sm">
-              Showing {currentPage} of {totalPages} Pages
-            </span>
+            <span className="text-zinc-500 font-medium text-sm"><CmsText section="section-31892f5d6fc3" entryKey="text-c1cb71326c2e" fallback={"Showing "} />{currentPage}<CmsText section="section-31892f5d6fc3" entryKey="text-d41777fd325c" fallback={" of "} />{totalPages}<CmsText section="section-31892f5d6fc3" entryKey="text-44da115fd53e" fallback={" Pages"} /></span>
             <div className="flex items-center gap-5">
               <button
                 onClick={handlePrevious}
@@ -231,17 +220,13 @@ const InteriorProjects = () => {
                     strokeWidth={2}
                     d="M15 19l-7-7 7-7"
                   />
-                </svg>
-                Previous
-              </button>
+                </svg><CmsText section="section-31892f5d6fc3" entryKey="text-c877507c12d3" fallback={"Previous"} /></button>
 
               <button
                 onClick={handleNext}
                 disabled={currentPage === totalPages}
                 className="px-6 py-3 rounded-xl transition-all duration-300 font-medium tracking-wide flex items-center gap-2 border border-primary text-white bg-primary hover:bg-primary/90 disabled:opacity-40 disabled:cursor-not-allowed"
-              >
-                Next
-                <svg
+              ><CmsText section="section-31892f5d6fc3" entryKey="text-57aac99dcb32" fallback={"Next"} /><svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
                   fill="none"
@@ -260,7 +245,7 @@ const InteriorProjects = () => {
           </div>
         )}
       </div>
-    </div>
+    </div></CmsSection>
   );
 };
 

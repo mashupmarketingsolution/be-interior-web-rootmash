@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
   if (!process.env.SANITY_WRITE_TOKEN) return NextResponse.json({ success: false, error: "Enquiries are temporarily unavailable. Please call us or try again later." }, { status: 503 });
   try {
     const client = createClient({ projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID, dataset: process.env.NEXT_PUBLIC_SANITY_DATASET, apiVersion: "2026-06-12", useCdn: false, token: process.env.SANITY_WRITE_TOKEN });
-    await client.createIfNotExists({ _id: "lead." + eventId, _type: "leads", ...lead });
+    await client.createIfNotExists({ _id: "drafts.lead." + eventId, _type: "leads", status: "new", receivedAt: new Date().toISOString(), ...lead });
     return NextResponse.json({ success: true, eventId }, { status: 200, headers: { "Cache-Control": "no-store" } });
   } catch {
     console.error("Lead storage failed");

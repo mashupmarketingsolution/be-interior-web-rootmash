@@ -1,4 +1,5 @@
 "use client";
+import { CmsImage, CmsText, CmsTextarea, CmsSection } from "@/components/cms/Editable";
 import Image from "next/image";
 import React, { ChangeEvent, FormEvent, useState, useRef } from "react";
 import logo from "@/logo/HomePage/ContactImage.jpg";
@@ -100,11 +101,11 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="bg-ivory py-20 px-4 md:px-8">
+    <CmsSection section="section-63787ee750fd"><section className="bg-ivory py-20 px-4 md:px-8">
       <div className="max-w-6xl mx-auto bg-white rounded-[2rem] shadow-[0_20px_60px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col lg:flex-row">
         {/* Left Side: Image & Branding */}
         <div className="relative w-full lg:w-5/12 h-64 lg:h-auto hidden md:block">
-          <Image
+          <CmsImage section="section-63787ee750fd"
             src={logo}
             alt="Interior Design Consultation"
             fill
@@ -115,36 +116,28 @@ const ContactForm = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/40 to-transparent opacity-90"></div>
 
           <div className="absolute bottom-0 left-0 w-full p-10 text-white">
-            <h3 data-heading-tone="light" className="font-montagu text-3xl font-bold mb-3 leading-tight">
+            <h3 data-heading-tone="light" className="font-montagu text-3xl font-bold mb-3 leading-tight"><CmsText section="section-63787ee750fd" entryKey="heading-4870ee2bce7c" fallback={"Let's craft your   dream space"} original={<>
               Let&apos;s craft your <br />{" "}
               <span className="text-inherit">dream space</span>
-            </h3>
-            <p className="text-white/70 text-sm leading-relaxed">
-              Share your project details with us, and our expert architects will
-              get back to you with a free consultation and quote.
-            </p>
+            </>} /></h3>
+            <p className="text-white/70 text-sm leading-relaxed"><CmsText section="section-63787ee750fd" entryKey="text-57e05785dbb6" fallback={"Share your project details with us, and our expert architects will get back to you with a free consultation and quote."} /></p>
           </div>
         </div>
 
         {/* Right Side: Form */}
         <div className="w-full lg:w-7/12 p-8 md:p-12 lg:p-16">
           <div className="mb-10">
-            <p className="text-primary font-bold uppercase tracking-widest text-xs mb-2">
-              Get in touch
-            </p>
-            <h2 data-heading-tone="dark" className="text-3xl md:text-4xl font-montagu font-bold text-[#111111]">
+            <p className="text-primary font-bold uppercase tracking-widest text-xs mb-2"><CmsText section="section-63787ee750fd" entryKey="text-754c74fe964b" fallback={"Get in touch"} /></p>
+            <h2 data-heading-tone="dark" className="text-3xl md:text-4xl font-montagu font-bold text-[#111111]"><CmsText section="section-63787ee750fd" entryKey="heading-c71507322934" fallback={"Leave us a message"} original={<>
               Leave us a message
-            </h2>
+            </>} /></h2>
           </div>
 
           {/* Success Message */}
           {isSubmitted && (
             <div className="mb-8 p-4 bg-green-50 border border-green-200 text-green-700 flex items-start gap-3 rounded-xl animate-in fade-in slide-in-from-top-4 duration-300">
               <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
-              <p className="text-sm font-medium">
-                Thank you! Your request has been received. Our team will contact
-                you shortly.
-              </p>
+              <p className="text-sm font-medium"><CmsText section="section-63787ee750fd" entryKey="text-d28f3358b9bb" fallback={"Thank you! Your request has been received. Our team will contact you shortly."} /></p>
             </div>
           )}
 
@@ -200,7 +193,7 @@ const ContactForm = () => {
 
             {/* Textarea */}
             <div className="flex flex-col w-full">
-              <textarea aria-label="Project details" name="projectInfo"
+              <CmsTextarea section="section-63787ee750fd" aria-label="Project details" name="projectInfo"
                 rows={4}
                 placeholder="Tell us about your project (location, floor area, style preferences, etc.)"
                 value={formData.projectInfo}
@@ -233,7 +226,7 @@ const ContactForm = () => {
           </form>
         </div>
       </div>
-    </section>
+    </section></CmsSection>
   );
 };
 

@@ -1,4 +1,5 @@
 "use client";
+import { CmsText, CmsSection } from "@/components/cms/Editable";
 import React from "react";
 
 export default function TermsAndConditions() {
@@ -54,17 +55,15 @@ export default function TermsAndConditions() {
   ];
 
   return (
-    <section className="bg-ivory py-16 px-6 md:px-12 lg:px-24 font-sans text-zinc-800 mt-20">
+    <CmsSection section="section-02902e7dadb4"><section className="bg-ivory py-16 px-6 md:px-12 lg:px-24 font-sans text-zinc-800 mt-20">
       <div className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-[#111111]/5">
 
         {/* Page Header */}
         <div className="border-b border-[#111111]/10 pb-6 mb-10">
-          <h1 data-heading-tone="dark" className="text-3xl md:text-4xl font-montagu font-bold text-[#111111] tracking-wide">
+          <h1 data-heading-tone="dark" className="text-3xl md:text-4xl font-montagu font-bold text-[#111111] tracking-wide"><CmsText section="section-02902e7dadb4" entryKey="heading-d5092399d5f3" fallback={"Terms and conditions"} original={<>
             Terms and conditions
-          </h1>
-          <p className="text-sm text-zinc-500 mt-2">
-            Please read our project rules and regulations carefully
-          </p>
+          </>} /></h1>
+          <p className="text-sm text-zinc-500 mt-2"><CmsText section="section-02902e7dadb4" entryKey="text-3210cb9f60b0" fallback={"Please read our project rules and regulations carefully"} /></p>
         </div>
 
         {/* Content List Block */}
@@ -72,16 +71,16 @@ export default function TermsAndConditions() {
           {terms.map((item, index) => (
             <div key={index} className="space-y-2">
               <h3 data-heading-tone="dark" className="font-bold text-[#111111] tracking-wide text-lg">
-                {index + 1}. {item.title}
+                {index + 1}. <CmsText section="section-02902e7dadb4" fallback={item.title} />
               </h3>
               <p className="pl-5 border-l-2 border-[#c35e00]/20 text-zinc-600">
-                {item.text}
+                <CmsText section="section-02902e7dadb4" fallback={item.text} />
               </p>
             </div>
           ))}
         </div>
 
       </div>
-    </section>
+    </section></CmsSection>
   );
 }

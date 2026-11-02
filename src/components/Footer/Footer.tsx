@@ -1,5 +1,7 @@
 "use client";
+import { CmsText, CmsLink, CmsImage, CmsSection, useCmsList } from "@/components/cms/Editable";
 import React from "react";
+import { useCms } from "@/components/cms/ContentProvider";
 import Link from "next/link";
 import NavLogo from "../Header/NavLogo";
 import {
@@ -57,12 +59,49 @@ const fetchFooterLinks = async () => {
 };
 
 const Footer = () => {
+  const contact = useCms().contact;
+  const footer_services = useCmsList("section-784ee3257dd1","footer-services",[
+                {
+                  name: "Home Interior",
+                  link: "/services/home-interior",
+                },
+                {
+                  name: "Office Interior",
+                  link: "/services/office-interior",
+                },
+                {
+                  name: "Our Projects",
+                  link: "/interior-projects",
+                },
+                {
+                  name: "Interior Blogs",
+                  link: "/blogs",
+                },
+              ]);
+  const footer_resources = useCmsList("section-784ee3257dd1","footer-resources",[
+                {
+                  name: "Home",
+                  link: "/",
+                },
+                {
+                  name: "Calculator",
+                  link: "/services/budget-calculator",
+                },
+                {
+                  name: "About Us",
+                  link: "/about",
+                },
+                {
+                  name: "Contact",
+                  link: "/contact",
+                },
+              ]);
   const { data, isLoading } = useQuery<FooterContactType>({
     queryKey: ["query-key"],
     queryFn: fetchFooterLinks,
   });
 
-  const footerItems = data?.result || [];
+  const footerItems = contact ? [contact] : data?.result || [];
   // if (process.env.NODE_ENV === "development") {
   //   console.log("footer data", footerItems);
   // }
@@ -89,7 +128,7 @@ const footerLinkdIn = getSocialLink("LinkedIn");
 const footerYT = getSocialLink("YouTube");
 
   return (
-    <footer className="relative w-full bg-secondary/90 text-white pt-20 pb-20 overflow-hidden">
+    <CmsSection section="section-784ee3257dd1"><footer className="relative w-full bg-secondary/90 text-white pt-20 pb-20 overflow-hidden">
       {/* Abstract Background Decoration */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-[120px]"></div>
@@ -102,10 +141,7 @@ const footerYT = getSocialLink("YouTube");
           <div className="flex flex-col gap-6">
               <NavLogo className="" />
 
-              <p className="text-sm font-medium text-zinc-400 leading-relaxed max-w-xs">
-                Transforming your living spaces into masterpieces of comfort and
-                style. Your vision is our expertise.
-              </p>
+              <p className="text-sm font-medium text-zinc-400 leading-relaxed max-w-xs"><CmsText section="section-784ee3257dd1" entryKey="text-27e1506c36d5" fallback={"Transforming your living spaces into masterpieces of comfort and style. Your vision is our expertise."} /></p>
 
               <div className="flex gap-4">
               {[
@@ -123,91 +159,57 @@ const footerYT = getSocialLink("YouTube");
                   link: footerYT,
                 },
               ].filter((item) => item.link && item.link !== "/").map((Icon, i) => (
-                <Link
+                <CmsLink section="section-784ee3257dd1"
                   key={i}
                   href={Icon.link}
                   aria-label={Icon.label}
                   className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-primary hover:border-primary hover:text-white transition-all duration-300"
                 >
                   {Icon.icon}
-                </Link>
+                </CmsLink>
               ))}
             </div>
           </div>
 
           {/* Column 2: Services */}
           <div className="flex flex-col gap-6">
-            <h4 data-heading-tone="light" className="text-sm font-bold uppercase tracking-widest text-white">
+            <h4 data-heading-tone="light" className="text-sm font-bold uppercase tracking-widest text-white"><CmsText section="section-784ee3257dd1" entryKey="heading-0d8759af8571" fallback={"Services"} original={<>
               Services
-            </h4>
+            </>} /></h4>
             <ul className="flex flex-col gap-3 text-sm text-zinc-400">
-              {[
-                {
-                  name: "Home Interior",
-                  link: "/services/home-interior",
-                },
-                {
-                  name: "Office Interior",
-                  link: "/services/office-interior",
-                },
-                {
-                  name: "Our Projects",
-                  link: "/interior-projects",
-                },
-                {
-                  name: "Interior Blogs",
-                  link: "/blogs",
-                },
-              ].map((link) => (
-                <Link key={link.name} href={link.link}>
+              {footer_services.map((link) => (
+                <CmsLink section="section-784ee3257dd1" key={link.name} href={link.link}>
                   <li className="hover:text-white transition-colors cursor-pointer flex items-center gap-2 group font-medium">
                     <span className="w-1 h-1 bg-zinc-600 group-hover:bg-primary rounded-full"></span>
-                    {link.name}
+                    <CmsText section="section-784ee3257dd1" fallback={link.name} />
                   </li>
-                </Link>
+                </CmsLink>
               ))}
             </ul>
           </div>
 
           {/* Column 3: Quick Links */}
           <div className="flex flex-col gap-6">
-            <h4 data-heading-tone="light" className="text-sm font-bold uppercase tracking-widest text-white">
+            <h4 data-heading-tone="light" className="text-sm font-bold uppercase tracking-widest text-white"><CmsText section="section-784ee3257dd1" entryKey="heading-b12fb6f4bdb0" fallback={"Resources"} original={<>
               Resources
-            </h4>
+            </>} /></h4>
             <ul className="flex flex-col gap-3 text-sm text-zinc-400">
-              {[
-                {
-                  name: "Home",
-                  link: "/",
-                },
-                {
-                  name: "Calculator",
-                  link: "/services/budget-calculator",
-                },
-                {
-                  name: "About Us",
-                  link: "/about",
-                },
-                {
-                  name: "Contact",
-                  link: "/contact",
-                },
-              ].map((link) => (
-                <Link key={link.name} href={link.link}>
+              {footer_resources.map((link) => (
+                <CmsLink section="section-784ee3257dd1" key={link.name} href={link.link}>
                   <li className="hover:text-white transition-colors cursor-pointer flex items-center gap-2 group font-medium">
                     <span className="w-1 h-1 bg-zinc-600 group-hover:bg-primary rounded-full"></span>
-                    {link.name}
+                    <CmsText section="section-784ee3257dd1" fallback={link.name} />
                   </li>
-                </Link>
+                </CmsLink>
               ))}
             </ul>
           </div>
 
           {/* Column 4: Contact */}
           <div className="flex flex-col gap-6">
-            <h4 data-heading-tone="light" className="text-sm font-bold uppercase tracking-widest text-white">
+            <h4 data-heading-tone="light" className="text-sm font-bold uppercase tracking-widest text-white"><CmsText section="section-784ee3257dd1" entryKey="heading-22302787c2fd" fallback={"Contact"} original={<>
               Contact
-            </h4>
+            </>} /></h4>
             <ul className="flex flex-col gap-4 text-sm font-medium text-zinc-400">
               <li className="flex items-start gap-3">
                 <FaPhoneAlt className="text-primary mt-1" />
@@ -242,17 +244,18 @@ const footerYT = getSocialLink("YouTube");
                 <HiMapPin className="text-lg text-primary mt-0.5 shrink-0" />
                 <p className="leading-relaxed">
                   {isLoading ? "..." : `${footerLocation}`}
+                  {contact?.openingHours && <span className="block mt-3 text-sm">{contact.openingHours}</span>}
                 </p>
               </li>
             </ul>
           </div>
           {/* Column 4: footer page */}
           <div className="flex flex-col gap-6">
-            <h4 data-heading-tone="light" className="text-sm font-bold uppercase tracking-widest text-white">
+            <h4 data-heading-tone="light" className="text-sm font-bold uppercase tracking-widest text-white"><CmsText section="section-784ee3257dd1" entryKey="heading-1a1b4c5699be" fallback={"Our Facebook page"} original={<>
               Our Facebook page
-            </h4>
+            </>} /></h4>
 
-            <Link
+            <CmsLink section="section-784ee3257dd1"
               href={footerFB}
               target="_blank"
               rel="noopener noreferrer"
@@ -260,12 +263,10 @@ const footerYT = getSocialLink("YouTube");
             >
               {isLoading ? (
                 <div className="absolute inset-0 flex items-center justify-center bg-white text-zinc-400 text-sm gap-2">
-                  <div className="w-4 h-4 border-2 border-zinc-300 border-t-primary rounded-full animate-spin"></div>
-                  loading page...
-                </div>
+                  <div className="w-4 h-4 border-2 border-zinc-300 border-t-primary rounded-full animate-spin"></div><CmsText section="section-784ee3257dd1" entryKey="text-4e761c6be47b" fallback={"loading page..."} /></div>
               ) : (
                 <>
-                  <Image
+                  <CmsImage section="section-784ee3257dd1"
                     src={logo}
                     alt="BE INTERIOR Facebook Page"
                     fill
@@ -282,37 +283,29 @@ const footerYT = getSocialLink("YouTube");
                     </div>
 
                     <div>
-                      <p className="text-white text-xl font-montagu font-bold tracking-wide">
-                        BE INTERIOR
-                      </p>
-                      <p className="text-zinc-300 text-xs tracking-wider uppercase mt-1">
-                        Join Our Community on Facebook →
-                      </p>
+                      <p className="text-white text-xl font-montagu font-bold tracking-wide"><CmsText section="section-784ee3257dd1" entryKey="text-18b2eac97caf" fallback={"BE INTERIOR"} /></p>
+                      <p className="text-zinc-300 text-xs tracking-wider uppercase mt-1"><CmsText section="section-784ee3257dd1" entryKey="text-6b9ccdfe1819" fallback={"Join Our Community on Facebook →"} /></p>
                     </div>
                   </div>
                 </>
               )}
-            </Link>
+            </CmsLink>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-500">
-          <p>© {new Date().getFullYear()} BE INTERIOR. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()}<CmsText section="section-784ee3257dd1" entryKey="text-4c384b9fdcb0" fallback={" BE INTERIOR. All Rights Reserved."} /></p>
           <div className="flex gap-8">
-            <Link
+            <CmsLink section="section-784ee3257dd1" entryKey="link-64f33c59cc80"
               href="/privacy-policy"
               className="hover:text-white transition-colors"
-            >
-              Privacy policy
-            </Link>
-            <Link href="/terms" className="hover:text-white transition-colors">
-              Terms of service
-            </Link>
+            ><CmsText section="section-784ee3257dd1" entryKey="text-f72389a2e333" fallback={"Privacy policy"} /></CmsLink>
+            <CmsLink section="section-784ee3257dd1" entryKey="link-541434030328" href="/terms" className="hover:text-white transition-colors"><CmsText section="section-784ee3257dd1" entryKey="text-df39f7a68427" fallback={"Terms of service"} /></CmsLink>
           </div>
         </div>
       </div>
-    </footer>
+    </footer></CmsSection>
   );
 };
 

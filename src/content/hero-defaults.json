@@ -1,0 +1,99 @@
+{
+  "section-d036fe38185d": [
+    {
+      "_key": "slide-0",
+      "_type": "heroSlide",
+      "enabled": true,
+      "title": "Redefine your space with modern minimalism",
+      "secondTitle": "",
+      "body": "Transform your home into a clutter-free sanctuary. Be Interior brings you sleek, functional designs with effortless execution.",
+      "buttonLabel": "Start your transformation",
+      "href": "/services/home-interior",
+      "action": "link",
+      "fallbackUrl": "/cms-assets/image-0bf1a3c1ff80.png",
+      "alt": "Redefine your space with modern minimalism"
+    },
+    {
+      "_key": "slide-1",
+      "_type": "heroSlide",
+      "enabled": true,
+      "title": "100% Yours.",
+      "secondTitle": "Crafting your dream home",
+      "body": "From modern kitchens to cozy bedrooms—we design and execute every corner just for you.",
+      "buttonLabel": "Explore home interior",
+      "href": "/services/home-interior",
+      "action": "link",
+      "fallbackUrl": "/cms-assets/image-37771806e377.png",
+      "alt": "100% Yours."
+    },
+    {
+      "_key": "slide-2",
+      "_type": "heroSlide",
+      "enabled": true,
+      "title": "Workspaces people love.",
+      "secondTitle": "",
+      "body": "Smart, ergonomic, and stunning interiors that your employees will genuinely enjoy walking into.",
+      "buttonLabel": "Get a free quote",
+      "href": "/services/budget-calculator",
+      "action": "link",
+      "fallbackUrl": "/cms-assets/image-59e3c4ff8748.png",
+      "alt": "Workspaces people love."
+    }
+  ],
+  "section-4d67118a0e1e": [
+    {
+      "_key": "slide-0",
+      "_type": "heroSlide",
+      "enabled": true,
+      "title": "The art of luxury living",
+      "secondTitle": "",
+      "body": "Bespoke interiors for your living, dining, bedroom, and kitchen spaces.",
+      "buttonLabel": "Chat with us",
+      "href": "",
+      "action": "whatsapp",
+      "fallbackUrl": "/cms-assets/image-088bb330e0e1.png",
+      "alt": "The art of luxury living"
+    },
+    {
+      "_key": "slide-1",
+      "_type": "heroSlide",
+      "enabled": true,
+      "title": "No hidden charges",
+      "secondTitle": "Plan your investment",
+      "body": "Discover the true value of your dream space with our smart estimation tool.",
+      "buttonLabel": "Get a free estimate",
+      "href": "/services/budget-calculator?type=home",
+      "action": "link",
+      "fallbackUrl": "/cms-assets/image-2aaf1622a8fa.png",
+      "alt": "No hidden charges"
+    }
+  ],
+  "section-ada934298a1e": [
+    {
+      "_key": "slide-0",
+      "_type": "heroSlide",
+      "enabled": true,
+      "title": "Stress-free",
+      "secondTitle": "",
+      "body": "Relocation to your new professional space",
+      "buttonLabel": "Talk to our designer",
+      "href": "",
+      "action": "whatsapp",
+      "fallbackUrl": "/cms-assets/image-816da0b666be.png",
+      "alt": "Stress-free"
+    },
+    {
+      "_key": "slide-1",
+      "_type": "heroSlide",
+      "enabled": true,
+      "title": "Get premium",
+      "secondTitle": "Office interior",
+      "body": "That your employees will love",
+      "buttonLabel": "Consult now",
+      "href": "/contact",
+      "action": "link",
+      "fallbackUrl": "/cms-assets/image-f0ac742705d9.png",
+      "alt": "Get premium"
+    }
+  ]
+}

@@ -1,10 +1,11 @@
 "use client";
+import { CmsText, useCmsList, CmsSection } from "@/components/cms/Editable";
 import React from "react";
 import { FiDollarSign, FiClock, FiShield, FiLayers, FiCheckCircle, FiHeart } from "react-icons/fi";
 
 const OfficeWork = () => {
 
-  const promiseData = [
+  const promiseData = useCmsList("section-03eac0d150b1", "promiseData", [
     {
       id: 1,
       title: "Best Price",
@@ -48,10 +49,10 @@ const OfficeWork = () => {
       desc: "Our dedicated support team is always ready to assist you post-occupancy for any maintenance or modifications.",
       icon: <FiHeart className="text-xl sm:text-2xl" />,
     },
-  ];
+  ]);
 
   return (
-    <div className="w-full bg-white py-24 px-4 sm:px-6 lg:px-8 font-poppins relative overflow-hidden">
+    <CmsSection section="section-03eac0d150b1"><div className="w-full bg-white py-24 px-4 sm:px-6 lg:px-8 font-poppins relative overflow-hidden">
 
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#365856]/5 rounded-full blur-3xl -mr-20 -mt-20" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl -ml-20 -mb-20" />
@@ -60,12 +61,10 @@ const OfficeWork = () => {
         
 
         <div className="text-center mb-20">
-          <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-black text-zinc-800 tracking-wide font-montagu uppercase">
+          <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-black text-zinc-800 tracking-wide font-montagu uppercase"><CmsText section="section-03eac0d150b1" entryKey="heading-610c9f5da9ad" fallback={"How BE Interior works"} original={<>
             How BE Interior <span className="text-inherit">works</span>
-          </h2>
-          <p className="text-zinc-500 mt-3 text-sm sm:text-base font-medium max-w-md mx-auto">
-            Combining efficiency, quality, and commitment through a seamless execution map.
-          </p>
+          </>} /></h2>
+          <p className="text-zinc-500 mt-3 text-sm sm:text-base font-medium max-w-md mx-auto"><CmsText section="section-03eac0d150b1" entryKey="text-971637a5abbf" fallback={"Combining efficiency, quality, and commitment through a seamless execution map."} /></p>
           <div className="w-20 h-1 bg-primary mx-auto mt-5 rounded-full" />
         </div>
 
@@ -92,11 +91,10 @@ const OfficeWork = () => {
                     <div className={`p-6 sm:p-8 bg-white rounded-3xl border border-zinc-100 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(54,88,86,0.06)] hover:-translate-y-1 transition-all duration-300 text-left
                       ${isEven ? "sm:text-left" : "sm:text-right"}
                     `}>
-                      <span className="text-xs font-bold text-zinc-400 tracking-widest uppercase block mb-1">
-                        Promise 0{item.id}
+                      <span className="text-xs font-bold text-zinc-400 tracking-widest uppercase block mb-1"><CmsText section="section-03eac0d150b1" entryKey="text-3128fd172c9c" fallback={"Promise 0"} />{item.id}
                       </span>
                       <h3 data-heading-tone="dark" className="text-lg sm:text-xl font-extrabold text-zinc-800 font-poppins">
-                        {item.title}{" "}
+                        <CmsText section="section-03eac0d150b1" fallback={item.title} />{" "}
                         <span className={item.isOrange ? "text-amber-600" : "text-inherit"}>
                           {item.highlight}
                         </span>
@@ -104,7 +102,7 @@ const OfficeWork = () => {
                       <p className={`text-zinc-500 text-xs sm:text-sm mt-3 leading-relaxed font-medium max-w-md
                         ${!isEven ? "sm:ml-auto" : ""}
                       `}>
-                        {item.desc}
+                        <CmsText section="section-03eac0d150b1" fallback={item.desc} />
                       </p>
                     </div>
                   </div>
@@ -129,7 +127,7 @@ const OfficeWork = () => {
         </div>
 
       </div>
-    </div>
+    </div></CmsSection>
   );
 };
 

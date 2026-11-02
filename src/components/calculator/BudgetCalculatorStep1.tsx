@@ -1,4 +1,6 @@
 "use client";
+import { CmsText, CmsInput, CmsImage, CmsSection } from "@/components/cms/Editable";
+import { useCms } from "@/components/cms/ContentProvider";
 import { leadErrorMessage } from "@/axios/axios";
 import Image from "next/image";
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
@@ -282,11 +284,13 @@ useEffect(() => {
     (pkg) => pkg.packagename === selectedPackage,
   );
 
+ const pricing = useCms().globals?.pricing;
+ const multiplier = (value: number | undefined, fallback: number) => typeof value === "number" && Number.isFinite(value) && value >= 0 && value <= 5 ? value : fallback;
  const officeScopeMultiplier =
   officeScope === "Interior Work Only"
-    ? 0.65
+    ? multiplier(pricing?.interiorMultiplier, 0.65)
     : officeScope === "Furniture Only"
-      ? 0.4
+      ? multiplier(pricing?.furnitureMultiplier, 0.4)
       : officeScope === "Complete Interior + Furniture"
         ? 1
         : 0;
@@ -580,17 +584,13 @@ const projectInfo =
   const renderProjectTypeSelector = () => (
   <div className="w-full max-w-4xl mx-auto">
     <div className="text-center mb-8">
-      <p className="text-sm font-semibold tracking-widest uppercase text-[#C87A31] mb-2">
-        Budget Calculator
-      </p>
+      <p className="text-sm font-semibold tracking-widest uppercase text-[#C87A31] mb-2"><CmsText section="section-0808fc405263" entryKey="text-64ea820397d4" fallback={"Budget Calculator"} /></p>
 
-      <h2 data-heading-tone="dark" className="text-2xl md:text-4xl font-bold text-[#111111]">
+      <h2 data-heading-tone="dark" className="text-2xl md:text-4xl font-bold text-[#111111]"><CmsText section="section-0808fc405263" entryKey="heading-39a445793291" fallback={"What would you like to design?"} original={<>
         What would you like to design?
-      </h2>
+      </>} /></h2>
 
-      <p className="text-zinc-500 mt-3">
-        Choose your project type to get a more relevant preliminary estimate.
-      </p>
+      <p className="text-zinc-500 mt-3"><CmsText section="section-0808fc405263" entryKey="text-01fc0e9c6757" fallback={"Choose your project type to get a more relevant preliminary estimate."} /></p>
     </div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -604,15 +604,13 @@ const projectInfo =
       >
         <div className="text-4xl mb-4">🏠</div>
 
-        <h3 data-heading-tone="dark" className="text-xl font-bold text-[#111111] mb-2">
+        <h3 data-heading-tone="dark" className="text-xl font-bold text-[#111111] mb-2"><CmsText section="section-0808fc405263" entryKey="heading-7bcae135ec81" fallback={"Home interior"} original={<>
           Home interior
-        </h3>
+        </>} /></h3>
 
-        <p className="text-sm text-zinc-500 leading-relaxed">
-          Estimate your flat interior based on size, BHK, rooms and package.
-        </p>
+        <p className="text-sm text-zinc-500 leading-relaxed"><CmsText section="section-0808fc405263" entryKey="text-1b28234f22f3" fallback={"Estimate your flat interior based on size, BHK, rooms and package."} /></p>
         <div className="mt-5 md:hidden flex items-center justify-between rounded-xl bg-[#C87A31] px-4 py-3 text-white font-semibold text-sm">
-        <span>Start home estimate</span>
+        <span><CmsText section="section-0808fc405263" entryKey="text-3c0c9164243f" fallback={"Start home estimate"} /></span>
         <span>→</span>
       </div>
       </button>
@@ -628,15 +626,13 @@ const projectInfo =
       >
         <div className="text-4xl mb-4">🏢</div>
 
-        <h3 data-heading-tone="dark" className="text-xl font-bold text-[#111111] mb-2">
+        <h3 data-heading-tone="dark" className="text-xl font-bold text-[#111111] mb-2"><CmsText section="section-0808fc405263" entryKey="heading-0dcbe35ae1f9" fallback={"Office interior"} original={<>
           Office interior
-        </h3>
+        </>} /></h3>
 
-        <p className="text-sm text-zinc-500 leading-relaxed">
-          Estimate your office interior based on area, employees, spaces and package.
-        </p>
+        <p className="text-sm text-zinc-500 leading-relaxed"><CmsText section="section-0808fc405263" entryKey="text-cfa8062dd57a" fallback={"Estimate your office interior based on area, employees, spaces and package."} /></p>
         <div className="mt-5 md:hidden flex items-center justify-between rounded-xl bg-[#C87A31] px-4 py-3 text-white font-semibold text-sm">
-        <span>Start office estimate</span>
+        <span><CmsText section="section-0808fc405263" entryKey="text-732aa6db93e6" fallback={"Start office estimate"} /></span>
         <span>→</span>
       </div>
       </button>
@@ -646,12 +642,10 @@ const projectInfo =
 const renderHomeStep1 = () => (
   <div className="w-full max-w-4xl mx-auto space-y-8">
     <div>
-      <label className="block text-sm font-semibold text-zinc-700 mb-2">
-        Flat size (sft)
-      </label>
+      <label className="block text-sm font-semibold text-zinc-700 mb-2"><CmsText section="section-0808fc405263" entryKey="text-8af4301472a5" fallback={"Flat size (sft)"} /></label>
 
       <div className="grid grid-cols-1 md:grid-cols-[1fr_220px] gap-3">
-        <input
+        <CmsInput section="section-0808fc405263"
                   aria-label="Enter exact flat size, e.g. 1450"
                   type="number"
           min="300"
@@ -685,9 +679,7 @@ const renderHomeStep1 = () => (
     </div>
 
     <div>
-      <label className="block text-sm font-semibold text-zinc-700 mb-2">
-        BHK type
-      </label>
+      <label className="block text-sm font-semibold text-zinc-700 mb-2"><CmsText section="section-0808fc405263" entryKey="text-66c8c8575808" fallback={"BHK type"} /></label>
 
       <select
         value={selectedBHK}
@@ -705,9 +697,7 @@ const renderHomeStep1 = () => (
     </div>
 
 <div>
-  <label className="block text-sm font-semibold text-zinc-700 mb-3">
-    Rooms to design
-  </label>
+  <label className="block text-sm font-semibold text-zinc-700 mb-3"><CmsText section="section-0808fc405263" entryKey="text-11202f4fd35f" fallback={"Rooms to design"} /></label>
 
  <div ref={roomDropdownRef} className="relative" onKeyDown={(event) => { if (event.key === "Escape") { setRoomDropdownOpen(false); roomDropdownRef.current?.querySelector("button")?.focus(); } }}>
     <button
@@ -782,11 +772,9 @@ const renderHomeStep1 = () => (
 const renderOfficeStep1 = () => (
   <div className="w-full max-w-4xl mx-auto space-y-8">
     <div>
-      <label className="block text-sm font-semibold text-zinc-700 mb-2">
-        Office size (sft)
-      </label>
+      <label className="block text-sm font-semibold text-zinc-700 mb-2"><CmsText section="section-0808fc405263" entryKey="text-bc0d233cd13c" fallback={"Office size (sft)"} /></label>
 
-      <input
+      <CmsInput section="section-0808fc405263"
                   aria-label="Enter office size, e.g. 2200"
                   type="number"
         min="200"
@@ -798,11 +786,9 @@ const renderOfficeStep1 = () => (
     </div>
 
     <div>
-      <label className="block text-sm font-semibold text-zinc-700 mb-2">
-        Number of employees
-      </label>
+      <label className="block text-sm font-semibold text-zinc-700 mb-2"><CmsText section="section-0808fc405263" entryKey="text-d4f9c079df2b" fallback={"Number of employees"} /></label>
 
-      <input
+      <CmsInput section="section-0808fc405263"
                   aria-label="Enter employee count, e.g. 30"
                   type="number"
         min="1"
@@ -814,9 +800,7 @@ const renderOfficeStep1 = () => (
     </div>
 
     <div>
-      <label className="block text-sm font-semibold text-zinc-700 mb-3">
-        Spaces required
-      </label>
+      <label className="block text-sm font-semibold text-zinc-700 mb-3"><CmsText section="section-0808fc405263" entryKey="text-2a803dc9ff84" fallback={"Spaces required"} /></label>
 
       <div ref={officeSpaceDropdownRef} className="relative" onKeyDown={(event) => { if (event.key === "Escape") { setOfficeSpaceDropdownOpen(false); officeSpaceDropdownRef.current?.querySelector("button")?.focus(); } }}>
         <button
@@ -887,12 +871,10 @@ const renderOfficeStep1 = () => (
     </div>
 
     <div className="rounded-2xl bg-white p-4 border border-zinc-200">
-      <label className="block text-sm font-semibold text-zinc-700 mb-2">
-        Add custom space
-      </label>
+      <label className="block text-sm font-semibold text-zinc-700 mb-2"><CmsText section="section-0808fc405263" entryKey="text-f2c5afd90dc2" fallback={"Add custom space"} /></label>
 
       <div className="flex flex-col sm:flex-row gap-3">
-        <input
+        <CmsInput section="section-0808fc405263"
                   aria-label="e.g. Training Room"
                   type="text"
           placeholder="e.g. Training Room"
@@ -916,9 +898,7 @@ const renderOfficeStep1 = () => (
             setCustomOfficeSpace("");
           }}
           className="px-5 py-3 rounded-xl bg-[#111111] hover:bg-[#C87A31] text-white font-semibold transition-colors"
-        >
-          Add
-        </button>
+        ><CmsText section="section-0808fc405263" entryKey="text-66f0490ec217" fallback={"Add"} /></button>
       </div>
     </div>
 
@@ -965,13 +945,13 @@ const renderOfficeStep1 = () => (
                   <span
                     className={`font-semibold md:text-lg ${isSelected ? "text-[#111111]" : "text-gray-700"}`}
                   >
-                    {size.label}
+                    <CmsText section="section-0808fc405263" fallback={size.label} />
                   </span>
                 </div>
                 {isSelected && selectedBHK && !isOpen && (
                   <div className="ml-8 mt-1 flex items-center gap-1.5 text-xs font-medium text-[#C87A31]">
                     <FiCheckCircle />
-                    <span>{selectedBHK.toUpperCase()} Selected</span>
+                    <span>{selectedBHK.toUpperCase()}<CmsText section="section-0808fc405263" entryKey="text-d03c2e854073" fallback={" Selected"} /></span>
                   </div>
                 )}
               </div>
@@ -1004,7 +984,7 @@ const renderOfficeStep1 = () => (
                     <span
                       className={`text-sm ${selectedBHK === bhk.id ? "text-[#C87A31] font-semibold" : "text-white/90"}`}
                     >
-                      {bhk.label}
+                      <CmsText section="section-0808fc405263" fallback={bhk.label} />
                     </span>
                   </label>
                 ))}
@@ -1162,7 +1142,7 @@ const renderOfficeStep1 = () => (
 
                   <div className="z-10">
                     <h3 data-heading-tone="light" className="text-xl sm:text-2xl font-black tracking-wide font-montagu mb-1">
-                      {pkg.name}
+                      <CmsText section="section-0808fc405263" fallback={pkg.name} />
                     </h3>
                   </div>
 
@@ -1173,7 +1153,7 @@ const renderOfficeStep1 = () => (
 
                 <div className="px-6 -mt-8 relative z-20">
                   <div className="w-full aspect-[16/8] relative rounded-2xl overflow-hidden bg-zinc-100 shadow-md border-2 border-white">
-                    <Image
+                    <CmsImage section="section-0808fc405263"
                       src={pkg.img || "/img.jpg"}
                       alt={`${pkg.name} package`}
                       fill
@@ -1187,7 +1167,7 @@ const renderOfficeStep1 = () => (
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   {pkg.desc && (
                     <p className="text-xs font-semibold text-zinc-500 mb-4 text-center">
-                      {pkg.desc}
+                      <CmsText section="section-0808fc405263" fallback={pkg.desc} />
                     </p>
                   )}
                   <ul className="space-y-3.5 mb-6">
@@ -1199,7 +1179,7 @@ const renderOfficeStep1 = () => (
                         <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-amber-50 border border-amber-300 flex items-center justify-center text-[10px] text-amber-600 font-bold">
                           ✓
                         </span>
-                        <span className="leading-tight">{feature}</span>
+                        <span className="leading-tight"><CmsText section="section-0808fc405263" fallback={feature} /></span>
                       </li>
                     ))}
                   </ul>
@@ -1207,7 +1187,7 @@ const renderOfficeStep1 = () => (
                   <div
                     className={`mt-auto w-full text-center py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${isSelected ? "bg-[#C87A31] text-white shadow-md" : "bg-zinc-100 text-zinc-500 group-hover:bg-zinc-200"}`}
                   >
-                    {isSelected ? "Selected" : "Select Package"}
+                    <CmsText section="section-0808fc405263" fallback={isSelected ? "Selected" : "Select Package"} />
                   </div>
                 </div>
               </button>
@@ -1228,26 +1208,20 @@ const officePackages = [...(officePackageData?.result || [])].sort(
 
   if (officePackageLoading) {
     return (
-      <div className="text-center py-12 text-zinc-500">
-        Loading office packages...
-      </div>
+      <div className="text-center py-12 text-zinc-500"><CmsText section="section-0808fc405263" entryKey="text-44c6fcdeb6a8" fallback={"Loading office packages..."} /></div>
     );
   }
 
   if (officePackageError) {
     return (
-      <div className="text-center py-12 text-red-500">
-        Failed to load office packages.
-      </div>
+      <div className="text-center py-12 text-red-500"><CmsText section="section-0808fc405263" entryKey="text-5e18ed608187" fallback={"Failed to load office packages."} /></div>
     );
   }
 
   return (
     <div className="w-full py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto mb-6">
-  <p className="text-sm font-semibold text-zinc-700 mb-3">
-    What do you need?
-  </p>
+  <p className="text-sm font-semibold text-zinc-700 mb-3"><CmsText section="section-0808fc405263" entryKey="text-75c13fd32be9" fallback={"What do you need?"} /></p>
 
   <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
     {[
@@ -1291,9 +1265,7 @@ const officePackages = [...(officePackageData?.result || [])].sort(
             >
               <div className="flex items-start justify-between gap-3 mb-4">
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-[#C87A31] font-semibold">
-                    Office package
-                  </p>
+                  <p className="text-xs uppercase tracking-widest text-[#C87A31] font-semibold"><CmsText section="section-0808fc405263" entryKey="text-48eb2faff774" fallback={"Office package"} /></p>
 
                   <h3 data-heading-tone="dark" className="text-xl font-bold text-[#111111] capitalize mt-1">
                     {pkg.packagename}
@@ -1311,7 +1283,7 @@ const officePackages = [...(officePackageData?.result || [])].sort(
 
               {pkg.description && (
                 <p className="text-sm text-zinc-500 mb-4 leading-relaxed">
-                  {pkg.description}
+                  <CmsText section="section-0808fc405263" fallback={pkg.description} />
                 </p>
               )}
 
@@ -1323,7 +1295,7 @@ const officePackages = [...(officePackageData?.result || [])].sort(
                       className="flex items-start gap-2 text-sm text-zinc-600"
                     >
                       <span className="text-[#C87A31]">✓</span>
-                      <span>{item}</span>
+                      <span><CmsText section="section-0808fc405263" fallback={item} /></span>
                     </li>
                   ))}
                 </ul>
@@ -1336,7 +1308,7 @@ const officePackages = [...(officePackageData?.result || [])].sort(
                     : "bg-zinc-100 text-zinc-500"
                 }`}
               >
-                {isSelected ? "Selected" : "Select Package"}
+                <CmsText section="section-0808fc405263" fallback={isSelected ? "Selected" : "Select Package"} />
               </div>
             </button>
           );
@@ -1352,7 +1324,7 @@ const officePackages = [...(officePackageData?.result || [])].sort(
         className={`flex flex-col md:flex-row gap-8 items-center justify-center max-w-4xl mx-auto bg-white p-8 rounded-3xl shadow-sm`}
       >
         <div className="w-full relative md:w-1/2 flex items-center justify-center bg-[#FAF5E9] rounded-2xl p-8 min-h-[300px]">
-          <Image
+          <CmsImage section="section-0808fc405263"
             src={officePremium}
             alt="img"
             fill
@@ -1365,27 +1337,23 @@ const officePackages = [...(officePackageData?.result || [])].sort(
           onSubmit={handleSubmit}
         >
           {submitError && <p role="alert" className="p-4 rounded-xl bg-red-50 text-red-800">{submitError}</p>}
-          <p className="text-center text-gray-500 font-medium mb-2">
-            Your free quote is just a few clicks away!
-          </p>
+          <p className="text-center text-gray-500 font-medium mb-2"><CmsText section="section-0808fc405263" entryKey="text-7d1e1b37605b" fallback={"Your free quote is just a few clicks away!"} /></p>
           <div className="rounded-2xl bg-[#FAF5E9] border border-[#C87A31]/20 p-4 mb-2">
-            <p className="text-xs uppercase tracking-widest text-[#C87A31] font-semibold mb-2">
-              Your Selection
-            </p>
+            <p className="text-xs uppercase tracking-widest text-[#C87A31] font-semibold mb-2"><CmsText section="section-0808fc405263" entryKey="text-ce74dcf4f192" fallback={"Your Selection"} /></p>
 
            <p className="text-sm md:text-base font-semibold text-[#111111] leading-relaxed">
             {projectType === "home" ? (
               <>
-                {selectedSize} sft · {selectedBHK.toUpperCase()} ·{" "}
-                {Object.values(selectedRooms).reduce((sum, qty) => sum + qty, 0)} Rooms ·{" "}
+                {selectedSize}<CmsText section="section-0808fc405263" entryKey="text-c0d60051775c" fallback={" sft · "} />{selectedBHK.toUpperCase()} ·{" "}
+                {Object.values(selectedRooms).reduce((sum, qty) => sum + qty, 0)}<CmsText section="section-0808fc405263" entryKey="text-4a9ef7a13564" fallback={" Rooms ·"} />{" "}
                 {selectedPackage
                   ? selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)
                   : ""}
               </>
             ) : (
               <>
-                {officeArea} sft · {employeeCount} Employees ·{" "}
-                {Object.keys(selectedOfficeSpaces).length} Space Types ·{" "}
+                {officeArea}<CmsText section="section-0808fc405263" entryKey="text-32540af056c7" fallback={" sft · "} />{employeeCount}<CmsText section="section-0808fc405263" entryKey="text-db93df1687ca" fallback={" Employees ·"} />{" "}
+                {Object.keys(selectedOfficeSpaces).length}<CmsText section="section-0808fc405263" entryKey="text-6339a52206c3" fallback={" Space Types ·"} />{" "}
                 {officeScope} ·{" "}
                 {selectedPackage
                   ? selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)
@@ -1397,8 +1365,7 @@ const officePackages = [...(officePackageData?.result || [])].sort(
           </div>
           {projectType === "office" && (
           <div className="flex flex-col w-full">
-            <label className="text-sm font-semibold text-zinc-700 mb-2">
-              Target budget <span className="text-zinc-400 font-normal">(optional)</span>
+            <label className="text-sm font-semibold text-zinc-700 mb-2"><CmsText section="section-0808fc405263" entryKey="text-1cf3e666c2d6" fallback={"Target budget "} /><span className="text-zinc-400 font-normal"><CmsText section="section-0808fc405263" entryKey="text-e7d96c57eb21" fallback={"(optional)"} /></span>
             </label>
 
             <select
@@ -1447,23 +1414,18 @@ const officePackages = [...(officePackageData?.result || [])].sort(
               type="button"
               onClick={handlePrev}
               className="w-full bg-white border-2 border-[#111111]/10 hover:border-[#C87A31] text-[#111111] font-bold py-4 rounded-xl transition-all duration-300"
-            >
-              ← Back
-            </button>
+            ><CmsText section="section-0808fc405263" entryKey="text-d457c1a93212" fallback={"← Back"} /></button>
 
             <button
               type="submit"
               disabled={submitting}
               className="w-full bg-[#111111] hover:bg-[#C87A31] text-white font-bold py-4 rounded-xl transition-colors duration-300 shadow-md"
             >
-              {submitting ? "Sending…" : "Get My Estimate →"}
+              <CmsText section="section-0808fc405263" fallback={submitting ? "Sending…" : "Get My Estimate →"} />
             </button>
           </div>
 
-          <p className="text-[10px] text-gray-400 text-center mt-2">
-            By submitting this form, you agree to the Privacy Policy & Terms and
-            conditions.
-          </p>
+          <p className="text-[10px] text-gray-400 text-center mt-2"><CmsText section="section-0808fc405263" entryKey="text-46f2efa63cde" fallback={"By submitting this form, you agree to the Privacy Policy & Terms and conditions."} /></p>
         </form>
       </div>
     );
@@ -1523,9 +1485,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
   return (
     <div className="w-full max-w-4xl mx-auto bg-white rounded-2xl border border-zinc-200 shadow-sm p-6 md:p-8">
       <div className="mb-6">
-        <p className="text-sm font-semibold uppercase tracking-widest text-[#C87A31] mb-2">
-          Preliminary Office Estimate
-        </p>
+        <p className="text-sm font-semibold uppercase tracking-widest text-[#C87A31] mb-2"><CmsText section="section-0808fc405263" entryKey="text-1aa36d14815c" fallback={"Preliminary Office Estimate"} /></p>
 
         <h2 data-heading-tone="dark" className="text-2xl md:text-3xl font-bold text-[#111111]">
           {packageName}
@@ -1533,14 +1493,11 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
         <div className="flex flex-wrap gap-2 mt-4 mb-4">
 
 
-          <span className="inline-flex items-center rounded-full bg-[#FAF5E9] px-3 py-1.5 text-xs font-semibold text-[#111111]">
-            Scope: {officeScope}
+          <span className="inline-flex items-center rounded-full bg-[#FAF5E9] px-3 py-1.5 text-xs font-semibold text-[#111111]"><CmsText section="section-0808fc405263" entryKey="text-cd205cdf27a3" fallback={"Scope: "} />{officeScope}
           </span>
 
         </div>
-        <p className="text-sm text-zinc-500 mb-1">
-          Scope-adjusted preliminary estimate
-        </p>
+        <p className="text-sm text-zinc-500 mb-1"><CmsText section="section-0808fc405263" entryKey="text-1d944c6f4250" fallback={"Scope-adjusted preliminary estimate"} /></p>
         <p className="text-3xl md:text-4xl font-bold text-[#C87A31] mt-3">
           {officeEstimatedCost > 0
             ? `৳${officeEstimatedCost.toLocaleString("en-IN")}`
@@ -1550,36 +1507,27 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <div className="bg-[#FAF5E9] rounded-xl p-4">
-          <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">
-            Office Area
-          </p>
+          <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1"><CmsText section="section-0808fc405263" entryKey="text-cc546b267537" fallback={"Office Area"} /></p>
           <p className="font-semibold text-[#111111]">
-            {officeArea} sft
-          </p>
+            {officeArea}<CmsText section="section-0808fc405263" entryKey="text-7edc96ad91d3" fallback={" sft"} /></p>
         </div>
 
         <div className="bg-[#FAF5E9] rounded-xl p-4">
-          <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">
-            Employees
-          </p>
+          <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1"><CmsText section="section-0808fc405263" entryKey="text-47680af650d1" fallback={"Employees"} /></p>
           <p className="font-semibold text-[#111111]">
             {employeeCount}
           </p>
         </div>
 
         <div className="bg-[#FAF5E9] rounded-xl p-4">
-          <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">
-            Scope
-          </p>
+          <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1"><CmsText section="section-0808fc405263" entryKey="text-5cf22f02be7d" fallback={"Scope"} /></p>
           <p className="font-semibold text-[#111111]">
             {officeScope}
           </p>
         </div>
 
         <div className="bg-[#FAF5E9] rounded-xl p-4">
-          <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1">
-            Target Budget
-          </p>
+          <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1"><CmsText section="section-0808fc405263" entryKey="text-4b069735fe3c" fallback={"Target Budget"} /></p>
           <p className="font-semibold text-[#111111]">
             {targetBudget || "Not decided yet"}
           </p>
@@ -1594,9 +1542,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
       </div>
 
       <div className="bg-[#FAF5E9] rounded-xl p-4 mb-6">
-        <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">
-          Selected Spaces
-        </p>
+        <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2"><CmsText section="section-0808fc405263" entryKey="text-4d2fa24577e0" fallback={"Selected Spaces"} /></p>
 
         <p className="text-sm text-[#111111] leading-relaxed">
           {spacesSummary || "No spaces selected"}
@@ -1604,11 +1550,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
       </div>
 
       <div className="border-t border-zinc-200 pt-5">
-        <p className="text-sm text-zinc-500 leading-relaxed">
-          This is a preliminary planning estimate. Final quotation may vary
-          based on final measurements, materials, furniture, MEP requirements,
-          site conditions and approved scope of work.
-        </p>
+        <p className="text-sm text-zinc-500 leading-relaxed"><CmsText section="section-0808fc405263" entryKey="text-f55a38f19700" fallback={"This is a preliminary planning estimate. Final quotation may vary based on final measurements, materials, furniture, MEP requirements, site conditions and approved scope of work."} /></p>
       </div>
     </div>
   );
@@ -1632,22 +1574,20 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
                                 {/* Room Header */}
                                 <div className="border-b border-[#111111]/10 pb-4 mb-6">
                                   <h3 data-heading-tone="dark" className="text-2xl md:text-3xl font-montagu font-bold text-[#111111] mb-1">
-                                    {items.name}{" "}
+                                    <CmsText section="section-0808fc405263" fallback={items.name} />{" "}
                                     <span>
                                       <span>{`(${selectedRooms[items.name]})`}</span>
                                     </span>
                                   </h3>
                                   <p className="text-sm text-zinc-500 italic">
-                                    &quot;{items.slogan}&quot;
+                                    &quot;<CmsText section="section-0808fc405263" fallback={items.slogan} />&quot;
                                   </p>
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                   {/* Furnitures Section */}
                                   <div>
-                                    <p className="text-sm font-bold uppercase tracking-widest text-primary mb-4 border-b border-primary/20 pb-2 inline-block">
-                                      Furnitures
-                                    </p>
+                                    <p className="text-sm font-bold uppercase tracking-widest text-primary mb-4 border-b border-primary/20 pb-2 inline-block"><CmsText section="section-0808fc405263" entryKey="text-ef8c6ef8160d" fallback={"Furnitures"} /></p>
                                     <ul className="space-y-2">
                                       {items.furniture?.map((item, id) => (
                                         <li
@@ -1656,7 +1596,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
                                         >
                                           <span className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0"></span>
                                           <span className="leading-relaxed">
-                                            {item}
+                                            <CmsText section="section-0808fc405263" fallback={item} />
                                           </span>
                                         </li>
                                       ))}
@@ -1665,9 +1605,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
 
                                   {/* Accessories Section */}
                                   <div>
-                                    <p className="text-sm font-bold uppercase tracking-widest text-[#111111] mb-4 border-b border-[#111111]/20 pb-2 inline-block">
-                                      Accessories
-                                    </p>
+                                    <p className="text-sm font-bold uppercase tracking-widest text-[#111111] mb-4 border-b border-[#111111]/20 pb-2 inline-block"><CmsText section="section-0808fc405263" entryKey="text-d03d421dbb73" fallback={"Accessories"} /></p>
                                     <p className="text-sm text-zinc-700 leading-relaxed">
                                       {items.accessories?.join(", ")}
                                     </p>
@@ -1698,22 +1636,20 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
                                 {/* Room Header */}
                                 <div className="border-b border-[#111111]/10 pb-4 mb-6">
                                   <h3 data-heading-tone="dark" className="text-2xl md:text-3xl font-montagu font-bold text-[#111111] mb-1">
-                                    {items.name}{" "}
+                                    <CmsText section="section-0808fc405263" fallback={items.name} />{" "}
                                     <span>
                                       <span>{`(${selectedRooms[items.name]})`}</span>
                                     </span>
                                   </h3>
                                   <p className="text-sm text-zinc-500 italic">
-                                    &quot;{items.slogan}&quot;
+                                    &quot;<CmsText section="section-0808fc405263" fallback={items.slogan} />&quot;
                                   </p>
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                   {/* Furnitures Section */}
                                   <div>
-                                    <p className="text-sm font-bold uppercase tracking-widest text-primary mb-4 border-b border-primary/20 pb-2 inline-block">
-                                      Furnitures
-                                    </p>
+                                    <p className="text-sm font-bold uppercase tracking-widest text-primary mb-4 border-b border-primary/20 pb-2 inline-block"><CmsText section="section-0808fc405263" entryKey="text-56c82b9c8739" fallback={"Furnitures"} /></p>
                                     <ul className="space-y-2">
                                       {items.furniture.map((item, id) => (
                                         <li
@@ -1722,7 +1658,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
                                         >
                                           <span className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0"></span>
                                           <span className="leading-relaxed">
-                                            {item}
+                                            <CmsText section="section-0808fc405263" fallback={item} />
                                           </span>
                                         </li>
                                       ))}
@@ -1731,9 +1667,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
 
                                   {/* Accessories Section */}
                                   <div>
-                                    <p className="text-sm font-bold uppercase tracking-widest text-[#111111] mb-4 border-b border-[#111111]/20 pb-2 inline-block">
-                                      Accessories
-                                    </p>
+                                    <p className="text-sm font-bold uppercase tracking-widest text-[#111111] mb-4 border-b border-[#111111]/20 pb-2 inline-block"><CmsText section="section-0808fc405263" entryKey="text-de063f3bc131" fallback={"Accessories"} /></p>
                                     <p className="text-sm text-zinc-700 leading-relaxed">
                                       {items.accessories?.join(", ")}
                                     </p>
@@ -1764,22 +1698,20 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
                                 {/* Room Header */}
                                 <div className="border-b border-[#111111]/10 pb-4 mb-6">
                                   <h3 data-heading-tone="dark" className="text-2xl md:text-3xl font-montagu font-bold text-[#111111] mb-1">
-                                    {items.name}{" "}
+                                    <CmsText section="section-0808fc405263" fallback={items.name} />{" "}
                                     <span>
                                       <span>{`(${selectedRooms[items.name]})`}</span>
                                     </span>
                                   </h3>
                                   <p className="text-sm text-zinc-500 italic">
-                                    &quot;{items.slogan}&quot;
+                                    &quot;<CmsText section="section-0808fc405263" fallback={items.slogan} />&quot;
                                   </p>
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                   {/* Furnitures Section */}
                                   <div>
-                                    <p className="text-sm font-bold uppercase tracking-widest text-primary mb-4 border-b border-primary/20 pb-2 inline-block">
-                                      Furnitures
-                                    </p>
+                                    <p className="text-sm font-bold uppercase tracking-widest text-primary mb-4 border-b border-primary/20 pb-2 inline-block"><CmsText section="section-0808fc405263" entryKey="text-4477a66531a0" fallback={"Furnitures"} /></p>
                                     <ul className="space-y-2">
                                       {items?.furniture.map((item, id) => (
                                         <li
@@ -1788,7 +1720,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
                                         >
                                           <span className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0"></span>
                                           <span className="leading-relaxed">
-                                            {item}
+                                            <CmsText section="section-0808fc405263" fallback={item} />
                                           </span>
                                         </li>
                                       ))}
@@ -1797,9 +1729,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
 
                                   {/* Accessories Section */}
                                   <div>
-                                    <p className="text-sm font-bold uppercase tracking-widest text-[#111111] mb-4 border-b border-[#111111]/20 pb-2 inline-block">
-                                      Accessories
-                                    </p>
+                                    <p className="text-sm font-bold uppercase tracking-widest text-[#111111] mb-4 border-b border-[#111111]/20 pb-2 inline-block"><CmsText section="section-0808fc405263" entryKey="text-f7e74ac9aa9e" fallback={"Accessories"} /></p>
                                     <p className="text-sm text-zinc-700 leading-relaxed">
                                       {items.accessories?.join(", ")}
                                     </p>
@@ -1818,30 +1748,21 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
           <div className="w-full max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-zinc-200 text-center my-8">
             <div className="max-w-2xl mx-auto space-y-4">
               {/* Badge */}
-              <span className="px-4 py-1.5 bg-[#FAF5E9] text-primary text-xs font-bold uppercase tracking-widest rounded-full border border-primary/10 inline-block">
-                Tailored For You
-              </span>
+              <span className="px-4 py-1.5 bg-[#FAF5E9] text-primary text-xs font-bold uppercase tracking-widest rounded-full border border-primary/10 inline-block"><CmsText section="section-0808fc405263" entryKey="text-328eb56359df" fallback={"Tailored For You"} /></span>
 
               {/* Title */}
-              <h2 data-heading-tone="dark" className="text-2xl md:text-3xl font-montagu font-bold text-[#111111]">
+              <h2 data-heading-tone="dark" className="text-2xl md:text-3xl font-montagu font-bold text-[#111111]"><CmsText section="section-0808fc405263" entryKey="heading-fab4f6970c69" fallback={"Custom design package"} original={<>
                 Custom design package
-              </h2>
+              </>} /></h2>
 
               {/* Description */}
-              <p className="text-zinc-600 text-sm md:text-base leading-relaxed">
-                This package is crafted completely from scratch based on your
-                budget, specific requirements, and unique aesthetic choices.
-                Tell us what you need, and our experts will tailor the ideal
-                solution to transform your space.
-              </p>
+              <p className="text-zinc-600 text-sm md:text-base leading-relaxed"><CmsText section="section-0808fc405263" entryKey="text-e33c4e849634" fallback={"This package is crafted completely from scratch based on your budget, specific requirements, and unique aesthetic choices. Tell us what you need, and our experts will tailor the ideal solution to transform your space."} /></p>
 
               {/* Divider */}
               <div className="h-px w-16 bg-[#c35e00]/30 mx-auto my-6" />
 
               {/* Slogan / Note */}
-              <p className="text-base font-medium text-[#111111] italic font-serif">
-                &quot;Depends entirely on your requirements and budget range.&quot;
-              </p>
+              <p className="text-base font-medium text-[#111111] italic font-serif"><CmsText section="section-0808fc405263" entryKey="text-38a67ace100e" fallback={"\"Depends entirely on your requirements and budget range.\""} /></p>
             </div>
           </div>
         )}
@@ -1920,35 +1841,32 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-ivory flex flex-col items-center justify-center font-sans">
+      <CmsSection section="section-0808fc405263"><div className="min-h-screen bg-ivory flex flex-col items-center justify-center font-sans">
         <div className="w-12 h-12 border-4 border-zinc-300 border-t-primary rounded-full animate-spin mb-4"></div>
-        <p className="text-primary font-medium animate-pulse">
-          Loading Calculator...
-        </p>
-      </div>
+        <p className="text-primary font-medium animate-pulse"><CmsText section="section-0808fc405263" entryKey="text-18380918692c" fallback={"Loading Calculator..."} /></p>
+      </div></CmsSection>
     );
   }
 
    if (isError) {
     return (
-      <div className="min-h-screen bg-[#F0F4EC] flex items-center justify-center font-sans">
+      <CmsSection section="section-0808fc405263"><div className="min-h-screen bg-[#F0F4EC] flex items-center justify-center font-sans">
         <div className="bg-red-50 border border-red-100 p-8 rounded-2xl max-w-md text-center shadow-sm">
-          <p className="text-red-500 font-medium">
-            Failed to load calculator: {error?.message}
+          <p className="text-red-500 font-medium"><CmsText section="section-0808fc405263" entryKey="text-475353814934" fallback={"Failed to load calculator: "} />{error?.message}
           </p>
         </div>
-      </div>
+      </div></CmsSection>
     );
   }
 if (!projectType) {
   return (
-    <div className="min-h-screen bg-linear-to-b from-[#FFFFF0] to-[#EFEADA] px-4 py-12">
+    <CmsSection section="section-0808fc405263"><div className="min-h-screen bg-linear-to-b from-[#FFFFF0] to-[#EFEADA] px-4 py-12">
       {renderProjectTypeSelector()}
-    </div>
+    </div></CmsSection>
   );
 }
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 md:p-6 bg-ivory font-poppins">
+    <CmsSection section="section-0808fc405263"><div className="min-h-screen flex items-center justify-center p-4 md:p-6 bg-ivory font-poppins">
       <div className="relative w-full h-auto min-h-150 max-w-6xl bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-[#111111]/10 flex flex-col">
         {/* Error Modal */}
         {errorModal && (
@@ -1961,16 +1879,14 @@ if (!projectType) {
         )}
 
         <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-4 bg-white border-b border-zinc-200">
-          <span className="font-semibold text-zinc-800">{projectType === "home" ? "Home Interior" : "Office Interior"}</span>
-          <button type="button" disabled={submitting} onClick={() => { resetCalculator(); setProjectType(""); }} className="text-sm font-semibold text-[#a34e00] underline underline-offset-4 rounded focus-visible:outline-2 focus-visible:outline-offset-4 disabled:opacity-50">
-            Start over / change project type
-          </button>
+          <span className="font-semibold text-zinc-800"><CmsText section="section-0808fc405263" fallback={projectType === "home" ? "Home Interior" : "Office Interior"} /></span>
+          <button type="button" disabled={submitting} onClick={() => { resetCalculator(); setProjectType(""); }} className="text-sm font-semibold text-[#a34e00] underline underline-offset-4 rounded focus-visible:outline-2 focus-visible:outline-offset-4 disabled:opacity-50"><CmsText section="section-0808fc405263" entryKey="text-628dc6d51064" fallback={"Start over / change project type"} /></button>
         </div>
         {/* Dynamic Header Section */}
         <div className="text-center py-10 relative overflow-hidden flex flex-col justify-center min-h-[180px] bg-[#111111]">
           {currentStep === 1 && (
             <>
-              <Image
+              <CmsImage section="section-0808fc405263"
                 src={slideOne}
                 alt="Background"
                 fill
@@ -1981,43 +1897,39 @@ if (!projectType) {
           )}
 
           <div className="relative z-10 px-4 w-full border ">
-            <p className="text-[#C87A31] font-semibold text-sm md:text-base mb-3 tracking-widest uppercase">
-              Step: {currentStep}/4
-            </p>
+            <p className="text-[#C87A31] font-semibold text-sm md:text-base mb-3 tracking-widest uppercase"><CmsText section="section-0808fc405263" entryKey="text-9e335bc7c74f" fallback={"Step: "} />{currentStep}<CmsText section="section-0808fc405263" entryKey="text-4371c8063a57" fallback={"/4"} /></p>
 
           {currentStep === 1 && (
-              <h2 data-heading-tone="light" className="text-[#FFFFF0] text-2xl md:text-4xl font-bold tracking-wide">
-                Tell us about your{" "}
+              <h2 data-heading-tone="light" className="text-[#FFFFF0] text-2xl md:text-4xl font-bold tracking-wide"><CmsText section="section-0808fc405263" entryKey="text-f8a3d61b2313" fallback={"Tell us about your"} />{" "}
                 <span className="text-[#C87A31]">
-                  {projectType === "office" ? "Office" : "Home"}
+                  <CmsText section="section-0808fc405263" fallback={projectType === "office" ? "Office" : "Home"} />
                 </span>
               </h2>
             )}
             {currentStep === 2 && (
-              <h2 data-heading-tone="light" className="text-[#FFFFF0] text-2xl md:text-4xl font-bold tracking-wide">
+              <h2 data-heading-tone="light" className="text-[#FFFFF0] text-2xl md:text-4xl font-bold tracking-wide"><CmsText section="section-0808fc405263" entryKey="heading-22589e5b52e7" fallback={"Pick the package that suits you best"} original={<>
                 Pick the <span className="text-[#C87A31]">package</span> that
                 suits you best
-              </h2>
+              </>} /></h2>
             )}
             {currentStep === 3 && (
-              <h2 data-heading-tone="light" className="text-[#FFFFF0] text-2xl md:text-3xl font-bold tracking-wide">
+              <h2 data-heading-tone="light" className="text-[#FFFFF0] text-2xl md:text-3xl font-bold tracking-wide"><CmsText section="section-0808fc405263" entryKey="heading-6f8ffac59954" fallback={"We are excited to be part of your dream interior journey!"} original={<>
                 <span className="text-white">We are excited</span> to be part of
                 your dream interior journey!
-              </h2>
+              </>} /></h2>
             )}
            {currentStep === 4 && (
                 <div className="w-full max-w-3xl mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-zinc-200 mt-8">
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                     <div>
                       <p className="text-sm font-medium text-zinc-500 mb-1">
-                        {projectType === "office"
+                        <CmsText section="section-0808fc405263" fallback={projectType === "office"
                           ? "Your Office Estimate Is Ready"
-                          : "Your Estimate Is Ready"}
+                          : "Your Estimate Is Ready"} />
                       </p>
 
                       <h2 data-heading-tone="dark" className="text-2xl font-semibold text-zinc-800 mb-2 capitalize">
-                        {selectedPackage} package
-                      </h2>
+                        {selectedPackage}<CmsText section="section-0808fc405263" entryKey="text-af7a9fc593fc" fallback={" package"} /></h2>
 
                       <p className="text-3xl font-bold text-primary">
                         {projectType === "office"
@@ -2034,9 +1946,9 @@ if (!projectType) {
                       </p>
 
                       <p className="text-sm text-zinc-500 mt-2">
-                        {projectType === "office"
+                        <CmsText section="section-0808fc405263" fallback={projectType === "office"
                           ? "Preliminary office interior planning estimate"
-                          : "Preliminary estimate based on your selected rooms and package. Final quotation may vary based on measurements, materials, design details and site conditions."}
+                          : "Preliminary estimate based on your selected rooms and package. Final quotation may vary based on measurements, materials, design details and site conditions."} />
                       </p>
                     </div>
 
@@ -2044,17 +1956,13 @@ if (!projectType) {
                       <a
                         href="tel:01618995918"
                         className="px-6 py-2.5 bg-primary hover:bg-[#a34e00] text-white text-sm font-medium rounded-lg transition-colors w-full sm:w-auto text-center"
-                      >
-                        Call now
-                      </a>
+                      ><CmsText section="section-0808fc405263" entryKey="text-65dec0a0c4bd" fallback={"Call now"} /></a>
 
                       <button
 
                         onClick={resetCalculator}
                         className="px-6 py-2.5 bg-white border border-zinc-300 hover:bg-zinc-50 text-zinc-700 text-sm font-medium rounded-lg transition-colors w-full sm:w-auto"
-                      >
-                        Calculate again
-                      </button>
+                      ><CmsText section="section-0808fc405263" entryKey="text-632d0ce02225" fallback={"Calculate again"} /></button>
                     </div>
                   </div>
                 </div>
@@ -2083,21 +1991,19 @@ if (!projectType) {
               <button
                 onClick={handlePrev}
                 className="px-8 py-3.5 rounded-full font-semibold border-2 border-[#111111] text-[#111111] hover:bg-gray-100 transition-all"
-              >
-                ← Prev
-              </button>
+              ><CmsText section="section-0808fc405263" entryKey="text-6dde7419c890" fallback={"← Prev"} /></button>
             )}
             <button
               onClick={handleNext}
               className="flex items-center justify-center gap-2 bg-[#111111] hover:bg-[#C87A31] text-white font-semibold py-3.5 px-14 rounded-full transition-all duration-300 shadow-xl"
             >
-              <span>Next</span>
+              <span><CmsText section="section-0808fc405263" entryKey="text-fc36ca3d4191" fallback={"Next"} /></span>
               <FiChevronDown className="-rotate-90" />
             </button>
           </div>
         )}
       </div>
-    </div>
+    </div></CmsSection>
   );
 };
 

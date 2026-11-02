@@ -1,4 +1,5 @@
 "use client";
+import { CmsSection } from "@/components/cms/Editable";
 import type { CSSProperties, ReactNode } from "react";
 import { useSiteSettings } from "./Header/useSiteSettings";
 
@@ -10,5 +11,5 @@ export default function SiteTheme({ children }: { children: ReactNode }) {
     "--site-heading-dark": appearance.headingDark,
     "--site-heading-light": appearance.headingLight,
   } as CSSProperties;
-  return <div className="site-typography" style={style}>{children}</div>;
+  return <CmsSection section="section-cb7269d8ccf2"><div className="site-typography" style={style}>{children}</div></CmsSection>;
 }

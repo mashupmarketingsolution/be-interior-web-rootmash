@@ -1,0 +1,5848 @@
+{
+  "sections": [
+    {
+      "_id": "section-f1fb928664c4",
+      "_type": "siteSection",
+      "title": "About — Founder photo and profile",
+      "previewPath": "/about",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "text-3ef05bfe3d8a",
+          "_type": "copy",
+          "key": "text-3ef05bfe3d8a",
+          "label": "Text — Leadership",
+          "value": "Leadership"
+        },
+        {
+          "_key": "heading-50b449fa30db",
+          "_type": "copy",
+          "key": "heading-50b449fa30db",
+          "label": "Heading — The architect of  our vision",
+          "value": "The architect of  our vision"
+        },
+        {
+          "_key": "text-70fd18f13dd7",
+          "_type": "copy",
+          "key": "text-70fd18f13dd7",
+          "label": "Text — \"We don't just design spaces; we craft experiences. Our goal is t",
+          "value": "\"We don't just design spaces; we craft experiences. Our goal is to blend aesthetics with functionality, creating environments that inspire and elevate everyday living. Every detail matters, because your space is a reflection of your unique story.\""
+        },
+        {
+          "_key": "heading-36a00434d724",
+          "_type": "copy",
+          "key": "heading-36a00434d724",
+          "label": "Heading — Hossain al mahmud",
+          "value": "Hossain al mahmud"
+        },
+        {
+          "_key": "text-1cd1a3828206",
+          "_type": "copy",
+          "key": "text-1cd1a3828206",
+          "label": "Text — Managing Director",
+          "value": "Managing Director"
+        }
+      ],
+      "images": [
+        {
+          "_key": "image-b67b33e3d083",
+          "_type": "picture",
+          "key": "image-b67b33e3d083",
+          "label": "Hossain Al Mahmud - Managing Director",
+          "fallbackUrl": "/cms-assets/image-b67b33e3d083.jpg",
+          "alt": "Hossain Al Mahmud - Managing Director"
+        }
+      ],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-c335e81ccd1b",
+      "_type": "siteSection",
+      "title": "About — Company story",
+      "previewPath": "/about",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "text-90018d44de0c",
+          "_type": "copy",
+          "key": "text-90018d44de0c",
+          "label": "Text — Our Story",
+          "value": "Our Story"
+        },
+        {
+          "_key": "heading-43628f495436",
+          "_type": "copy",
+          "key": "heading-43628f495436",
+          "label": "Heading — Where it all began",
+          "value": "Where it all began"
+        },
+        {
+          "_key": "heading-920729264e73",
+          "_type": "copy",
+          "key": "heading-920729264e73",
+          "label": "Heading — Our evolution",
+          "value": "Our evolution"
+        },
+        {
+          "_key": "text-ec4dae21b43a",
+          "_type": "copy",
+          "key": "text-ec4dae21b43a",
+          "label": "Text — BE INTERIOR",
+          "value": "BE INTERIOR"
+        },
+        {
+          "_key": "text-d663de52974b",
+          "_type": "copy",
+          "key": "text-d663de52974b",
+          "label": "Text — is a full-service interior design company based in Dhaka, Banglad",
+          "value": "is a full-service interior design company based in Dhaka, Bangladesh. While our brand name"
+        },
+        {
+          "_key": "text-6cec2e66df8b",
+          "_type": "copy",
+          "key": "text-6cec2e66df8b",
+          "label": "Text — BE INTERIOR",
+          "value": "BE INTERIOR"
+        },
+        {
+          "_key": "text-172c9bfd04d8",
+          "_type": "copy",
+          "key": "text-172c9bfd04d8",
+          "label": "Text — was officially introduced in",
+          "value": "was officially introduced in"
+        },
+        {
+          "_key": "text-d1b4a6892298",
+          "_type": "copy",
+          "key": "text-d1b4a6892298",
+          "label": "Text — 2025",
+          "value": "2025"
+        },
+        {
+          "_key": "text-6cb62971e13f",
+          "_type": "copy",
+          "key": "text-6cb62971e13f",
+          "label": "Text — , our journey in the interior and construction industry began in",
+          "value": ", our journey in the interior and construction industry began in"
+        },
+        {
+          "_key": "text-40dd80e8553b",
+          "_type": "copy",
+          "key": "text-40dd80e8553b",
+          "label": "Text — 2018",
+          "value": "2018"
+        },
+        {
+          "_key": "text-1dee6c7cd3bb",
+          "_type": "copy",
+          "key": "text-1dee6c7cd3bb",
+          "label": "Text — . The company was originally established in",
+          "value": ". The company was originally established in"
+        },
+        {
+          "_key": "text-b27c2839b6e4",
+          "_type": "copy",
+          "key": "text-b27c2839b6e4",
+          "label": "Text — 2020",
+          "value": "2020"
+        },
+        {
+          "_key": "text-af3effc549bd",
+          "_type": "copy",
+          "key": "text-af3effc549bd",
+          "label": "Text — under the name",
+          "value": "under the name"
+        },
+        {
+          "_key": "text-44ae64e1da4d",
+          "_type": "copy",
+          "key": "text-44ae64e1da4d",
+          "label": "Text — Best End Interior",
+          "value": "Best End Interior"
+        },
+        {
+          "_key": "text-af161bd74d59",
+          "_type": "copy",
+          "key": "text-af161bd74d59",
+          "label": "Text — In",
+          "value": "In"
+        },
+        {
+          "_key": "text-aab3375c4551",
+          "_type": "copy",
+          "key": "text-aab3375c4551",
+          "label": "Text — 2025",
+          "value": "2025"
+        },
+        {
+          "_key": "text-6442f4cd2d72",
+          "_type": "copy",
+          "key": "text-6442f4cd2d72",
+          "label": "Text — , we entered a new chapter by rebranding as",
+          "value": ", we entered a new chapter by rebranding as"
+        },
+        {
+          "_key": "text-645f4ce840c5",
+          "_type": "copy",
+          "key": "text-645f4ce840c5",
+          "label": "Text — BE INTERIOR",
+          "value": "BE INTERIOR"
+        },
+        {
+          "_key": "text-7f57a85d60da",
+          "_type": "copy",
+          "key": "text-7f57a85d60da",
+          "label": "Text — —a simpler, stronger, and more modern identity that reflects our ",
+          "value": "—a simpler, stronger, and more modern identity that reflects our growth, vision, and commitment to excellence in interior design. Along with our new name, we introduced a new logo that represents a bold, contemporary future for our brand. Although our name and visual identity have evolved, our passion, dedication, and core values remain unchanged. We continue to serve our clients with the same team, expertise, and attention to detail that have earned trust over the years."
+        },
+        {
+          "_key": "heading-03a141c77a6c",
+          "_type": "copy",
+          "key": "heading-03a141c77a6c",
+          "label": "Heading — Our expertise",
+          "value": "Our expertise"
+        },
+        {
+          "_key": "text-e945aab16c0d",
+          "_type": "copy",
+          "key": "text-e945aab16c0d",
+          "label": "Text — We specialize in",
+          "value": "We specialize in"
+        },
+        {
+          "_key": "text-3ed680769e43",
+          "_type": "copy",
+          "key": "text-3ed680769e43",
+          "label": "Text — residential and commercial interior design",
+          "value": "residential and commercial interior design"
+        },
+        {
+          "_key": "text-be4b2a141428",
+          "_type": "copy",
+          "key": "text-be4b2a141428",
+          "label": "Text — , offering services ranging from furniture and color upgrades to ",
+          "value": ", offering services ranging from furniture and color upgrades to complete home, office, and commercial renovations. Our experienced professionals ensure smooth project execution, cost efficiency, and high-quality results from concept to completion."
+        },
+        {
+          "_key": "text-d3dfdc04e4f7",
+          "_type": "copy",
+          "key": "text-d3dfdc04e4f7",
+          "label": "Text — At",
+          "value": "At"
+        },
+        {
+          "_key": "text-2d9326206247",
+          "_type": "copy",
+          "key": "text-2d9326206247",
+          "label": "Text — BE INTERIOR",
+          "value": "BE INTERIOR"
+        },
+        {
+          "_key": "text-822d06a84eef",
+          "_type": "copy",
+          "key": "text-822d06a84eef",
+          "label": "Text — , we emphasize durability and quality by using",
+          "value": ", we emphasize durability and quality by using"
+        },
+        {
+          "_key": "text-43c9af288380",
+          "_type": "copy",
+          "key": "text-43c9af288380",
+          "label": "Text — premium imported materials",
+          "value": "premium imported materials"
+        },
+        {
+          "_key": "text-a5d4135bf055",
+          "_type": "copy",
+          "key": "text-a5d4135bf055",
+          "label": "Text — , many of which we also distribute locally. Our materials are sou",
+          "value": ", many of which we also distribute locally. Our materials are sourced from"
+        },
+        {
+          "_key": "text-d20c77b7c6ed",
+          "_type": "copy",
+          "key": "text-d20c77b7c6ed",
+          "label": "Text — China, Italy, Brazil, India, and Thailand,",
+          "value": "China, Italy, Brazil, India, and Thailand,"
+        },
+        {
+          "_key": "text-702e2fe349cf",
+          "_type": "copy",
+          "key": "text-702e2fe349cf",
+          "label": "Text — enabling us to maintain international standards while offering co",
+          "value": "enabling us to maintain international standards while offering competitive pricing. To accommodate diverse client needs, we offer"
+        },
+        {
+          "_key": "text-055b86328c10",
+          "_type": "copy",
+          "key": "text-055b86328c10",
+          "label": "Text — three flexible service segments",
+          "value": "three flexible service segments"
+        },
+        {
+          "_key": "text-ed2985ca584d",
+          "_type": "copy",
+          "key": "text-ed2985ca584d",
+          "label": "Text — , allowing customers to choose solutions that align with their bu",
+          "value": ", allowing customers to choose solutions that align with their budget and expectations. Beyond interior design, we have extensive experience in"
+        },
+        {
+          "_key": "text-f8592bf7de25",
+          "_type": "copy",
+          "key": "text-f8592bf7de25",
+          "label": "Text — construction and land development",
+          "value": "construction and land development"
+        },
+        {
+          "_key": "text-d991f5e5243c",
+          "_type": "copy",
+          "key": "text-d991f5e5243c",
+          "label": "Text — . We support clients looking to invest in land by providing pract",
+          "value": ". We support clients looking to invest in land by providing practical budget planning—often within a single day—and we also operate as a subcontractor for land development projects."
+        },
+        {
+          "_key": "text-4da8ac9bd58a",
+          "_type": "copy",
+          "key": "text-4da8ac9bd58a",
+          "label": "Text — BE INTERIOR stands for trust, creativity, and quality. We don’t j",
+          "value": "BE INTERIOR stands for trust, creativity, and quality. We don’t just design spaces — we shape environments that inspire."
+        },
+        {
+          "_key": "text-bcc82809533d",
+          "_type": "copy",
+          "key": "text-bcc82809533d",
+          "label": "Text — Your Vision, Our Creation.",
+          "value": "Your Vision, Our Creation."
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-16c0083fc386",
+      "_type": "siteSection",
+      "title": "Our Team",
+      "previewPath": "/about",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "text-a04b8499622c",
+          "_type": "copy",
+          "key": "text-a04b8499622c",
+          "label": "Text — Our Experts",
+          "value": "Our Experts"
+        },
+        {
+          "_key": "heading-e8057e6f53d7",
+          "_type": "copy",
+          "key": "heading-e8057e6f53d7",
+          "label": "Heading — The minds behind the design",
+          "value": "The minds behind the design"
+        },
+        {
+          "_key": "text-603a4347fa37",
+          "_type": "copy",
+          "key": "text-603a4347fa37",
+          "label": "Text — Meet the talented architects and designers who turn your vision i",
+          "value": "Meet the talented architects and designers who turn your vision into reality with precision, passion, and creativity."
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-7907e92a6df3",
+      "_type": "siteSection",
+      "title": "Shared — Bottom call to action",
+      "previewPath": "/",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "text-7a0e517e3439",
+          "_type": "copy",
+          "key": "text-7a0e517e3439",
+          "label": "Text — Ready to transform?",
+          "value": "Ready to transform?"
+        },
+        {
+          "_key": "heading-cddf19d232e5",
+          "_type": "copy",
+          "key": "heading-cddf19d232e5",
+          "label": "Heading — Turn your dream space into a reality",
+          "value": "Turn your dream space into a reality"
+        },
+        {
+          "_key": "text-aa9862829214",
+          "_type": "copy",
+          "key": "text-aa9862829214",
+          "label": "Text — Partner with our expert designers to build stunning interiors, fu",
+          "value": "Partner with our expert designers to build stunning interiors, functional layouts, and aesthetic environments that elevate your everyday living and working experience."
+        },
+        {
+          "_key": "text-efb66d9d141d",
+          "_type": "copy",
+          "key": "text-efb66d9d141d",
+          "label": "Label — Start a project",
+          "value": "Start a project"
+        },
+        {
+          "_key": "text-435b37ebc031",
+          "_type": "copy",
+          "key": "text-435b37ebc031",
+          "label": "Label — Read our blog",
+          "value": "Read our blog"
+        }
+      ],
+      "images": [],
+      "links": [
+        {
+          "_key": "link-b0a67e27bd3d",
+          "_type": "buttonLink",
+          "key": "link-b0a67e27bd3d",
+          "label": "Button destination",
+          "href": "/contact"
+        },
+        {
+          "_key": "link-6d234a10d4b4",
+          "_type": "buttonLink",
+          "key": "link-6d234a10d4b4",
+          "label": "Button destination",
+          "href": "/blogs"
+        }
+      ],
+      "lists": []
+    },
+    {
+      "_id": "section-89892e803d65",
+      "_type": "siteSection",
+      "title": "Blog Hero",
+      "previewPath": "/blogs",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "text-e53bdf4c31b6",
+          "_type": "copy",
+          "key": "text-e53bdf4c31b6",
+          "label": "Text — The Design Diary",
+          "value": "The Design Diary"
+        },
+        {
+          "_key": "heading-378f5b54d746",
+          "_type": "copy",
+          "key": "heading-378f5b54d746",
+          "label": "Heading — Design, transform & elevate your space.",
+          "value": "Design, transform & elevate your space."
+        },
+        {
+          "_key": "text-29701047bfb2",
+          "_type": "copy",
+          "key": "text-29701047bfb2",
+          "label": "Text — Explore how innovative designs and custom interior solutions can ",
+          "value": "Explore how innovative designs and custom interior solutions can transform your space. Gain practical styling insights, view real-world transformations, and discover actionable design ideas you can bring to life today."
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-720af0ba771b",
+      "_type": "siteSection",
+      "title": "Blog Section",
+      "previewPath": "/blogs",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-96d629c8",
+          "_type": "copy",
+          "key": "copy-96d629c8",
+          "label": "Title — 10 Modern Minimalist Living Room Ideas",
+          "value": "10 Modern Minimalist Living Room Ideas"
+        },
+        {
+          "_key": "copy-ef75eee9",
+          "_type": "copy",
+          "key": "copy-ef75eee9",
+          "label": "Title — How to Choose the Perfect Color Palette",
+          "value": "How to Choose the Perfect Color Palette"
+        },
+        {
+          "_key": "copy-93803a2e",
+          "_type": "copy",
+          "key": "copy-93803a2e",
+          "label": "Title — Maximizing Small Spaces: Clever Storage",
+          "value": "Maximizing Small Spaces: Clever Storage"
+        },
+        {
+          "_key": "copy-b8dab196",
+          "_type": "copy",
+          "key": "copy-b8dab196",
+          "label": "Title — The Ultimate Guide to Office Ergonomics",
+          "value": "The Ultimate Guide to Office Ergonomics"
+        },
+        {
+          "_key": "copy-14287001",
+          "_type": "copy",
+          "key": "copy-14287001",
+          "label": "Title — Trending Materials for Kitchen Countertops",
+          "value": "Trending Materials for Kitchen Countertops"
+        },
+        {
+          "_key": "copy-651b14c9",
+          "_type": "copy",
+          "key": "copy-651b14c9",
+          "label": "Title — Bringing Nature Indoors: Biophilic Design",
+          "value": "Bringing Nature Indoors: Biophilic Design"
+        },
+        {
+          "_key": "heading-1c7d14349aa2",
+          "_type": "copy",
+          "key": "heading-1c7d14349aa2",
+          "label": "Heading — Latest articles",
+          "value": "Latest articles"
+        },
+        {
+          "_key": "heading-a9ef6c8d0294",
+          "_type": "copy",
+          "key": "heading-a9ef6c8d0294",
+          "label": "Heading — Oops! Something went wrong",
+          "value": "Oops! Something went wrong"
+        },
+        {
+          "_key": "text-ade7b92cbd1f",
+          "_type": "copy",
+          "key": "text-ade7b92cbd1f",
+          "label": "Text — We couldn't load the articles right now. Please check your intern",
+          "value": "We couldn't load the articles right now. Please check your internet connection or try refreshing the page."
+        },
+        {
+          "_key": "text-e98ad8c3c4ec",
+          "_type": "copy",
+          "key": "text-e98ad8c3c4ec",
+          "label": "Text — by",
+          "value": "by"
+        },
+        {
+          "_key": "text-fabdb4a64001",
+          "_type": "copy",
+          "key": "text-fabdb4a64001",
+          "label": "Text — read article",
+          "value": "read article"
+        },
+        {
+          "_key": "text-835de4a5c931",
+          "_type": "copy",
+          "key": "text-835de4a5c931",
+          "label": "Text — No articles have been published yet. Check back soon!",
+          "value": "No articles have been published yet. Check back soon!"
+        },
+        {
+          "_key": "text-47e8168063bd",
+          "_type": "copy",
+          "key": "text-47e8168063bd",
+          "label": "Text — Showing",
+          "value": "Showing"
+        },
+        {
+          "_key": "text-49642a246ad0",
+          "_type": "copy",
+          "key": "text-49642a246ad0",
+          "label": "Text — of",
+          "value": "of"
+        },
+        {
+          "_key": "text-27dd0ee9135a",
+          "_type": "copy",
+          "key": "text-27dd0ee9135a",
+          "label": "Text — Pages",
+          "value": "Pages"
+        },
+        {
+          "_key": "text-7a38027b5b9d",
+          "_type": "copy",
+          "key": "text-7a38027b5b9d",
+          "label": "Label — Previous",
+          "value": "Previous"
+        },
+        {
+          "_key": "text-00a53855053f",
+          "_type": "copy",
+          "key": "text-00a53855053f",
+          "label": "Label — Next",
+          "value": "Next"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-0808fc405263",
+      "_type": "siteSection",
+      "title": "Calculator — Labels and pictures",
+      "previewPath": "/services/budget-calculator",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-a557642",
+          "_type": "copy",
+          "key": "copy-a557642",
+          "label": "Label — 2BHK (2 bedrooms, 1 drawing, 1 kitchen)",
+          "value": "2BHK (2 bedrooms, 1 drawing, 1 kitchen)"
+        },
+        {
+          "_key": "copy-81b9e036",
+          "_type": "copy",
+          "key": "copy-81b9e036",
+          "label": "Label — 3BHK (3 bedrooms, 1 drawing, 1 kitchen)",
+          "value": "3BHK (3 bedrooms, 1 drawing, 1 kitchen)"
+        },
+        {
+          "_key": "copy-b48cec5e",
+          "_type": "copy",
+          "key": "copy-b48cec5e",
+          "label": "Label — 4BHK (4 bedrooms, 1 drawing, 1 kitchen)",
+          "value": "4BHK (4 bedrooms, 1 drawing, 1 kitchen)"
+        },
+        {
+          "_key": "copy-159b006a",
+          "_type": "copy",
+          "key": "copy-159b006a",
+          "label": "Label — 5BHK (5 bedrooms, 1 drawing, 1 kitchen)",
+          "value": "5BHK (5 bedrooms, 1 drawing, 1 kitchen)"
+        },
+        {
+          "_key": "copy-d1a086",
+          "_type": "copy",
+          "key": "copy-d1a086",
+          "label": "Label — 1200-1349",
+          "value": "1200-1349"
+        },
+        {
+          "_key": "copy-393bdd30",
+          "_type": "copy",
+          "key": "copy-393bdd30",
+          "label": "Label — 1350-1499",
+          "value": "1350-1499"
+        },
+        {
+          "_key": "copy-bd1d5cbe",
+          "_type": "copy",
+          "key": "copy-bd1d5cbe",
+          "label": "Label — 1500-1649",
+          "value": "1500-1649"
+        },
+        {
+          "_key": "copy-45b3faf8",
+          "_type": "copy",
+          "key": "copy-45b3faf8",
+          "label": "Label — 1650-1799",
+          "value": "1650-1799"
+        },
+        {
+          "_key": "copy-3500a246",
+          "_type": "copy",
+          "key": "copy-3500a246",
+          "label": "Label — 1800-1949",
+          "value": "1800-1949"
+        },
+        {
+          "_key": "copy-fe3a1871",
+          "_type": "copy",
+          "key": "copy-fe3a1871",
+          "label": "Label — 1950-2099",
+          "value": "1950-2099"
+        },
+        {
+          "_key": "copy-6c4e56d4",
+          "_type": "copy",
+          "key": "copy-6c4e56d4",
+          "label": "Label — 2100-2249",
+          "value": "2100-2249"
+        },
+        {
+          "_key": "copy-71a0b3ba",
+          "_type": "copy",
+          "key": "copy-71a0b3ba",
+          "label": "Label — 2250-2399",
+          "value": "2250-2399"
+        },
+        {
+          "_key": "copy-ef4beda8",
+          "_type": "copy",
+          "key": "copy-ef4beda8",
+          "label": "Label — 2400-2549",
+          "value": "2400-2549"
+        },
+        {
+          "_key": "copy-92dd91a6",
+          "_type": "copy",
+          "key": "copy-92dd91a6",
+          "label": "Label — 2550-2699",
+          "value": "2550-2699"
+        },
+        {
+          "_key": "copy-c3b47267",
+          "_type": "copy",
+          "key": "copy-c3b47267",
+          "label": "Label — 2700+",
+          "value": "2700+"
+        },
+        {
+          "_key": "copy-9490c43b",
+          "_type": "copy",
+          "key": "copy-9490c43b",
+          "label": "Name — Essential",
+          "value": "Essential"
+        },
+        {
+          "_key": "copy-6e985ec0",
+          "_type": "copy",
+          "key": "copy-6e985ec0",
+          "label": "List text — Functional 2D Layout",
+          "value": "Functional 2D Layout"
+        },
+        {
+          "_key": "copy-99a698c4",
+          "_type": "copy",
+          "key": "copy-99a698c4",
+          "label": "List text — 3D Interior Design",
+          "value": "3D Interior Design"
+        },
+        {
+          "_key": "copy-90ba7356",
+          "_type": "copy",
+          "key": "copy-90ba7356",
+          "label": "List text — Standard Materials & Accessories",
+          "value": "Standard Materials & Accessories"
+        },
+        {
+          "_key": "copy-afa6a2ec",
+          "_type": "copy",
+          "key": "copy-afa6a2ec",
+          "label": "List text — Complete Execution",
+          "value": "Complete Execution"
+        },
+        {
+          "_key": "copy-311220de",
+          "_type": "copy",
+          "key": "copy-311220de",
+          "label": "Name — Premium",
+          "value": "Premium"
+        },
+        {
+          "_key": "copy-6b838a86",
+          "_type": "copy",
+          "key": "copy-6b838a86",
+          "label": "List text — High-end 3D Design",
+          "value": "High-end 3D Design"
+        },
+        {
+          "_key": "copy-a0287e30",
+          "_type": "copy",
+          "key": "copy-a0287e30",
+          "label": "List text — High Grade Materials & Accessories",
+          "value": "High Grade Materials & Accessories"
+        },
+        {
+          "_key": "copy-4bf083a8",
+          "_type": "copy",
+          "key": "copy-4bf083a8",
+          "label": "Name — Luxury",
+          "value": "Luxury"
+        },
+        {
+          "_key": "copy-a80ecda7",
+          "_type": "copy",
+          "key": "copy-a80ecda7",
+          "label": "List text — Luxury 3D Design",
+          "value": "Luxury 3D Design"
+        },
+        {
+          "_key": "copy-d7f94914",
+          "_type": "copy",
+          "key": "copy-d7f94914",
+          "label": "List text — Premium Materials & Branded Accessories",
+          "value": "Premium Materials & Branded Accessories"
+        },
+        {
+          "_key": "copy-4d156662",
+          "_type": "copy",
+          "key": "copy-4d156662",
+          "label": "List text — Designer Finish & Complete Execution",
+          "value": "Designer Finish & Complete Execution"
+        },
+        {
+          "_key": "copy-9525b78e",
+          "_type": "copy",
+          "key": "copy-9525b78e",
+          "label": "Name — Custom",
+          "value": "Custom"
+        },
+        {
+          "_key": "copy-de2566ca",
+          "_type": "copy",
+          "key": "copy-de2566ca",
+          "label": "Desc — Design a package that fits you best",
+          "value": "Design a package that fits you best"
+        },
+        {
+          "_key": "copy-53ee0e4b",
+          "_type": "copy",
+          "key": "copy-53ee0e4b",
+          "label": "List text — Fully Personalized Layout",
+          "value": "Fully Personalized Layout"
+        },
+        {
+          "_key": "copy-85c66ac7",
+          "_type": "copy",
+          "key": "copy-85c66ac7",
+          "label": "List text — Custom 3D Interior Design",
+          "value": "Custom 3D Interior Design"
+        },
+        {
+          "_key": "copy-48bc360d",
+          "_type": "copy",
+          "key": "copy-48bc360d",
+          "label": "List text — Flexible Material Selection",
+          "value": "Flexible Material Selection"
+        },
+        {
+          "_key": "copy-b7f41cfc",
+          "_type": "copy",
+          "key": "copy-b7f41cfc",
+          "label": "List text — Tailored With Our Design Team",
+          "value": "Tailored With Our Design Team"
+        },
+        {
+          "_key": "copy-8d39bde6",
+          "_type": "copy",
+          "key": "copy-8d39bde6",
+          "label": "Name — name",
+          "value": "name"
+        },
+        {
+          "_key": "copy-773611af",
+          "_type": "copy",
+          "key": "copy-773611af",
+          "label": "Name — phone",
+          "value": "phone"
+        },
+        {
+          "_key": "copy-8a8753c7",
+          "_type": "copy",
+          "key": "copy-8a8753c7",
+          "label": "Name — email",
+          "value": "email"
+        },
+        {
+          "_key": "text-64ea820397d4",
+          "_type": "copy",
+          "key": "text-64ea820397d4",
+          "label": "Text — Budget Calculator",
+          "value": "Budget Calculator"
+        },
+        {
+          "_key": "heading-39a445793291",
+          "_type": "copy",
+          "key": "heading-39a445793291",
+          "label": "Heading — What would you like to design?",
+          "value": "What would you like to design?"
+        },
+        {
+          "_key": "text-01fc0e9c6757",
+          "_type": "copy",
+          "key": "text-01fc0e9c6757",
+          "label": "Text — Choose your project type to get a more relevant preliminary estim",
+          "value": "Choose your project type to get a more relevant preliminary estimate."
+        },
+        {
+          "_key": "heading-7bcae135ec81",
+          "_type": "copy",
+          "key": "heading-7bcae135ec81",
+          "label": "Heading — Home interior",
+          "value": "Home interior"
+        },
+        {
+          "_key": "text-1b28234f22f3",
+          "_type": "copy",
+          "key": "text-1b28234f22f3",
+          "label": "Text — Estimate your flat interior based on size, BHK, rooms and package",
+          "value": "Estimate your flat interior based on size, BHK, rooms and package."
+        },
+        {
+          "_key": "text-3c0c9164243f",
+          "_type": "copy",
+          "key": "text-3c0c9164243f",
+          "label": "Text — Start home estimate",
+          "value": "Start home estimate"
+        },
+        {
+          "_key": "heading-0dcbe35ae1f9",
+          "_type": "copy",
+          "key": "heading-0dcbe35ae1f9",
+          "label": "Heading — Office interior",
+          "value": "Office interior"
+        },
+        {
+          "_key": "text-cfa8062dd57a",
+          "_type": "copy",
+          "key": "text-cfa8062dd57a",
+          "label": "Text — Estimate your office interior based on area, employees, spaces an",
+          "value": "Estimate your office interior based on area, employees, spaces and package."
+        },
+        {
+          "_key": "text-732aa6db93e6",
+          "_type": "copy",
+          "key": "text-732aa6db93e6",
+          "label": "Text — Start office estimate",
+          "value": "Start office estimate"
+        },
+        {
+          "_key": "text-8af4301472a5",
+          "_type": "copy",
+          "key": "text-8af4301472a5",
+          "label": "Label — Flat size (sft)",
+          "value": "Flat size (sft)"
+        },
+        {
+          "_key": "copy-7e58a3d4",
+          "_type": "copy",
+          "key": "copy-7e58a3d4",
+          "label": "Input placeholder — Enter exact flat size, e.g. 1450",
+          "value": "Enter exact flat size, e.g. 1450"
+        },
+        {
+          "_key": "text-66c8c8575808",
+          "_type": "copy",
+          "key": "text-66c8c8575808",
+          "label": "Label — BHK type",
+          "value": "BHK type"
+        },
+        {
+          "_key": "text-11202f4fd35f",
+          "_type": "copy",
+          "key": "text-11202f4fd35f",
+          "label": "Label — Rooms to design",
+          "value": "Rooms to design"
+        },
+        {
+          "_key": "text-bc0d233cd13c",
+          "_type": "copy",
+          "key": "text-bc0d233cd13c",
+          "label": "Label — Office size (sft)",
+          "value": "Office size (sft)"
+        },
+        {
+          "_key": "copy-166999da",
+          "_type": "copy",
+          "key": "copy-166999da",
+          "label": "Input placeholder — Enter office size, e.g. 2200",
+          "value": "Enter office size, e.g. 2200"
+        },
+        {
+          "_key": "text-d4f9c079df2b",
+          "_type": "copy",
+          "key": "text-d4f9c079df2b",
+          "label": "Label — Number of employees",
+          "value": "Number of employees"
+        },
+        {
+          "_key": "copy-66200091",
+          "_type": "copy",
+          "key": "copy-66200091",
+          "label": "Input placeholder — Enter employee count, e.g. 30",
+          "value": "Enter employee count, e.g. 30"
+        },
+        {
+          "_key": "text-2a803dc9ff84",
+          "_type": "copy",
+          "key": "text-2a803dc9ff84",
+          "label": "Label — Spaces required",
+          "value": "Spaces required"
+        },
+        {
+          "_key": "text-f2c5afd90dc2",
+          "_type": "copy",
+          "key": "text-f2c5afd90dc2",
+          "label": "Label — Add custom space",
+          "value": "Add custom space"
+        },
+        {
+          "_key": "copy-71c966",
+          "_type": "copy",
+          "key": "copy-71c966",
+          "label": "Input placeholder — e.g. Training Room",
+          "value": "e.g. Training Room"
+        },
+        {
+          "_key": "text-66f0490ec217",
+          "_type": "copy",
+          "key": "text-66f0490ec217",
+          "label": "Label — Add",
+          "value": "Add"
+        },
+        {
+          "_key": "text-d03c2e854073",
+          "_type": "copy",
+          "key": "text-d03c2e854073",
+          "label": "Text — Selected",
+          "value": "Selected"
+        },
+        {
+          "_key": "copy-ef233294",
+          "_type": "copy",
+          "key": "copy-ef233294",
+          "label": "Button label — Selected",
+          "value": "Selected"
+        },
+        {
+          "_key": "copy-f74e5d6d",
+          "_type": "copy",
+          "key": "copy-f74e5d6d",
+          "label": "Button label — Select Package",
+          "value": "Select Package"
+        },
+        {
+          "_key": "text-44c6fcdeb6a8",
+          "_type": "copy",
+          "key": "text-44c6fcdeb6a8",
+          "label": "Text — Loading office packages...",
+          "value": "Loading office packages..."
+        },
+        {
+          "_key": "text-5e18ed608187",
+          "_type": "copy",
+          "key": "text-5e18ed608187",
+          "label": "Text — Failed to load office packages.",
+          "value": "Failed to load office packages."
+        },
+        {
+          "_key": "text-75c13fd32be9",
+          "_type": "copy",
+          "key": "text-75c13fd32be9",
+          "label": "Text — What do you need?",
+          "value": "What do you need?"
+        },
+        {
+          "_key": "text-48eb2faff774",
+          "_type": "copy",
+          "key": "text-48eb2faff774",
+          "label": "Text — Office package",
+          "value": "Office package"
+        },
+        {
+          "_key": "text-7d1e1b37605b",
+          "_type": "copy",
+          "key": "text-7d1e1b37605b",
+          "label": "Text — Your free quote is just a few clicks away!",
+          "value": "Your free quote is just a few clicks away!"
+        },
+        {
+          "_key": "text-ce74dcf4f192",
+          "_type": "copy",
+          "key": "text-ce74dcf4f192",
+          "label": "Text — Your Selection",
+          "value": "Your Selection"
+        },
+        {
+          "_key": "text-c0d60051775c",
+          "_type": "copy",
+          "key": "text-c0d60051775c",
+          "label": "Text — sft ·",
+          "value": "sft ·"
+        },
+        {
+          "_key": "text-4a9ef7a13564",
+          "_type": "copy",
+          "key": "text-4a9ef7a13564",
+          "label": "Text — Rooms ·",
+          "value": "Rooms ·"
+        },
+        {
+          "_key": "text-32540af056c7",
+          "_type": "copy",
+          "key": "text-32540af056c7",
+          "label": "Text — sft ·",
+          "value": "sft ·"
+        },
+        {
+          "_key": "text-db93df1687ca",
+          "_type": "copy",
+          "key": "text-db93df1687ca",
+          "label": "Text — Employees ·",
+          "value": "Employees ·"
+        },
+        {
+          "_key": "text-6339a52206c3",
+          "_type": "copy",
+          "key": "text-6339a52206c3",
+          "label": "Text — Space Types ·",
+          "value": "Space Types ·"
+        },
+        {
+          "_key": "text-1cf3e666c2d6",
+          "_type": "copy",
+          "key": "text-1cf3e666c2d6",
+          "label": "Label — Target budget",
+          "value": "Target budget"
+        },
+        {
+          "_key": "text-e7d96c57eb21",
+          "_type": "copy",
+          "key": "text-e7d96c57eb21",
+          "label": "Text — (optional)",
+          "value": "(optional)"
+        },
+        {
+          "_key": "text-d457c1a93212",
+          "_type": "copy",
+          "key": "text-d457c1a93212",
+          "label": "Label — ← Back",
+          "value": "← Back"
+        },
+        {
+          "_key": "copy-967aa5dd",
+          "_type": "copy",
+          "key": "copy-967aa5dd",
+          "label": "Button label — Sending…",
+          "value": "Sending…"
+        },
+        {
+          "_key": "copy-e04c3f81",
+          "_type": "copy",
+          "key": "copy-e04c3f81",
+          "label": "Button label — Get My Estimate →",
+          "value": "Get My Estimate →"
+        },
+        {
+          "_key": "text-46f2efa63cde",
+          "_type": "copy",
+          "key": "text-46f2efa63cde",
+          "label": "Text — By submitting this form, you agree to the Privacy Policy & Terms ",
+          "value": "By submitting this form, you agree to the Privacy Policy & Terms and conditions."
+        },
+        {
+          "_key": "text-1aa36d14815c",
+          "_type": "copy",
+          "key": "text-1aa36d14815c",
+          "label": "Text — Preliminary Office Estimate",
+          "value": "Preliminary Office Estimate"
+        },
+        {
+          "_key": "text-cd205cdf27a3",
+          "_type": "copy",
+          "key": "text-cd205cdf27a3",
+          "label": "Text — Scope:",
+          "value": "Scope:"
+        },
+        {
+          "_key": "text-1d944c6f4250",
+          "_type": "copy",
+          "key": "text-1d944c6f4250",
+          "label": "Text — Scope-adjusted preliminary estimate",
+          "value": "Scope-adjusted preliminary estimate"
+        },
+        {
+          "_key": "text-cc546b267537",
+          "_type": "copy",
+          "key": "text-cc546b267537",
+          "label": "Text — Office Area",
+          "value": "Office Area"
+        },
+        {
+          "_key": "text-7edc96ad91d3",
+          "_type": "copy",
+          "key": "text-7edc96ad91d3",
+          "label": "Text — sft",
+          "value": "sft"
+        },
+        {
+          "_key": "text-47680af650d1",
+          "_type": "copy",
+          "key": "text-47680af650d1",
+          "label": "Text — Employees",
+          "value": "Employees"
+        },
+        {
+          "_key": "text-5cf22f02be7d",
+          "_type": "copy",
+          "key": "text-5cf22f02be7d",
+          "label": "Text — Scope",
+          "value": "Scope"
+        },
+        {
+          "_key": "text-4b069735fe3c",
+          "_type": "copy",
+          "key": "text-4b069735fe3c",
+          "label": "Text — Target Budget",
+          "value": "Target Budget"
+        },
+        {
+          "_key": "text-4d2fa24577e0",
+          "_type": "copy",
+          "key": "text-4d2fa24577e0",
+          "label": "Text — Selected Spaces",
+          "value": "Selected Spaces"
+        },
+        {
+          "_key": "text-f55a38f19700",
+          "_type": "copy",
+          "key": "text-f55a38f19700",
+          "label": "Text — This is a preliminary planning estimate. Final quotation may vary",
+          "value": "This is a preliminary planning estimate. Final quotation may vary based on final measurements, materials, furniture, MEP requirements, site conditions and approved scope of work."
+        },
+        {
+          "_key": "text-ef8c6ef8160d",
+          "_type": "copy",
+          "key": "text-ef8c6ef8160d",
+          "label": "Text — Furnitures",
+          "value": "Furnitures"
+        },
+        {
+          "_key": "text-d03d421dbb73",
+          "_type": "copy",
+          "key": "text-d03d421dbb73",
+          "label": "Text — Accessories",
+          "value": "Accessories"
+        },
+        {
+          "_key": "text-56c82b9c8739",
+          "_type": "copy",
+          "key": "text-56c82b9c8739",
+          "label": "Text — Furnitures",
+          "value": "Furnitures"
+        },
+        {
+          "_key": "text-de063f3bc131",
+          "_type": "copy",
+          "key": "text-de063f3bc131",
+          "label": "Text — Accessories",
+          "value": "Accessories"
+        },
+        {
+          "_key": "text-4477a66531a0",
+          "_type": "copy",
+          "key": "text-4477a66531a0",
+          "label": "Text — Furnitures",
+          "value": "Furnitures"
+        },
+        {
+          "_key": "text-f7e74ac9aa9e",
+          "_type": "copy",
+          "key": "text-f7e74ac9aa9e",
+          "label": "Text — Accessories",
+          "value": "Accessories"
+        },
+        {
+          "_key": "text-328eb56359df",
+          "_type": "copy",
+          "key": "text-328eb56359df",
+          "label": "Text — Tailored For You",
+          "value": "Tailored For You"
+        },
+        {
+          "_key": "heading-fab4f6970c69",
+          "_type": "copy",
+          "key": "heading-fab4f6970c69",
+          "label": "Heading — Custom design package",
+          "value": "Custom design package"
+        },
+        {
+          "_key": "text-e33c4e849634",
+          "_type": "copy",
+          "key": "text-e33c4e849634",
+          "label": "Text — This package is crafted completely from scratch based on your bud",
+          "value": "This package is crafted completely from scratch based on your budget, specific requirements, and unique aesthetic choices. Tell us what you need, and our experts will tailor the ideal solution to transform your space."
+        },
+        {
+          "_key": "text-38a67ace100e",
+          "_type": "copy",
+          "key": "text-38a67ace100e",
+          "label": "Text — \"Depends entirely on your requirements and budget range.\"",
+          "value": "\"Depends entirely on your requirements and budget range.\""
+        },
+        {
+          "_key": "text-18380918692c",
+          "_type": "copy",
+          "key": "text-18380918692c",
+          "label": "Text — Loading Calculator...",
+          "value": "Loading Calculator..."
+        },
+        {
+          "_key": "text-475353814934",
+          "_type": "copy",
+          "key": "text-475353814934",
+          "label": "Text — Failed to load calculator:",
+          "value": "Failed to load calculator:"
+        },
+        {
+          "_key": "copy-191373ca",
+          "_type": "copy",
+          "key": "copy-191373ca",
+          "label": "Button label — Home Interior",
+          "value": "Home Interior"
+        },
+        {
+          "_key": "copy-d0c0134b",
+          "_type": "copy",
+          "key": "copy-d0c0134b",
+          "label": "Button label — Office Interior",
+          "value": "Office Interior"
+        },
+        {
+          "_key": "text-628dc6d51064",
+          "_type": "copy",
+          "key": "text-628dc6d51064",
+          "label": "Label — Start over / change project type",
+          "value": "Start over / change project type"
+        },
+        {
+          "_key": "text-9e335bc7c74f",
+          "_type": "copy",
+          "key": "text-9e335bc7c74f",
+          "label": "Text — Step:",
+          "value": "Step:"
+        },
+        {
+          "_key": "text-4371c8063a57",
+          "_type": "copy",
+          "key": "text-4371c8063a57",
+          "label": "Text — /4",
+          "value": "/4"
+        },
+        {
+          "_key": "text-f8a3d61b2313",
+          "_type": "copy",
+          "key": "text-f8a3d61b2313",
+          "label": "Text — Tell us about your",
+          "value": "Tell us about your"
+        },
+        {
+          "_key": "copy-1ce14551",
+          "_type": "copy",
+          "key": "copy-1ce14551",
+          "label": "Button label — Office",
+          "value": "Office"
+        },
+        {
+          "_key": "copy-52f50eae",
+          "_type": "copy",
+          "key": "copy-52f50eae",
+          "label": "Button label — Home",
+          "value": "Home"
+        },
+        {
+          "_key": "heading-22589e5b52e7",
+          "_type": "copy",
+          "key": "heading-22589e5b52e7",
+          "label": "Heading — Pick the package that suits you best",
+          "value": "Pick the package that suits you best"
+        },
+        {
+          "_key": "heading-6f8ffac59954",
+          "_type": "copy",
+          "key": "heading-6f8ffac59954",
+          "label": "Heading — We are excited to be part of your dream interior journey!",
+          "value": "We are excited to be part of your dream interior journey!"
+        },
+        {
+          "_key": "copy-22ca51fb",
+          "_type": "copy",
+          "key": "copy-22ca51fb",
+          "label": "Button label — Your Office Estimate Is Ready",
+          "value": "Your Office Estimate Is Ready"
+        },
+        {
+          "_key": "copy-beaf745f",
+          "_type": "copy",
+          "key": "copy-beaf745f",
+          "label": "Button label — Your Estimate Is Ready",
+          "value": "Your Estimate Is Ready"
+        },
+        {
+          "_key": "text-af7a9fc593fc",
+          "_type": "copy",
+          "key": "text-af7a9fc593fc",
+          "label": "Text — package",
+          "value": "package"
+        },
+        {
+          "_key": "copy-f79f00d2",
+          "_type": "copy",
+          "key": "copy-f79f00d2",
+          "label": "Button label — Preliminary office interior planning estimate",
+          "value": "Preliminary office interior planning estimate"
+        },
+        {
+          "_key": "copy-fabbe71c",
+          "_type": "copy",
+          "key": "copy-fabbe71c",
+          "label": "Button label — Preliminary estimate based on your selected rooms and package. Fi",
+          "value": "Preliminary estimate based on your selected rooms and package. Final quotation may vary based on measurements, materials, design details and site conditions."
+        },
+        {
+          "_key": "text-65dec0a0c4bd",
+          "_type": "copy",
+          "key": "text-65dec0a0c4bd",
+          "label": "Text — Call now",
+          "value": "Call now"
+        },
+        {
+          "_key": "text-632d0ce02225",
+          "_type": "copy",
+          "key": "text-632d0ce02225",
+          "label": "Label — Calculate again",
+          "value": "Calculate again"
+        },
+        {
+          "_key": "text-6dde7419c890",
+          "_type": "copy",
+          "key": "text-6dde7419c890",
+          "label": "Label — ← Prev",
+          "value": "← Prev"
+        },
+        {
+          "_key": "text-fc36ca3d4191",
+          "_type": "copy",
+          "key": "text-fc36ca3d4191",
+          "label": "Text — Next",
+          "value": "Next"
+        }
+      ],
+      "images": [
+        {
+          "_key": "image-86196ab7b887",
+          "_type": "picture",
+          "key": "image-86196ab7b887",
+          "label": "Website image 1",
+          "fallbackUrl": "/cms-assets/image-86196ab7b887.png",
+          "alt": ""
+        },
+        {
+          "_key": "image-da969e17a851",
+          "_type": "picture",
+          "key": "image-da969e17a851",
+          "label": "Website image 2",
+          "fallbackUrl": "/cms-assets/image-da969e17a851.png",
+          "alt": ""
+        },
+        {
+          "_key": "image-a60d5a9fc761",
+          "_type": "picture",
+          "key": "image-a60d5a9fc761",
+          "label": "Website image 3",
+          "fallbackUrl": "/cms-assets/image-a60d5a9fc761.png",
+          "alt": ""
+        },
+        {
+          "_key": "image-0bf1a3c1ff80",
+          "_type": "picture",
+          "key": "image-0bf1a3c1ff80",
+          "label": "Website image 4",
+          "fallbackUrl": "/cms-assets/image-0bf1a3c1ff80.png",
+          "alt": ""
+        }
+      ],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-63787ee750fd",
+      "_type": "siteSection",
+      "title": "Contact — Form labels",
+      "previewPath": "/contact",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-8d39bde6",
+          "_type": "copy",
+          "key": "copy-8d39bde6",
+          "label": "Name — name",
+          "value": "name"
+        },
+        {
+          "_key": "copy-8a8753c7",
+          "_type": "copy",
+          "key": "copy-8a8753c7",
+          "label": "Name — email",
+          "value": "email"
+        },
+        {
+          "_key": "copy-773611af",
+          "_type": "copy",
+          "key": "copy-773611af",
+          "label": "Name — phone",
+          "value": "phone"
+        },
+        {
+          "_key": "heading-4870ee2bce7c",
+          "_type": "copy",
+          "key": "heading-4870ee2bce7c",
+          "label": "Heading — Let's craft your   dream space",
+          "value": "Let's craft your   dream space"
+        },
+        {
+          "_key": "text-57e05785dbb6",
+          "_type": "copy",
+          "key": "text-57e05785dbb6",
+          "label": "Text — Share your project details with us, and our expert architects wil",
+          "value": "Share your project details with us, and our expert architects will get back to you with a free consultation and quote."
+        },
+        {
+          "_key": "text-754c74fe964b",
+          "_type": "copy",
+          "key": "text-754c74fe964b",
+          "label": "Text — Get in touch",
+          "value": "Get in touch"
+        },
+        {
+          "_key": "heading-c71507322934",
+          "_type": "copy",
+          "key": "heading-c71507322934",
+          "label": "Heading — Leave us a message",
+          "value": "Leave us a message"
+        },
+        {
+          "_key": "text-d28f3358b9bb",
+          "_type": "copy",
+          "key": "text-d28f3358b9bb",
+          "label": "Text — Thank you! Your request has been received. Our team will contact ",
+          "value": "Thank you! Your request has been received. Our team will contact you shortly."
+        },
+        {
+          "_key": "copy-3537f1c9",
+          "_type": "copy",
+          "key": "copy-3537f1c9",
+          "label": "Input placeholder — Tell us about your project (location, floor area, style preferenc",
+          "value": "Tell us about your project (location, floor area, style preferences, etc.)"
+        }
+      ],
+      "images": [
+        {
+          "_key": "image-4ab85ccb1867",
+          "_type": "picture",
+          "key": "image-4ab85ccb1867",
+          "label": "Interior Design Consultation",
+          "fallbackUrl": "/cms-assets/image-4ab85ccb1867.jpg",
+          "alt": "Interior Design Consultation"
+        }
+      ],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-08e64b4ac0a4",
+      "_type": "siteSection",
+      "title": "Contact",
+      "previewPath": "/contact",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "text-b4166eca4bc5",
+          "_type": "copy",
+          "key": "text-b4166eca4bc5",
+          "label": "Text — Loading experience center...",
+          "value": "Loading experience center..."
+        },
+        {
+          "_key": "heading-abbdc4ff1e33",
+          "_type": "copy",
+          "key": "heading-abbdc4ff1e33",
+          "label": "Heading — Failed to load information",
+          "value": "Failed to load information"
+        },
+        {
+          "_key": "text-c061da1b4717",
+          "_type": "copy",
+          "key": "text-c061da1b4717",
+          "label": "Label — Try again",
+          "value": "Try again"
+        },
+        {
+          "_key": "text-b533b020cfe7",
+          "_type": "copy",
+          "key": "text-b533b020cfe7",
+          "label": "Text — Visit Us",
+          "value": "Visit Us"
+        },
+        {
+          "_key": "heading-d3a6561d9d6b",
+          "_type": "copy",
+          "key": "heading-d3a6561d9d6b",
+          "label": "Heading — Welcome to our  experience center",
+          "value": "Welcome to our  experience center"
+        },
+        {
+          "_key": "text-196d67edcb13",
+          "_type": "copy",
+          "key": "text-196d67edcb13",
+          "label": "Text — Step into a world of architectural brilliance and premium interio",
+          "value": "Step into a world of architectural brilliance and premium interiors. Let's discuss your dream space over a cup of coffee."
+        },
+        {
+          "_key": "text-bba2af81b47b",
+          "_type": "copy",
+          "key": "text-bba2af81b47b",
+          "label": "Text — No contact details found.",
+          "value": "No contact details found."
+        }
+      ],
+      "images": [
+        {
+          "_key": "image-0bf1a3c1ff80",
+          "_type": "picture",
+          "key": "image-0bf1a3c1ff80",
+          "label": "Experience Center",
+          "fallbackUrl": "/cms-assets/image-0bf1a3c1ff80.png",
+          "alt": "Experience Center"
+        }
+      ],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-b6bcd931a809",
+      "_type": "siteSection",
+      "title": "Location",
+      "previewPath": "/contact",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "text-a4536f2534ff",
+          "_type": "copy",
+          "key": "text-a4536f2534ff",
+          "label": "Text — Loading Map...",
+          "value": "Loading Map..."
+        },
+        {
+          "_key": "heading-589731d072fe",
+          "_type": "copy",
+          "key": "heading-589731d072fe",
+          "label": "Heading — Location unavailable",
+          "value": "Location unavailable"
+        },
+        {
+          "_key": "text-b5f4d81df75c",
+          "_type": "copy",
+          "key": "text-b5f4d81df75c",
+          "label": "Label — Try again",
+          "value": "Try again"
+        },
+        {
+          "_key": "text-971a8149d55b",
+          "_type": "copy",
+          "key": "text-971a8149d55b",
+          "label": "Text — Our Office",
+          "value": "Our Office"
+        },
+        {
+          "_key": "heading-bcf2c7774449",
+          "_type": "copy",
+          "key": "heading-bcf2c7774449",
+          "label": "Heading — Visit us",
+          "value": "Visit us"
+        },
+        {
+          "_key": "text-d2d33a3b9a26",
+          "_type": "copy",
+          "key": "text-d2d33a3b9a26",
+          "label": "Text — Get directions",
+          "value": "Get directions"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-784ee3257dd1",
+      "_type": "siteSection",
+      "title": "Shared — Footer text, image and links",
+      "previewPath": "/",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-ac37c251",
+          "_type": "copy",
+          "key": "copy-ac37c251",
+          "label": "Label — Facebook",
+          "value": "Facebook"
+        },
+        {
+          "_key": "copy-f95701b",
+          "_type": "copy",
+          "key": "copy-f95701b",
+          "label": "Label — Instagram",
+          "value": "Instagram"
+        },
+        {
+          "_key": "copy-2f5973bf",
+          "_type": "copy",
+          "key": "copy-2f5973bf",
+          "label": "Label — LinkedIn",
+          "value": "LinkedIn"
+        },
+        {
+          "_key": "copy-be3a531e",
+          "_type": "copy",
+          "key": "copy-be3a531e",
+          "label": "Label — YouTube",
+          "value": "YouTube"
+        },
+        {
+          "_key": "copy-191373ca",
+          "_type": "copy",
+          "key": "copy-191373ca",
+          "label": "Name — Home Interior",
+          "value": "Home Interior"
+        },
+        {
+          "_key": "copy-d0c0134b",
+          "_type": "copy",
+          "key": "copy-d0c0134b",
+          "label": "Name — Office Interior",
+          "value": "Office Interior"
+        },
+        {
+          "_key": "copy-a2eac0e1",
+          "_type": "copy",
+          "key": "copy-a2eac0e1",
+          "label": "Name — Our Projects",
+          "value": "Our Projects"
+        },
+        {
+          "_key": "copy-9535e2f4",
+          "_type": "copy",
+          "key": "copy-9535e2f4",
+          "label": "Name — Interior Blogs",
+          "value": "Interior Blogs"
+        },
+        {
+          "_key": "copy-52f50eae",
+          "_type": "copy",
+          "key": "copy-52f50eae",
+          "label": "Name — Home",
+          "value": "Home"
+        },
+        {
+          "_key": "copy-57219b6d",
+          "_type": "copy",
+          "key": "copy-57219b6d",
+          "label": "Name — Calculator",
+          "value": "Calculator"
+        },
+        {
+          "_key": "copy-6dda792a",
+          "_type": "copy",
+          "key": "copy-6dda792a",
+          "label": "Name — About Us",
+          "value": "About Us"
+        },
+        {
+          "_key": "copy-73ac94c3",
+          "_type": "copy",
+          "key": "copy-73ac94c3",
+          "label": "Name — Contact",
+          "value": "Contact"
+        },
+        {
+          "_key": "text-27e1506c36d5",
+          "_type": "copy",
+          "key": "text-27e1506c36d5",
+          "label": "Text — Transforming your living spaces into masterpieces of comfort and ",
+          "value": "Transforming your living spaces into masterpieces of comfort and style. Your vision is our expertise."
+        },
+        {
+          "_key": "heading-0d8759af8571",
+          "_type": "copy",
+          "key": "heading-0d8759af8571",
+          "label": "Heading — Services",
+          "value": "Services"
+        },
+        {
+          "_key": "heading-b12fb6f4bdb0",
+          "_type": "copy",
+          "key": "heading-b12fb6f4bdb0",
+          "label": "Heading — Resources",
+          "value": "Resources"
+        },
+        {
+          "_key": "heading-22302787c2fd",
+          "_type": "copy",
+          "key": "heading-22302787c2fd",
+          "label": "Heading — Contact",
+          "value": "Contact"
+        },
+        {
+          "_key": "heading-1a1b4c5699be",
+          "_type": "copy",
+          "key": "heading-1a1b4c5699be",
+          "label": "Heading — Our Facebook page",
+          "value": "Our Facebook page"
+        },
+        {
+          "_key": "text-4e761c6be47b",
+          "_type": "copy",
+          "key": "text-4e761c6be47b",
+          "label": "Text — loading page...",
+          "value": "loading page..."
+        },
+        {
+          "_key": "text-18b2eac97caf",
+          "_type": "copy",
+          "key": "text-18b2eac97caf",
+          "label": "Text — BE INTERIOR",
+          "value": "BE INTERIOR"
+        },
+        {
+          "_key": "text-6b9ccdfe1819",
+          "_type": "copy",
+          "key": "text-6b9ccdfe1819",
+          "label": "Text — Join Our Community on Facebook →",
+          "value": "Join Our Community on Facebook →"
+        },
+        {
+          "_key": "text-4c384b9fdcb0",
+          "_type": "copy",
+          "key": "text-4c384b9fdcb0",
+          "label": "Text — BE INTERIOR. All Rights Reserved.",
+          "value": "BE INTERIOR. All Rights Reserved."
+        },
+        {
+          "_key": "text-f72389a2e333",
+          "_type": "copy",
+          "key": "text-f72389a2e333",
+          "label": "Label — Privacy policy",
+          "value": "Privacy policy"
+        },
+        {
+          "_key": "text-df39f7a68427",
+          "_type": "copy",
+          "key": "text-df39f7a68427",
+          "label": "Label — Terms of service",
+          "value": "Terms of service"
+        }
+      ],
+      "images": [
+        {
+          "_key": "image-3acb9454e44e",
+          "_type": "picture",
+          "key": "image-3acb9454e44e",
+          "label": "BE INTERIOR Facebook Page",
+          "fallbackUrl": "/cms-assets/image-3acb9454e44e.png",
+          "alt": "BE INTERIOR Facebook Page"
+        }
+      ],
+      "links": [
+        {
+          "_key": "copy-b8e294fb",
+          "_type": "buttonLink",
+          "key": "copy-b8e294fb",
+          "label": "Card link",
+          "href": "/services/home-interior"
+        },
+        {
+          "_key": "copy-95033e52",
+          "_type": "buttonLink",
+          "key": "copy-95033e52",
+          "label": "Card link",
+          "href": "/services/office-interior"
+        },
+        {
+          "_key": "copy-1156ae93",
+          "_type": "buttonLink",
+          "key": "copy-1156ae93",
+          "label": "Card link",
+          "href": "/interior-projects"
+        },
+        {
+          "_key": "copy-2614034f",
+          "_type": "buttonLink",
+          "key": "copy-2614034f",
+          "label": "Card link",
+          "href": "/blogs"
+        },
+        {
+          "_key": "copy-2a0c975e",
+          "_type": "buttonLink",
+          "key": "copy-2a0c975e",
+          "label": "Card link",
+          "href": "/"
+        },
+        {
+          "_key": "copy-9c6e4fdd",
+          "_type": "buttonLink",
+          "key": "copy-9c6e4fdd",
+          "label": "Card link",
+          "href": "/services/budget-calculator"
+        },
+        {
+          "_key": "copy-e27df7",
+          "_type": "buttonLink",
+          "key": "copy-e27df7",
+          "label": "Card link",
+          "href": "/about"
+        },
+        {
+          "_key": "copy-1fcf056e",
+          "_type": "buttonLink",
+          "key": "copy-1fcf056e",
+          "label": "Card link",
+          "href": "/contact"
+        },
+        {
+          "_key": "link-64f33c59cc80",
+          "_type": "buttonLink",
+          "key": "link-64f33c59cc80",
+          "label": "Button destination",
+          "href": "/privacy-policy"
+        },
+        {
+          "_key": "link-541434030328",
+          "_type": "buttonLink",
+          "key": "link-541434030328",
+          "label": "Button destination",
+          "href": "/terms"
+        }
+      ],
+      "lists": [
+        {
+          "_key": "footer-services",
+          "_type": "contentList",
+          "key": "footer-services",
+          "label": "Footer service links",
+          "items": [
+            {
+              "_key": "footer-services-0",
+              "_type": "contentCard",
+              "templateIndex": 0,
+              "enabled": true,
+              "title": "Home Interior",
+              "href": "/services/home-interior"
+            },
+            {
+              "_key": "footer-services-1",
+              "_type": "contentCard",
+              "templateIndex": 1,
+              "enabled": true,
+              "title": "Office Interior",
+              "href": "/services/office-interior"
+            },
+            {
+              "_key": "footer-services-2",
+              "_type": "contentCard",
+              "templateIndex": 2,
+              "enabled": true,
+              "title": "Our Projects",
+              "href": "/interior-projects"
+            },
+            {
+              "_key": "footer-services-3",
+              "_type": "contentCard",
+              "templateIndex": 3,
+              "enabled": true,
+              "title": "Interior Blogs",
+              "href": "/blogs"
+            }
+          ]
+        },
+        {
+          "_key": "footer-resources",
+          "_type": "contentList",
+          "key": "footer-resources",
+          "label": "Footer resource links",
+          "items": [
+            {
+              "_key": "footer-resources-0",
+              "_type": "contentCard",
+              "templateIndex": 0,
+              "enabled": true,
+              "title": "Home",
+              "href": "/"
+            },
+            {
+              "_key": "footer-resources-1",
+              "_type": "contentCard",
+              "templateIndex": 1,
+              "enabled": true,
+              "title": "Calculator",
+              "href": "/services/budget-calculator"
+            },
+            {
+              "_key": "footer-resources-2",
+              "_type": "contentCard",
+              "templateIndex": 2,
+              "enabled": true,
+              "title": "About Us",
+              "href": "/about"
+            },
+            {
+              "_key": "footer-resources-3",
+              "_type": "contentCard",
+              "templateIndex": 3,
+              "enabled": true,
+              "title": "Contact",
+              "href": "/contact"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "section-aeb845e27560",
+      "_type": "siteSection",
+      "title": "Mobile Bottom Menu",
+      "previewPath": "/",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "text-e716be109d69",
+          "_type": "copy",
+          "key": "text-e716be109d69",
+          "label": "Text — Booking",
+          "value": "Booking"
+        },
+        {
+          "_key": "text-a45e6544116b",
+          "_type": "copy",
+          "key": "text-a45e6544116b",
+          "label": "Text — Calculator",
+          "value": "Calculator"
+        },
+        {
+          "_key": "text-d2898aa5158a",
+          "_type": "copy",
+          "key": "text-d2898aa5158a",
+          "label": "Text — Call",
+          "value": "Call"
+        }
+      ],
+      "images": [],
+      "links": [
+        {
+          "_key": "link-80039fd76c9b",
+          "_type": "buttonLink",
+          "key": "link-80039fd76c9b",
+          "label": "Button destination",
+          "href": "/hire-architect"
+        },
+        {
+          "_key": "link-49b75a5b98a2",
+          "_type": "buttonLink",
+          "key": "link-49b75a5b98a2",
+          "label": "Button destination",
+          "href": "/services/budget-calculator"
+        }
+      ],
+      "lists": []
+    },
+    {
+      "_id": "section-e7c2c0e3c691",
+      "_type": "siteSection",
+      "title": "Architect Interior",
+      "previewPath": "/hire-architect",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "heading-85a34da92bb0",
+          "_type": "copy",
+          "key": "heading-85a34da92bb0",
+          "label": "Heading — Your dream home is just a click away",
+          "value": "Your dream home is just a click away"
+        },
+        {
+          "_key": "text-525a4cbade92",
+          "_type": "copy",
+          "key": "text-525a4cbade92",
+          "label": "Text — contact on WhatsApp",
+          "value": "contact on WhatsApp"
+        },
+        {
+          "_key": "text-56f71a4a128b",
+          "_type": "copy",
+          "key": "text-56f71a4a128b",
+          "label": "Text — connecting...",
+          "value": "connecting..."
+        },
+        {
+          "_key": "text-c3c055b66798",
+          "_type": "copy",
+          "key": "text-c3c055b66798",
+          "label": "Text — chat on WhatsApp",
+          "value": "chat on WhatsApp"
+        }
+      ],
+      "images": [
+        {
+          "_key": "image-f0ac742705d9",
+          "_type": "picture",
+          "key": "image-f0ac742705d9",
+          "label": "img",
+          "fallbackUrl": "/cms-assets/image-f0ac742705d9.png",
+          "alt": "img"
+        }
+      ],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-5fb9f68eddec",
+      "_type": "siteSection",
+      "title": "Customized Service",
+      "previewPath": "/hire-architect",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "text-d784f0d6cab9",
+          "_type": "copy",
+          "key": "text-d784f0d6cab9",
+          "label": "Text — CustomizedService",
+          "value": "CustomizedService"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-39bbb4c8a8d9",
+      "_type": "siteSection",
+      "title": "Hire an architect — Form labels",
+      "previewPath": "/hire-architect",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-8d39bde6",
+          "_type": "copy",
+          "key": "copy-8d39bde6",
+          "label": "Name — name",
+          "value": "name"
+        },
+        {
+          "_key": "copy-8a8753c7",
+          "_type": "copy",
+          "key": "copy-8a8753c7",
+          "label": "Name — email",
+          "value": "email"
+        },
+        {
+          "_key": "copy-773611af",
+          "_type": "copy",
+          "key": "copy-773611af",
+          "label": "Name — phone",
+          "value": "phone"
+        },
+        {
+          "_key": "heading-411654ff994f",
+          "_type": "copy",
+          "key": "heading-411654ff994f",
+          "label": "Heading — Leave us a message for your  dream interior",
+          "value": "Leave us a message for your  dream interior"
+        },
+        {
+          "_key": "text-468a2e6ff475",
+          "_type": "copy",
+          "key": "text-468a2e6ff475",
+          "label": "Text — Thank you! Your request has been received. Our team will contact ",
+          "value": "Thank you! Your request has been received. Our team will contact you shortly."
+        },
+        {
+          "_key": "copy-43cd2d07",
+          "_type": "copy",
+          "key": "copy-43cd2d07",
+          "label": "Input placeholder — Project information (location, floor area, etc.)",
+          "value": "Project information (location, floor area, etc.)"
+        },
+        {
+          "_key": "text-ec0a66685be3",
+          "_type": "copy",
+          "key": "text-ec0a66685be3",
+          "label": "Text — By submitting this form, you agree to the",
+          "value": "By submitting this form, you agree to the"
+        },
+        {
+          "_key": "text-7e0fd173bb59",
+          "_type": "copy",
+          "key": "text-7e0fd173bb59",
+          "label": "Label — Privacy policy",
+          "value": "Privacy policy"
+        },
+        {
+          "_key": "text-59fd725a045c",
+          "_type": "copy",
+          "key": "text-59fd725a045c",
+          "label": "Label — Terms and conditions",
+          "value": "Terms and conditions"
+        }
+      ],
+      "images": [
+        {
+          "_key": "image-816da0b666be",
+          "_type": "picture",
+          "key": "image-816da0b666be",
+          "label": "img",
+          "fallbackUrl": "/cms-assets/image-816da0b666be.png",
+          "alt": "img"
+        }
+      ],
+      "links": [
+        {
+          "_key": "link-bebe8f4e0989",
+          "_type": "buttonLink",
+          "key": "link-bebe8f4e0989",
+          "label": "Button destination",
+          "href": "/privacy-policy"
+        },
+        {
+          "_key": "link-367c44cef187",
+          "_type": "buttonLink",
+          "key": "link-367c44cef187",
+          "label": "Button destination",
+          "href": "/terms"
+        }
+      ],
+      "lists": []
+    },
+    {
+      "_id": "section-37b8a2c22aa5",
+      "_type": "siteSection",
+      "title": "Home — Residential projects",
+      "previewPath": "/",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "heading-90a082e45433",
+          "_type": "copy",
+          "key": "heading-90a082e45433",
+          "label": "Heading — Exclusive residential projects",
+          "value": "Exclusive residential projects"
+        },
+        {
+          "_key": "heading-b1978df082ab",
+          "_type": "copy",
+          "key": "heading-b1978df082ab",
+          "label": "Heading — Failed to load projects. Please try again!",
+          "value": "Failed to load projects. Please try again!"
+        },
+        {
+          "_key": "text-ea587e69e610",
+          "_type": "copy",
+          "key": "text-ea587e69e610",
+          "label": "Text — view projects",
+          "value": "view projects"
+        },
+        {
+          "_key": "text-c67ddbc2ba9b",
+          "_type": "copy",
+          "key": "text-c67ddbc2ba9b",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        },
+        {
+          "_key": "text-5de77d93bc5a",
+          "_type": "copy",
+          "key": "text-5de77d93bc5a",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        },
+        {
+          "_key": "text-b894dba8f34d",
+          "_type": "copy",
+          "key": "text-b894dba8f34d",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-8829bda372d5",
+      "_type": "siteSection",
+      "title": "Home — Comparison",
+      "previewPath": "/",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-dd3ec7ca",
+          "_type": "copy",
+          "key": "copy-dd3ec7ca",
+          "label": "Title — Price",
+          "value": "Price"
+        },
+        {
+          "_key": "copy-441f545a",
+          "_type": "copy",
+          "key": "copy-441f545a",
+          "label": "List text — Competitive & transparent pricing",
+          "value": "Competitive & transparent pricing"
+        },
+        {
+          "_key": "copy-b5f4f493",
+          "_type": "copy",
+          "key": "copy-b5f4f493",
+          "label": "List text — No hidden cost",
+          "value": "No hidden cost"
+        },
+        {
+          "_key": "copy-2b6e6b10",
+          "_type": "copy",
+          "key": "copy-2b6e6b10",
+          "label": "Title — Convenience",
+          "value": "Convenience"
+        },
+        {
+          "_key": "copy-bd3345fa",
+          "_type": "copy",
+          "key": "copy-bd3345fa",
+          "label": "List text — One stop service",
+          "value": "One stop service"
+        },
+        {
+          "_key": "copy-559c0837",
+          "_type": "copy",
+          "key": "copy-559c0837",
+          "label": "List text — No complicating process",
+          "value": "No complicating process"
+        },
+        {
+          "_key": "copy-e88d02ef",
+          "_type": "copy",
+          "key": "copy-e88d02ef",
+          "label": "Title — Design",
+          "value": "Design"
+        },
+        {
+          "_key": "copy-5e133764",
+          "_type": "copy",
+          "key": "copy-5e133764",
+          "label": "List text — Innovative & tailored design",
+          "value": "Innovative & tailored design"
+        },
+        {
+          "_key": "copy-fd736d71",
+          "_type": "copy",
+          "key": "copy-fd736d71",
+          "label": "Title — Project Timeline",
+          "value": "Project Timeline"
+        },
+        {
+          "_key": "copy-72856f6f",
+          "_type": "copy",
+          "key": "copy-72856f6f",
+          "label": "List text — Planned project timeline with clear milestone tracking",
+          "value": "Planned project timeline with clear milestone tracking"
+        },
+        {
+          "_key": "copy-1db59743",
+          "_type": "copy",
+          "key": "copy-1db59743",
+          "label": "Title — Communication",
+          "value": "Communication"
+        },
+        {
+          "_key": "copy-f7f22c02",
+          "_type": "copy",
+          "key": "copy-f7f22c02",
+          "label": "List text — Dedicated architect for client support",
+          "value": "Dedicated architect for client support"
+        },
+        {
+          "_key": "copy-f1cafb7a",
+          "_type": "copy",
+          "key": "copy-f1cafb7a",
+          "label": "List text — Weekly project update report",
+          "value": "Weekly project update report"
+        },
+        {
+          "_key": "copy-cb7fbec6",
+          "_type": "copy",
+          "key": "copy-cb7fbec6",
+          "label": "Title — Quality",
+          "value": "Quality"
+        },
+        {
+          "_key": "copy-3fe368e",
+          "_type": "copy",
+          "key": "copy-3fe368e",
+          "label": "List text — Branded materials & top-notch finishing",
+          "value": "Branded materials & top-notch finishing"
+        },
+        {
+          "_key": "copy-4c07f79c",
+          "_type": "copy",
+          "key": "copy-4c07f79c",
+          "label": "List text — 146 Steps quality check",
+          "value": "146 Steps quality check"
+        },
+        {
+          "_key": "copy-9f906bed",
+          "_type": "copy",
+          "key": "copy-9f906bed",
+          "label": "Title — Warranty",
+          "value": "Warranty"
+        },
+        {
+          "_key": "copy-9ee5144e",
+          "_type": "copy",
+          "key": "copy-9ee5144e",
+          "label": "List text — 2 Year warranty",
+          "value": "2 Year warranty"
+        },
+        {
+          "_key": "copy-72b4fb6e",
+          "_type": "copy",
+          "key": "copy-72b4fb6e",
+          "label": "Title — Space Optimization",
+          "value": "Space Optimization"
+        },
+        {
+          "_key": "copy-1861dac9",
+          "_type": "copy",
+          "key": "copy-1861dac9",
+          "label": "List text — Maximize space utilization",
+          "value": "Maximize space utilization"
+        },
+        {
+          "_key": "copy-1a4032e3",
+          "_type": "copy",
+          "key": "copy-1a4032e3",
+          "label": "List text — Functionally, aesthetically pleasing environment",
+          "value": "Functionally, aesthetically pleasing environment"
+        },
+        {
+          "_key": "text-57ec289be482",
+          "_type": "copy",
+          "key": "text-57ec289be482",
+          "label": "Text — Why Choose Us",
+          "value": "Why Choose Us"
+        },
+        {
+          "_key": "heading-53ad708fcdfe",
+          "_type": "copy",
+          "key": "heading-53ad708fcdfe",
+          "label": "Heading — How we stand out  from the rest",
+          "value": "How we stand out  from the rest"
+        },
+        {
+          "_key": "text-1670c3255f8a",
+          "_type": "copy",
+          "key": "text-1670c3255f8a",
+          "label": "Text — We deliver carefully planned interior solutions with defined qual",
+          "value": "We deliver carefully planned interior solutions with defined quality standards, coordinated execution, and clear communication at every stage."
+        },
+        {
+          "_key": "text-69b8ac7272eb",
+          "_type": "copy",
+          "key": "text-69b8ac7272eb",
+          "label": "Label — Talk to our designers",
+          "value": "Talk to our designers"
+        },
+        {
+          "_key": "text-45da5b772335",
+          "_type": "copy",
+          "key": "text-45da5b772335",
+          "label": "Text — Key Factors",
+          "value": "Key Factors"
+        },
+        {
+          "_key": "text-447e1f67af4c",
+          "_type": "copy",
+          "key": "text-447e1f67af4c",
+          "label": "Text — Be Interior",
+          "value": "Be Interior"
+        },
+        {
+          "_key": "text-3f2bdbd06b89",
+          "_type": "copy",
+          "key": "text-3f2bdbd06b89",
+          "label": "Text — Others",
+          "value": "Others"
+        }
+      ],
+      "images": [],
+      "links": [
+        {
+          "_key": "link-b9fa380fee68",
+          "_type": "buttonLink",
+          "key": "link-b9fa380fee68",
+          "label": "Button destination",
+          "href": "/contact"
+        }
+      ],
+      "lists": [
+        {
+          "_key": "factors",
+          "_type": "contentList",
+          "key": "factors",
+          "label": "Factors",
+          "items": [
+            {
+              "_key": "card-0",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 0,
+              "title": "Price",
+              "points": [
+                "Competitive & transparent pricing",
+                "No hidden cost"
+              ]
+            },
+            {
+              "_key": "card-1",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 1,
+              "title": "Convenience",
+              "points": [
+                "One stop service",
+                "No complicating process"
+              ]
+            },
+            {
+              "_key": "card-2",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 2,
+              "title": "Design",
+              "points": [
+                "Innovative & tailored design"
+              ]
+            },
+            {
+              "_key": "card-3",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 3,
+              "title": "Project Timeline",
+              "points": [
+                "Planned project timeline with clear milestone tracking"
+              ]
+            },
+            {
+              "_key": "card-4",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 4,
+              "title": "Communication",
+              "points": [
+                "Dedicated architect for client support",
+                "Weekly project update report"
+              ]
+            },
+            {
+              "_key": "card-5",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 5,
+              "title": "Quality",
+              "points": [
+                "Branded materials & top-notch finishing",
+                "146 Steps quality check"
+              ]
+            },
+            {
+              "_key": "card-6",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 6,
+              "title": "Warranty",
+              "points": [
+                "2 Year warranty"
+              ]
+            },
+            {
+              "_key": "card-7",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 7,
+              "title": "Space Optimization",
+              "points": [
+                "Maximize space utilization",
+                "Functionally, aesthetically pleasing environment"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "section-8ac0a3caab4b",
+      "_type": "siteSection",
+      "title": "Home — Calculator promotion",
+      "previewPath": "/",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "text-d8206d9d9e2e",
+          "_type": "copy",
+          "key": "text-d8206d9d9e2e",
+          "label": "Text — Smart Estimation",
+          "value": "Smart Estimation"
+        },
+        {
+          "_key": "heading-bc936a5decc1",
+          "_type": "copy",
+          "key": "heading-bc936a5decc1",
+          "label": "Heading — Invest in your ideal space",
+          "value": "Invest in your ideal space"
+        },
+        {
+          "_key": "text-a06fc8822a83",
+          "_type": "copy",
+          "key": "text-a06fc8822a83",
+          "label": "Text — Turn your vision into reality. Get an instant, accurate estimate ",
+          "value": "Turn your vision into reality. Get an instant, accurate estimate for your interior design project with our smart calculator."
+        },
+        {
+          "_key": "text-078e64a17f43",
+          "_type": "copy",
+          "key": "text-078e64a17f43",
+          "label": "Text — Calculate now",
+          "value": "Calculate now"
+        }
+      ],
+      "images": [],
+      "links": [
+        {
+          "_key": "link-08d69644d4bd",
+          "_type": "buttonLink",
+          "key": "link-08d69644d4bd",
+          "label": "Button destination",
+          "href": "/services/budget-calculator"
+        }
+      ],
+      "lists": []
+    },
+    {
+      "_id": "section-6bda2feda9af",
+      "_type": "siteSection",
+      "title": "Home — Customer reviews",
+      "previewPath": "/",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "heading-07a2a08b97a8",
+          "_type": "copy",
+          "key": "heading-07a2a08b97a8",
+          "label": "Heading — Trusted by visionaries",
+          "value": "Trusted by visionaries"
+        },
+        {
+          "_key": "heading-fd53cfdbab38",
+          "_type": "copy",
+          "key": "heading-fd53cfdbab38",
+          "label": "Heading — Failed to load projects. Please try again!",
+          "value": "Failed to load projects. Please try again!"
+        },
+        {
+          "_key": "text-b39304f5e2af",
+          "_type": "copy",
+          "key": "text-b39304f5e2af",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        },
+        {
+          "_key": "text-6ee612ba9900",
+          "_type": "copy",
+          "key": "text-6ee612ba9900",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        },
+        {
+          "_key": "text-ef2407fdd1ee",
+          "_type": "copy",
+          "key": "text-ef2407fdd1ee",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-d036fe38185d",
+      "_type": "siteSection",
+      "title": "Home — Hero slider",
+      "previewPath": "/",
+      "enabled": true,
+      "texts": [],
+      "images": [],
+      "links": [],
+      "lists": [],
+      "slides": [
+        {
+          "_key": "slide-0",
+          "_type": "heroSlide",
+          "enabled": true,
+          "title": "Redefine your space with modern minimalism",
+          "secondTitle": "",
+          "body": "Transform your home into a clutter-free sanctuary. Be Interior brings you sleek, functional designs with effortless execution.",
+          "buttonLabel": "Start your transformation",
+          "href": "/services/home-interior",
+          "action": "link",
+          "fallbackUrl": "/cms-assets/image-0bf1a3c1ff80.png",
+          "alt": "Redefine your space with modern minimalism"
+        },
+        {
+          "_key": "slide-1",
+          "_type": "heroSlide",
+          "enabled": true,
+          "title": "100% Yours.",
+          "secondTitle": "Crafting your dream home",
+          "body": "From modern kitchens to cozy bedrooms—we design and execute every corner just for you.",
+          "buttonLabel": "Explore home interior",
+          "href": "/services/home-interior",
+          "action": "link",
+          "fallbackUrl": "/cms-assets/image-37771806e377.png",
+          "alt": "100% Yours."
+        },
+        {
+          "_key": "slide-2",
+          "_type": "heroSlide",
+          "enabled": true,
+          "title": "Workspaces people love.",
+          "secondTitle": "",
+          "body": "Smart, ergonomic, and stunning interiors that your employees will genuinely enjoy walking into.",
+          "buttonLabel": "Get a free quote",
+          "href": "/services/budget-calculator",
+          "action": "link",
+          "fallbackUrl": "/cms-assets/image-59e3c4ff8748.png",
+          "alt": "Workspaces people love."
+        }
+      ]
+    },
+    {
+      "_id": "section-adb0c734da06",
+      "_type": "siteSection",
+      "title": "Home — WhatsApp call to action",
+      "previewPath": "/",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "text-0bf348b4d5fa",
+          "_type": "copy",
+          "key": "text-0bf348b4d5fa",
+          "label": "Text — Let's Connect",
+          "value": "Let's Connect"
+        },
+        {
+          "_key": "heading-d8cb642f29de",
+          "_type": "copy",
+          "key": "heading-d8cb642f29de",
+          "label": "Heading — Your dream interior",
+          "value": "Your dream interior"
+        },
+        {
+          "_key": "heading-1a6727cd62f0",
+          "_type": "copy",
+          "key": "heading-1a6727cd62f0",
+          "label": "Heading — Is just one click away",
+          "value": "Is just one click away"
+        },
+        {
+          "_key": "text-679b2316160b",
+          "_type": "copy",
+          "key": "text-679b2316160b",
+          "label": "Text — Ready to discuss your space? Message us on WhatsApp and our team ",
+          "value": "Ready to discuss your space? Message us on WhatsApp and our team will get back to you with the next steps."
+        },
+        {
+          "_key": "text-212c6a41d54b",
+          "_type": "copy",
+          "key": "text-212c6a41d54b",
+          "label": "Text — Get started",
+          "value": "Get started"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-39381f4c733d",
+      "_type": "siteSection",
+      "title": "Home — Office projects",
+      "previewPath": "/",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "heading-ebdd2deb4ca2",
+          "_type": "copy",
+          "key": "heading-ebdd2deb4ca2",
+          "label": "Heading — Exclusive modern workspaces",
+          "value": "Exclusive modern workspaces"
+        },
+        {
+          "_key": "heading-c725a4fc3f06",
+          "_type": "copy",
+          "key": "heading-c725a4fc3f06",
+          "label": "Heading — Failed to load projects. Please try again!",
+          "value": "Failed to load projects. Please try again!"
+        },
+        {
+          "_key": "text-bbc131699582",
+          "_type": "copy",
+          "key": "text-bbc131699582",
+          "label": "Text — view projects",
+          "value": "view projects"
+        },
+        {
+          "_key": "text-229ab96ba640",
+          "_type": "copy",
+          "key": "text-229ab96ba640",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        },
+        {
+          "_key": "text-07f314d6fade",
+          "_type": "copy",
+          "key": "text-07f314d6fade",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        },
+        {
+          "_key": "text-17be663d1393",
+          "_type": "copy",
+          "key": "text-17be663d1393",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-895eb710140e",
+      "_type": "siteSection",
+      "title": "Home — Service cards",
+      "previewPath": "/",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-8b091eef",
+          "_type": "copy",
+          "key": "copy-8b091eef",
+          "label": "Title — Style Your Sanctuary",
+          "value": "Style Your Sanctuary"
+        },
+        {
+          "_key": "copy-12aa1010",
+          "_type": "copy",
+          "key": "copy-12aa1010",
+          "label": "Subtitle — Crafting personalized sanctuaries for modern living.",
+          "value": "Crafting personalized sanctuaries for modern living."
+        },
+        {
+          "_key": "copy-696eff9",
+          "_type": "copy",
+          "key": "copy-696eff9",
+          "label": "Title — Elevate Your Workspace",
+          "value": "Elevate Your Workspace"
+        },
+        {
+          "_key": "copy-c36a43c0",
+          "_type": "copy",
+          "key": "copy-c36a43c0",
+          "label": "Subtitle — Designing productive and inspiring corporate spaces.",
+          "value": "Designing productive and inspiring corporate spaces."
+        },
+        {
+          "_key": "heading-38ccca978085",
+          "_type": "copy",
+          "key": "heading-38ccca978085",
+          "label": "Heading — Comprehensive solutions",
+          "value": "Comprehensive solutions"
+        },
+        {
+          "_key": "text-29c6a6837570",
+          "_type": "copy",
+          "key": "text-29c6a6837570",
+          "label": "Text — End-to-end interior styling designed to match your aesthetics and",
+          "value": "End-to-end interior styling designed to match your aesthetics and functional requirements."
+        },
+        {
+          "_key": "text-738322fcdc87",
+          "_type": "copy",
+          "key": "text-738322fcdc87",
+          "label": "Text — explore details",
+          "value": "explore details"
+        },
+        {
+          "_key": "text-1d84b22cdd96",
+          "_type": "copy",
+          "key": "text-1d84b22cdd96",
+          "label": "Text — explore details",
+          "value": "explore details"
+        }
+      ],
+      "images": [
+        {
+          "_key": "image-56bc3a99a58b",
+          "_type": "picture",
+          "key": "image-56bc3a99a58b",
+          "label": "Website image 1",
+          "fallbackUrl": "/cms-assets/image-56bc3a99a58b.jpg",
+          "alt": ""
+        },
+        {
+          "_key": "image-6a7936b26a22",
+          "_type": "picture",
+          "key": "image-6a7936b26a22",
+          "label": "Website image 2",
+          "fallbackUrl": "/cms-assets/image-6a7936b26a22.jpg",
+          "alt": ""
+        }
+      ],
+      "links": [
+        {
+          "_key": "copy-b8e294fb",
+          "_type": "buttonLink",
+          "key": "copy-b8e294fb",
+          "label": "Card link",
+          "href": "/services/home-interior"
+        },
+        {
+          "_key": "copy-95033e52",
+          "_type": "buttonLink",
+          "key": "copy-95033e52",
+          "label": "Card link",
+          "href": "/services/office-interior"
+        }
+      ],
+      "lists": [
+        {
+          "_key": "services",
+          "_type": "contentList",
+          "key": "services",
+          "label": "Services",
+          "items": [
+            {
+              "_key": "card-0",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 0,
+              "title": "Style Your Sanctuary",
+              "subtitle": "Crafting personalized sanctuaries for modern living.",
+              "href": "/services/home-interior",
+              "fallbackUrl": "/cms-assets/image-56bc3a99a58b.jpg"
+            },
+            {
+              "_key": "card-1",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 1,
+              "title": "Elevate Your Workspace",
+              "subtitle": "Designing productive and inspiring corporate spaces.",
+              "href": "/services/office-interior",
+              "fallbackUrl": "/cms-assets/image-6a7936b26a22.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "section-994fa32343da",
+      "_type": "siteSection",
+      "title": "Home — Why choose us",
+      "previewPath": "/",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-41f9a774",
+          "_type": "copy",
+          "key": "copy-41f9a774",
+          "label": "Title — Thoughtful Value",
+          "value": "Thoughtful Value"
+        },
+        {
+          "_key": "copy-390e0886",
+          "_type": "copy",
+          "key": "copy-390e0886",
+          "label": "Desc — Design choices are planned around your priorities, scope and budg",
+          "value": "Design choices are planned around your priorities, scope and budget, with clear pricing and material discussions before execution."
+        },
+        {
+          "_key": "copy-ddc0dfdf",
+          "_type": "copy",
+          "key": "copy-ddc0dfdf",
+          "label": "Title — Express 45-Day Execution",
+          "value": "Express 45-Day Execution"
+        },
+        {
+          "_key": "copy-3eb541e4",
+          "_type": "copy",
+          "key": "copy-3eb541e4",
+          "label": "Desc — Project timelines are planned based on scope, site conditions and",
+          "value": "Project timelines are planned based on scope, site conditions and approvals, with clear milestones and regular progress updates."
+        },
+        {
+          "_key": "copy-7ea553a9",
+          "_type": "copy",
+          "key": "copy-7ea553a9",
+          "label": "Title — 24-Month Assurance",
+          "value": "24-Month Assurance"
+        },
+        {
+          "_key": "copy-25cd9a68",
+          "_type": "copy",
+          "key": "copy-25cd9a68",
+          "label": "Desc — We stand confidently behind our craftsmanship. Every single proje",
+          "value": "We stand confidently behind our craftsmanship. Every single project is backed by a solid 2-year protection plan."
+        },
+        {
+          "_key": "copy-da53e0cb",
+          "_type": "copy",
+          "key": "copy-da53e0cb",
+          "label": "Title — Dedicated Post-Handover Support",
+          "value": "Dedicated Post-Handover Support"
+        },
+        {
+          "_key": "copy-ed7ce3dc",
+          "_type": "copy",
+          "key": "copy-ed7ce3dc",
+          "label": "Desc — Handing over the keys is just the beginning. We remain just a cal",
+          "value": "Handing over the keys is just the beginning. We remain just a call away for any future assistance or maintenance you might need."
+        },
+        {
+          "_key": "heading-2a043c339651",
+          "_type": "copy",
+          "key": "heading-2a043c339651",
+          "label": "Heading — Excellence by design",
+          "value": "Excellence by design"
+        },
+        {
+          "_key": "text-acef1e21d50c",
+          "_type": "copy",
+          "key": "text-acef1e21d50c",
+          "label": "Label — Book free consultation",
+          "value": "Book free consultation"
+        }
+      ],
+      "images": [],
+      "links": [
+        {
+          "_key": "link-8bd155e4e011",
+          "_type": "buttonLink",
+          "key": "link-8bd155e4e011",
+          "label": "Button destination",
+          "href": "/hire-architect"
+        }
+      ],
+      "lists": [
+        {
+          "_key": "features",
+          "_type": "contentList",
+          "key": "features",
+          "label": "Features",
+          "items": [
+            {
+              "_key": "card-0",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 0,
+              "title": "Thoughtful Value",
+              "body": "Design choices are planned around your priorities, scope and budget, with clear pricing and material discussions before execution."
+            },
+            {
+              "_key": "card-1",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 1,
+              "title": "Express 45-Day Execution",
+              "body": "Project timelines are planned based on scope, site conditions and approvals, with clear milestones and regular progress updates."
+            },
+            {
+              "_key": "card-2",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 2,
+              "title": "24-Month Assurance",
+              "body": "We stand confidently behind our craftsmanship. Every single project is backed by a solid 2-year protection plan."
+            },
+            {
+              "_key": "card-3",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 3,
+              "title": "Dedicated Post-Handover Support",
+              "body": "Handing over the keys is just the beginning. We remain just a call away for any future assistance or maintenance you might need."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "section-b90b0c348627",
+      "_type": "siteSection",
+      "title": "Home — Workflow",
+      "previewPath": "/",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-2f88a890",
+          "_type": "copy",
+          "key": "copy-2f88a890",
+          "label": "Title — Discovery & Consultation",
+          "value": "Discovery & Consultation"
+        },
+        {
+          "_key": "copy-65ada8e0",
+          "_type": "copy",
+          "key": "copy-65ada8e0",
+          "label": "Desc — Understanding your vision, lifestyle, and specific space requirem",
+          "value": "Understanding your vision, lifestyle, and specific space requirements."
+        },
+        {
+          "_key": "copy-559cdab6",
+          "_type": "copy",
+          "key": "copy-559cdab6",
+          "label": "Title — Concept & Planning",
+          "value": "Concept & Planning"
+        },
+        {
+          "_key": "copy-9ca25009",
+          "_type": "copy",
+          "key": "copy-9ca25009",
+          "label": "Desc — Drafting functional 2D layouts and architectural space planning.",
+          "value": "Drafting functional 2D layouts and architectural space planning."
+        },
+        {
+          "_key": "copy-1070c72",
+          "_type": "copy",
+          "key": "copy-1070c72",
+          "label": "Title — 3D Visualization",
+          "value": "3D Visualization"
+        },
+        {
+          "_key": "copy-39a0173c",
+          "_type": "copy",
+          "key": "copy-39a0173c",
+          "label": "Desc — Crafting photorealistic renders to give you a clear view of the f",
+          "value": "Crafting photorealistic renders to give you a clear view of the final outcome."
+        },
+        {
+          "_key": "copy-38f281e8",
+          "_type": "copy",
+          "key": "copy-38f281e8",
+          "label": "Title — Project Execution",
+          "value": "Project Execution"
+        },
+        {
+          "_key": "copy-9323305a",
+          "_type": "copy",
+          "key": "copy-9323305a",
+          "label": "Desc — Transforming the approved designs into reality with expert precis",
+          "value": "Transforming the approved designs into reality with expert precision."
+        },
+        {
+          "_key": "copy-f481ddba",
+          "_type": "copy",
+          "key": "copy-f481ddba",
+          "label": "Title — Final Handover",
+          "value": "Final Handover"
+        },
+        {
+          "_key": "copy-16c835f7",
+          "_type": "copy",
+          "key": "copy-16c835f7",
+          "label": "Desc — A thorough walkthrough before delivering your beautifully finishe",
+          "value": "A thorough walkthrough before delivering your beautifully finished space."
+        },
+        {
+          "_key": "heading-65e8814d6857",
+          "_type": "copy",
+          "key": "heading-65e8814d6857",
+          "label": "Heading — From concept to creation",
+          "value": "From concept to creation"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": [
+        {
+          "_key": "workflowSteps",
+          "_type": "contentList",
+          "key": "workflowSteps",
+          "label": "Workflow Steps",
+          "items": [
+            {
+              "_key": "card-0",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 0,
+              "title": "Discovery & Consultation",
+              "body": "Understanding your vision, lifestyle, and specific space requirements."
+            },
+            {
+              "_key": "card-1",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 1,
+              "title": "Concept & Planning",
+              "body": "Drafting functional 2D layouts and architectural space planning."
+            },
+            {
+              "_key": "card-2",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 2,
+              "title": "3D Visualization",
+              "body": "Crafting photorealistic renders to give you a clear view of the final outcome."
+            },
+            {
+              "_key": "card-3",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 3,
+              "title": "Project Execution",
+              "body": "Transforming the approved designs into reality with expert precision."
+            },
+            {
+              "_key": "card-4",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 4,
+              "title": "Final Handover",
+              "body": "A thorough walkthrough before delivering your beautifully finished space."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "section-f0e0d8d7c3c1",
+      "_type": "siteSection",
+      "title": "Home Comment",
+      "previewPath": "/services/home-interior",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-8d39bde6",
+          "_type": "copy",
+          "key": "copy-8d39bde6",
+          "label": "Name — name",
+          "value": "name"
+        },
+        {
+          "_key": "copy-8a8753c7",
+          "_type": "copy",
+          "key": "copy-8a8753c7",
+          "label": "Name — email",
+          "value": "email"
+        },
+        {
+          "_key": "copy-773611af",
+          "_type": "copy",
+          "key": "copy-773611af",
+          "label": "Name — phone",
+          "value": "phone"
+        },
+        {
+          "_key": "heading-35ac8b9520e0",
+          "_type": "copy",
+          "key": "heading-35ac8b9520e0",
+          "label": "Heading — Start your design journey",
+          "value": "Start your design journey"
+        },
+        {
+          "_key": "text-a31e945b60dc",
+          "_type": "copy",
+          "key": "text-a31e945b60dc",
+          "label": "Text — Let our design experts map out the perfect plan for your home.",
+          "value": "Let our design experts map out the perfect plan for your home."
+        },
+        {
+          "_key": "text-300c0448c204",
+          "_type": "copy",
+          "key": "text-300c0448c204",
+          "label": "Text — Thank you! Your request has been received. Our team will contact ",
+          "value": "Thank you! Your request has been received. Our team will contact you soon."
+        },
+        {
+          "_key": "copy-43cd2d07",
+          "_type": "copy",
+          "key": "copy-43cd2d07",
+          "label": "Input placeholder — Project information (location, floor area, etc.)",
+          "value": "Project information (location, floor area, etc.)"
+        }
+      ],
+      "images": [
+        {
+          "_key": "image-c3395def8e96",
+          "_type": "picture",
+          "key": "image-c3395def8e96",
+          "label": "Dream Kitchen Interior Design",
+          "fallbackUrl": "/cms-assets/image-c3395def8e96.png",
+          "alt": "Dream Kitchen Interior Design"
+        }
+      ],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-7d2161405ba7",
+      "_type": "siteSection",
+      "title": "Home Interior Project",
+      "previewPath": "/services/home-interior",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "heading-fb21e746383d",
+          "_type": "copy",
+          "key": "heading-fb21e746383d",
+          "label": "Heading — BE Interior home interior projects",
+          "value": "BE Interior home interior projects"
+        },
+        {
+          "_key": "heading-26bb304b5739",
+          "_type": "copy",
+          "key": "heading-26bb304b5739",
+          "label": "Heading — Failed to load projects. Please try again!",
+          "value": "Failed to load projects. Please try again!"
+        },
+        {
+          "_key": "text-6624f3705829",
+          "_type": "copy",
+          "key": "text-6624f3705829",
+          "label": "Text — view projects",
+          "value": "view projects"
+        },
+        {
+          "_key": "text-5916d0dd95a0",
+          "_type": "copy",
+          "key": "text-5916d0dd95a0",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        },
+        {
+          "_key": "text-7f5343152405",
+          "_type": "copy",
+          "key": "text-7f5343152405",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        },
+        {
+          "_key": "text-9186d62fd3a2",
+          "_type": "copy",
+          "key": "text-9186d62fd3a2",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-4d67118a0e1e",
+      "_type": "siteSection",
+      "title": "Home interior — Hero slider",
+      "previewPath": "/services/home-interior",
+      "enabled": true,
+      "texts": [],
+      "images": [],
+      "links": [],
+      "lists": [],
+      "slides": [
+        {
+          "_key": "slide-0",
+          "_type": "heroSlide",
+          "enabled": true,
+          "title": "The art of luxury living",
+          "secondTitle": "",
+          "body": "Bespoke interiors for your living, dining, bedroom, and kitchen spaces.",
+          "buttonLabel": "Chat with us",
+          "href": "",
+          "action": "whatsapp",
+          "fallbackUrl": "/cms-assets/image-088bb330e0e1.png",
+          "alt": "The art of luxury living"
+        },
+        {
+          "_key": "slide-1",
+          "_type": "heroSlide",
+          "enabled": true,
+          "title": "No hidden charges",
+          "secondTitle": "Plan your investment",
+          "body": "Discover the true value of your dream space with our smart estimation tool.",
+          "buttonLabel": "Get a free estimate",
+          "href": "/services/budget-calculator?type=home",
+          "action": "link",
+          "fallbackUrl": "/cms-assets/image-2aaf1622a8fa.png",
+          "alt": "No hidden charges"
+        }
+      ]
+    },
+    {
+      "_id": "section-bef92f830c4e",
+      "_type": "siteSection",
+      "title": "Home interior — Package cards",
+      "previewPath": "/services/home-interior",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "heading-318092cf9e72",
+          "_type": "copy",
+          "key": "heading-318092cf9e72",
+          "label": "Heading — Curated design solutions",
+          "value": "Curated design solutions"
+        },
+        {
+          "_key": "text-38c95a655f64",
+          "_type": "copy",
+          "key": "text-38c95a655f64",
+          "label": "Text — Pricing:",
+          "value": "Pricing:"
+        },
+        {
+          "_key": "text-fbbd9b261e75",
+          "_type": "copy",
+          "key": "text-fbbd9b261e75",
+          "label": "Text — Based on your selected rooms, package and project scope.",
+          "value": "Based on your selected rooms, package and project scope."
+        },
+        {
+          "_key": "text-11bc176a662d",
+          "_type": "copy",
+          "key": "text-11bc176a662d",
+          "label": "Text — Final Scope:",
+          "value": "Final Scope:"
+        },
+        {
+          "_key": "text-dcd57fd5e522",
+          "_type": "copy",
+          "key": "text-dcd57fd5e522",
+          "label": "Text — Materials, brands, quantities, inclusions and exclusions are conf",
+          "value": "Materials, brands, quantities, inclusions and exclusions are confirmed in the detailed quotation after site measurement."
+        },
+        {
+          "_key": "text-3bd9dbeff8d2",
+          "_type": "copy",
+          "key": "text-3bd9dbeff8d2",
+          "label": "Label — Calculate your budget",
+          "value": "Calculate your budget"
+        }
+      ],
+      "images": [],
+      "links": [
+        {
+          "_key": "link-3ccc05b46105",
+          "_type": "buttonLink",
+          "key": "link-3ccc05b46105",
+          "label": "Button destination",
+          "href": "/services/budget-calculator?type=home"
+        }
+      ],
+      "lists": []
+    },
+    {
+      "_id": "section-64ef308122c5",
+      "_type": "siteSection",
+      "title": "Home interior — Promises",
+      "previewPath": "/services/home-interior",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-35f1f67",
+          "_type": "copy",
+          "key": "copy-35f1f67",
+          "label": "Top Text — Best",
+          "value": "Best"
+        },
+        {
+          "_key": "copy-db2ffbca",
+          "_type": "copy",
+          "key": "copy-db2ffbca",
+          "label": "Bold Text — PRICE",
+          "value": "PRICE"
+        },
+        {
+          "_key": "copy-a8aec16a",
+          "_type": "copy",
+          "key": "copy-a8aec16a",
+          "label": "Top Text — Handover",
+          "value": "Handover"
+        },
+        {
+          "_key": "copy-68fd6245",
+          "_type": "copy",
+          "key": "copy-68fd6245",
+          "label": "Bold Text — 45 DAYS",
+          "value": "45 DAYS"
+        },
+        {
+          "_key": "copy-9f906bed",
+          "_type": "copy",
+          "key": "copy-9f906bed",
+          "label": "Top Text — Warranty",
+          "value": "Warranty"
+        },
+        {
+          "_key": "copy-7e58d80b",
+          "_type": "copy",
+          "key": "copy-7e58d80b",
+          "label": "Bold Text — 2 YEARS",
+          "value": "2 YEARS"
+        },
+        {
+          "_key": "copy-311220de",
+          "_type": "copy",
+          "key": "copy-311220de",
+          "label": "Top Text — Premium",
+          "value": "Premium"
+        },
+        {
+          "_key": "copy-8f2a97a0",
+          "_type": "copy",
+          "key": "copy-8f2a97a0",
+          "label": "Bold Text — MATERIAL",
+          "value": "MATERIAL"
+        },
+        {
+          "_key": "copy-cb7fbec6",
+          "_type": "copy",
+          "key": "copy-cb7fbec6",
+          "label": "Top Text — Quality",
+          "value": "Quality"
+        },
+        {
+          "_key": "copy-2f97df3b",
+          "_type": "copy",
+          "key": "copy-2f97df3b",
+          "label": "Bold Text — 100%",
+          "value": "100%"
+        },
+        {
+          "_key": "copy-d941ef20",
+          "_type": "copy",
+          "key": "copy-d941ef20",
+          "label": "Top Text — After Sale",
+          "value": "After Sale"
+        },
+        {
+          "_key": "copy-d90c0344",
+          "_type": "copy",
+          "key": "copy-d90c0344",
+          "label": "Bold Text — SERVICE",
+          "value": "SERVICE"
+        },
+        {
+          "_key": "heading-8758a9bc7ebf",
+          "_type": "copy",
+          "key": "heading-8758a9bc7ebf",
+          "label": "Heading — Our commitment to excellence",
+          "value": "Our commitment to excellence"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": [
+        {
+          "_key": "promises",
+          "_type": "contentList",
+          "key": "promises",
+          "label": "Promises",
+          "items": [
+            {
+              "_key": "card-0",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 0,
+              "title": "Best",
+              "subtitle": "PRICE"
+            },
+            {
+              "_key": "card-1",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 1,
+              "title": "Handover",
+              "subtitle": "45 DAYS"
+            },
+            {
+              "_key": "card-2",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 2,
+              "title": "Warranty",
+              "subtitle": "2 YEARS"
+            },
+            {
+              "_key": "card-3",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 3,
+              "title": "Premium",
+              "subtitle": "MATERIAL"
+            },
+            {
+              "_key": "card-4",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 4,
+              "title": "Quality",
+              "subtitle": "100%"
+            },
+            {
+              "_key": "card-5",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 5,
+              "title": "After Sale",
+              "subtitle": "SERVICE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "section-b308599ab361",
+      "_type": "siteSection",
+      "title": "Home Review Customer",
+      "previewPath": "/services/home-interior",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "heading-2475089572c2",
+          "_type": "copy",
+          "key": "heading-2475089572c2",
+          "label": "Heading — Check some review",
+          "value": "Check some review"
+        },
+        {
+          "_key": "heading-4cf8c789ace3",
+          "_type": "copy",
+          "key": "heading-4cf8c789ace3",
+          "label": "Heading — Of our customers",
+          "value": "Of our customers"
+        },
+        {
+          "_key": "heading-c34a8716d5ab",
+          "_type": "copy",
+          "key": "heading-c34a8716d5ab",
+          "label": "Heading — Failed to load projects. Please try again!",
+          "value": "Failed to load projects. Please try again!"
+        },
+        {
+          "_key": "text-e4cafc33c365",
+          "_type": "copy",
+          "key": "text-e4cafc33c365",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        },
+        {
+          "_key": "text-0b44347bbeab",
+          "_type": "copy",
+          "key": "text-0b44347bbeab",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        },
+        {
+          "_key": "text-237a3d0a1227",
+          "_type": "copy",
+          "key": "text-237a3d0a1227",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-8c426c953f30",
+      "_type": "siteSection",
+      "title": "Home interior — Process",
+      "previewPath": "/services/home-interior",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-6eca93fa",
+          "_type": "copy",
+          "key": "copy-6eca93fa",
+          "label": "Title — Consultation & Concept",
+          "value": "Consultation & Concept"
+        },
+        {
+          "_key": "copy-1a429a92",
+          "_type": "copy",
+          "key": "copy-1a429a92",
+          "label": "Desc — We dive deep into your vision, lifestyle, and specific requiremen",
+          "value": "We dive deep into your vision, lifestyle, and specific requirements to draft a personalized initial concept that aligns with your dream."
+        },
+        {
+          "_key": "copy-5b98fdaf",
+          "_type": "copy",
+          "key": "copy-5b98fdaf",
+          "label": "Title — Design & 3D Modeling",
+          "value": "Design & 3D Modeling"
+        },
+        {
+          "_key": "copy-19b572fe",
+          "_type": "copy",
+          "key": "copy-19b572fe",
+          "label": "Desc — Watch your future space come alive. We provide detailed space pla",
+          "value": "Watch your future space come alive. We provide detailed space planning and hyper-realistic 3D renders for your absolute clarity."
+        },
+        {
+          "_key": "copy-ce1deaee",
+          "_type": "copy",
+          "key": "copy-ce1deaee",
+          "label": "Title — Execution & Handover",
+          "value": "Execution & Handover"
+        },
+        {
+          "_key": "copy-86b76c",
+          "_type": "copy",
+          "key": "copy-86b76c",
+          "label": "Desc — Our expert craftsmen bring the approved design to reality with pr",
+          "value": "Our expert craftsmen bring the approved design to reality with precision, ensuring a seamless build and a timely, perfect handover."
+        },
+        {
+          "_key": "heading-b336d24858f2",
+          "_type": "copy",
+          "key": "heading-b336d24858f2",
+          "label": "Heading — The complete interior journey",
+          "value": "The complete interior journey"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-0fb53cd24278",
+      "_type": "siteSection",
+      "title": "Home Dream",
+      "previewPath": "/services/home-interior",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "heading-8f5a32e8c396",
+          "_type": "copy",
+          "key": "heading-8f5a32e8c396",
+          "label": "Heading — Your dream home is just aclick away",
+          "value": "Your dream home is just aclick away"
+        },
+        {
+          "_key": "text-76c9f45ad527",
+          "_type": "copy",
+          "key": "text-76c9f45ad527",
+          "label": "Label — Message us now",
+          "value": "Message us now"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-31892f5d6fc3",
+      "_type": "siteSection",
+      "title": "Interior Projects",
+      "previewPath": "/interior-projects",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "heading-999dad0559f8",
+          "_type": "copy",
+          "key": "heading-999dad0559f8",
+          "label": "Heading — Our portfolio",
+          "value": "Our portfolio"
+        },
+        {
+          "_key": "text-95f7ac86a75b",
+          "_type": "copy",
+          "key": "text-95f7ac86a75b",
+          "label": "Text — Discover our latest interior design projects, showcasing our comm",
+          "value": "Discover our latest interior design projects, showcasing our commitment to quality, aesthetics, and functional living spaces."
+        },
+        {
+          "_key": "text-885d988526dc",
+          "_type": "copy",
+          "key": "text-885d988526dc",
+          "label": "Text — Failed to load projects.",
+          "value": "Failed to load projects."
+        },
+        {
+          "_key": "text-957ace2666b0",
+          "_type": "copy",
+          "key": "text-957ace2666b0",
+          "label": "Text — no image available",
+          "value": "no image available"
+        },
+        {
+          "_key": "text-bb8ff6eb0892",
+          "_type": "copy",
+          "key": "text-bb8ff6eb0892",
+          "label": "Label — View project",
+          "value": "View project"
+        },
+        {
+          "_key": "text-467564d87c38",
+          "_type": "copy",
+          "key": "text-467564d87c38",
+          "label": "Text — No interior projects found at the moment.",
+          "value": "No interior projects found at the moment."
+        },
+        {
+          "_key": "text-c1cb71326c2e",
+          "_type": "copy",
+          "key": "text-c1cb71326c2e",
+          "label": "Text — Showing",
+          "value": "Showing"
+        },
+        {
+          "_key": "text-d41777fd325c",
+          "_type": "copy",
+          "key": "text-d41777fd325c",
+          "label": "Text — of",
+          "value": "of"
+        },
+        {
+          "_key": "text-44da115fd53e",
+          "_type": "copy",
+          "key": "text-44da115fd53e",
+          "label": "Text — Pages",
+          "value": "Pages"
+        },
+        {
+          "_key": "text-c877507c12d3",
+          "_type": "copy",
+          "key": "text-c877507c12d3",
+          "label": "Label — Previous",
+          "value": "Previous"
+        },
+        {
+          "_key": "text-57aac99dcb32",
+          "_type": "copy",
+          "key": "text-57aac99dcb32",
+          "label": "Label — Next",
+          "value": "Next"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-0173da3c8617",
+      "_type": "siteSection",
+      "title": "Office interior — Promises",
+      "previewPath": "/services/office-interior",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-35f1f67",
+          "_type": "copy",
+          "key": "copy-35f1f67",
+          "label": "Top Text — Best",
+          "value": "Best"
+        },
+        {
+          "_key": "copy-db2ffbca",
+          "_type": "copy",
+          "key": "copy-db2ffbca",
+          "label": "Bold Text — PRICE",
+          "value": "PRICE"
+        },
+        {
+          "_key": "copy-a8aec16a",
+          "_type": "copy",
+          "key": "copy-a8aec16a",
+          "label": "Top Text — Handover",
+          "value": "Handover"
+        },
+        {
+          "_key": "copy-68fd6245",
+          "_type": "copy",
+          "key": "copy-68fd6245",
+          "label": "Bold Text — 45 DAYS",
+          "value": "45 DAYS"
+        },
+        {
+          "_key": "copy-9f906bed",
+          "_type": "copy",
+          "key": "copy-9f906bed",
+          "label": "Top Text — Warranty",
+          "value": "Warranty"
+        },
+        {
+          "_key": "copy-7e58d80b",
+          "_type": "copy",
+          "key": "copy-7e58d80b",
+          "label": "Bold Text — 2 YEARS",
+          "value": "2 YEARS"
+        },
+        {
+          "_key": "copy-311220de",
+          "_type": "copy",
+          "key": "copy-311220de",
+          "label": "Top Text — Premium",
+          "value": "Premium"
+        },
+        {
+          "_key": "copy-8f2a97a0",
+          "_type": "copy",
+          "key": "copy-8f2a97a0",
+          "label": "Bold Text — MATERIAL",
+          "value": "MATERIAL"
+        },
+        {
+          "_key": "copy-cb7fbec6",
+          "_type": "copy",
+          "key": "copy-cb7fbec6",
+          "label": "Top Text — Quality",
+          "value": "Quality"
+        },
+        {
+          "_key": "copy-2f97df3b",
+          "_type": "copy",
+          "key": "copy-2f97df3b",
+          "label": "Bold Text — 100%",
+          "value": "100%"
+        },
+        {
+          "_key": "copy-d941ef20",
+          "_type": "copy",
+          "key": "copy-d941ef20",
+          "label": "Top Text — After Sale",
+          "value": "After Sale"
+        },
+        {
+          "_key": "copy-d90c0344",
+          "_type": "copy",
+          "key": "copy-d90c0344",
+          "label": "Bold Text — SERVICE",
+          "value": "SERVICE"
+        },
+        {
+          "_key": "heading-dbc70e2f6949",
+          "_type": "copy",
+          "key": "heading-dbc70e2f6949",
+          "label": "Heading — Why choose us",
+          "value": "Why choose us"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": [
+        {
+          "_key": "promises",
+          "_type": "contentList",
+          "key": "promises",
+          "label": "Promises",
+          "items": [
+            {
+              "_key": "card-0",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 0,
+              "title": "Best",
+              "subtitle": "PRICE"
+            },
+            {
+              "_key": "card-1",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 1,
+              "title": "Handover",
+              "subtitle": "45 DAYS"
+            },
+            {
+              "_key": "card-2",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 2,
+              "title": "Warranty",
+              "subtitle": "2 YEARS"
+            },
+            {
+              "_key": "card-3",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 3,
+              "title": "Premium",
+              "subtitle": "MATERIAL"
+            },
+            {
+              "_key": "card-4",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 4,
+              "title": "Quality",
+              "subtitle": "100%"
+            },
+            {
+              "_key": "card-5",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 5,
+              "title": "After Sale",
+              "subtitle": "SERVICE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "section-afe2ab55e2bf",
+      "_type": "siteSection",
+      "title": "Office Clients",
+      "previewPath": "/services/office-interior",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-744abd91",
+          "_type": "copy",
+          "key": "copy-744abd91",
+          "label": "Label — Logo 01",
+          "value": "Logo 01"
+        },
+        {
+          "_key": "copy-714ab8d8",
+          "_type": "copy",
+          "key": "copy-714ab8d8",
+          "label": "Label — Logo 02",
+          "value": "Logo 02"
+        },
+        {
+          "_key": "copy-724aba6b",
+          "_type": "copy",
+          "key": "copy-724aba6b",
+          "label": "Label — Logo 03",
+          "value": "Logo 03"
+        },
+        {
+          "_key": "copy-774ac24a",
+          "_type": "copy",
+          "key": "copy-774ac24a",
+          "label": "Label — Logo 04",
+          "value": "Logo 04"
+        },
+        {
+          "_key": "copy-784ac3dd",
+          "_type": "copy",
+          "key": "copy-784ac3dd",
+          "label": "Label — Logo 05",
+          "value": "Logo 05"
+        },
+        {
+          "_key": "heading-0df97265f83d",
+          "_type": "copy",
+          "key": "heading-0df97265f83d",
+          "label": "Heading — Our valuable",
+          "value": "Our valuable"
+        },
+        {
+          "_key": "text-e347c269a175",
+          "_type": "copy",
+          "key": "text-e347c269a175",
+          "label": "Text — Clients",
+          "value": "Clients"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-c4c19a2b7607",
+      "_type": "siteSection",
+      "title": "Office Review",
+      "previewPath": "/services/office-interior",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "heading-b24e179b862c",
+          "_type": "copy",
+          "key": "heading-b24e179b862c",
+          "label": "Heading — Check some review",
+          "value": "Check some review"
+        },
+        {
+          "_key": "heading-a16aafa9d5b8",
+          "_type": "copy",
+          "key": "heading-a16aafa9d5b8",
+          "label": "Heading — Of our customers",
+          "value": "Of our customers"
+        },
+        {
+          "_key": "heading-138f9bce6572",
+          "_type": "copy",
+          "key": "heading-138f9bce6572",
+          "label": "Heading — Failed to load projects. Please try again!",
+          "value": "Failed to load projects. Please try again!"
+        },
+        {
+          "_key": "text-f49c4e9d836c",
+          "_type": "copy",
+          "key": "text-f49c4e9d836c",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        },
+        {
+          "_key": "text-5ab46facc8c4",
+          "_type": "copy",
+          "key": "text-5ab46facc8c4",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        },
+        {
+          "_key": "text-24f6269d5478",
+          "_type": "copy",
+          "key": "text-24f6269d5478",
+          "label": "Text — Oops ! Project Will be Uploaded",
+          "value": "Oops ! Project Will be Uploaded"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-e1663bf0af5e",
+      "_type": "siteSection",
+      "title": "Officeform",
+      "previewPath": "/services/office-interior",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-8d39bde6",
+          "_type": "copy",
+          "key": "copy-8d39bde6",
+          "label": "Name — name",
+          "value": "name"
+        },
+        {
+          "_key": "copy-8a8753c7",
+          "_type": "copy",
+          "key": "copy-8a8753c7",
+          "label": "Name — email",
+          "value": "email"
+        },
+        {
+          "_key": "copy-773611af",
+          "_type": "copy",
+          "key": "copy-773611af",
+          "label": "Name — phone",
+          "value": "phone"
+        },
+        {
+          "_key": "heading-7dda074f7751",
+          "_type": "copy",
+          "key": "heading-7dda074f7751",
+          "label": "Heading — Start your design journey",
+          "value": "Start your design journey"
+        },
+        {
+          "_key": "text-737a8219bed3",
+          "_type": "copy",
+          "key": "text-737a8219bed3",
+          "label": "Text — Let our design experts map out the perfect plan for your home.",
+          "value": "Let our design experts map out the perfect plan for your home."
+        },
+        {
+          "_key": "text-d0a981a86bda",
+          "_type": "copy",
+          "key": "text-d0a981a86bda",
+          "label": "Text — Thank you! Your request has been received. Our team will contact ",
+          "value": "Thank you! Your request has been received. Our team will contact you soon."
+        },
+        {
+          "_key": "copy-43cd2d07",
+          "_type": "copy",
+          "key": "copy-43cd2d07",
+          "label": "Input placeholder — Project information (location, floor area, etc.)",
+          "value": "Project information (location, floor area, etc.)"
+        }
+      ],
+      "images": [
+        {
+          "_key": "image-c3395def8e96",
+          "_type": "picture",
+          "key": "image-c3395def8e96",
+          "label": "Dream Kitchen Interior Design",
+          "fallbackUrl": "/cms-assets/image-c3395def8e96.png",
+          "alt": "Dream Kitchen Interior Design"
+        }
+      ],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-1cef778566e8",
+      "_type": "siteSection",
+      "title": "Office interior — Package cards",
+      "previewPath": "/services/office-interior",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "heading-f9f2abd25c69",
+          "_type": "copy",
+          "key": "heading-f9f2abd25c69",
+          "label": "Heading — Our packages",
+          "value": "Our packages"
+        },
+        {
+          "_key": "text-ef0cea71dec0",
+          "_type": "copy",
+          "key": "text-ef0cea71dec0",
+          "label": "Text — Tailored interior solutions designed to perfectly match your stan",
+          "value": "Tailored interior solutions designed to perfectly match your standard, aesthetics, and functional requirements."
+        },
+        {
+          "_key": "text-938c5cd8ac90",
+          "_type": "copy",
+          "key": "text-938c5cd8ac90",
+          "label": "Text — Most Popular",
+          "value": "Most Popular"
+        },
+        {
+          "_key": "text-ac75ad23b7e3",
+          "_type": "copy",
+          "key": "text-ac75ad23b7e3",
+          "label": "Text — BDT",
+          "value": "BDT"
+        },
+        {
+          "_key": "text-dacfb9f27a69",
+          "_type": "copy",
+          "key": "text-dacfb9f27a69",
+          "label": "Text — / sqft",
+          "value": "/ sqft"
+        },
+        {
+          "_key": "text-ebd2f8eb9ec0",
+          "_type": "copy",
+          "key": "text-ebd2f8eb9ec0",
+          "label": "Label — Select",
+          "value": "Select"
+        }
+      ],
+      "images": [],
+      "links": [
+        {
+          "_key": "link-639ef6a09c80",
+          "_type": "buttonLink",
+          "key": "link-639ef6a09c80",
+          "label": "Button destination",
+          "href": "/services/budget-calculator?type=office"
+        }
+      ],
+      "lists": []
+    },
+    {
+      "_id": "section-11179bfeccff",
+      "_type": "siteSection",
+      "title": "Office Projects",
+      "previewPath": "/services/office-interior",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "text-a8ecedb46d44",
+          "_type": "copy",
+          "key": "text-a8ecedb46d44",
+          "label": "Text — Featured Works",
+          "value": "Featured Works"
+        },
+        {
+          "_key": "heading-79451a99c955",
+          "_type": "copy",
+          "key": "heading-79451a99c955",
+          "label": "Heading — Our projects",
+          "value": "Our projects"
+        },
+        {
+          "_key": "text-7f73f3e97171",
+          "_type": "copy",
+          "key": "text-7f73f3e97171",
+          "label": "Text — A glimpse of modern workspaces designed and executed perfectly to",
+          "value": "A glimpse of modern workspaces designed and executed perfectly to boost corporate culture."
+        },
+        {
+          "_key": "text-e452540bcc29",
+          "_type": "copy",
+          "key": "text-e452540bcc29",
+          "label": "Text — Failed to load projects. Please refresh the page.",
+          "value": "Failed to load projects. Please refresh the page."
+        },
+        {
+          "_key": "text-621538572a06",
+          "_type": "copy",
+          "key": "text-621538572a06",
+          "label": "Text — • corporate office",
+          "value": "• corporate office"
+        },
+        {
+          "_key": "text-d58bc3079868",
+          "_type": "copy",
+          "key": "text-d58bc3079868",
+          "label": "Text — No projects found at the moment.",
+          "value": "No projects found at the moment."
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-8abdd6e09c4b",
+      "_type": "siteSection",
+      "title": "Office interior — Services",
+      "previewPath": "/services/office-interior",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-cce71cef",
+          "_type": "copy",
+          "key": "copy-cce71cef",
+          "label": "Title — New Office Design",
+          "value": "New Office Design"
+        },
+        {
+          "_key": "copy-42609c99",
+          "_type": "copy",
+          "key": "copy-42609c99",
+          "label": "Desc — Modern, functional office designs tailored for productivity and s",
+          "value": "Modern, functional office designs tailored for productivity and style."
+        },
+        {
+          "_key": "copy-d664cc4d",
+          "_type": "copy",
+          "key": "copy-d664cc4d",
+          "label": "Title — Build A Project",
+          "value": "Build A Project"
+        },
+        {
+          "_key": "copy-fd9772ab",
+          "_type": "copy",
+          "key": "copy-fd9772ab",
+          "label": "Desc — We construct inspiring office spaces with the provided designs.",
+          "value": "We construct inspiring office spaces with the provided designs."
+        },
+        {
+          "_key": "copy-912269d0",
+          "_type": "copy",
+          "key": "copy-912269d0",
+          "label": "Title — Renovation",
+          "value": "Renovation"
+        },
+        {
+          "_key": "copy-615aef06",
+          "_type": "copy",
+          "key": "copy-615aef06",
+          "label": "Desc — Revitalize your office with fresh designs and space optimization.",
+          "value": "Revitalize your office with fresh designs and space optimization."
+        },
+        {
+          "_key": "heading-0e5ecd8383d4",
+          "_type": "copy",
+          "key": "heading-0e5ecd8383d4",
+          "label": "Heading — Services we offer",
+          "value": "Services we offer"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": [
+        {
+          "_key": "services",
+          "_type": "contentList",
+          "key": "services",
+          "label": "Services",
+          "items": [
+            {
+              "_key": "card-0",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 0,
+              "title": "New Office Design",
+              "body": "Modern, functional office designs tailored for productivity and style."
+            },
+            {
+              "_key": "card-1",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 1,
+              "title": "Build A Project",
+              "body": "We construct inspiring office spaces with the provided designs."
+            },
+            {
+              "_key": "card-2",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 2,
+              "title": "Renovation",
+              "body": "Revitalize your office with fresh designs and space optimization."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "section-ada934298a1e",
+      "_type": "siteSection",
+      "title": "Office interior — Hero slider",
+      "previewPath": "/services/office-interior",
+      "enabled": true,
+      "texts": [],
+      "images": [],
+      "links": [],
+      "lists": [],
+      "slides": [
+        {
+          "_key": "slide-0",
+          "_type": "heroSlide",
+          "enabled": true,
+          "title": "Stress-free",
+          "secondTitle": "",
+          "body": "Relocation to your new professional space",
+          "buttonLabel": "Talk to our designer",
+          "href": "",
+          "action": "whatsapp",
+          "fallbackUrl": "/cms-assets/image-816da0b666be.png",
+          "alt": "Stress-free"
+        },
+        {
+          "_key": "slide-1",
+          "_type": "heroSlide",
+          "enabled": true,
+          "title": "Get premium",
+          "secondTitle": "Office interior",
+          "body": "That your employees will love",
+          "buttonLabel": "Consult now",
+          "href": "/contact",
+          "action": "link",
+          "fallbackUrl": "/cms-assets/image-f0ac742705d9.png",
+          "alt": "Get premium"
+        }
+      ]
+    },
+    {
+      "_id": "section-03eac0d150b1",
+      "_type": "siteSection",
+      "title": "Office interior — Process",
+      "previewPath": "/services/office-interior",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-2073e4ca",
+          "_type": "copy",
+          "key": "copy-2073e4ca",
+          "label": "Title — Best Price",
+          "value": "Best Price"
+        },
+        {
+          "_key": "copy-f37592df",
+          "_type": "copy",
+          "key": "copy-f37592df",
+          "label": "Desc — We guarantee competitive and transparent pricing tailored to your",
+          "value": "We guarantee competitive and transparent pricing tailored to your workspace needs without any hidden costs."
+        },
+        {
+          "_key": "copy-a8aec16a",
+          "_type": "copy",
+          "key": "copy-a8aec16a",
+          "label": "Title — Handover",
+          "value": "Handover"
+        },
+        {
+          "_key": "copy-75e8d766",
+          "_type": "copy",
+          "key": "copy-75e8d766",
+          "label": "Desc — Fast and reliable project delivery. We assure complete office set",
+          "value": "Fast and reliable project delivery. We assure complete office setup handover within 45 days, guaranteed."
+        },
+        {
+          "_key": "copy-9f906bed",
+          "_type": "copy",
+          "key": "copy-9f906bed",
+          "label": "Title — Warranty",
+          "value": "Warranty"
+        },
+        {
+          "_key": "copy-3c88eb9a",
+          "_type": "copy",
+          "key": "copy-3c88eb9a",
+          "label": "Desc — Enjoy complete peace of mind with our comprehensive 2-year servic",
+          "value": "Enjoy complete peace of mind with our comprehensive 2-year service and structural warranty support."
+        },
+        {
+          "_key": "copy-311220de",
+          "_type": "copy",
+          "key": "copy-311220de",
+          "label": "Title — Premium",
+          "value": "Premium"
+        },
+        {
+          "_key": "copy-9f1cba24",
+          "_type": "copy",
+          "key": "copy-9f1cba24",
+          "label": "Desc — We source only top-tier, certified materials and premium hardware",
+          "value": "We source only top-tier, certified materials and premium hardware to build long-lasting corporate environments."
+        },
+        {
+          "_key": "copy-cb7fbec6",
+          "_type": "copy",
+          "key": "copy-cb7fbec6",
+          "label": "Title — Quality",
+          "value": "Quality"
+        },
+        {
+          "_key": "copy-101a6a4b",
+          "_type": "copy",
+          "key": "copy-101a6a4b",
+          "label": "Desc — Strict multi-step quality audits during execution ensuring flawle",
+          "value": "Strict multi-step quality audits during execution ensuring flawless finish, premium aesthetics, and durability."
+        },
+        {
+          "_key": "copy-d941ef20",
+          "_type": "copy",
+          "key": "copy-d941ef20",
+          "label": "Title — After Sale",
+          "value": "After Sale"
+        },
+        {
+          "_key": "copy-bdbb07cd",
+          "_type": "copy",
+          "key": "copy-bdbb07cd",
+          "label": "Desc — Our dedicated support team is always ready to assist you post-occ",
+          "value": "Our dedicated support team is always ready to assist you post-occupancy for any maintenance or modifications."
+        },
+        {
+          "_key": "heading-610c9f5da9ad",
+          "_type": "copy",
+          "key": "heading-610c9f5da9ad",
+          "label": "Heading — How BE Interior works",
+          "value": "How BE Interior works"
+        },
+        {
+          "_key": "text-971637a5abbf",
+          "_type": "copy",
+          "key": "text-971637a5abbf",
+          "label": "Text — Combining efficiency, quality, and commitment through a seamless ",
+          "value": "Combining efficiency, quality, and commitment through a seamless execution map."
+        },
+        {
+          "_key": "text-3128fd172c9c",
+          "_type": "copy",
+          "key": "text-3128fd172c9c",
+          "label": "Text — Promise 0",
+          "value": "Promise 0"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": [
+        {
+          "_key": "promiseData",
+          "_type": "contentList",
+          "key": "promiseData",
+          "label": "Promise Data",
+          "items": [
+            {
+              "_key": "card-0",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 0,
+              "title": "Best Price",
+              "body": "We guarantee competitive and transparent pricing tailored to your workspace needs without any hidden costs."
+            },
+            {
+              "_key": "card-1",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 1,
+              "title": "Handover",
+              "body": "Fast and reliable project delivery. We assure complete office setup handover within 45 days, guaranteed."
+            },
+            {
+              "_key": "card-2",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 2,
+              "title": "Warranty",
+              "body": "Enjoy complete peace of mind with our comprehensive 2-year service and structural warranty support."
+            },
+            {
+              "_key": "card-3",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 3,
+              "title": "Premium",
+              "body": "We source only top-tier, certified materials and premium hardware to build long-lasting corporate environments."
+            },
+            {
+              "_key": "card-4",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 4,
+              "title": "Quality",
+              "body": "Strict multi-step quality audits during execution ensuring flawless finish, premium aesthetics, and durability."
+            },
+            {
+              "_key": "card-5",
+              "_type": "contentCard",
+              "enabled": true,
+              "templateIndex": 5,
+              "title": "After Sale",
+              "body": "Our dedicated support team is always ready to assist you post-occupancy for any maintenance or modifications."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "section-ca3a3a105e62",
+      "_type": "siteSection",
+      "title": "Page",
+      "previewPath": "/privacy-policy",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "heading-990338808132",
+          "_type": "copy",
+          "key": "heading-990338808132",
+          "label": "Heading — Privacy policy",
+          "value": "Privacy policy"
+        },
+        {
+          "_key": "text-0aefced44aee",
+          "_type": "copy",
+          "key": "text-0aefced44aee",
+          "label": "Text — Last updated:",
+          "value": "Last updated:"
+        },
+        {
+          "_key": "heading-4f3bdd333264",
+          "_type": "copy",
+          "key": "heading-4f3bdd333264",
+          "label": "Heading — Who we are",
+          "value": "Who we are"
+        },
+        {
+          "_key": "text-fd3c9af8de7e",
+          "_type": "copy",
+          "key": "text-fd3c9af8de7e",
+          "label": "Text — Our website address is:",
+          "value": "Our website address is:"
+        },
+        {
+          "_key": "text-1afd1f0f4bf1",
+          "_type": "copy",
+          "key": "text-1afd1f0f4bf1",
+          "label": "Text — Https://beinterior.com.bd",
+          "value": "Https://beinterior.com.bd"
+        },
+        {
+          "_key": "heading-723da42fece9",
+          "_type": "copy",
+          "key": "heading-723da42fece9",
+          "label": "Heading — Purpose of this notice",
+          "value": "Purpose of this notice"
+        },
+        {
+          "_key": "text-c899c866e83e",
+          "_type": "copy",
+          "key": "text-c899c866e83e",
+          "label": "Text — Be Interior values the security and privacy of your data. This po",
+          "value": "Be Interior values the security and privacy of your data. This policy outlines how we collect, use, and protect your information as part of our commitment to transparency in compliance with the General Data Protection Regulation (GDPR)."
+        },
+        {
+          "_key": "heading-9da865625f9e",
+          "_type": "copy",
+          "key": "heading-9da865625f9e",
+          "label": "Heading — Data collection and usage",
+          "value": "Data collection and usage"
+        },
+        {
+          "_key": "text-0bec00a0636b",
+          "_type": "copy",
+          "key": "text-0bec00a0636b",
+          "label": "Text — Data Controller:",
+          "value": "Data Controller:"
+        },
+        {
+          "_key": "text-502c065f1a40",
+          "_type": "copy",
+          "key": "text-502c065f1a40",
+          "label": "Text — Be Interior, located in Dhaka, Bangladesh, is the Controller of t",
+          "value": "Be Interior, located in Dhaka, Bangladesh, is the Controller of the personal data you provide. We collect only essential personal data, including your name, address, email, phone number, payment information, and other relevant information. This data enables us to provide our services, process orders, and share our products or promotions with you."
+        },
+        {
+          "_key": "heading-cdd12314ef00",
+          "_type": "copy",
+          "key": "heading-cdd12314ef00",
+          "label": "Heading — Purpose and legal basis of processing",
+          "value": "Purpose and legal basis of processing"
+        },
+        {
+          "_key": "text-9e109e35c7bd",
+          "_type": "copy",
+          "key": "text-9e109e35c7bd",
+          "label": "Text — We collect your data to provide services, fulfill contracts, and ",
+          "value": "We collect your data to provide services, fulfill contracts, and communicate with you about our offerings. We only use personal data with your consent or when required to:"
+        },
+        {
+          "_key": "text-449be7354f18",
+          "_type": "copy",
+          "key": "text-449be7354f18",
+          "label": "Text — You may object to this processing, though doing so may affect our",
+          "value": "You may object to this processing, though doing so may affect our ability to provide certain services to you."
+        },
+        {
+          "_key": "heading-3fa639a13e97",
+          "_type": "copy",
+          "key": "heading-3fa639a13e97",
+          "label": "Heading — Data storage and security",
+          "value": "Data storage and security"
+        },
+        {
+          "_key": "text-de04a58fd878",
+          "_type": "copy",
+          "key": "text-de04a58fd878",
+          "label": "Text — Be Interior stores data primarily in Bangladesh and Singapore. We",
+          "value": "Be Interior stores data primarily in Bangladesh and Singapore. We may work with external organizations to provide certain services, which may involve data transfers outside Asia. In such cases, we ensure appropriate safeguards are in place to protect your data."
+        },
+        {
+          "_key": "heading-6638aa5cad46",
+          "_type": "copy",
+          "key": "heading-6638aa5cad46",
+          "label": "Heading — Data retention",
+          "value": "Data retention"
+        },
+        {
+          "_key": "text-52a7999ec4d9",
+          "_type": "copy",
+          "key": "text-52a7999ec4d9",
+          "label": "Text — We only retain data for as long as necessary; typically no longer",
+          "value": "We only retain data for as long as necessary; typically no longer than six years. We continually review stored data and remove anything that is no longer required. Payment card information is never stored."
+        },
+        {
+          "_key": "heading-91221cbfcce7",
+          "_type": "copy",
+          "key": "heading-91221cbfcce7",
+          "label": "Heading — Sharing your personal data",
+          "value": "Sharing your personal data"
+        },
+        {
+          "_key": "text-76b43b31f1be",
+          "_type": "copy",
+          "key": "text-76b43b31f1be",
+          "label": "Text — We may share data with trusted third parties to fulfill contractu",
+          "value": "We may share data with trusted third parties to fulfill contractual obligations or where required by law; a court, or regulatory body. Your information will not be transferred outside our organization without notifying you and explaining the security protections in place."
+        },
+        {
+          "_key": "heading-2d64bf828200",
+          "_type": "copy",
+          "key": "heading-2d64bf828200",
+          "label": "Heading — Marketing communication",
+          "value": "Marketing communication"
+        },
+        {
+          "_key": "text-554639d34598",
+          "_type": "copy",
+          "key": "text-554639d34598",
+          "label": "Text — With your permission, we may use your name and email to inform yo",
+          "value": "With your permission, we may use your name and email to inform you about future offers and products. You can opt out at any time via phone, email, or our website."
+        },
+        {
+          "_key": "heading-7b61de1de540",
+          "_type": "copy",
+          "key": "heading-7b61de1de540",
+          "label": "Heading — Cookies",
+          "value": "Cookies"
+        },
+        {
+          "_key": "text-1121b98c532b",
+          "_type": "copy",
+          "key": "text-1121b98c532b",
+          "label": "Text — Our website uses cookies to enhance your browsing experience. Coo",
+          "value": "Our website uses cookies to enhance your browsing experience. Cookies help us analyze traffic and tailor website content to your preferences. You can choose to accept or decline cookies via browser settings."
+        },
+        {
+          "_key": "heading-8dc2f30067e3",
+          "_type": "copy",
+          "key": "heading-8dc2f30067e3",
+          "label": "Heading — Your rights",
+          "value": "Your rights"
+        },
+        {
+          "_key": "text-9d9893596d75",
+          "_type": "copy",
+          "key": "text-9d9893596d75",
+          "label": "Text — Under GDPR, you have the right to:",
+          "value": "Under GDPR, you have the right to:"
+        },
+        {
+          "_key": "text-6d02077b7c71",
+          "_type": "copy",
+          "key": "text-6d02077b7c71",
+          "label": "Text — For any data-related inquiries, contact us at",
+          "value": "For any data-related inquiries, contact us at"
+        },
+        {
+          "_key": "text-3835a7b8cb36",
+          "_type": "copy",
+          "key": "text-3835a7b8cb36",
+          "label": "Text — H-54, 2nd Floor, Bank Tower, Jia Soroni Titas Gas Road,Shonir Akh",
+          "value": "H-54, 2nd Floor, Bank Tower, Jia Soroni Titas Gas Road,Shonir Akhra, Dhaka, Bangladesh, 1236"
+        },
+        {
+          "_key": "heading-ef462b9f1605",
+          "_type": "copy",
+          "key": "heading-ef462b9f1605",
+          "label": "Heading — External links",
+          "value": "External links"
+        },
+        {
+          "_key": "text-025355278068",
+          "_type": "copy",
+          "key": "text-025355278068",
+          "label": "Text — Our website may contain links to other sites. We are not responsi",
+          "value": "Our website may contain links to other sites. We are not responsible for the content or privacy practices of these external sites."
+        },
+        {
+          "_key": "heading-cd3b2a956514",
+          "_type": "copy",
+          "key": "heading-cd3b2a956514",
+          "label": "Heading — Policy updates",
+          "value": "Policy updates"
+        },
+        {
+          "_key": "text-ba3238a5aa5f",
+          "_type": "copy",
+          "key": "text-ba3238a5aa5f",
+          "label": "Text — We may update this policy, and any changes will be posted on our ",
+          "value": "We may update this policy, and any changes will be posted on our website or communicated to you via email."
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-02902e7dadb4",
+      "_type": "siteSection",
+      "title": "Page",
+      "previewPath": "/terms",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "copy-ecdd2136",
+          "_type": "copy",
+          "key": "copy-ecdd2136",
+          "label": "Title — Validity of BOQ",
+          "value": "Validity of BOQ"
+        },
+        {
+          "_key": "copy-5d6eee88",
+          "_type": "copy",
+          "key": "copy-5d6eee88",
+          "label": "Text — The submitted Bill of Quantity (BOQ) is valid for 60 days from th",
+          "value": "The submitted Bill of Quantity (BOQ) is valid for 60 days from the date of issuance."
+        },
+        {
+          "_key": "copy-8d11a59e",
+          "_type": "copy",
+          "key": "copy-8d11a59e",
+          "label": "Title — Pricing Exclusions",
+          "value": "Pricing Exclusions"
+        },
+        {
+          "_key": "copy-b8ecb3da",
+          "_type": "copy",
+          "key": "copy-b8ecb3da",
+          "label": "Text — The prices mentioned in the BOQ are exclusive of VAT and AIT.",
+          "value": "The prices mentioned in the BOQ are exclusive of VAT and AIT."
+        },
+        {
+          "_key": "copy-b015d337",
+          "_type": "copy",
+          "key": "copy-b015d337",
+          "label": "Title — Scope of Work Variability",
+          "value": "Scope of Work Variability"
+        },
+        {
+          "_key": "copy-cad7a8a2",
+          "_type": "copy",
+          "key": "copy-cad7a8a2",
+          "label": "Text — The scope of work may vary by ±10% due to the nature of tasks inv",
+          "value": "The scope of work may vary by ±10% due to the nature of tasks involving significant human effort, along with potential changes during construction. Any variations will be discussed and finalized with the Client."
+        },
+        {
+          "_key": "copy-1c4bc3d3",
+          "_type": "copy",
+          "key": "copy-1c4bc3d3",
+          "label": "Title — Payment Delays",
+          "value": "Payment Delays"
+        },
+        {
+          "_key": "copy-eb24cba",
+          "_type": "copy",
+          "key": "copy-eb24cba",
+          "label": "Text — Delays in payment may result in the postponement or cancellation ",
+          "value": "Delays in payment may result in the postponement or cancellation of the project. The period of delay will not be deducted from the project's agreed timeline."
+        },
+        {
+          "_key": "copy-27541b3c",
+          "_type": "copy",
+          "key": "copy-27541b3c",
+          "label": "Title — Execution According to Approved Drawings",
+          "value": "Execution According to Approved Drawings"
+        },
+        {
+          "_key": "copy-6cd90b4d",
+          "_type": "copy",
+          "key": "copy-6cd90b4d",
+          "label": "Text — All on-site work will be carried out according to the Client-appr",
+          "value": "All on-site work will be carried out according to the Client-approved (signed) working drawings."
+        },
+        {
+          "_key": "copy-ca26b7af",
+          "_type": "copy",
+          "key": "copy-ca26b7af",
+          "label": "Title — Imported Materials",
+          "value": "Imported Materials"
+        },
+        {
+          "_key": "copy-c0a18bb1",
+          "_type": "copy",
+          "key": "copy-c0a18bb1",
+          "label": "Text — The availability and price of imported items/materials are subjec",
+          "value": "The availability and price of imported items/materials are subject to market conditions and may change accordingly."
+        },
+        {
+          "_key": "copy-5952ac6d",
+          "_type": "copy",
+          "key": "copy-5952ac6d",
+          "label": "Title — Approval of Additional Work",
+          "value": "Approval of Additional Work"
+        },
+        {
+          "_key": "copy-f0061e1c",
+          "_type": "copy",
+          "key": "copy-f0061e1c",
+          "label": "Text — Any additional work, along with an updated BOQ and revised timeli",
+          "value": "Any additional work, along with an updated BOQ and revised timeline, must be approved (by signature or email) by the Client, with confirmation of additional payment. Payments will be based on the work progress ratio."
+        },
+        {
+          "_key": "copy-b6a6b4b5",
+          "_type": "copy",
+          "key": "copy-b6a6b4b5",
+          "label": "Title — Scope Revisions",
+          "value": "Scope Revisions"
+        },
+        {
+          "_key": "copy-fcce1f53",
+          "_type": "copy",
+          "key": "copy-fcce1f53",
+          "label": "Text — Any changes to the scope of work may affect the cost and delivery",
+          "value": "Any changes to the scope of work may affect the cost and delivery period. Such changes must not delay payments for work already completed under this quotation."
+        },
+        {
+          "_key": "copy-da85af0f",
+          "_type": "copy",
+          "key": "copy-da85af0f",
+          "label": "Title — Force Majeure",
+          "value": "Force Majeure"
+        },
+        {
+          "_key": "copy-bb5bce7b",
+          "_type": "copy",
+          "key": "copy-bb5bce7b",
+          "label": "Text — In the event of Force Majeure that makes it impossible to proceed",
+          "value": "In the event of Force Majeure that makes it impossible to proceed with part or all of the work, we will promptly notify the Client in writing. Services will be postponed for a period equal to the Force Majeure event duration plus an additional period not exceeding one week to remobilize for the continuation of services."
+        },
+        {
+          "_key": "copy-34af8663",
+          "_type": "copy",
+          "key": "copy-34af8663",
+          "label": "Title — Dispute Resolution",
+          "value": "Dispute Resolution"
+        },
+        {
+          "_key": "copy-d6e4b577",
+          "_type": "copy",
+          "key": "copy-d6e4b577",
+          "label": "Text — Any disputes or disagreements arising from this transaction or pr",
+          "value": "Any disputes or disagreements arising from this transaction or proposal shall be resolved amicably by both parties."
+        },
+        {
+          "_key": "copy-9f906bed",
+          "_type": "copy",
+          "key": "copy-9f906bed",
+          "label": "Title — Warranty",
+          "value": "Warranty"
+        },
+        {
+          "_key": "copy-11d83ad",
+          "_type": "copy",
+          "key": "copy-11d83ad",
+          "label": "Text — The completed project includes a one-year hardware replacement gu",
+          "value": "The completed project includes a one-year hardware replacement guarantee and a two-year service warranty. The warranty period starts on the date of site handover."
+        },
+        {
+          "_key": "copy-89f73bcc",
+          "_type": "copy",
+          "key": "copy-89f73bcc",
+          "label": "Title — Special Note",
+          "value": "Special Note"
+        },
+        {
+          "_key": "copy-89226c35",
+          "_type": "copy",
+          "key": "copy-89226c35",
+          "label": "Text — This quotation may be subject to change due to additions, reducti",
+          "value": "This quotation may be subject to change due to additions, reductions, design adjustments, or human errors. Any adjustments will be discussed and resolved in coordination with both parties."
+        },
+        {
+          "_key": "heading-d5092399d5f3",
+          "_type": "copy",
+          "key": "heading-d5092399d5f3",
+          "label": "Heading — Terms and conditions",
+          "value": "Terms and conditions"
+        },
+        {
+          "_key": "text-3210cb9f60b0",
+          "_type": "copy",
+          "key": "text-3210cb9f60b0",
+          "label": "Text — Please read our project rules and regulations carefully",
+          "value": "Please read our project rules and regulations carefully"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    },
+    {
+      "_id": "section-fcf319c9ba82",
+      "_type": "siteSection",
+      "title": "Page",
+      "previewPath": "/refund-policy",
+      "enabled": true,
+      "texts": [
+        {
+          "_key": "heading-4cda083e5a2a",
+          "_type": "copy",
+          "key": "heading-4cda083e5a2a",
+          "label": "Heading — Cancellations & refunds",
+          "value": "Cancellations & refunds"
+        },
+        {
+          "_key": "text-1173fec8946a",
+          "_type": "copy",
+          "key": "text-1173fec8946a",
+          "label": "Text — Be Interior Project Guidelines & Policies",
+          "value": "Be Interior Project Guidelines & Policies"
+        },
+        {
+          "_key": "text-c7de3bf026d3",
+          "_type": "copy",
+          "key": "text-c7de3bf026d3",
+          "label": "Text — If you decide to cancel your project with Be Interior, you will n",
+          "value": "If you decide to cancel your project with Be Interior, you will not be charged for services that have not commenced or been processed at the time of your cancellation request. However, Be Interior cannot offer any refunds for services that have already been paid for, processed, initiated, or completed."
+        },
+        {
+          "_key": "text-165a8ad8ef11",
+          "_type": "copy",
+          "key": "text-165a8ad8ef11",
+          "label": "Text — During the tentative BOQ (Bill of Quantities) phase, any item or ",
+          "value": "During the tentative BOQ (Bill of Quantities) phase, any item or service can be modified, replaced, or removed before placing your Purchase Order and receiving an invoice. Once a purchase order has been placed and an invoice raised, modifications, replacements, or cancellations of any items will no longer be possible. Please don't worry; your Project Representative will review and confirm each item with you before raising an invoice."
+        },
+        {
+          "_key": "text-0a9e5bf7cc7c",
+          "_type": "copy",
+          "key": "text-0a9e5bf7cc7c",
+          "label": "Text — For feedback or grievances, please get in touch with us at",
+          "value": "For feedback or grievances, please get in touch with us at"
+        },
+        {
+          "_key": "text-7abab1ceb2b9",
+          "_type": "copy",
+          "key": "text-7abab1ceb2b9",
+          "label": "Text — Beinteriorbd@gmail.com",
+          "value": "Beinteriorbd@gmail.com"
+        },
+        {
+          "_key": "text-35d4cd492cff",
+          "_type": "copy",
+          "key": "text-35d4cd492cff",
+          "label": "Text — . We value the opportunity to improve our services by understandi",
+          "value": ". We value the opportunity to improve our services by understanding your needs and concerns."
+        },
+        {
+          "_key": "heading-7f183f5d7198",
+          "_type": "copy",
+          "key": "heading-7f183f5d7198",
+          "label": "Heading — Returns",
+          "value": "Returns"
+        },
+        {
+          "_key": "text-1e12fa9835c7",
+          "_type": "copy",
+          "key": "text-1e12fa9835c7",
+          "label": "Text — Since our services (interior/furniture) come with a 2-year warran",
+          "value": "Since our services (interior/furniture) come with a 2-year warranty, Be Interior does not offer returns."
+        },
+        {
+          "_key": "heading-257fbe7e4c99",
+          "_type": "copy",
+          "key": "heading-257fbe7e4c99",
+          "label": "Heading — Price revisions",
+          "value": "Price revisions"
+        },
+        {
+          "_key": "text-da37b2ce4bc3",
+          "_type": "copy",
+          "key": "text-da37b2ce4bc3",
+          "label": "Text — In cases where specific project requirements change, the service ",
+          "value": "In cases where specific project requirements change, the service cost may also change accordingly."
+        },
+        {
+          "_key": "heading-c64495e2b372",
+          "_type": "copy",
+          "key": "heading-c64495e2b372",
+          "label": "Heading — Delays",
+          "value": "Delays"
+        },
+        {
+          "_key": "text-a14139f5022e",
+          "_type": "copy",
+          "key": "text-a14139f5022e",
+          "label": "Text — Delays in payment at any stage of the project may result in delay",
+          "value": "Delays in payment at any stage of the project may result in delays in project completion. Changes to project requirements may also lead to extended timelines."
+        },
+        {
+          "_key": "text-543dc59224cc",
+          "_type": "copy",
+          "key": "text-543dc59224cc",
+          "label": "Text — Be Interior cannot assume liability for delays caused by payment ",
+          "value": "Be Interior cannot assume liability for delays caused by payment or requirement changes."
+        },
+        {
+          "_key": "heading-2044f0dd7a38",
+          "_type": "copy",
+          "key": "heading-2044f0dd7a38",
+          "label": "Heading — Payment methods",
+          "value": "Payment methods"
+        },
+        {
+          "_key": "text-fc366fd4eabc",
+          "_type": "copy",
+          "key": "text-fc366fd4eabc",
+          "label": "Text — Be Interior accepts the following payment options for full interi",
+          "value": "Be Interior accepts the following payment options for full interior design solutions:"
+        },
+        {
+          "_key": "text-c710bb622759",
+          "_type": "copy",
+          "key": "text-c710bb622759",
+          "label": "Text — For payment details, please consult your Project Manager. Note th",
+          "value": "For payment details, please consult your Project Manager. Note that VAT will be applicable on all purchases."
+        },
+        {
+          "_key": "heading-74853dd13b22",
+          "_type": "copy",
+          "key": "heading-74853dd13b22",
+          "label": "Heading — Invoices",
+          "value": "Invoices"
+        },
+        {
+          "_key": "text-5f52a456748c",
+          "_type": "copy",
+          "key": "text-5f52a456748c",
+          "label": "Text — An invoice is valid only for the period stated on it. If payment ",
+          "value": "An invoice is valid only for the period stated on it. If payment is not made within this period, the invoice will expire, and a new invoice must be generated."
+        },
+        {
+          "_key": "heading-ebe8b7404a76",
+          "_type": "copy",
+          "key": "heading-ebe8b7404a76",
+          "label": "Heading — Emis",
+          "value": "Emis"
+        },
+        {
+          "_key": "text-f07e841f2c0a",
+          "_type": "copy",
+          "key": "text-f07e841f2c0a",
+          "label": "Text — Be Interior is in the process of setting up an EMI system, which ",
+          "value": "Be Interior is in the process of setting up an EMI system, which will be available soon."
+        },
+        {
+          "_key": "heading-24795ce3a2bc",
+          "_type": "copy",
+          "key": "heading-24795ce3a2bc",
+          "label": "Heading — Online transactions",
+          "value": "Online transactions"
+        },
+        {
+          "_key": "text-a6842fd9df66",
+          "_type": "copy",
+          "key": "text-a6842fd9df66",
+          "label": "Text — Be Interior is committed to safeguarding your financial privacy a",
+          "value": "Be Interior is committed to safeguarding your financial privacy and ensuring secure transactions. Our online transaction system will be introduced shortly."
+        },
+        {
+          "_key": "text-f17d2fbde321",
+          "_type": "copy",
+          "key": "text-f17d2fbde321",
+          "label": "Text — For further information, please visit our website at",
+          "value": "For further information, please visit our website at"
+        },
+        {
+          "_key": "text-dc57aef0b6d8",
+          "_type": "copy",
+          "key": "text-dc57aef0b6d8",
+          "label": "Text — Beinterior.com.bd",
+          "value": "Beinterior.com.bd"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "lists": []
+    }
+  ],
+  "pages": [
+    {
+      "_id": "page-home",
+      "_type": "sitePage",
+      "title": "Home",
+      "path": "/",
+      "lockedPath": true,
+      "updatedDate": "2026-11-03",
+      "sections": [
+        {
+          "_key": "section-0",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-d036fe38185d"
+          },
+          "title": "Home — Hero slider",
+          "enabled": true
+        },
+        {
+          "_key": "section-1",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-895eb710140e"
+          },
+          "title": "Home — Service cards",
+          "enabled": true
+        },
+        {
+          "_key": "section-2",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-b90b0c348627"
+          },
+          "title": "Home — Workflow",
+          "enabled": true
+        },
+        {
+          "_key": "section-3",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-994fa32343da"
+          },
+          "title": "Home — Why choose us",
+          "enabled": true
+        },
+        {
+          "_key": "section-4",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-37b8a2c22aa5"
+          },
+          "title": "Home — Residential projects",
+          "enabled": true
+        },
+        {
+          "_key": "section-5",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-8ac0a3caab4b"
+          },
+          "title": "Home — Calculator promotion",
+          "enabled": true
+        },
+        {
+          "_key": "section-6",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-39381f4c733d"
+          },
+          "title": "Home — Office projects",
+          "enabled": true
+        },
+        {
+          "_key": "section-7",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-8829bda372d5"
+          },
+          "title": "Home — Comparison",
+          "enabled": true
+        },
+        {
+          "_key": "section-8",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-6bda2feda9af"
+          },
+          "title": "Home — Customer reviews",
+          "enabled": true
+        },
+        {
+          "_key": "section-9",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-adb0c734da06"
+          },
+          "title": "Home — WhatsApp call to action",
+          "enabled": true
+        }
+      ],
+      "seo": {
+        "_type": "seo",
+        "title": "Interior Design in Dhaka | BE Interior",
+        "description": "Explore home and office interior design in Dhaka with BE Interior. View our projects, estimate your budget and discuss your space with our team.",
+        "noIndex": false
+      }
+    },
+    {
+      "_id": "page-services-home-interior",
+      "_type": "sitePage",
+      "title": "Home Interior",
+      "path": "/services/home-interior",
+      "lockedPath": true,
+      "updatedDate": "2026-11-03",
+      "sections": [
+        {
+          "_key": "section-0",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-4d67118a0e1e"
+          },
+          "title": "Home interior — Hero slider",
+          "enabled": true
+        },
+        {
+          "_key": "section-1",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-8c426c953f30"
+          },
+          "title": "Home interior — Process",
+          "enabled": true
+        },
+        {
+          "_key": "section-2",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-bef92f830c4e"
+          },
+          "title": "Home interior — Package cards",
+          "enabled": true
+        },
+        {
+          "_key": "section-3",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-0fb53cd24278"
+          },
+          "title": "Home Dream",
+          "enabled": true
+        },
+        {
+          "_key": "section-4",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-7d2161405ba7"
+          },
+          "title": "Home Interior Project",
+          "enabled": true
+        },
+        {
+          "_key": "section-5",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-64ef308122c5"
+          },
+          "title": "Home interior — Promises",
+          "enabled": true
+        },
+        {
+          "_key": "section-6",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-b308599ab361"
+          },
+          "title": "Home Review Customer",
+          "enabled": true
+        },
+        {
+          "_key": "section-7",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-f0e0d8d7c3c1"
+          },
+          "title": "Home Comment",
+          "enabled": true
+        }
+      ],
+      "seo": {
+        "_type": "seo",
+        "title": "Home Interior Design in Dhaka | BE Interior",
+        "description": "Plan your home interior with BE Interior. Explore residential design services, room ideas, packages and completed home projects.",
+        "noIndex": false
+      }
+    },
+    {
+      "_id": "page-services-office-interior",
+      "_type": "sitePage",
+      "title": "Office Interior",
+      "path": "/services/office-interior",
+      "lockedPath": true,
+      "updatedDate": "2026-11-03",
+      "sections": [
+        {
+          "_key": "section-0",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-ada934298a1e"
+          },
+          "title": "Office interior — Hero slider",
+          "enabled": true
+        },
+        {
+          "_key": "section-1",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-8abdd6e09c4b"
+          },
+          "title": "Office interior — Services",
+          "enabled": true
+        },
+        {
+          "_key": "section-2",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-0173da3c8617"
+          },
+          "title": "Office interior — Promises",
+          "enabled": true
+        },
+        {
+          "_key": "section-3",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-1cef778566e8"
+          },
+          "title": "Office interior — Package cards",
+          "enabled": true
+        },
+        {
+          "_key": "section-4",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-03eac0d150b1"
+          },
+          "title": "Office interior — Process",
+          "enabled": true
+        },
+        {
+          "_key": "section-5",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-11179bfeccff"
+          },
+          "title": "Office Projects",
+          "enabled": true
+        },
+        {
+          "_key": "section-6",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-c4c19a2b7607"
+          },
+          "title": "Office Review",
+          "enabled": true
+        },
+        {
+          "_key": "section-7",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-e1663bf0af5e"
+          },
+          "title": "Officeform",
+          "enabled": true
+        }
+      ],
+      "seo": {
+        "_type": "seo",
+        "title": "Office Interior Design in Dhaka | BE Interior",
+        "description": "Create a functional workspace with BE Interior. Explore office design services, project examples and options for your team and budget.",
+        "noIndex": false
+      }
+    },
+    {
+      "_id": "page-services-budget-calculator",
+      "_type": "sitePage",
+      "title": "Budget Calculator",
+      "path": "/services/budget-calculator",
+      "lockedPath": true,
+      "updatedDate": "2026-11-03",
+      "sections": [
+        {
+          "_key": "section-0",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-0808fc405263"
+          },
+          "title": "Calculator — Labels and pictures",
+          "enabled": true
+        }
+      ],
+      "seo": {
+        "_type": "seo",
+        "title": "Interior Cost Calculator | BE Interior",
+        "description": "Estimate your home or office interior budget. Choose your space, requirements and package, then request a detailed quote from BE Interior.",
+        "noIndex": false
+      }
+    },
+    {
+      "_id": "page-interior-projects",
+      "_type": "sitePage",
+      "title": "Interior Projects",
+      "path": "/interior-projects",
+      "lockedPath": true,
+      "updatedDate": "2026-11-03",
+      "sections": [
+        {
+          "_key": "section-0",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-31892f5d6fc3"
+          },
+          "title": "Interior Projects",
+          "enabled": true
+        }
+      ],
+      "seo": {
+        "_type": "seo",
+        "title": "Home & Office Interior Projects | BE Interior",
+        "description": "Browse BE Interior's residential and office interior portfolio. Explore project photos, locations and design details.",
+        "noIndex": false
+      }
+    },
+    {
+      "_id": "page-about",
+      "_type": "sitePage",
+      "title": "About",
+      "path": "/about",
+      "lockedPath": true,
+      "updatedDate": "2026-11-03",
+      "sections": [
+        {
+          "_key": "section-0",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-f1fb928664c4"
+          },
+          "title": "About — Founder photo and profile",
+          "enabled": true
+        },
+        {
+          "_key": "section-1",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-c335e81ccd1b"
+          },
+          "title": "About — Company story",
+          "enabled": true
+        }
+      ],
+      "seo": {
+        "_type": "seo",
+        "title": "About BE Interior | Our Design Team",
+        "description": "Meet BE Interior and learn about our approach to planning, designing and delivering home and office interiors in Dhaka.",
+        "noIndex": false
+      }
+    },
+    {
+      "_id": "page-contact",
+      "_type": "sitePage",
+      "title": "Contact",
+      "path": "/contact",
+      "lockedPath": true,
+      "updatedDate": "2026-11-03",
+      "sections": [
+        {
+          "_key": "section-0",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-08e64b4ac0a4"
+          },
+          "title": "Contact",
+          "enabled": true
+        },
+        {
+          "_key": "section-1",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-b6bcd931a809"
+          },
+          "title": "Location",
+          "enabled": true
+        },
+        {
+          "_key": "section-2",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-63787ee750fd"
+          },
+          "title": "Contact — Form labels",
+          "enabled": true
+        }
+      ],
+      "seo": {
+        "_type": "seo",
+        "title": "Contact BE Interior | Discuss Your Project",
+        "description": "Contact BE Interior to discuss your home or office interior project. Send an enquiry, call our team or connect on WhatsApp.",
+        "noIndex": false
+      }
+    },
+    {
+      "_id": "page-hire-architect",
+      "_type": "sitePage",
+      "title": "Hire Architect",
+      "path": "/hire-architect",
+      "lockedPath": true,
+      "updatedDate": "2026-11-03",
+      "sections": [
+        {
+          "_key": "section-0",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-39bbb4c8a8d9"
+          },
+          "title": "Hire an architect — Form labels",
+          "enabled": true
+        },
+        {
+          "_key": "section-1",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-e7c2c0e3c691"
+          },
+          "title": "Architect Interior",
+          "enabled": true
+        }
+      ],
+      "seo": {
+        "_type": "seo",
+        "title": "Hire an Architect in Dhaka | BE Interior",
+        "description": "Discuss your space with BE Interior's architecture and interior design team. Tell us your requirements and request a consultation.",
+        "noIndex": false
+      }
+    },
+    {
+      "_id": "page-blogs",
+      "_type": "sitePage",
+      "title": "Blogs",
+      "path": "/blogs",
+      "lockedPath": true,
+      "updatedDate": "2026-11-03",
+      "sections": [
+        {
+          "_key": "section-0",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-89892e803d65"
+          },
+          "title": "Blog Hero",
+          "enabled": true
+        },
+        {
+          "_key": "section-1",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-720af0ba771b"
+          },
+          "title": "Blog Section",
+          "enabled": true
+        }
+      ],
+      "seo": {
+        "_type": "seo",
+        "title": "Interior Design Ideas & Guides | BE Interior",
+        "description": "Read BE Interior's articles on home and office design, space planning, materials and ideas for your next interior project.",
+        "noIndex": false
+      }
+    },
+    {
+      "_id": "page-privacy-policy",
+      "_type": "sitePage",
+      "title": "Privacy Policy",
+      "path": "/privacy-policy",
+      "lockedPath": true,
+      "updatedDate": "2026-11-03",
+      "sections": [
+        {
+          "_key": "section-0",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-ca3a3a105e62"
+          },
+          "title": "Page",
+          "enabled": true
+        }
+      ],
+      "seo": {
+        "_type": "seo",
+        "title": "Privacy Policy | BE Interior",
+        "description": "Learn how BE Interior handles personal information, enquiries and website data in our privacy policy.",
+        "noIndex": false
+      }
+    },
+    {
+      "_id": "page-terms",
+      "_type": "sitePage",
+      "title": "Terms",
+      "path": "/terms",
+      "lockedPath": true,
+      "updatedDate": "2026-11-03",
+      "sections": [
+        {
+          "_key": "section-0",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-02902e7dadb4"
+          },
+          "title": "Page",
+          "enabled": true
+        }
+      ],
+      "seo": {
+        "_type": "seo",
+        "title": "Terms and Conditions | BE Interior",
+        "description": "Read the terms and conditions for using BE Interior's website and services.",
+        "noIndex": false
+      }
+    },
+    {
+      "_id": "page-refund-policy",
+      "_type": "sitePage",
+      "title": "Refund Policy",
+      "path": "/refund-policy",
+      "lockedPath": true,
+      "updatedDate": "2026-11-03",
+      "sections": [
+        {
+          "_key": "section-0",
+          "_type": "pageSection",
+          "kind": "existing",
+          "section": {
+            "_type": "reference",
+            "_ref": "section-fcf319c9ba82"
+          },
+          "title": "Page",
+          "enabled": true
+        }
+      ],
+      "seo": {
+        "_type": "seo",
+        "title": "Cancellation & Refund Policy | BE Interior",
+        "description": "Read BE Interior's cancellation and refund policy before booking interior design services.",
+        "noIndex": false
+      }
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 "use client";
+import { CmsText, useCmsList, CmsSection } from "@/components/cms/Editable";
 import React from "react";
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -6,7 +7,7 @@ import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const OurWorkFlow = () => {
-  const workflowSteps = [
+  const workflowSteps = useCmsList("section-b90b0c348627", "workflowSteps", [
     {
       id: "01",
       title: "Discovery & Consultation",
@@ -32,12 +33,12 @@ const OurWorkFlow = () => {
       title: "Final Handover",
       desc: "A thorough walkthrough before delivering your beautifully finished space.",
     },
-  ];
+  ]);
   return (
-    <div className="flex flex-col w-full items-center justify-center mt-16 px-4  py-16">
-      <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-secondary tracking-wide font-medium">
+    <CmsSection section="section-b90b0c348627"><div className="flex flex-col w-full items-center justify-center mt-16 px-4  py-16">
+      <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-secondary tracking-wide font-medium"><CmsText section="section-b90b0c348627" entryKey="heading-65e8814d6857" fallback={"From concept to creation"} original={<>
         From concept <span className="font-bold text-inherit">to creation</span>
-      </h2>
+      </>} /></h2>
 
       <div className="w-full max-w-6xl mt-10 h-80 rounded-lg">
         <Swiper
@@ -81,10 +82,10 @@ const OurWorkFlow = () => {
                 {/* Content Section */}
                 <div className="relative z-10 mt-12">
                   <h3 data-heading-tone="dark" className="font-bold font-montagu text-xl md:text-2xl text-zinc-800 group-hover:-translate-y-1 transition-transform duration-500">
-                    {step.title}
+                    <CmsText section="section-b90b0c348627" fallback={step.title} />
                   </h3>
                   <p className="text-sm text-zinc-500 font-poppins mt-3 leading-relaxed group-hover:-translate-y-1 transition-transform duration-500 delay-75">
-                    {step.desc}
+                    <CmsText section="section-b90b0c348627" fallback={step.desc} />
                   </p>
                 </div>
 
@@ -95,7 +96,7 @@ const OurWorkFlow = () => {
           ))}
         </Swiper>
       </div>
-    </div>
+    </div></CmsSection>
   );
 };
 

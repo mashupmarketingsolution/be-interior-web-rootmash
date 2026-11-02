@@ -1,3 +1,4 @@
+import { managedPageMetadata } from "@/lib/cms-server";
 import { pageMetadata, staticPages } from "@/lib/seo";
 import type { Metadata } from "next";
 
@@ -5,7 +6,7 @@ import type { Metadata } from "next";
 
 
 const seo = staticPages.find(([route]) => route === "/blogs")!;
-export const metadata: Metadata = pageMetadata(seo[1], seo[2], seo[0]);
+export async function generateMetadata() { return managedPageMetadata("/blogs"); }
 
 export default function RootLayout({
   children,

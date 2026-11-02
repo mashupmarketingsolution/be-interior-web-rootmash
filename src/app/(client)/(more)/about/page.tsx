@@ -1,3 +1,4 @@
+import { PageSections } from "@/components/cms/PageSections";
 import AboutFounders from "@/components/about/About-founders/AboutFounders";
 import HowitStarted from "@/components/about/howitstarted/HowitStarted";
 import OurTeam from "@/components/about/OurTeam/OurTeam";
@@ -10,8 +11,8 @@ const AboutUS = () => {
   return (
     <div className="mt-25">
       <h1 data-heading-tone="dark" className="sr-only">About BE Interior</h1>
-      <AboutFounders />
-      <HowitStarted />
+      <PageSections path="/about" slots={[{ id: "section-f1fb928664c4", node: (<AboutFounders />) },
+{ id: "section-c335e81ccd1b", node: (<HowitStarted />) }]} />
       {/* <ErrorBoundary fallback={<div className="text-black">haker</div>}>
         <Suspense fallback={<TeamSectionSkeleton/>}>
           <OurTeam />

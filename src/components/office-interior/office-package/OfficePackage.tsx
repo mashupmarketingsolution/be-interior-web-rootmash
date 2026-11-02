@@ -1,6 +1,9 @@
 "use client";
+import { CmsText, CmsImage, CmsLink, CmsSection } from "@/components/cms/Editable";
 import Image from "next/image";
 import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import { officePackageItemsApi } from "@/axios/axios";
 import { FaRegStar, FaCrown } from "react-icons/fa";
 import { LuGem } from "react-icons/lu";
 
@@ -10,7 +13,7 @@ import officeLuxury from "@/logo/HomePage/Gemini_Generated_Image_office5.png";
 import Link from "next/link";
 
 const OfficePackage = () => {
-  const packages = [
+  const templates = [
     {
       name: "Essential",
       price: "1300 - 1400",
@@ -59,19 +62,18 @@ const OfficePackage = () => {
     },
   ];
 
+  const { data } = useQuery({queryKey:["office-package-items"],queryFn:async()=> (await officePackageItemsApi()).data.result as {packagename:string;ratePerSft?:number;marketingFeatures?:string[];marketingImage?:string;featured?:boolean}[],refetchInterval:60000});
+  const packages = data ? data.map((item,index)=>{const base=templates.find(t=>t.name.toLowerCase()===item.packagename.toLowerCase()) || templates[index % templates.length];return {...base,name:item.packagename,features:item.marketingFeatures ?? base.features,price:typeof item.ratePerSft === "number" ? item.ratePerSft.toLocaleString("en-BD") : base.price,img:item.marketingImage || base.img,isFeatured:item.featured ?? base.isFeatured};}) : templates;
   return (
-    <section className="w-full bg-ivory py-14 md:py-24 px-6 md:px-12 lg:px-20 font-sans">
+    <CmsSection section="section-1cef778566e8"><section className="w-full bg-ivory py-14 md:py-24 px-6 md:px-12 lg:px-20 font-sans">
       {/* Header */}
       <div className="text-center mb-20 max-w-2xl mx-auto">
-        <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-montagu font-bold text-[#111111]">
+        <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-montagu font-bold text-[#111111]"><CmsText section="section-1cef778566e8" entryKey="heading-f9f2abd25c69" fallback={"Our packages"} original={<>
           Our <span className="text-inherit">packages</span>
-        </h2>
+        </>} /></h2>
         <div className="w-20 h-1 bg-primary mt-4 rounded-full mb-14 mx-auto" />
 
-        <p className="text-zinc-600 mt-4 text-sm md:text-base leading-relaxed font-medium">
-          Tailored interior solutions designed to perfectly match your standard,
-          aesthetics, and functional requirements.
-        </p>
+        <p className="text-zinc-600 mt-4 text-sm md:text-base leading-relaxed font-medium"><CmsText section="section-1cef778566e8" entryKey="text-ef0cea71dec0" fallback={"Tailored interior solutions designed to perfectly match your standard, aesthetics, and functional requirements."} /></p>
       </div>
 
       {/* Horizontal Zig-Zag Layout */}
@@ -88,16 +90,14 @@ const OfficePackage = () => {
             >
               {/* Featured Badge */}
               {pkg.isFeatured && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#c35e00] text-white px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase shadow-md z-10">
-                  Most Popular
-                </div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#c35e00] text-white px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase shadow-md z-10"><CmsText section="section-1cef778566e8" entryKey="text-938c5cd8ac90" fallback={"Most Popular"} /></div>
               )}
 
               {/* Image Section */}
               <div
                 className={`w-full lg:w-1/2 aspect-[16/10] lg:aspect-[5/4] relative rounded-3xl overflow-hidden bg-zinc-100 ${isEven ? "lg:order-1" : "lg:order-2"}`}
                 >
-                <Image
+                <CmsImage section="section-1cef778566e8"
                   src={pkg.img}
                   alt={`${pkg.name} interior design`}
                   fill
@@ -118,11 +118,10 @@ const OfficePackage = () => {
                   </div>
                   <div>
                     <h3 data-heading-tone="dark" className="text-3xl lg:text-4xl font-montagu font-bold text-[#111111] mb-1">
-                      {pkg.name}
+                      <CmsText section="section-1cef778566e8" fallback={pkg.name} />
                     </h3>
-                    <p className="text-lg font-semibold text-zinc-500">
-                      BDT {pkg.price}{" "}
-                      <span className="text-sm font-normal">/ sqft</span>
+                    <p className="text-lg font-semibold text-zinc-500"><CmsText section="section-1cef778566e8" entryKey="text-ac75ad23b7e3" fallback={"BDT "} />{pkg.price}{" "}
+                      <span className="text-sm font-normal"><CmsText section="section-1cef778566e8" entryKey="text-dacfb9f27a69" fallback={"/ sqft"} /></span>
                     </p>
                   </div>
                 </div>
@@ -134,24 +133,23 @@ const OfficePackage = () => {
                     <li key={idx} className="flex items-start gap-3">
                       <span className="text-[#c35e00] font-bold mt-0.5">✓</span>
                       <span className="text-zinc-700 text-sm md:text-base font-medium leading-snug">
-                        {feature}
+                        <CmsText section="section-1cef778566e8" fallback={feature} />
                       </span>
                     </li>
                   ))}
                 </ul>
 
-                <Link href="/services/budget-calculator?type=office">
+                <CmsLink section="section-1cef778566e8" entryKey="link-639ef6a09c80" href="/services/budget-calculator?type=office">
                   {" "}
-                  <button className="w-fit mx-auto px-8 py-3.5 bg-[#111111] text-white rounded-xl font-bold tracking-widest text-xs uppercase hover:bg-[#c35e00] transition-colors duration-300">
-                    Select {pkg.name}
+                  <button className="w-fit mx-auto px-8 py-3.5 bg-[#111111] text-white rounded-xl font-bold tracking-widest text-xs uppercase hover:bg-[#c35e00] transition-colors duration-300"><CmsText section="section-1cef778566e8" entryKey="text-ebd2f8eb9ec0" fallback={"Select "} /><CmsText section="section-1cef778566e8" fallback={pkg.name} />
                   </button>
-                </Link>
+                </CmsLink>
               </div>
             </div>
           );
         })}
       </div>
-    </section>
+    </section></CmsSection>
   );
 };
 

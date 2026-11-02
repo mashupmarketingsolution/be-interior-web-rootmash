@@ -1,4 +1,5 @@
 "use client";
+import { CmsImage, CmsText, CmsTextarea, CmsSection } from "@/components/cms/Editable";
 import React, { useState, useRef, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
 import formImg from "@/logo/HomePage/Gemini_Generated_Image_interior3.png";
@@ -99,11 +100,11 @@ const OfficeForm = () => {
   };
 
   return (
-    <div className="w-full px-4 md:px-12 py-12 md:py-16 lg:py-20 mx-auto my-16 sm:px-6 bg-ivory">
+    <CmsSection section="section-e1663bf0af5e"><div className="w-full px-4 md:px-12 py-12 md:py-16 lg:py-20 mx-auto my-16 sm:px-6 bg-ivory">
       <div className="flex flex-col-reverse lg:flex-row w-full bg-secondary rounded-3xl overflow-hidden shadow-2xl min-h-137.5 md:max-w-4xl lg:max-w-6xl mx-auto">
         {/* Image Section */}
         <div className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-full bg-zinc-800">
-          <Image
+          <CmsImage section="section-e1663bf0af5e"
             src={formImg}
             alt="Dream Kitchen Interior Design"
             fill
@@ -117,19 +118,14 @@ const OfficeForm = () => {
         {/* Form Section */}
         <div className="w-full lg:w-1/2 p-8 sm:p-12 lg:p-14 flex flex-col justify-center font-poppins">
           <div className="mb-8">
-            <h2 data-heading-tone="light" className="text-2xl sm:text-3xl font-black text-white tracking-wide font-montagu">
+            <h2 data-heading-tone="light" className="text-2xl sm:text-3xl font-black text-white tracking-wide font-montagu"><CmsText section="section-e1663bf0af5e" entryKey="heading-7dda074f7751" fallback={"Start your design journey"} original={<>
               Start your design journey
-            </h2>
-            <p className="text-xs sm:text-sm text-zinc-300/90 mt-2 font-light leading-relaxed">
-              Let our design experts map out the perfect plan for your home.
-            </p>
+            </>} /></h2>
+            <p className="text-xs sm:text-sm text-zinc-300/90 mt-2 font-light leading-relaxed"><CmsText section="section-e1663bf0af5e" entryKey="text-737a8219bed3" fallback={"Let our design experts map out the perfect plan for your home."} /></p>
           </div>
 
           {isSubmitted && (
-            <div className="mb-6 p-4 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm rounded-xl font-medium animate-fade-in">
-              Thank you! Your request has been received. Our team will contact
-              you soon.
-            </div>
+            <div className="mb-6 p-4 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm rounded-xl font-medium animate-fade-in"><CmsText section="section-e1663bf0af5e" entryKey="text-d0a981a86bda" fallback={"Thank you! Your request has been received. Our team will contact you soon."} /></div>
           )}
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -164,7 +160,7 @@ const OfficeForm = () => {
 
             {/* Textarea */}
             <div className="flex flex-col w-full">
-              <textarea aria-label="Project details" name="projectInfo"
+              <CmsTextarea section="section-e1663bf0af5e" aria-label="Project details" name="projectInfo"
                 rows={4}
                 placeholder="Project information (location, floor area, etc.)"
                 value={formData.projectInfo}
@@ -197,7 +193,7 @@ const OfficeForm = () => {
           </form>
         </div>
       </div>
-    </div>
+    </div></CmsSection>
   );
 };
 

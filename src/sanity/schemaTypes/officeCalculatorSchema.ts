@@ -8,6 +8,12 @@ export const OfficePackageSchema = defineType({
   icon: Building2,
 
   fields: [
+    defineField({name:"enabled",title:"Show package",type:"boolean",initialValue:true}),
+    defineField({name:"sortOrder",title:"Display order",type:"number",initialValue:0}),
+    defineField({name:"featured",title:"Highlight package",type:"boolean"}),
+    defineField({name:"marketingFeatures",title:"Website package features",type:"array",of:[{type:"string"}]}),
+    defineField({name:"marketingImage",title:"Website package image",type:"image",options:{hotspot:true}}),
+
     defineField({
       name: "packagename",
       title: "Package Name",

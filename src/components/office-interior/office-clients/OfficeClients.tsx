@@ -1,4 +1,5 @@
 "use client";
+import { CmsText, CmsSection } from "@/components/cms/Editable";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -15,17 +16,15 @@ const OfficeClients = () => {
   ];
 
   return (
-    <div className="w-full bg-[#fafafa] py-16 border-y border-zinc-100 font-poppins">
+    <CmsSection section="section-afe2ab55e2bf"><div className="w-full bg-[#fafafa] py-16 border-y border-zinc-100 font-poppins">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
           <div className="flex items-center shrink-0 lg:border-r lg:border-zinc-300 lg:pr-12 lg:h-16">
             <div className="text-left">
-              <h4 data-heading-tone="dark" className="text-xl sm:text-2xl font-extrabold text-[#365856] tracking-wide leading-tight uppercase font-montagu">
+              <h4 data-heading-tone="dark" className="text-xl sm:text-2xl font-extrabold text-[#365856] tracking-wide leading-tight uppercase font-montagu"><CmsText section="section-afe2ab55e2bf" entryKey="heading-0df97265f83d" fallback={"Our valuable"} original={<>
                 Our valuable
-              </h4>
-              <span className="text-xl sm:text-2xl font-black text-primary tracking-wide uppercase block">
-                Clients
-              </span>
+              </>} /></h4>
+              <span className="text-xl sm:text-2xl font-black text-primary tracking-wide uppercase block"><CmsText section="section-afe2ab55e2bf" entryKey="text-e347c269a175" fallback={"Clients"} /></span>
             </div>
           </div>
 
@@ -52,7 +51,7 @@ const OfficeClients = () => {
                   <div className="w-full h-20 sm:h-24 rounded-2xl bg-white border border-zinc-200/80 shadow-[0_4px_12px_rgba(0,0,0,0.01)] hover:border-[#365856]/20 hover:shadow-[0_8px_20px_rgba(54,88,86,0.05)] transition-all duration-300 flex items-center justify-center p-4 group cursor-pointer">
                     <div className="relative inset-0 opacity-40 group-hover:opacity-70 transition-opacity duration-300 text-center">
                       <span className="text-[10px] sm:text-xs font-bold tracking-[0.15em] text-zinc-400 uppercase">
-                        {slide.label}
+                        <CmsText section="section-afe2ab55e2bf" fallback={slide.label} />
                       </span>
                     </div>
                   </div>
@@ -68,7 +67,7 @@ const OfficeClients = () => {
           transition-timing-function: linear !important;
         }
       `}</style>
-    </div>
+    </div></CmsSection>
   );
 };
 

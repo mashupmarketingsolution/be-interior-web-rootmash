@@ -1,3 +1,4 @@
+import { PageSections } from "@/components/cms/PageSections";
 import Navbar from "@/components/Header/Navbar";
 import BeinteriorProject from "@/components/home/beinteriorproj/BeinteriorProject";
 import Competition from "@/components/home/competetion/Competition";
@@ -21,26 +22,26 @@ import JustClickSuspense from "@/components/skeleton/JustClickSuspense";
 export default function Home() {
   return (
     <div className="">
-      <HomeSection />
-      <Whatwedo />
-      <OurWorkFlow />
-      <Whychooseus />
-      <ErrorBoundary fallback={<BeInteriorError />}>
+      <PageSections path="/" slots={[{ id: "section-d036fe38185d", node: (<HomeSection />) },
+{ id: "section-895eb710140e", node: (<Whatwedo />) },
+{ id: "section-b90b0c348627", node: (<OurWorkFlow />) },
+{ id: "section-994fa32343da", node: (<Whychooseus />) },
+{ id: "section-37b8a2c22aa5", node: (<ErrorBoundary fallback={<BeInteriorError />}>
         <BeinteriorProject />
-      </ErrorBoundary>
-      <Calculator />
-      <ErrorBoundary fallback={<OfficeProjectErr />}>
+      </ErrorBoundary>) },
+{ id: "section-8ac0a3caab4b", node: (<Calculator />) },
+{ id: "section-39381f4c733d", node: (<ErrorBoundary fallback={<OfficeProjectErr />}>
           <Officeproject />
-      </ErrorBoundary>
-      <Competition />
-      <ErrorBoundary fallback={<HappyCustomererr />}>
+      </ErrorBoundary>) },
+{ id: "section-8829bda372d5", node: (<Competition />) },
+{ id: "section-6bda2feda9af", node: (<ErrorBoundary fallback={<HappyCustomererr />}>
           <HappyCustomers />
-      </ErrorBoundary>
-      <ErrorBoundary fallback={<div>প্রজেক্ট লোড করতে সমস্যা হয়েছে।</div>}>
+      </ErrorBoundary>) },
+{ id: "section-adb0c734da06", node: (<ErrorBoundary fallback={<div>প্রজেক্ট লোড করতে সমস্যা হয়েছে।</div>}>
         <Suspense fallback={<JustClickSuspense />}>
           <JustClick />
         </Suspense>
-      </ErrorBoundary>
+      </ErrorBoundary>) }]} />
     </div>
   );
 }

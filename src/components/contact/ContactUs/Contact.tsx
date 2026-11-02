@@ -1,4 +1,5 @@
 "use client";
+import { CmsText, CmsImage, CmsSection } from "@/components/cms/Editable";
 import { whatsappNumber } from "@/lib/contact-links";
 import React from "react";
 import { Mail, Phone, MessageCircle, Loader2, AlertCircle, ArrowUpRight } from "lucide-react";
@@ -44,51 +45,47 @@ export default function ExperienceCenter() {
 
   if (isLoading) {
     return (
-      <section className="bg-ivory text-[#111111] py-20 px-6 lg:px-20 min-h-[500px] flex items-center justify-center">
+      <CmsSection section="section-08e64b4ac0a4"><section className="bg-ivory text-[#111111] py-20 px-6 lg:px-20 min-h-[500px] flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <Loader2 className="w-12 h-12 animate-spin text-primary" />
-          <p className="text-sm text-zinc-500 font-medium tracking-widest uppercase">Loading experience center...</p>
+          <p className="text-sm text-zinc-500 font-medium tracking-widest uppercase"><CmsText section="section-08e64b4ac0a4" entryKey="text-b4166eca4bc5" fallback={"Loading experience center..."} /></p>
         </div>
-      </section>
+      </section></CmsSection>
     );
   }
 
   if (isError) {
     return (
-      <section className="bg-[#FAF5E9] text-[#111111] py-20 px-6 lg:px-20 min-h-[500px] flex items-center justify-center">
+      <CmsSection section="section-08e64b4ac0a4"><section className="bg-[#FAF5E9] text-[#111111] py-20 px-6 lg:px-20 min-h-[500px] flex items-center justify-center">
         <div className="flex flex-col items-center max-w-md text-center p-8 bg-white border border-black/5 rounded-3xl shadow-xl">
           <AlertCircle className="w-14 h-14 text-red-500 mb-4" />
-          <h3 data-heading-tone="dark" className="text-xl font-bold mb-2">Failed to load information</h3>
+          <h3 data-heading-tone="dark" className="text-xl font-bold mb-2"><CmsText section="section-08e64b4ac0a4" entryKey="heading-abbdc4ff1e33" fallback={"Failed to load information"} original={<>Failed to load information</>} /></h3>
           <p className="text-sm text-zinc-500 mb-6">{error instanceof Error ? (error instanceof Error ? error.message : "Unknown error") : "Something went wrong"}</p>
           <button
             onClick={() => refetch()}
             className="px-8 py-3 bg-[#111111] hover:bg-primary text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-primary/30"
-          >
-            Try again
-          </button>
+          ><CmsText section="section-08e64b4ac0a4" entryKey="text-c061da1b4717" fallback={"Try again"} /></button>
         </div>
-      </section>
+      </section></CmsSection>
     );
   }
 
   const contact = data?.result?.[0];
 
   return (
-    <section className="bg-[#FAF5E9] text-[#111111] py-24 px-6 lg:px-20 overflow-hidden">
+    <CmsSection section="section-08e64b4ac0a4"><section className="bg-[#FAF5E9] text-[#111111] py-24 px-6 lg:px-20 overflow-hidden">
       <div className="max-w-7xl mx-auto">
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
           {/* Left Content Area */}
           <div className="flex flex-col justify-center order-2 lg:order-1">
-            <p className="text-primary font-bold uppercase tracking-widest text-sm mb-3">Visit Us</p>
-            <h2 data-heading-tone="dark" className="text-4xl md:text-5xl font-montagu font-bold mb-6 leading-tight">
+            <p className="text-primary font-bold uppercase tracking-widest text-sm mb-3"><CmsText section="section-08e64b4ac0a4" entryKey="text-b533b020cfe7" fallback={"Visit Us"} /></p>
+            <h2 data-heading-tone="dark" className="text-4xl md:text-5xl font-montagu font-bold mb-6 leading-tight"><CmsText section="section-08e64b4ac0a4" entryKey="heading-d3a6561d9d6b" fallback={"Welcome to our  experience center"} original={<>
               Welcome to our <br/>
               <span className="text-inherit">experience center</span>
-            </h2>
-            <p className="text-zinc-600 mb-10 text-lg font-medium max-w-md leading-relaxed">
-              Step into a world of architectural brilliance and premium interiors. Let&apos;s discuss your dream space over a cup of coffee.
-            </p>
+            </>} /></h2>
+            <p className="text-zinc-600 mb-10 text-lg font-medium max-w-md leading-relaxed"><CmsText section="section-08e64b4ac0a4" entryKey="text-196d67edcb13" fallback={"Step into a world of architectural brilliance and premium interiors. Let's discuss your dream space over a cup of coffee."} /></p>
 
             <div className="space-y-4">
               {contact ? (
@@ -116,7 +113,7 @@ export default function ExperienceCenter() {
                 />
                 </>
               ) : (
-                <p className="text-zinc-500 italic">No contact details found.</p>
+                <p className="text-zinc-500 italic"><CmsText section="section-08e64b4ac0a4" entryKey="text-bba2af81b47b" fallback={"No contact details found."} /></p>
               )}
             </div>
           </div>
@@ -129,7 +126,7 @@ export default function ExperienceCenter() {
 
             {/* Main Image Container */}
             <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] group">
-              <Image
+              <CmsImage section="section-08e64b4ac0a4"
                 src={logo}
                 alt="Experience Center"
                 fill
@@ -143,7 +140,7 @@ export default function ExperienceCenter() {
 
         </div>
       </div>
-    </section>
+    </section></CmsSection>
   );
 }
 
@@ -174,7 +171,7 @@ function ContactInfo({ icon, label, value, href, onClick }: ContactInfoProps) {
 
         {/* Text Details */}
         <div>
-          <p className="text-xs text-zinc-400 font-bold uppercase tracking-widest mb-1 group-hover:text-zinc-400">{label}</p>
+          <p className="text-xs text-zinc-400 font-bold uppercase tracking-widest mb-1 group-hover:text-zinc-400"><CmsText section="section-08e64b4ac0a4" fallback={label} /></p>
           <p className="text-lg font-bold text-[#111111]  transition-colors duration-500">{value || "N/A"}</p>
         </div>
       </div>

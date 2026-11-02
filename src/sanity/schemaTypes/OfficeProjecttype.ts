@@ -7,6 +7,10 @@ export const OfficeProjectType = defineType({
   type: "document",
   icon: DesktopIcon,
   fields: [
+    defineField({name:"enabled",title:"Show on website",type:"boolean",initialValue:true}),
+    defineField({name:"sortOrder",title:"Display order (smaller first)",type:"number",initialValue:0}),
+    defineField({name:"featured",title:"Featured item",type:"boolean",initialValue:false}),
+
     defineField({ name: "seo", title: "SEO (optional)", type: "seo" }),
     defineField({
       name: "name",

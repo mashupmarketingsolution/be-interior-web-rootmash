@@ -12,6 +12,9 @@ import { structureTool } from "sanity/structure";
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from "./src/sanity/env";
 import { schema } from "./src/sanity/schemaTypes";
+import { LeadDesk } from "./src/sanity/components/LeadDesk";
+import { ContentPreview } from "./src/sanity/components/ContentPreview";
+import { RestoreContentAction } from "./src/sanity/components/RestoreContentAction";
 import { structure } from "./src/sanity/structure";
 import { customStatsWidgetPlugin } from "./src/sanity/widgets/CustomStatsWidget";
 export default defineConfig({
@@ -21,15 +24,16 @@ export default defineConfig({
   // Add and edit the content schema in the './sanity/schemaTypes' folder
   schema: {
     ...schema,
-    templates: (templates) => templates.filter((template) => template.schemaType !== "siteSettings"),
+    templates: (templates) => templates.filter((template) => !["siteSettings", "siteSection"].includes(template.schemaType)),
   },
   document: {
     actions: (actions, context) => context.schemaType === "siteSettings"
       ? actions.filter(({ action }) => action !== "delete" && action !== "duplicate")
-      : actions,
+      : context.schemaType === "leads" ? actions.filter(({action}) => !["publish", "duplicate"].includes(action || "")) : ["sitePage", "siteSection"].includes(context.schemaType) ? [...actions.filter(({action}) => action !== "duplicate" && !(context.schemaType === "siteSection" && action === "delete")), RestoreContentAction] : actions,
   },
   plugins: [
-    structureTool({ structure }),
+    {name:"enquiry-follow-up",tools:[{name:"enquiries",title:"Enquiries",component:LeadDesk}]},
+    structureTool({ structure, defaultDocumentNode: (S, { schemaType }) => ["sitePage", "siteSection"].includes(schemaType) ? S.document().views([S.view.form(), S.view.component(ContentPreview).title("Preview")]) : S.document().views([S.view.form()]) }),
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
