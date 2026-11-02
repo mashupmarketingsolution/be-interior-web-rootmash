@@ -21,8 +21,8 @@ const CalculatorSection = () => {
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-montagu text-white tracking-wide font-bold leading-tight mb-6">
-            Invest in Your <span className="text-primary">Ideal Space</span>
+          <h2 data-heading-tone="light" className="text-3xl md:text-5xl lg:text-6xl font-montagu text-white tracking-wide font-bold leading-tight mb-6">
+            Invest in your <span className="text-inherit">ideal space</span>
           </h2>
           
           <p className="text-lg md:text-xl text-zinc-400 font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -37,7 +37,7 @@ const CalculatorSection = () => {
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-[200%] bg-linear-to-r from-transparent via-white/20 to-transparent skew-x-12 transition-transform duration-1000 ease-in-out"></div>
 
               <Calculator size={22} className="relative z-10 transition-transform duration-300 group-hover:rotate-12" />
-              <span className="relative z-10 tracking-widest uppercase text-sm md:text-base">Calculate Now</span>
+              <span className="relative z-10 tracking-widest uppercase text-sm md:text-base">Calculate now</span>
               
               {/* Sliding Arrow */}
               <ArrowRight size={20} className="relative z-10 -ml-3 opacity-0 w-0 group-hover:w-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />

@@ -20,8 +20,8 @@ const OfficeClients = () => {
         <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
           <div className="flex items-center shrink-0 lg:border-r lg:border-zinc-300 lg:pr-12 lg:h-16">
             <div className="text-left">
-              <h4 className="text-xl sm:text-2xl font-extrabold text-[#365856] tracking-wide leading-tight uppercase font-montagu">
-                Our Valuable
+              <h4 data-heading-tone="dark" className="text-xl sm:text-2xl font-extrabold text-[#365856] tracking-wide leading-tight uppercase font-montagu">
+                Our valuable
               </h4>
               <span className="text-xl sm:text-2xl font-black text-primary tracking-wide uppercase block">
                 Clients

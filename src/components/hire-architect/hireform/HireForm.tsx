@@ -104,10 +104,10 @@ const HireForm = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left Side: Content & Illustration */}
         <div className="space-y-8">
-          <h2 className="text-4xl md:text-5xl font-serif text-[#283b33] leading-tight">
-            Leave Us A <span className="font-bold">Message</span> for your{" "}
+          <h2 data-heading-tone="dark" className="text-4xl md:text-5xl font-serif text-[#283b33] leading-tight">
+            Leave us a <span className="font-bold">message</span> for your{" "}
             <br />
-            Dream Interior
+            dream interior
           </h2>
 
           <div className="w-full h-80 flex items-center justify-center">
@@ -206,7 +206,7 @@ const HireForm = () => {
             </Link>
             ,
             <Link href="/terms" className="text-red-700 underline ml-1">
-            terms and conditions
+            Terms and conditions
           </Link>
           </p>
         </div>

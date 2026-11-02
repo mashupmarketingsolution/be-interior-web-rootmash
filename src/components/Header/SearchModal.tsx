@@ -186,7 +186,7 @@ export default function SearchModal({
                   onClick={handleLink}
                   className="w-full flex items-center justify-center gap-2 py-3.5 text-sm font-bold text-white bg-white/5 hover:bg-primary hover:text-white rounded-xl transition-all duration-300 border border-white/5 hover:border-primary/50 shadow-sm"
                 >
-                  Show All Projects <ChevronRight className="w-4 h-4" />
+                  Show all projects <ChevronRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>

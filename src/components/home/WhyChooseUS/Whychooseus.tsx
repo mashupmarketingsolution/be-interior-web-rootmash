@@ -30,8 +30,8 @@ const Whychooseus = () => {
     <section className="w-full py-20 px-4 bg-ivory">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         {/* Header */}
-        <h2 className="text-3xl md:text-5xl font-montagu text-[#111111] tracking-wide font-bold text-center mb-16">
-          Excellence <span className="text-primary">by Design</span>
+        <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-montagu text-[#111111] tracking-wide font-bold text-center mb-16">
+          Excellence <span className="text-inherit">by design</span>
         </h2>
 
         {/* Feature Grid */}
@@ -44,7 +44,7 @@ const Whychooseus = () => {
               <div className="mb-6 p-4 bg-primary/10 rounded-2xl group-hover:scale-110 transition-transform duration-300">
                 {item.icon}
               </div>
-              <h3 className="text-xl font-bold text-[#111111] mb-3">{item.title}</h3>
+              <h3 data-heading-tone="dark" className="text-xl font-bold text-[#111111] mb-3">{item.title}</h3>
               <p className="text-zinc-600 text-sm leading-relaxed">{item.desc}</p>
             </div>
           ))}
@@ -53,7 +53,7 @@ const Whychooseus = () => {
         {/* CTA Button */}
         <Link href={"/hire-architect"}>
           <button className="mt-16 px-10 py-5 bg-[#111111] hover:bg-primary text-white font-bold text-lg rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
-            Book Free Consultation
+            Book free consultation
           </button>
         </Link>
       </div>

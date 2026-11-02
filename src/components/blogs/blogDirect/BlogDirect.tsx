@@ -20,8 +20,8 @@ const BlogDirect = () => {
         </span>
 
         {/* Main Heading */}
-        <h2 className="relative z-10 text-3xl md:text-4xl lg:text-5xl font-bold font-montagu text-zinc-800 leading-tight">
-          Turn your dream space into a <span className="text-primary">reality</span>
+        <h2 data-heading-tone="dark" className="relative z-10 text-3xl md:text-4xl lg:text-5xl font-bold font-montagu text-zinc-800 leading-tight">
+          Turn your dream space into a <span className="text-inherit">reality</span>
         </h2>
 
         {/* Description (Updated for Interior Design) */}
@@ -37,7 +37,7 @@ const BlogDirect = () => {
             href="/contact" 
             className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-primary text-white font-medium hover:bg-primary/90 transition-all duration-300 shadow-[0_8px_20px_rgba(var(--primary-rgb),0.25)] flex items-center justify-center gap-2 group"
           >
-            Start a Project 
+            Start a project
             <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
 
@@ -46,7 +46,7 @@ const BlogDirect = () => {
             href="/blogs" 
             className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white text-zinc-800 font-medium border border-zinc-200 hover:border-primary hover:text-primary transition-all duration-300 flex items-center justify-center"
           >
-            Read Our Blog
+            Read our blog
           </Link>
           
         </div>

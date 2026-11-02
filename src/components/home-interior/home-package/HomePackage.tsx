@@ -57,8 +57,8 @@ const HomeOurPackage = () => {
     <div className="w-full  py-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center font-poppins">
 
       <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-5xl font-black tracking-wide text-zinc-800 uppercase font-montagu">
-          Curated <span className="text-primary bg-gradient-to-r from-zinc-800 to-zinc-900 bg-clip-text">Design Solutions</span>
+        <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-black tracking-wide text-zinc-800 uppercase font-montagu">
+          Curated <span className="text-inherit    ">design solutions</span>
         </h2>
         <div className="w-24 h-1 bg-primary mx-auto mt-4 rounded-full" />
       </div>
@@ -77,7 +77,7 @@ const HomeOurPackage = () => {
           >
             <div className={`relative ${pkg.headerBg} pt-10 pb-16 px-8 text-white flex justify-between items-center overflow-hidden`}>
               <div>
-                <h3 className="text-2xl sm:text-3xl font-black tracking-wide font-montagu">
+                <h3 data-heading-tone="light" className="text-2xl sm:text-3xl font-black tracking-wide font-montagu">
                   {pkg.name}
                 </h3>
               </div>
@@ -115,7 +115,7 @@ const HomeOurPackage = () => {
 
       <div className="mt-16 w-full flex justify-center">
         <Link href="/services/budget-calculator?type=home"><button className="px-10 py-4 bg-primary  text-white font-extrabold text-lg sm:text-xl tracking-wide rounded-lg shadow-lg  hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer uppercase">
-          Calculate Your Budget
+          Calculate your budget
         </button></Link>
       </div>
 

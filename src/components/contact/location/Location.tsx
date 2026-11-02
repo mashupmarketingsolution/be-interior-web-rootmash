@@ -52,7 +52,7 @@ const LocationSection = () => {
       <section className="bg-[#FAF5E9] py-16 px-6 lg:px-20 min-h-[400px] flex items-center justify-center">
         <div className="flex flex-col items-center max-w-md text-center p-8 bg-white border border-black/5 rounded-3xl shadow-xl">
           <AlertCircle className="w-12 h-12 text-red-500 mb-4" />
-          <h3 className="text-xl font-bold mb-2 text-[#111111]">Location Unavailable</h3>
+          <h3 data-heading-tone="dark" className="text-xl font-bold mb-2 text-[#111111]">Location unavailable</h3>
           <p className="text-sm text-zinc-500 mb-6">
             {error instanceof Error ? (error instanceof Error ? error.message : "Unknown error") : "Something went wrong"}
           </p>
@@ -60,7 +60,7 @@ const LocationSection = () => {
             onClick={() => refetch()}
             className="px-6 py-2.5 bg-[#111111] hover:bg-primary text-white font-semibold rounded-full shadow-lg transition-all duration-300"
           >
-            Try Again
+            Try again
           </button>
         </div>
       </section>
@@ -85,7 +85,7 @@ const LocationSection = () => {
             <div className="relative z-10 flex flex-col gap-8">
               <div>
                 <p className="text-primary font-bold uppercase tracking-widest text-xs mb-2">Our Office</p>
-                <h3 className="text-3xl font-montagu font-bold text-white">Visit Us</h3>
+                <h3 data-heading-tone="light" className="text-3xl font-montagu font-bold text-white">Visit us</h3>
               </div>
 
               <div className="flex items-start gap-4">
@@ -107,7 +107,7 @@ const LocationSection = () => {
                 className="group flex items-center gap-3 w-fit mt-4 px-6 py-3 bg-white hover:bg-primary text-[#111111] hover:text-white rounded-full font-bold text-sm transition-all duration-300 shadow-md"
               >
                 <Navigation className="w-4 h-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
-                Get Directions
+                Get directions
               </a>
             </div>
           </div>

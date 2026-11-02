@@ -81,7 +81,7 @@ const OfficeInteriorSlider = () => {
 
           <div className="absolute inset-0 z-20 flex flex-col justify-center items-center md:items-start text-center md:text-left px-6 sm:px-12 md:pl-20 lg:pl-32 xl:pl-40 pt-16 md:pt-24">
             <div className="max-w-2xl flex flex-col items-center md:items-start">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white">
+              <h2 data-heading-tone="light" className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white">
                 Stress-free
               </h2>
 
@@ -92,7 +92,7 @@ const OfficeInteriorSlider = () => {
                 onClick={handleWhatsAppRedirect}
                 className="w-fit sm:w-auto mt-6 px-6 py-3 md:px-10 bg-primary text-white font-medium text-base md:text-lg tracking-wider hover:bg-zinc-900 transition-colors rounded-lg md:rounded-md cursor-pointer flex items-center gap-2"
               >
-                Talk to Our Designer
+                Talk to our designer
                 <FaWhatsapp size={30} />
               </button>
             </div>
@@ -113,11 +113,11 @@ const OfficeInteriorSlider = () => {
 
           <div className="absolute inset-0 z-20 flex flex-col justify-center items-center md:items-start text-center md:text-left px-6 sm:px-12 md:pl-20 lg:pl-32 xl:pl-40 pt-16 md:pt-24">
             <div className="max-w-2xl flex flex-col items-center md:items-start">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black tracking-tight leading-none text-primary font-montagu">
-                Get Premium
+              <h2 data-heading-tone="light" className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black tracking-tight leading-none text-white font-montagu">
+                Get premium
               </h2>
-              <h2 className="text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white mt-1">
-                Office Interior
+              <h2 data-heading-tone="light" className="text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-wide leading-tight font-montagu text-white mt-1">
+                Office interior
               </h2>
               <p className="text-xs sm:text-sm md:text-base font-normal max-w-md mt-4 text-zinc-200 font-poppins capitalize tracking-wide">
                 That Your Employee will love

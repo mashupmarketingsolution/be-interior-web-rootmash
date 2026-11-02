@@ -31,8 +31,8 @@ const Whatwedo = () => {
     <section className="w-full py-20 px-6 md:px-12 lg:px-20 font-sans bg-[#FAF5E9]">
       {/* Header Section */}
       <div className="flex flex-col items-center justify-center mb-16 text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-montagu font-medium text-[#111111]">
-          Comprehensive <span className="font-bold text-primary">Solutions</span>
+        <h2 data-heading-tone="dark" className="text-3xl md:text-4xl lg:text-5xl font-montagu font-medium text-[#111111]">
+          Comprehensive <span className="font-bold text-inherit">solutions</span>
         </h2>
         <p className="text-zinc-500 mt-4 max-w-lg text-sm md:text-base">
           End-to-end interior styling designed to match your aesthetics and functional requirements.
@@ -67,7 +67,7 @@ const Whatwedo = () => {
 
               {/* Bottom Section: Text & Call to Action */}
               <div className="absolute bottom-0 left-0 w-full p-8 lg:p-10 z-10 flex flex-col justify-end transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
-                <h3 className="text-3xl lg:text-4xl font-montagu font-bold text-white mb-3">
+                <h3 data-heading-tone="light" className="text-3xl lg:text-4xl font-montagu font-bold text-white mb-3">
                   {service.title}
                 </h3>
                 
@@ -79,10 +79,10 @@ const Whatwedo = () => {
                 <div className="flex items-center gap-3 text-primary font-bold uppercase tracking-widest text-xs">
                   <span className="relative overflow-hidden">
                     <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
-                      Explore Details
+                      explore details
                     </span>
                     <span className="inline-block absolute left-0 top-full transition-transform duration-300 group-hover:-translate-y-full">
-                      Explore Details
+                      explore details
                     </span>
                   </span>
                   <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:text-white">

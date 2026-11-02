@@ -4,10 +4,10 @@ import React from "react";
 const OfficeProjectSuspense = () => {
   return (
     <div className="flex flex-col w-full items-center justify-center mt-16 px-4 p-10 bg-ivory animate-pulse">
-      <h2 className="text-2xl md:text-3xl lg:text-5xl font-montagu text-secondary tracking-wide font-bold">
-        Be interior{" "}
-        <span className="font-medium text-primary">
-          Office Interior <span className="text-secondary">Projects</span>
+      <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-secondary tracking-wide font-bold">
+        BE Interior{" "}
+        <span className="font-medium text-inherit">
+          office interior <span className="text-secondary">projects</span>
         </span>
       </h2>
 

@@ -68,11 +68,11 @@ const handleWhatsAppRedirect = () => {
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-montagu text-[#111111] tracking-wide font-bold leading-[1.2] mb-2">
-            Your Dream Interior
+          <h2 data-heading-tone="dark" className="text-4xl md:text-5xl lg:text-6xl font-montagu text-[#111111] tracking-wide font-bold leading-[1.2] mb-2">
+            Your dream interior
           </h2>
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-montagu text-primary tracking-wide font-bold mb-10">
-            Is Just One Click Away
+          <h3 data-main-heading data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-4xl font-montagu text-[#111111] tracking-wide font-bold mb-10">
+            Is just one click away
           </h3>
 
           <p className="text-zinc-500 text-sm md:text-base max-w-lg mx-auto mb-12 leading-relaxed">
@@ -89,7 +89,7 @@ const handleWhatsAppRedirect = () => {
 
             <MessageCircle size={22} className="relative z-10" />
             <span className="relative z-10 tracking-widest uppercase text-sm md:text-base">
-              Get Started
+              Get started
             </span>
             <ArrowRight size={20} className="relative z-10 transform group-hover:translate-x-1 transition-transform duration-300" />
           </button>

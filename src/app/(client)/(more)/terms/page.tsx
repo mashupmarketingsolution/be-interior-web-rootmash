@@ -59,8 +59,8 @@ export default function TermsAndConditions() {
 
         {/* Page Header */}
         <div className="border-b border-[#111111]/10 pb-6 mb-10">
-          <h1 className="text-3xl md:text-4xl font-montagu font-bold text-[#111111] tracking-wide">
-            Terms and Conditions
+          <h1 data-heading-tone="dark" className="text-3xl md:text-4xl font-montagu font-bold text-[#111111] tracking-wide">
+            Terms and conditions
           </h1>
           <p className="text-sm text-zinc-500 mt-2">
             Please read our project rules and regulations carefully
@@ -71,7 +71,7 @@ export default function TermsAndConditions() {
         <div className="space-y-8 text-sm md:text-base text-zinc-600 leading-relaxed font-normal">
           {terms.map((item, index) => (
             <div key={index} className="space-y-2">
-              <h3 className="font-bold text-[#111111] tracking-wide text-lg">
+              <h3 data-heading-tone="dark" className="font-bold text-[#111111] tracking-wide text-lg">
                 {index + 1}. {item.title}
               </h3>
               <p className="pl-5 border-l-2 border-[#c35e00]/20 text-zinc-600">

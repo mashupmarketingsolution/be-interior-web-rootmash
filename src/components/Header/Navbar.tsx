@@ -8,6 +8,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { allModalInteriorApi } from "@/axios/axios";
+import { useSiteSettings } from "./useSiteSettings";
 
 interface AllInteriorProjectstype {
   ms: number;
@@ -37,21 +38,15 @@ const fetchAllInteriorItems = async () => {
 };
 
 const Navbar = () => {
+  const { menu, cta } = useSiteSettings();
+  const wideMenu = menu.length > 4;
   const pathname = usePathname();
   const menuRef = useRef<HTMLDialogElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const links = [
-    { name: "Home Interior", href: "/services/home-interior" },
-    { name: "Office Interior", href: "/services/office-interior" },
-    { name: "Portfolio", href: "/interior-projects" },
-    { name: "Blogs", href: "/blogs" },
-    { name: "About Us", href: "/about" },
-    { name: "Contact Us", href: "/contact" },
-    { name: "Hire An Architect", href: "/hire-architect" },
-  ];
+  const links = menu.flatMap(item => item.children || [{ label: item.label, href: item.href! }]);
 
   // Handle scroll to add background color to navbar
   useEffect(() => {
@@ -73,7 +68,7 @@ const Navbar = () => {
     const previousOverflow = document.documentElement.style.overflow;
     menu.showModal();
     document.documentElement.style.overflow = "hidden";
-    const desktop = window.matchMedia("(min-width: 1024px)");
+    const desktop = window.matchMedia(wideMenu ? "(min-width: 1536px)" : "(min-width: 1024px)");
     const closeOnDesktop = () => {
       if (desktop.matches) {
         setMobileMenuOpen(false);
@@ -86,7 +81,7 @@ const Navbar = () => {
       document.documentElement.style.overflow = previousOverflow;
       desktop.removeEventListener("change", closeOnDesktop);
     };
-  }, [mobileMenuOpen]);
+  }, [mobileMenuOpen, wideMenu]);
 
   const { data, isLoading } = useQuery<AllInteriorProjectstype>({
     queryKey: ["mobile-modal-items"],
@@ -131,19 +126,19 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden lg:flex items-center min-w-0 mx-auto">
+        <div className={`${wideMenu ? "hidden 2xl:flex" : "hidden lg:flex"} items-center min-w-0 mx-auto`}>
           <NavLinks />
         </div>
 
         {/* Desktop Button */}
-        <div className="hidden lg:flex items-center flex-shrink-0 ml-4 mr-6 xl:mr-8">
+        <div className={`${wideMenu ? "hidden 2xl:flex" : "hidden lg:flex"} items-center flex-shrink-0 ml-4 mr-6 xl:mr-8`}>
           <Navbtn />
         </div>
 
         {/* Mobile Hamburger Button */}
         <button
           onClick={() => setMobileMenuOpen(true)}
-          className="lg:hidden text-white/80 hover:text-primary transition-colors p-4 focus:outline-none"
+          className={`${wideMenu ? "2xl:hidden" : "lg:hidden"} text-white/80 hover:text-primary transition-colors p-4 focus:outline-none`}
           aria-label="Open Menu"
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-navigation"
@@ -166,7 +161,7 @@ const Navbar = () => {
                 event.clientY < bounds.top || event.clientY > bounds.bottom) handleLink();
           }
         }}
-        className="fixed inset-y-0 left-auto right-0 m-0 h-[100dvh] max-h-none w-full sm:w-[380px] max-w-none bg-[#111111] text-white hidden open:flex flex-col border-0 border-l border-white/10 p-0 backdrop:bg-black/60 backdrop:backdrop-blur-sm lg:hidden"
+        className="fixed inset-y-0 left-auto right-0 m-0 h-[100dvh] max-h-none w-full sm:w-[380px] max-w-none bg-[#111111] text-white hidden open:flex flex-col border-0 border-l border-white/10 p-0 backdrop:bg-black/60 backdrop:backdrop-blur-sm"
       >
         {/* Header / Close Button */}
         <div className="flex shrink-0 items-center justify-between gap-4 px-5 py-3 border-b border-white/5">
@@ -236,7 +231,7 @@ const Navbar = () => {
                         onClick={handleLink}
                         className="block w-full text-center py-2.5 text-xs font-bold text-primary bg-white rounded-xl shadow-sm hover:shadow-md hover:bg-gray-50 transition-all border border-gray-200"
                       >
-                        View All Projects
+                        View all projects
                       </Link>
                     </div>
                   </>
@@ -267,7 +262,7 @@ const Navbar = () => {
                 className="group flex items-center justify-between px-4 py-3.5 rounded-xl hover:bg-white/5 transition-colors"
               >
                 <span className="text-white/80 font-medium group-hover:text-white transition-colors">
-                  {link.name}
+                  {link.label}
                 </span>
                 <ChevronRight
                   size={18}
@@ -279,11 +274,11 @@ const Navbar = () => {
 
           <div className="p-6 border-t border-white/5 mt-auto">
             <Link
-              href="/services/budget-calculator"
+              href={cta.href}
               onClick={handleLink}
               className="flex items-center justify-center w-full py-4 bg-primary text-white rounded-2xl font-bold hover:bg-[#c35e00] transition-colors shadow-[0_4px_20px_rgba(200,122,49,0.3)]"
             >
-              Calculate Estimate
+              {cta.label}
             </Link>
           </div>
         </div>

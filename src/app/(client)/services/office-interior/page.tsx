@@ -16,7 +16,7 @@ import OfficeProjectErr from "@/components/home/officeproject/OfficeProjectError
 const OfficePage = () => {
   return (
     <div>
-      <h1 className="sr-only">Office Interior Design in Dhaka</h1>
+      <h1 data-heading-tone="dark" className="sr-only">Office interior design in Dhaka</h1>
       <OfficeInteriorSlider />
       <OfficeService />
       <OfficeChoose />

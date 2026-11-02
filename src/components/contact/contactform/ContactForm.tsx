@@ -115,9 +115,9 @@ const ContactForm = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/40 to-transparent opacity-90"></div>
 
           <div className="absolute bottom-0 left-0 w-full p-10 text-white">
-            <h3 className="font-montagu text-3xl font-bold mb-3 leading-tight">
+            <h3 data-heading-tone="light" className="font-montagu text-3xl font-bold mb-3 leading-tight">
               Let&apos;s craft your <br />{" "}
-              <span className="text-primary">dream space</span>
+              <span className="text-inherit">dream space</span>
             </h3>
             <p className="text-white/70 text-sm leading-relaxed">
               Share your project details with us, and our expert architects will
@@ -132,8 +132,8 @@ const ContactForm = () => {
             <p className="text-primary font-bold uppercase tracking-widest text-xs mb-2">
               Get in touch
             </p>
-            <h2 className="text-3xl md:text-4xl font-montagu font-bold text-[#111111]">
-              Leave Us A Message
+            <h2 data-heading-tone="dark" className="text-3xl md:text-4xl font-montagu font-bold text-[#111111]">
+              Leave us a message
             </h2>
           </div>
 

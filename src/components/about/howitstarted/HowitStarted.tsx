@@ -10,8 +10,8 @@ export default function HowItStarted() {
           <p className="text-primary font-bold uppercase tracking-widest text-xs mb-3">
             Our Story
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-montagu text-[#111111] font-bold tracking-wide">
-            Where It All Began
+          <h2 data-heading-tone="dark" className="text-3xl md:text-4xl lg:text-5xl font-montagu text-[#111111] font-bold tracking-wide">
+            Where it all began
           </h2>
         </div>
 
@@ -20,8 +20,8 @@ export default function HowItStarted() {
           
           {/* Left Column: The Evolution & History */}
           <div>
-            <h3 className="text-xl font-montagu font-bold text-[#111111] mb-6 border-b border-[#111111]/10 pb-4">
-              Our Evolution
+            <h3 data-heading-tone="dark" className="text-xl font-montagu font-bold text-[#111111] mb-6 border-b border-[#111111]/10 pb-4">
+              Our evolution
             </h3>
             <p className="text-zinc-600 leading-relaxed text-base text-justify">
               <span className="font-bold text-[#111111]">BE INTERIOR</span> is a full-service
@@ -49,8 +49,8 @@ export default function HowItStarted() {
 
           {/* Right Column: Expertise & Slogan */}
           <div>
-            <h3 className="text-xl font-montagu font-bold text-[#111111] mb-6 border-b border-[#111111]/10 pb-4">
-              Our Expertise
+            <h3 data-heading-tone="dark" className="text-xl font-montagu font-bold text-[#111111] mb-6 border-b border-[#111111]/10 pb-4">
+              Our expertise
             </h3>
             <p className="text-zinc-600 leading-relaxed text-base text-justify">
               We specialize in{" "}

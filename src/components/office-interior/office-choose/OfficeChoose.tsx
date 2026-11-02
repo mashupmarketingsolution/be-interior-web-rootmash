@@ -13,9 +13,9 @@ const OfficeChoose = () => {
 
   return (
     <div className="w-full  py-20 px-6 flex flex-col items-center justify-center font-poppins bg-white">
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-montagu text-zinc-800 tracking-wide text-center">
+      <h2 data-heading-tone="dark" className="text-3xl md:text-4xl lg:text-5xl font-montagu text-zinc-800 tracking-wide text-center">
         Why{" "}
-        <span className="font-black text-primary uppercase">Choose Us</span>
+        <span className="font-black text-inherit uppercase">choose us</span>
       </h2>
       <div className="w-20 h-1 bg-primary mt-4 rounded-full mb-14" />
 

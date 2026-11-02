@@ -16,8 +16,8 @@ export default function CancellationsAndRefunds() {
 
         {/* Page Header */}
         <div className="border-b border-[#111111]/10 pb-6 mb-8">
-          <h1 className="text-3xl md:text-4xl font-montagu font-bold text-[#111111] tracking-wide">
-            Cancellations & Refunds
+          <h1 data-heading-tone="dark" className="text-3xl md:text-4xl font-montagu font-bold text-[#111111] tracking-wide">
+            Cancellations & refunds
           </h1>
           <p className="text-sm text-zinc-500 mt-2">
             Be Interior Project Guidelines & Policies
@@ -51,7 +51,7 @@ export default function CancellationsAndRefunds() {
                 href="mailto:beinteriorbd@gmail.com"
                 className="text-[#c35e00] hover:text-[#a34e00] underline font-medium transition-colors"
               >
-                beinteriorbd@gmail.com
+                Beinteriorbd@gmail.com
               </a>
               . We value the opportunity to improve our services by
               understanding your needs and concerns.
@@ -60,7 +60,7 @@ export default function CancellationsAndRefunds() {
 
           {/* Section: Returns */}
           <div>
-            <h3 className="font-bold text-[#111111] tracking-wide text-lg mb-2">
+            <h3 data-heading-tone="dark" className="font-bold text-[#111111] tracking-wide text-lg mb-2">
               Returns
             </h3>
             <p>
@@ -71,8 +71,8 @@ export default function CancellationsAndRefunds() {
 
           {/* Section: Price Revisions */}
           <div>
-            <h3 className="font-bold text-[#111111] tracking-wide text-lg mb-2">
-              Price Revisions
+            <h3 data-heading-tone="dark" className="font-bold text-[#111111] tracking-wide text-lg mb-2">
+              Price revisions
             </h3>
             <p>
               In cases where specific project requirements change, the service
@@ -82,7 +82,7 @@ export default function CancellationsAndRefunds() {
 
           {/* Section: Delays */}
           <div>
-            <h3 className="font-bold text-[#111111] tracking-wide text-lg mb-2">
+            <h3 data-heading-tone="dark" className="font-bold text-[#111111] tracking-wide text-lg mb-2">
               Delays
             </h3>
             <div className="space-y-2">
@@ -100,8 +100,8 @@ export default function CancellationsAndRefunds() {
 
           {/* Section: Payment Methods */}
           <div>
-            <h3 className="font-bold text-[#111111] tracking-wide text-lg mb-2">
-              Payment Methods
+            <h3 data-heading-tone="dark" className="font-bold text-[#111111] tracking-wide text-lg mb-2">
+              Payment methods
             </h3>
             <p className="mb-3">
               Be Interior accepts the following payment options for full
@@ -123,7 +123,7 @@ export default function CancellationsAndRefunds() {
 
           {/* Section: Invoices */}
           <div>
-            <h3 className="font-bold text-[#111111] tracking-wide text-lg mb-2">
+            <h3 data-heading-tone="dark" className="font-bold text-[#111111] tracking-wide text-lg mb-2">
               Invoices
             </h3>
             <p>
@@ -135,8 +135,8 @@ export default function CancellationsAndRefunds() {
 
           {/* Section: EMIs */}
           <div>
-            <h3 className="font-bold text-[#111111] tracking-wide text-lg mb-2">
-              EMIs
+            <h3 data-heading-tone="dark" className="font-bold text-[#111111] tracking-wide text-lg mb-2">
+              Emis
             </h3>
             <p>
               Be Interior is in the process of setting up an EMI system, which
@@ -146,8 +146,8 @@ export default function CancellationsAndRefunds() {
 
           {/* Section: Online Transactions */}
           <div>
-            <h3 className="font-bold text-[#111111] tracking-wide text-lg mb-2">
-              Online Transactions
+            <h3 data-heading-tone="dark" className="font-bold text-[#111111] tracking-wide text-lg mb-2">
+              Online transactions
             </h3>
             <p>
               Be Interior is committed to safeguarding your financial privacy
@@ -162,7 +162,7 @@ export default function CancellationsAndRefunds() {
                 rel="noopener noreferrer"
                 className="text-[#c35e00] hover:text-[#a34e00] underline font-medium transition-colors"
               >
-                beinterior.com.bd
+                Beinterior.com.bd
               </a>
               .
             </p>

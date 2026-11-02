@@ -63,8 +63,8 @@ const OfficePackage = () => {
     <section className="w-full bg-ivory py-14 md:py-24 px-6 md:px-12 lg:px-20 font-sans">
       {/* Header */}
       <div className="text-center mb-20 max-w-2xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-montagu font-bold text-[#111111]">
-          Our <span className="text-primary">Packages</span>
+        <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-montagu font-bold text-[#111111]">
+          Our <span className="text-inherit">packages</span>
         </h2>
         <div className="w-20 h-1 bg-primary mt-4 rounded-full mb-14 mx-auto" />
 
@@ -117,7 +117,7 @@ const OfficePackage = () => {
                     {pkg.icon}
                   </div>
                   <div>
-                    <h3 className="text-3xl lg:text-4xl font-montagu font-bold text-[#111111] mb-1">
+                    <h3 data-heading-tone="dark" className="text-3xl lg:text-4xl font-montagu font-bold text-[#111111] mb-1">
                       {pkg.name}
                     </h3>
                     <p className="text-lg font-semibold text-zinc-500">

@@ -5,11 +5,11 @@ const HomeCustomersSuspense = () => {
   return (
     <div className="flex flex-col w-full items-center justify-center mt-16 px-4 p-10 bg-ivory animate-pulse">
       {/* হেডিং প্লেসহোল্ডার */}
-      <h2 className="text-2xl md:text-3xl lg:text-5xl font-montagu text-primary tracking-wide font-bold ">
-        Check Some Review
+      <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-[#111111] tracking-wide font-bold ">
+        Check some review
       </h2>
-      <h2 className="text-2xl md:text-3xl lg:text-5xl font-montagu text-primary tracking-wide font-bold ">
-        of our customers
+      <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-[#111111] tracking-wide font-bold ">
+        Of our customers
       </h2>
 
       {/* মেইন কন্টেইনার (Swiper এর মতোই w-full max-w-7xl) */}

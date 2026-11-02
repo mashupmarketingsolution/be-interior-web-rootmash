@@ -58,13 +58,13 @@ export default function ExperienceCenter() {
       <section className="bg-[#FAF5E9] text-[#111111] py-20 px-6 lg:px-20 min-h-[500px] flex items-center justify-center">
         <div className="flex flex-col items-center max-w-md text-center p-8 bg-white border border-black/5 rounded-3xl shadow-xl">
           <AlertCircle className="w-14 h-14 text-red-500 mb-4" />
-          <h3 className="text-xl font-bold mb-2">Failed to load information</h3>
+          <h3 data-heading-tone="dark" className="text-xl font-bold mb-2">Failed to load information</h3>
           <p className="text-sm text-zinc-500 mb-6">{error instanceof Error ? (error instanceof Error ? error.message : "Unknown error") : "Something went wrong"}</p>
           <button
             onClick={() => refetch()}
             className="px-8 py-3 bg-[#111111] hover:bg-primary text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-primary/30"
           >
-            Try Again
+            Try again
           </button>
         </div>
       </section>
@@ -82,9 +82,9 @@ export default function ExperienceCenter() {
           {/* Left Content Area */}
           <div className="flex flex-col justify-center order-2 lg:order-1">
             <p className="text-primary font-bold uppercase tracking-widest text-sm mb-3">Visit Us</p>
-            <h2 className="text-4xl md:text-5xl font-montagu font-bold mb-6 leading-tight">
-              Welcome To Our <br/>
-              <span className="text-primary">Experience Center</span>
+            <h2 data-heading-tone="dark" className="text-4xl md:text-5xl font-montagu font-bold mb-6 leading-tight">
+              Welcome to our <br/>
+              <span className="text-inherit">experience center</span>
             </h2>
             <p className="text-zinc-600 mb-10 text-lg font-medium max-w-md leading-relaxed">
               Step into a world of architectural brilliance and premium interiors. Let&apos;s discuss your dream space over a cup of coffee.

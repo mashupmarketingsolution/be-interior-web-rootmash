@@ -1,4 +1,5 @@
 import { SeoType } from "./SeoType";
+import { SiteSettingsType } from "./SiteSettings";
 import { type SchemaTypeDefinition } from "sanity";
 import { HomeProjectType } from "./HomeProjectType";
 import { OfficeProjectType } from "./OfficeProjecttype";
@@ -12,6 +13,7 @@ import { OfficePackageSchema } from "./officeCalculatorSchema";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
+    SiteSettingsType,
     SeoType,
     HomeProjectType,
     OfficeProjectType,

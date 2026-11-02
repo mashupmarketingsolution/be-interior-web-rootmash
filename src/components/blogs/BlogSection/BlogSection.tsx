@@ -143,8 +143,8 @@ const BlogSection = () => {
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-zinc-800 font-montagu">
-            Latest <span className="text-primary">Articles</span>
+          <h2 data-heading-tone="dark" className="text-3xl md:text-4xl font-bold text-zinc-800 font-montagu">
+            Latest <span className="text-inherit">articles</span>
           </h2>
           <div className="h-1 w-20 bg-primary mt-3 rounded-full"></div>
         </div>
@@ -175,7 +175,7 @@ const BlogSection = () => {
           <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
             <FiAlertCircle className="w-8 h-8 text-red-500" />
           </div>
-          <h3 className="text-xl font-bold text-red-800 mb-2 font-montagu">
+          <h3 data-heading-tone="dark" className="text-xl font-bold text-red-800 mb-2 font-montagu">
             Oops! Something went wrong
           </h3>
           <p className="text-red-600/80 text-sm">
@@ -208,16 +208,16 @@ const BlogSection = () => {
                   <div className="flex items-center gap-2 text-xs text-zinc-400 font-medium mb-3">
                     <span>{formatDate(blog.publishedDate)}</span>
                     <span className="w-1 h-1 rounded-full bg-zinc-300" />
-                    <span>By {blog.authorname}</span>
+                    <span>by {blog.authorname}</span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-zinc-800 mb-4 group-hover:text-primary transition-colors duration-300 font-montagu leading-snug line-clamp-2 flex-grow">
+                  <h3 data-heading-tone="dark" className="text-xl font-bold text-zinc-800 mb-4  transition-colors duration-300 font-montagu leading-snug line-clamp-2 flex-grow">
                     {blog.blogname}
                   </h3>
 
                   {/* Read More Link */}
                   <div className="mt-auto flex items-center text-sm font-bold text-zinc-800 group-hover:text-primary transition-colors duration-300 pt-4 border-t border-zinc-50">
-                    Read Article
+                    read article
                     <FiArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
                   </div>
                 </div>

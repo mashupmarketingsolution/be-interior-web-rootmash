@@ -1,0 +1,37 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const vm = require('node:vm');
+const ts = require('typescript');
+const exported = {};
+vm.runInNewContext(ts.transpileModule(fs.readFileSync('src/lib/site-settings.ts', 'utf8'), {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+}).outputText, { exports: exported, URL });
+const { safeMenuHref, parseMenu, parseSiteSettings, defaultMenu, getDefaultMenu } = exported;
+for (const href of ['/', '/about', '/blogs?category=design', 'https://example.com/contact']) assert.equal(safeMenuHref(href), true);
+for (const href of ['javascript:alert(1)', '//evil.example', '/\\evil.example', 'data:text/html,test', 'http://example.com', 'https://user:password@example.com', '/about\n']) assert.equal(safeMenuHref(href), false);
+assert.equal(parseMenu(null), defaultMenu);
+assert.equal(parseMenu([]), defaultMenu);
+assert.equal(parseMenu([{ label: 'Unsafe', href: 'javascript:alert(1)' }]), defaultMenu);
+const custom = [{ label: 'Explore', children: [{ label: 'Projects', href: '/interior-projects' }] }, { label: 'Start here', href: '/' }];
+const parsed = parseMenu(custom);
+assert.equal(parsed[0].label, 'Explore');
+assert.equal(parsed[0].children[0].href, '/interior-projects');
+assert.equal(parsed[1].href, '/');
+assert.equal(parseMenu([{ label: 'Empty group', children: [{ label: 'Bad', href: '//evil.example' }] }]), defaultMenu);
+const settings = parseSiteSettings({ appearance: { font: 'geist', accent: '#123456', headingDark: 'url(evil)' }, menuCta: { label: 'Enquire', href: '/contact' } });
+assert.equal(settings.appearance.font, 'var(--font-geist-sans)');
+assert.equal(settings.appearance.accent, '#123456');
+assert.equal(settings.appearance.headingDark, '#111111');
+assert.equal(settings.cta.href, '/contact');
+assert.equal(parseSiteSettings(null).appearance.accent, '#e46e00');
+assert.equal(parseMenu([{ label: 'Hidden', href: '/about', enabled: false }]).length, 0);
+assert.equal(parseMenu([{ label: 'Hidden', href: '/about', enabled: false }, { label: 'Home', page: '/' }])[0].label, 'Home');
+assert.equal(parseMenu([{ label: 'Page picker', page: '/contact', href: '/about' }])[0].href, '/contact');
+assert.equal(parseMenu([{ label: 'Group', children: [{ label: 'Hidden', href: '/about', enabled: false }, { label: 'Visible', page: '/contact' }] }])[0].children.length, 1);
+assert.equal(parseMenu([{ label: 'Group', children: [{ label: 'Hidden', href: '/about', enabled: false }] }]).length, 0);
+const restored = parseMenu(getDefaultMenu());
+assert.equal(restored.length, defaultMenu.length);
+assert.equal(restored[2].children[0].href, '/services/home-interior');
+assert.equal(parseMenu([{ label: 'Custom', page: 'custom', href: 'https://example.com' }])[0].href, 'https://example.com');
+assert.equal(parseMenu([{ label: 'Unsafe', page: 'custom', href: 'javascript:alert(1)' }]), defaultMenu);
+console.log('PASS: menu order/dropdowns, unsafe URLs, malformed/empty fallback, CTA and bounded font/colour settings.');

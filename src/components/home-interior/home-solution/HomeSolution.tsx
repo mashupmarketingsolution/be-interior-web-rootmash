@@ -28,8 +28,8 @@ const HomeSolution = () => {
     <div className="flex flex-col w-full items-center justify-center mt-16 px-4 bg-ivory/50 py-20">
       {/* Header Section */}
       <div className="text-center mb-6">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-montagu text-secondary tracking-wide font-bold">
-          The Complete <span className="text-primary">Interior Journey</span>
+        <h2 data-heading-tone="dark" className="text-3xl md:text-4xl lg:text-5xl font-montagu text-secondary tracking-wide font-bold">
+          The complete <span className="text-inherit">interior journey</span>
         </h2>
       </div>
 
@@ -68,7 +68,7 @@ const HomeSolution = () => {
 
                   {/* Text Content */}
                   <div className="mt-auto">
-                    <h3 className="font-bold font-montagu text-2xl text-zinc-800 group-hover:-translate-y-1 transition-transform duration-500">
+                    <h3 data-heading-tone="dark" className="font-bold font-montagu text-2xl text-zinc-800 group-hover:-translate-y-1 transition-transform duration-500">
                       {step.title}
                     </h3>
                     <p className="text-sm text-zinc-500 font-poppins mt-4 leading-relaxed group-hover:-translate-y-1 transition-transform duration-500 delay-75">

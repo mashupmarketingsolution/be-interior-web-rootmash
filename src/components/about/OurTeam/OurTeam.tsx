@@ -53,8 +53,8 @@ const OurTeam = () => {
           <p className="text-primary font-bold uppercase tracking-widest text-xs mb-3">
             Our Experts
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111111] font-montagu tracking-wide">
-            The Minds Behind the Design
+          <h2 data-heading-tone="dark" className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111111] font-montagu tracking-wide">
+            The minds behind the design
           </h2>
           <p className="mt-4 text-zinc-600 max-w-2xl mx-auto text-base">
             Meet the talented architects and designers who turn your vision into
@@ -85,7 +85,7 @@ const OurTeam = () => {
 
               {/* Info Section */}
               <div className="p-6 md:p-8 text-center flex-grow flex flex-col justify-center">
-                <h3 className="text-xl font-bold font-montagu text-[#111111] mb-1 group-hover:text-primary transition-colors duration-300">
+                <h3 data-heading-tone="dark" className="text-xl font-bold font-montagu text-[#111111] mb-1  transition-colors duration-300">
                   {member.name}
                 </h3>
                 <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1">

@@ -60,7 +60,7 @@ const ArchitectInterior = () => {
     <section className="w-full flex flex-col lg:flex-row justify-center items-center my-10 px-4 sm:px-8 md:px-16 gap-8 lg:gap-16 max-w-7xl mx-auto">
       {/* Text & Call-to-Action Card */}
       <div className="w-full sm:w-[85%] md:w-[75%] lg:w-[45%] min-h-[280px] flex flex-col items-center justify-center p-6 md:p-8 rounded-xl shadow-2xl border border-gray-100 bg-white">
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-poppins text-center text-gray-800 leading-snug font-normal">
+        <h2 data-heading-tone="dark" className="text-2xl sm:text-3xl lg:text-4xl font-poppins text-center text-gray-800 leading-snug font-normal">
           Your dream home is just a{" "}
           <span className="font-bold block sm:inline">click away</span>
         </h2>
@@ -72,14 +72,14 @@ const ArchitectInterior = () => {
           className="font-poppins flex items-center justify-center gap-2 mt-6 border w-fit mx-auto py-3 px-6 sm:py-4 sm:px-8 rounded-full bg-primary text-white font-medium hover:bg-opacity-90 transition-all duration-300 shadow-md text-sm sm:text-base cursor-pointer disabled:opacity-80 disabled:cursor-not-allowed"
         >
           {isError ? (
-            <span>Contact on WhatsApp</span>
+            <span>contact on WhatsApp</span>
           ) : isLoading ? (
             <span className="flex items-center gap-2">
               <Loader2 className="w-4 h-4 animate-spin" />
-              Connecting...
+              connecting...
             </span>
           ) : (
-            <span>Chat on WhatsApp</span>
+            <span>chat on WhatsApp</span>
           )}
         </button>
       </div>

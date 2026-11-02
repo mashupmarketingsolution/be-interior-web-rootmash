@@ -49,8 +49,8 @@ const HappyCustomers = () => {
   }
   return (
     <div className="flex flex-col w-full items-center justify-center mt-16 px-4 p-10 ">
-      <h2 className="text-2xl md:text-3xl lg:text-5xl font-montagu text-secondary tracking-wide font-bold ">
-        Trusted <span className="text-primary">by Visionaries</span>
+      <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-secondary tracking-wide font-bold ">
+        Trusted <span className="text-inherit">by visionaries</span>
       </h2>
 
       <div className="flex flex-col  md:flex-row items-center justify-center gap-8 mt-8 w-full max-w-7xl">
@@ -73,7 +73,7 @@ const HappyCustomers = () => {
             </div>
           ) : isError ? (
             <div className="flex flex-col items-center justify-center text-rose-500 h-100 w-full bg-white rounded-xl p-6 border border-rose-100 shadow-md">
-              <h3 className="font-bold text-lg text-center">
+              <h3 data-heading-tone="dark" className="font-bold text-lg text-center">
                 Failed to load projects. Please try again!
               </h3>
             </div>
@@ -115,7 +115,7 @@ const HappyCustomers = () => {
 
                     {/* Name and Designation */}
                     <div className="mt-8 shrink-0">
-                      <h3 className="text-2xl text-[#4A3F35] font-serif tracking-wide">
+                      <h3 data-heading-tone="dark" className="text-2xl text-[#4A3F35] font-serif tracking-wide">
                         {data.name}
                       </h3>
                       {data.designation && (

@@ -51,11 +51,11 @@ const OfficeReview = () => {
 
   return (
     <div className="flex flex-col w-full items-center justify-center px-4 p-10 bg-white">
-      <h2 className="text-2xl md:text-3xl lg:text-5xl font-montagu text-secondary/80 tracking-wide font-bold ">
-        Check Some Review
+      <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-secondary/80 tracking-wide font-bold ">
+        Check some review
       </h2>
-      <h2 className="text-2xl md:text-3xl lg:text-5xl font-montagu text-primary tracking-wide font-bold ">
-        of our customers
+      <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-[#111111] tracking-wide font-bold ">
+        Of our customers
       </h2>
       <div className="w-20 h-1 bg-primary mt-4 rounded-full mb-14" />
 
@@ -80,7 +80,7 @@ const OfficeReview = () => {
             </div>
           ) : isError ? (
             <div className="flex flex-col items-center justify-center text-rose-500 h-100 w-full bg-white rounded-xl p-6 border border-rose-100 shadow-md">
-              <h3 className="font-bold text-lg text-center">
+              <h3 data-heading-tone="dark" className="font-bold text-lg text-center">
                 Failed to load projects. Please try again!
               </h3>
             </div>
@@ -118,7 +118,7 @@ const OfficeReview = () => {
 
                     {/* Name and Designation */}
                     <div className="mt-8 shrink-0">
-                      <h3 className="text-2xl text-[#4A3F35] font-serif tracking-wide">
+                      <h3 data-heading-tone="dark" className="text-2xl text-[#4A3F35] font-serif tracking-wide">
                         {data.name}
                       </h3>
                       {data.designation && (

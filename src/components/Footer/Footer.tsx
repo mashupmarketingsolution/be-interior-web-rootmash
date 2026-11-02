@@ -99,15 +99,15 @@ const footerYT = getSocialLink("YouTube");
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
           {/* Column 1: Branding */}
-          <div className="flex flex-col -translate-y-17">
+          <div className="flex flex-col gap-6">
               <NavLogo className="" />
 
-              <p className="-mt-8 text-sm font-medium text-zinc-400 leading-relaxed max-w-xs">
+              <p className="text-sm font-medium text-zinc-400 leading-relaxed max-w-xs">
                 Transforming your living spaces into masterpieces of comfort and
                 style. Your vision is our expertise.
               </p>
 
-              <div className="flex gap-4 mt-4">
+              <div className="flex gap-4">
               {[
                 { icon: <FaFacebookF size={14} />, label: "Facebook", link: footerFB },
                 {
@@ -137,7 +137,7 @@ const footerYT = getSocialLink("YouTube");
 
           {/* Column 2: Services */}
           <div className="flex flex-col gap-6">
-            <h4 className="text-sm font-bold uppercase tracking-widest text-primary">
+            <h4 data-heading-tone="light" className="text-sm font-bold uppercase tracking-widest text-white">
               Services
             </h4>
             <ul className="flex flex-col gap-3 text-sm text-zinc-400">
@@ -171,7 +171,7 @@ const footerYT = getSocialLink("YouTube");
 
           {/* Column 3: Quick Links */}
           <div className="flex flex-col gap-6">
-            <h4 className="text-sm font-bold uppercase tracking-widest text-primary">
+            <h4 data-heading-tone="light" className="text-sm font-bold uppercase tracking-widest text-white">
               Resources
             </h4>
             <ul className="flex flex-col gap-3 text-sm text-zinc-400">
@@ -205,7 +205,7 @@ const footerYT = getSocialLink("YouTube");
 
           {/* Column 4: Contact */}
           <div className="flex flex-col gap-6">
-            <h4 className="text-sm font-bold uppercase tracking-widest text-primary">
+            <h4 data-heading-tone="light" className="text-sm font-bold uppercase tracking-widest text-white">
               Contact
             </h4>
             <ul className="flex flex-col gap-4 text-sm font-medium text-zinc-400">
@@ -248,8 +248,8 @@ const footerYT = getSocialLink("YouTube");
           </div>
           {/* Column 4: footer page */}
           <div className="flex flex-col gap-6">
-            <h4 className="text-sm font-bold uppercase tracking-widest text-primary">
-              Our Facebook Page
+            <h4 data-heading-tone="light" className="text-sm font-bold uppercase tracking-widest text-white">
+              Our Facebook page
             </h4>
 
             <Link
@@ -261,7 +261,7 @@ const footerYT = getSocialLink("YouTube");
               {isLoading ? (
                 <div className="absolute inset-0 flex items-center justify-center bg-white text-zinc-400 text-sm gap-2">
                   <div className="w-4 h-4 border-2 border-zinc-300 border-t-primary rounded-full animate-spin"></div>
-                  Loading Page...
+                  loading page...
                 </div>
               ) : (
                 <>
@@ -304,10 +304,10 @@ const footerYT = getSocialLink("YouTube");
               href="/privacy-policy"
               className="hover:text-white transition-colors"
             >
-              Privacy Policy
+              Privacy policy
             </Link>
             <Link href="/terms" className="hover:text-white transition-colors">
-              Terms of Service
+              Terms of service
             </Link>
           </div>
         </div>

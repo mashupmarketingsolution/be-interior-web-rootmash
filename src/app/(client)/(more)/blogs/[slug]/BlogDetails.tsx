@@ -88,12 +88,12 @@ const portableTextComponents: Partial<PortableTextComponents> = {
   block: {
     normal: ({ children }) => <p className="mb-6">{children}</p>,
     h2: ({ children }) => (
-      <h2 className="mt-12 mb-6 text-3xl md:text-4xl font-bold font-montagu text-zinc-900">
+      <h2 data-heading-tone="dark" className="mt-12 mb-6 text-3xl md:text-4xl font-bold font-montagu text-zinc-900">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="mt-12 mb-6 text-2xl md:text-3xl font-bold font-montagu text-zinc-800">
+      <h3 data-heading-tone="dark" className="mt-12 mb-6 text-2xl md:text-3xl font-bold font-montagu text-zinc-800">
         {children}
       </h3>
     ),
@@ -148,7 +148,7 @@ const SingleBlogPage = ({ initialBlog }: { initialBlog: BlogsResultType }) => {
         <span className="bg-primary/10 text-primary px-5 py-2 rounded-full text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-8">
           {singleBlog.blogcategory}
         </span>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-montagu leading-[1.2] sm:leading-[1.15] text-zinc-900 mb-8 max-w-4xl">
+        <h1 data-heading-tone="dark" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-montagu leading-[1.2] sm:leading-[1.15] text-zinc-900 mb-8 max-w-4xl">
           {singleBlog.blogname}
         </h1>
 
@@ -227,7 +227,7 @@ const SingleBlogPage = ({ initialBlog }: { initialBlog: BlogsResultType }) => {
             )}
           </div>
           <div className="text-center md:text-left">
-            <h4 className="text-2xl font-bold font-montagu text-zinc-900">
+            <h4 data-heading-tone="dark" className="text-2xl font-bold font-montagu text-zinc-900">
               {singleBlog.authorname}
             </h4>
             <p className="text-primary text-sm md:text-base font-bold uppercase tracking-widest mt-2 mb-4">

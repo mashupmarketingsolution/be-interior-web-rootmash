@@ -58,9 +58,9 @@ const BeinteriorProject = () => {
 
   return (
     <div className="flex flex-col w-full items-center justify-center mt-16 px-4 p-10 pb-22 lg:pb-26">
-      <h2 className="text-3xl md:text-5xl font-montagu text-[#111111] tracking-wide font-bold text-center lg:mb-16">
+      <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-montagu text-[#111111] tracking-wide font-bold text-center lg:mb-16">
   Exclusive{" "}
-  <span className="font-medium text-primary">Residential Projects</span>
+  <span className="font-medium text-inherit">residential projects</span>
 </h2>
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-8 w-full max-w-7xl">
@@ -83,7 +83,7 @@ const BeinteriorProject = () => {
             </div>
           ) : isError ? (
             <div className="flex flex-col items-center justify-center text-rose-500 h-100 w-full bg-white rounded-xl p-6 border border-rose-100 shadow-md">
-              <h3 className="font-bold text-lg text-center">
+              <h3 data-heading-tone="dark" className="font-bold text-lg text-center">
                 Failed to load projects. Please try again!
               </h3>
             </div>
@@ -128,14 +128,14 @@ const BeinteriorProject = () => {
                       <span className="text-white font-bold text-xs uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
                         {data._type}
                       </span>
-                      <h3 className="font-montagu text-2xl font-bold mt-3 leading-tight group-hover:text-primary transition-colors">
+                      <h3 data-heading-tone="light" className="font-montagu text-2xl font-bold mt-3 leading-tight  transition-colors">
                         {data.name}
                       </h3>
 
                       {/* Subtle Hover Reveal Arrow */}
                       <div className="flex items-center gap-2 mt-4 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
                         <span className="text-sm font-medium">
-                         View Projects
+                         view projects
                         </span>
 
                       </div>

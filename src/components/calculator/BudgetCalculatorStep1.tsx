@@ -584,7 +584,7 @@ const projectInfo =
         Budget Calculator
       </p>
 
-      <h2 className="text-2xl md:text-4xl font-bold text-[#111111]">
+      <h2 data-heading-tone="dark" className="text-2xl md:text-4xl font-bold text-[#111111]">
         What would you like to design?
       </h2>
 
@@ -604,15 +604,15 @@ const projectInfo =
       >
         <div className="text-4xl mb-4">🏠</div>
 
-        <h3 className="text-xl font-bold text-[#111111] mb-2">
-          Home Interior
+        <h3 data-heading-tone="dark" className="text-xl font-bold text-[#111111] mb-2">
+          Home interior
         </h3>
 
         <p className="text-sm text-zinc-500 leading-relaxed">
           Estimate your flat interior based on size, BHK, rooms and package.
         </p>
         <div className="mt-5 md:hidden flex items-center justify-between rounded-xl bg-[#C87A31] px-4 py-3 text-white font-semibold text-sm">
-        <span>Start Home Estimate</span>
+        <span>Start home estimate</span>
         <span>→</span>
       </div>
       </button>
@@ -628,15 +628,15 @@ const projectInfo =
       >
         <div className="text-4xl mb-4">🏢</div>
 
-        <h3 className="text-xl font-bold text-[#111111] mb-2">
-          Office Interior
+        <h3 data-heading-tone="dark" className="text-xl font-bold text-[#111111] mb-2">
+          Office interior
         </h3>
 
         <p className="text-sm text-zinc-500 leading-relaxed">
           Estimate your office interior based on area, employees, spaces and package.
         </p>
         <div className="mt-5 md:hidden flex items-center justify-between rounded-xl bg-[#C87A31] px-4 py-3 text-white font-semibold text-sm">
-        <span>Start Office Estimate</span>
+        <span>Start office estimate</span>
         <span>→</span>
       </div>
       </button>
@@ -647,7 +647,7 @@ const renderHomeStep1 = () => (
   <div className="w-full max-w-4xl mx-auto space-y-8">
     <div>
       <label className="block text-sm font-semibold text-zinc-700 mb-2">
-        Flat Size (sft)
+        Flat size (sft)
       </label>
 
       <div className="grid grid-cols-1 md:grid-cols-[1fr_220px] gap-3">
@@ -686,7 +686,7 @@ const renderHomeStep1 = () => (
 
     <div>
       <label className="block text-sm font-semibold text-zinc-700 mb-2">
-        BHK Type
+        BHK type
       </label>
 
       <select
@@ -706,7 +706,7 @@ const renderHomeStep1 = () => (
 
 <div>
   <label className="block text-sm font-semibold text-zinc-700 mb-3">
-    Rooms to Design
+    Rooms to design
   </label>
 
  <div ref={roomDropdownRef} className="relative" onKeyDown={(event) => { if (event.key === "Escape") { setRoomDropdownOpen(false); roomDropdownRef.current?.querySelector("button")?.focus(); } }}>
@@ -783,7 +783,7 @@ const renderOfficeStep1 = () => (
   <div className="w-full max-w-4xl mx-auto space-y-8">
     <div>
       <label className="block text-sm font-semibold text-zinc-700 mb-2">
-        Office Size (sft)
+        Office size (sft)
       </label>
 
       <input
@@ -799,7 +799,7 @@ const renderOfficeStep1 = () => (
 
     <div>
       <label className="block text-sm font-semibold text-zinc-700 mb-2">
-        Number of Employees
+        Number of employees
       </label>
 
       <input
@@ -815,7 +815,7 @@ const renderOfficeStep1 = () => (
 
     <div>
       <label className="block text-sm font-semibold text-zinc-700 mb-3">
-        Spaces Required
+        Spaces required
       </label>
 
       <div ref={officeSpaceDropdownRef} className="relative" onKeyDown={(event) => { if (event.key === "Escape") { setOfficeSpaceDropdownOpen(false); officeSpaceDropdownRef.current?.querySelector("button")?.focus(); } }}>
@@ -888,7 +888,7 @@ const renderOfficeStep1 = () => (
 
     <div className="rounded-2xl bg-white p-4 border border-zinc-200">
       <label className="block text-sm font-semibold text-zinc-700 mb-2">
-        Add Custom Space
+        Add custom space
       </label>
 
       <div className="flex flex-col sm:flex-row gap-3">
@@ -1161,7 +1161,7 @@ const renderOfficeStep1 = () => (
                   <div className="absolute inset-0 opacity-20 mix-blend-overlay bg-[radial-gradient(circle_at_bottom_left,var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
 
                   <div className="z-10">
-                    <h3 className="text-xl sm:text-2xl font-black tracking-wide font-montagu mb-1">
+                    <h3 data-heading-tone="light" className="text-xl sm:text-2xl font-black tracking-wide font-montagu mb-1">
                       {pkg.name}
                     </h3>
                   </div>
@@ -1292,10 +1292,10 @@ const officePackages = [...(officePackageData?.result || [])].sort(
               <div className="flex items-start justify-between gap-3 mb-4">
                 <div>
                   <p className="text-xs uppercase tracking-widest text-[#C87A31] font-semibold">
-                    Office Package
+                    Office package
                   </p>
 
-                  <h3 className="text-xl font-bold text-[#111111] capitalize mt-1">
+                  <h3 data-heading-tone="dark" className="text-xl font-bold text-[#111111] capitalize mt-1">
                     {pkg.packagename}
                   </h3>
                 </div>
@@ -1398,7 +1398,7 @@ const officePackages = [...(officePackageData?.result || [])].sort(
           {projectType === "office" && (
           <div className="flex flex-col w-full">
             <label className="text-sm font-semibold text-zinc-700 mb-2">
-              Target Budget <span className="text-zinc-400 font-normal">(Optional)</span>
+              Target budget <span className="text-zinc-400 font-normal">(optional)</span>
             </label>
 
             <select
@@ -1527,7 +1527,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
           Preliminary Office Estimate
         </p>
 
-        <h2 className="text-2xl md:text-3xl font-bold text-[#111111]">
+        <h2 data-heading-tone="dark" className="text-2xl md:text-3xl font-bold text-[#111111]">
           {packageName}
         </h2>
         <div className="flex flex-wrap gap-2 mt-4 mb-4">
@@ -1631,7 +1631,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
                               <div className="bg-[#FAF5E9]/40 border border-[#111111]/10 rounded-2xl p-6 md:p-8 mb-6 transition-all hover:bg-[#FAF5E9]/80 hover:shadow-md">
                                 {/* Room Header */}
                                 <div className="border-b border-[#111111]/10 pb-4 mb-6">
-                                  <h3 className="text-2xl md:text-3xl font-montagu font-bold text-[#111111] mb-1">
+                                  <h3 data-heading-tone="dark" className="text-2xl md:text-3xl font-montagu font-bold text-[#111111] mb-1">
                                     {items.name}{" "}
                                     <span>
                                       <span>{`(${selectedRooms[items.name]})`}</span>
@@ -1697,7 +1697,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
                               <div className="bg-[#FAF5E9]/40 border border-[#111111]/10 rounded-2xl p-6 md:p-8 mb-6 transition-all hover:bg-[#FAF5E9]/80 hover:shadow-md">
                                 {/* Room Header */}
                                 <div className="border-b border-[#111111]/10 pb-4 mb-6">
-                                  <h3 className="text-2xl md:text-3xl font-montagu font-bold text-[#111111] mb-1">
+                                  <h3 data-heading-tone="dark" className="text-2xl md:text-3xl font-montagu font-bold text-[#111111] mb-1">
                                     {items.name}{" "}
                                     <span>
                                       <span>{`(${selectedRooms[items.name]})`}</span>
@@ -1763,7 +1763,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
                               <div className="bg-[#FAF5E9]/40 border border-[#111111]/10 rounded-2xl p-6 md:p-8 mb-6 transition-all hover:bg-[#FAF5E9]/80 hover:shadow-md">
                                 {/* Room Header */}
                                 <div className="border-b border-[#111111]/10 pb-4 mb-6">
-                                  <h3 className="text-2xl md:text-3xl font-montagu font-bold text-[#111111] mb-1">
+                                  <h3 data-heading-tone="dark" className="text-2xl md:text-3xl font-montagu font-bold text-[#111111] mb-1">
                                     {items.name}{" "}
                                     <span>
                                       <span>{`(${selectedRooms[items.name]})`}</span>
@@ -1823,8 +1823,8 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
               </span>
 
               {/* Title */}
-              <h2 className="text-2xl md:text-3xl font-montagu font-bold text-[#111111]">
-                Custom Design Package
+              <h2 data-heading-tone="dark" className="text-2xl md:text-3xl font-montagu font-bold text-[#111111]">
+                Custom design package
               </h2>
 
               {/* Description */}
@@ -1963,7 +1963,7 @@ if (!projectType) {
         <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-4 bg-white border-b border-zinc-200">
           <span className="font-semibold text-zinc-800">{projectType === "home" ? "Home Interior" : "Office Interior"}</span>
           <button type="button" disabled={submitting} onClick={() => { resetCalculator(); setProjectType(""); }} className="text-sm font-semibold text-[#a34e00] underline underline-offset-4 rounded focus-visible:outline-2 focus-visible:outline-offset-4 disabled:opacity-50">
-            Start over / Change project type
+            Start over / change project type
           </button>
         </div>
         {/* Dynamic Header Section */}
@@ -1986,23 +1986,23 @@ if (!projectType) {
             </p>
 
           {currentStep === 1 && (
-              <h2 className="text-[#FFFFF0] text-2xl md:text-4xl font-bold tracking-wide">
-                Tell Us About Your{" "}
+              <h2 data-heading-tone="light" className="text-[#FFFFF0] text-2xl md:text-4xl font-bold tracking-wide">
+                Tell us about your{" "}
                 <span className="text-[#C87A31]">
                   {projectType === "office" ? "Office" : "Home"}
                 </span>
               </h2>
             )}
             {currentStep === 2 && (
-              <h2 className="text-[#FFFFF0] text-2xl md:text-4xl font-bold tracking-wide">
-                Pick The <span className="text-[#C87A31]">Package</span> That
-                Suits You Best
+              <h2 data-heading-tone="light" className="text-[#FFFFF0] text-2xl md:text-4xl font-bold tracking-wide">
+                Pick the <span className="text-[#C87A31]">package</span> that
+                suits you best
               </h2>
             )}
             {currentStep === 3 && (
-              <h2 className="text-[#FFFFF0] text-2xl md:text-3xl font-bold tracking-wide">
+              <h2 data-heading-tone="light" className="text-[#FFFFF0] text-2xl md:text-3xl font-bold tracking-wide">
                 <span className="text-white">We are excited</span> to be part of
-                your Dream interior Journey!
+                your dream interior journey!
               </h2>
             )}
            {currentStep === 4 && (
@@ -2015,8 +2015,8 @@ if (!projectType) {
                           : "Your Estimate Is Ready"}
                       </p>
 
-                      <h2 className="text-2xl font-semibold text-zinc-800 mb-2 capitalize">
-                        {selectedPackage} Package
+                      <h2 data-heading-tone="dark" className="text-2xl font-semibold text-zinc-800 mb-2 capitalize">
+                        {selectedPackage} package
                       </h2>
 
                       <p className="text-3xl font-bold text-primary">
@@ -2045,7 +2045,7 @@ if (!projectType) {
                         href="tel:01618995918"
                         className="px-6 py-2.5 bg-primary hover:bg-[#a34e00] text-white text-sm font-medium rounded-lg transition-colors w-full sm:w-auto text-center"
                       >
-                        Call Now
+                        Call now
                       </a>
 
                       <button
@@ -2053,7 +2053,7 @@ if (!projectType) {
                         onClick={resetCalculator}
                         className="px-6 py-2.5 bg-white border border-zinc-300 hover:bg-zinc-50 text-zinc-700 text-sm font-medium rounded-lg transition-colors w-full sm:w-auto"
                       >
-                        Calculate Again
+                        Calculate again
                       </button>
                     </div>
                   </div>

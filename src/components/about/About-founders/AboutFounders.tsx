@@ -13,9 +13,9 @@ const AboutFounders = () => {
           <p className="text-primary font-bold uppercase tracking-widest text-sm mb-3">
             Leadership
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-montagu text-[#111111] leading-tight font-bold">
-            The Architect of <br className="hidden md:block" />
-            <span className="text-primary">Our Vision</span>
+          <h2 data-heading-tone="dark" className="text-3xl md:text-4xl lg:text-5xl font-montagu text-[#111111] leading-tight font-bold">
+            The architect of <br className="hidden md:block" />
+            <span className="text-inherit">our vision</span>
           </h2>
         </div>
 
@@ -47,8 +47,8 @@ const AboutFounders = () => {
             <div className="flex items-center gap-6">
               <div className="w-12 h-px bg-primary/50"></div>
               <div>
-                <h3 className="text-2xl md:text-3xl font-montagu font-bold text-[#111111] mb-1">
-                  Hossain Al Mahmud
+                <h3 data-heading-tone="dark" className="text-2xl md:text-3xl font-montagu font-bold text-[#111111] mb-1">
+                  Hossain al mahmud
                 </h3>
                 <p className="text-sm font-bold uppercase tracking-widest text-primary">
                   Managing Director

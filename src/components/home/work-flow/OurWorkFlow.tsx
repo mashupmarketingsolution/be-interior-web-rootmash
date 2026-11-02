@@ -35,8 +35,8 @@ const OurWorkFlow = () => {
   ];
   return (
     <div className="flex flex-col w-full items-center justify-center mt-16 px-4  py-16">
-      <h2 className="text-2xl md:text-3xl lg:text-5xl font-montagu text-secondary tracking-wide font-medium">
-        From Concept <span className="font-bold text-primary">to Creation</span>
+      <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-secondary tracking-wide font-medium">
+        From concept <span className="font-bold text-inherit">to creation</span>
       </h2>
 
       <div className="w-full max-w-6xl mt-10 h-80 rounded-lg">
@@ -80,7 +80,7 @@ const OurWorkFlow = () => {
 
                 {/* Content Section */}
                 <div className="relative z-10 mt-12">
-                  <h3 className="font-bold font-montagu text-xl md:text-2xl text-zinc-800 group-hover:-translate-y-1 transition-transform duration-500">
+                  <h3 data-heading-tone="dark" className="font-bold font-montagu text-xl md:text-2xl text-zinc-800 group-hover:-translate-y-1 transition-transform duration-500">
                     {step.title}
                   </h3>
                   <p className="text-sm text-zinc-500 font-poppins mt-3 leading-relaxed group-hover:-translate-y-1 transition-transform duration-500 delay-75">

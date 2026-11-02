@@ -186,7 +186,7 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
       {/* --- Hero Section --- */}
       <section className="py-28 px-6">
         <div className="max-w-7xl mx-auto text-center space-y-8">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold capitalize text-secondary">
+          <h1 data-heading-tone="dark" className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold capitalize text-secondary">
             {project?.name}
           </h1>
 
@@ -220,8 +220,8 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
             </div>
 
             <div className="p-8 bg-[#FAF5E9]/50 border border-[#111111]/10 rounded-2xl h-full flex flex-col justify-baseline">
-              <h3 className="font-montagu text-2xl font-bold text-[#111111] mb-6">
-                About This Project
+              <h3 data-heading-tone="dark" className="font-montagu text-2xl font-bold text-[#111111] mb-6">
+                About this project
               </h3>
 
               <div className="space-y-6">
@@ -251,7 +251,7 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
               onClick={handleWhatsAppRedirect}
               className="bg-secondary text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-[#1a2924] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
             >
-              Talk to Our Designers
+              Talk to our designers
             </button>
 
            <a
@@ -259,7 +259,7 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
             onClick={() => trackPhoneClick("project_details")}
             className="border-2 border-primary ..."
           >
-            Call Now
+            Call now
           </a>
 
           </div>
@@ -269,8 +269,8 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
       <section className="py-12 px-6 bg-white rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.03)]">
         <div className="max-w-7xl mx-auto py-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-serif font-semibold text-secondary inline-block relative">
-              Project Gallery
+            <h2 data-heading-tone="dark" className="text-3xl font-serif font-semibold text-secondary inline-block relative">
+              Project gallery
               <span className="absolute -bottom-3 left-1/4 right-1/4 h-1 bg-primary rounded-full"></span>
             </h2>
           </div>

@@ -60,8 +60,8 @@ const OfficeWork = () => {
         
 
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-black text-zinc-800 tracking-wide font-montagu uppercase">
-            How Be Interior <span className="text-primary">Works</span>
+          <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-black text-zinc-800 tracking-wide font-montagu uppercase">
+            How BE Interior <span className="text-inherit">works</span>
           </h2>
           <p className="text-zinc-500 mt-3 text-sm sm:text-base font-medium max-w-md mx-auto">
             Combining efficiency, quality, and commitment through a seamless execution map.
@@ -95,9 +95,9 @@ const OfficeWork = () => {
                       <span className="text-xs font-bold text-zinc-400 tracking-widest uppercase block mb-1">
                         Promise 0{item.id}
                       </span>
-                      <h3 className="text-lg sm:text-xl font-extrabold text-zinc-800 font-poppins">
+                      <h3 data-heading-tone="dark" className="text-lg sm:text-xl font-extrabold text-zinc-800 font-poppins">
                         {item.title}{" "}
-                        <span className={item.isOrange ? "text-amber-600" : "text-primary"}>
+                        <span className={item.isOrange ? "text-amber-600" : "text-inherit"}>
                           {item.highlight}
                         </span>
                       </h3>

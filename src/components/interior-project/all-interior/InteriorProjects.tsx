@@ -83,8 +83,8 @@ const InteriorProjects = () => {
       <div className="max-w-7xl mx-auto mt-10">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-zinc-800 font-montagu uppercase tracking-wide">
-            Our <span className="text-primary">Portfolio</span>
+          <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-bold text-zinc-800 font-montagu uppercase tracking-wide">
+            Our <span className="text-inherit">portfolio</span>
           </h2>
           <p className="text-zinc-500 mt-4 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
             Discover our latest interior design projects, showcasing our
@@ -136,7 +136,7 @@ const InteriorProjects = () => {
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-xs font-medium text-zinc-400">
-                      No Image Available
+                      no image available
                     </div>
                   )}
 
@@ -163,7 +163,7 @@ const InteriorProjects = () => {
                   </div>
 
                   {/* Project Name */}
-                  <h3 className="text-xl sm:text-2xl font-bold text-zinc-800 mb-6 group-hover:text-primary transition-colors duration-300 font-montagu leading-snug line-clamp-2">
+                  <h3 data-heading-tone="dark" className="text-xl sm:text-2xl font-bold text-zinc-800 mb-6  transition-colors duration-300 font-montagu leading-snug line-clamp-2">
                     {project.name}
                   </h3>
 
@@ -173,7 +173,7 @@ const InteriorProjects = () => {
                       href={`/interior-projects/${project.slug}?type=${project._type}`}
                       className="inline-flex items-center text-sm font-bold text-zinc-800 group-hover:text-primary transition-colors duration-300"
                     >
-                      View Project
+                      View project
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300"

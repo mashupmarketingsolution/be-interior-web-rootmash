@@ -10,8 +10,8 @@ const BlogHero = () => {
       </span>
 
       {/* Main Heading */}
-      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-3xl lg:max-w-4xl text-center font-bold font-poppins text-zinc-800 leading-tight sm:leading-tight">
-        Design, Transform & Elevate Your Space.
+      <h1 data-heading-tone="dark" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-3xl lg:max-w-4xl text-center font-bold font-poppins text-zinc-800 leading-tight sm:leading-tight">
+        Design, transform & elevate your space.
       </h1>
 
       {/* Description */}

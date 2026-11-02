@@ -17,7 +17,7 @@ export default function Error({
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[50vh]">
-      <h2>কিছু একটা ভুল হয়েছে!</h2>
+      <h2 data-heading-tone="dark">কিছু একটা ভুল হয়েছে!</h2>
       <button onClick={() => reset()}>আবার চেষ্টা করুন</button>
     </div>
   )

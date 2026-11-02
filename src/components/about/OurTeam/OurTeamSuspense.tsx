@@ -10,8 +10,8 @@ const TeamSectionSkeleton = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-black text-[#1b332a] uppercase tracking-wide font-montagu">
-            The Minds Behind the Design
+          <h2 data-heading-tone="dark" className="text-3xl sm:text-4xl font-black text-[#1b332a] uppercase tracking-wide font-montagu">
+            The minds behind the design
           </h2>
           <p className="mt-4 text-zinc-500 max-w-2xl mx-auto font-poppins">
             Meet the talented architects and designers who turn your vision into

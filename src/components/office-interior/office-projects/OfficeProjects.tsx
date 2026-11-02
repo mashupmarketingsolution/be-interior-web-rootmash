@@ -84,8 +84,8 @@ const OfficeProjects = () => {
             <div className="flex items-center gap-2 text-secondary font-bold text-sm tracking-widest uppercase mb-2">
               <FiCornerDownRight /> Featured Works
             </div>
-            <h2 className="text-3xl md:text-5xl font-black text-zinc-800 tracking-wide font-montagu uppercase">
-              Our <span className="text-primary">Projects</span>
+            <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-black text-zinc-800 tracking-wide font-montagu uppercase">
+              Our <span className="text-inherit">projects</span>
             </h2>
           </div>
           <p className="text-zinc-500 text-sm max-w-xs font-medium leading-relaxed">
@@ -150,9 +150,9 @@ const OfficeProjects = () => {
                   <div className="relative z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out w-full flex items-end justify-between">
                     <div>
                       <span className="text-xs font-semibold text-amber-400 tracking-wider uppercase opacity-90 block mb-1">
-                        {project.location} • Corporate Office
+                        {project.location} • corporate office
                       </span>
-                      <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-wide font-poppins">
+                      <h3 data-heading-tone="light" className="text-xl sm:text-2xl font-extrabold text-white tracking-wide font-poppins">
                         {project.name}
                       </h3>
                     </div>

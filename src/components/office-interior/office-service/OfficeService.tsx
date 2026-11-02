@@ -28,8 +28,8 @@ const OfficeService = () => {
       <div className="max-w-6xl mx-auto">
         {/* Simple & Clean Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-montagu font-bold text-[#111111]">
-            Services <span className="text-primary">We Offer</span>
+          <h2 data-heading-tone="dark" className="text-3xl md:text-5xl font-montagu font-bold text-[#111111]">
+            Services <span className="text-inherit">we offer</span>
           </h2>
           <div className="w-20 h-1 bg-primary mt-4 rounded-full mb-14 mx-auto" />
         </div>
@@ -47,7 +47,7 @@ const OfficeService = () => {
               </div>
 
               {/* Text Content */}
-              <h3 className="text-lg md:text-xl font-bold text-[#111111] mb-3 font-montagu">
+              <h3 data-heading-tone="dark" className="text-lg md:text-xl font-bold text-[#111111] mb-3 font-montagu">
                 {service.title}
               </h3>
 

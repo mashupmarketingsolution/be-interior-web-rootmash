@@ -59,9 +59,9 @@ export default function Competition() {
             <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">
               Why Choose Us
             </span>
-            <h2 className="text-4xl lg:text-5xl font-montagu text-[#111111] font-bold leading-[1.15]">
-              How We Stand Out <br />
-              <span className="text-primary">From The Rest</span>
+            <h2 data-heading-tone="dark" className="text-4xl lg:text-5xl font-montagu text-[#111111] font-bold leading-[1.15]">
+              How we stand out <br />
+              <span className="text-inherit">from the rest</span>
             </h2>
           </div>
 
@@ -74,7 +74,7 @@ export default function Competition() {
               href="/contact"
               className="group flex items-center gap-3 px-8 py-4 bg-[#111111] hover:bg-primary text-white font-bold rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_40px_rgba(200,122,49,0.3)] transition-all duration-300 transform hover:-translate-y-1 text-sm md:text-base"
             >
-              Talk To Our Designers
+              Talk to our designers
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
@@ -112,7 +112,7 @@ export default function Competition() {
                 >
                   {/* Title & Points */}
                   <div className="col-span-6 p-5 sm:p-6 flex flex-col justify-center">
-                    <h4 className="font-bold text-[#111111] text-sm md:text-base mb-2 group-hover:text-primary transition-colors">
+                    <h4 data-heading-tone="dark" className="font-bold text-[#111111] text-sm md:text-base mb-2  transition-colors">
                       {factor.title}
                     </h4>
                     <ul className="space-y-1.5">

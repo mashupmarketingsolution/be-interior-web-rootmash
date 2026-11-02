@@ -1,20 +1,20 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import SiteTheme from "@/components/SiteTheme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Navbar from "@/components/Header/Navbar";
 import Footer from "@/components/Footer/Footer";
 import BlogDirect from "@/components/blogs/blogDirect/BlogDirect";
 import MobileBottomMenu from "@/components/Footer/MobileBottomMenu";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 const ClientGlobalWrapper = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
-  const queryClient = new QueryClient();
+  const [queryClient] = useState(() => new QueryClient());
 
   const router = useRouter();
-  const pathname = usePathname(); 
 
   useEffect(() => {
     const handlePopState = () => {
@@ -36,11 +36,13 @@ const ClientGlobalWrapper = ({
   return (
     <>
       <QueryClientProvider client={queryClient}>
+        <SiteTheme>
         <Navbar />
         {children}
         <BlogDirect />
         <MobileBottomMenu />
         <Footer />
+        </SiteTheme>
       </QueryClientProvider>
     </>
   );
