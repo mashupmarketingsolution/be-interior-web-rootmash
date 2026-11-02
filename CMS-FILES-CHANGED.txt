@@ -59,6 +59,7 @@ sanity.config.ts
 scripts/connect-cms.cjs
 scripts/migrate-managed-content.cjs
 scripts/prepare-managed-content.cjs
+scripts/verify-admin-navigation.cjs
 scripts/verify-cms.cjs
 scripts/verify-favicon.cjs
 scripts/verify-leads.cjs
@@ -179,11 +180,13 @@ src/lib/cms-server.ts
 src/lib/cms.ts
 src/lib/site-logo.ts
 src/lib/site-settings.ts
+src/sanity/components/ContentGuide.tsx
 src/sanity/components/ContentPreview.tsx
 src/sanity/components/CurrentImageInput.tsx
 src/sanity/components/LeadDesk.tsx
 src/sanity/components/MenuInput.tsx
 src/sanity/components/RestoreContentAction.tsx
+src/sanity/content-map.ts
 src/sanity/schemaTypes/ClientTypes.ts
 src/sanity/schemaTypes/HomeProjectType.ts
 src/sanity/schemaTypes/LeadType.ts
