@@ -7,7 +7,7 @@ export const SiteSettingsType = defineType({
   title: "Site Settings",
   type: "document",
   icon: ImageIcon,
-  groups: [{...ALL_FIELDS_GROUP,hidden:true},{ name: "branding", title: "Logo ও favicon", default: true }, { name: "appearance", title: "Font ও রং" }, { name: "navigation", title: "Menu ও header button" },{name:"pricing",title:"হিসাবের নিয়ম"},{name:"offers",title:"ঘোষণা / Offer"}],
+  groups: [{...ALL_FIELDS_GROUP,hidden:true},{ name: "branding", title: "Logo and favicon", default: true }, { name: "appearance", title: "Font and colours" }, { name: "navigation", title: "Menu and header button" },{name:"pricing",title:"Calculation rules"},{name:"offers",title:"Announcements and offers"}],
   fields: [
     defineField({name:"announcement",title:"Announcement / offer",type:"object",group:"offers",fields:[
       defineField({name:"enabled",title:"Show announcement",type:"boolean",initialValue:false}),

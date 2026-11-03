@@ -83,7 +83,7 @@ export const OfficePackageSchema = defineType({
 
               return {
                 title,
-                subtitle: subtitle ? `৳${subtitle}` : "",
+                subtitle: subtitle ? `BDT ${subtitle}` : "",
               };
             },
           },
@@ -103,7 +103,7 @@ export const OfficePackageSchema = defineType({
 
       return {
         title,
-        subtitle: subtitle ? `৳${subtitle}/sft` : "",
+        subtitle: subtitle ? `BDT ${subtitle}/sft` : "",
       };
     },
   },

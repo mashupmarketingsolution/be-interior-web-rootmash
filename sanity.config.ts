@@ -33,7 +33,7 @@ export default defineConfig({
   },
   plugins: [
     {name:"enquiry-follow-up",tools:[{name:"enquiries",title:"Enquiries",component:LeadDesk}]},
-    structureTool({ structure, defaultDocumentNode: (S, { schemaType }) => ["sitePage", "siteSection"].includes(schemaType) ? S.document().views([S.view.form().title("তথ্য বদলান"), S.view.component(ContentPreview).id("preview").title("Preview দেখুন")]) : S.document().views([S.view.form()]) }),
+    structureTool({ structure, defaultDocumentNode: (S, { schemaType }) => ["sitePage", "siteSection"].includes(schemaType) ? S.document().views([S.view.form().title("Edit content"), S.view.component(ContentPreview).id("preview").title("Preview")]) : S.document().views([S.view.form()]) }),
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
