@@ -257,7 +257,7 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
            <a
             href={`tel:${contactItems?.result[0].footercontactnumber1 as string}`}
             onClick={() => trackPhoneClick("project_details")}
-            className="border-2 border-primary ..."
+            className="inline-flex items-center justify-center border-2 border-primary px-8 py-3 rounded-full text-sm font-medium leading-5 hover:bg-primary/10 transition-colors duration-300"
           >
             Call now
           </a>

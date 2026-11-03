@@ -1,0 +1,14 @@
+const fs = require('node:fs');
+const vm = require('node:vm');
+const assert = require('node:assert/strict');
+const ts = require('typescript');
+let items = [];
+const exported = {};
+const code = ts.transpileModule(fs.readFileSync('src/components/cms/Editable.tsx', 'utf8'), {compilerOptions:{module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.ReactJSX}}).outputText;
+vm.runInNewContext(code, {exports:exported,require(name){if(name === './ContentProvider') return {useCmsSection:()=>({lists:[{key:'steps',items}]})};if(name === '@/lib/cms') return {safeContentLink:()=>false,safeContentImage:()=>false};return {};}});
+items = [{_key:'card-2',templateIndex:2,title:'Third'},{_key:'hidden',enabled:false},{_key:'card-0',templateIndex:0,title:'First'},{_key:'new-card',templateIndex:0,title:'New'}];
+const result = exported.useCmsList('section','steps',[{id:'01',title:'First'},{id:'02',title:'Second'},{id:'03',title:'Third'}]);
+assert.deepEqual(Array.from(result, x=>x.id), ['01','02','03']);
+assert.deepEqual(Array.from(result, x=>x.title), ['Third','First','New']);
+assert.equal(exported.useCmsList('section','steps',[{id:'unique-id'}])[0].id,'card-2');
+console.log('PASS: reordered, hidden and newly added steps retain sequential display numbers; nonnumeric IDs stay unique.');

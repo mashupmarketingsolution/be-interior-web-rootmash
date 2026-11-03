@@ -59,7 +59,7 @@ export function useCmsList<T extends Record<string, unknown>>(section: string, k
     assign(["img", "image", "src"], safeContentImage(item.url) ? item.url : undefined);
     assign(["isPopular", "isFeatured"], item.featured);
     if ("id" in base) result.id = item._key || String(index);
-    for (const k of ["step", "number", "num"]) if (typeof base[k] === "string" && /^\d+$/.test(base[k] as string)) result[k] = String(index + 1).padStart((base[k] as string).length, "0");
+    for (const k of ["id", "step", "number", "num"]) if (typeof base[k] === "string" && /^\d+$/.test(base[k] as string)) result[k] = String(index + 1).padStart((base[k] as string).length, "0");
     return result as T;
   });
 }
