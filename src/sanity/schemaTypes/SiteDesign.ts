@@ -3,6 +3,7 @@ import { defaultCta, getDefaultMenu, menuItemHref, safeMenuHref, sitePages } fro
 import { MenuInput, MenuVisibilityInput } from "../components/MenuInput";
 
 const linkFields = [
+  defineField({ name: "labelBn", title: "Menu name (Bangla)", type: "string", validation: rule => rule.max(60) }),
   defineField({ name: "label", title: "Menu name", type: "string", validation: rule => rule.required().max(60) }),
   defineField({ name: "page", title: "Choose a page", type: "string", description: "Pick a website page without typing its address. For a dropdown parent, leave this empty and add dropdown links below.", options: { list: [...sitePages, { title: "Custom link (paste below)", value: "custom" }] } }),
   defineField({ name: "href", title: "Custom link / existing link", type: "string", hidden: ({ parent }) => !!parent?.page && parent.page !== "custom", description: "Use a page path such as /about, or a full https:// link. A selected page above takes priority.", validation: rule => rule.custom(value => !value || safeMenuHref(value) || "Enter a page path or an HTTPS link.") }),

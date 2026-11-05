@@ -1,4 +1,5 @@
 "use client"
+import { LocalizedText } from "@/components/Language";
 import Link from "next/link";
 import React from "react";
 
@@ -12,20 +13,16 @@ export default function NotFound() {
 
       {/* মেসেজ */}
       <h2 data-heading-tone="dark" className="text-3xl md:text-4xl font-bold text-[#111111] font-montagu mb-6">
-        Oops! Page not found
-      </h2>
+        <LocalizedText>{"Oops! Page not found"}</LocalizedText></h2>
       <p className="text-zinc-600 font-poppins max-w-md mb-10">
-        It seems like the space you are looking for doesn&apos;t exist. Let&apos;s guide
-        you back to your ideal home.
-      </p>
+        <LocalizedText>{"It seems like the space you are looking for doesn't exist. Let's guide you back to your ideal home."}</LocalizedText></p>
 
       {/* অ্যাকশন বাটন */}
       <button
         onClick={() => (window.location.href = "/")}
         className="bg-[#23352e] text-white px-6 py-2 rounded-full"
       >
-        Go back home
-      </button>
+        <LocalizedText>{"Go back home"}</LocalizedText></button>
     </div>
   );
 }

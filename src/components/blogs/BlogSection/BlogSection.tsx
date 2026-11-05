@@ -1,4 +1,5 @@
 "use client";
+import { useLanguage, useTranslation } from "@/components/Language";
 import { CmsText, CmsLink, CmsImage, CmsSection } from "@/components/cms/Editable";
 import React, { useState } from "react";
 import Link from "next/link";
@@ -101,6 +102,8 @@ const blogPosts = [
 ];
 
 const BlogSection = () => {
+  const t = useTranslation();
+  const language = useLanguage();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
@@ -132,7 +135,7 @@ const BlogSection = () => {
   const formatDate = (dateString: string) => {
     if (!dateString) return "";
     const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
+    return date.toLocaleDateString(language === "bn" ? "bn-BD" : "en-US", {
       month: "short",
       day: "numeric",
       year: "numeric",
@@ -197,7 +200,7 @@ const BlogSection = () => {
                   />
                   {/* Category Badge over image */}
                   <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 text-xs font-semibold text-primary rounded-full uppercase tracking-wider shadow-sm">
-                    {blog.blogcategory}
+                    {t(blog.blogcategory)}
                   </div>
                 </div>
 

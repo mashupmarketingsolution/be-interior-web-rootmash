@@ -1,9 +1,11 @@
 "use client";
+import { useTranslation } from "@/components/Language";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { parseSiteSettings } from "@/lib/site-settings";
 
 export function useSiteSettings() {
+  const t = useTranslation();
   const { data } = useQuery({
     queryKey: ["site-appearance-navigation"],
     queryFn: async ({ signal }) => {
@@ -18,5 +20,7 @@ export function useSiteSettings() {
     },
     staleTime: 60000, refetchInterval: 60000, retry: 1,
   });
-  return data || parseSiteSettings(null);
+  const settings = data || parseSiteSettings(null);
+  const localize = <T extends { label: string; labelBn?: string }>(item: T) => ({ ...item, label: t(item.label, item.labelBn) });
+  return { ...settings, cta: localize(settings.cta), menu: settings.menu.map(item => ({ ...localize(item), children: item.children?.map(localize) })) };
 }

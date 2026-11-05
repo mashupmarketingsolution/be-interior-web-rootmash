@@ -1,5 +1,7 @@
 "use client";
+import { LocalizedText } from "@/components/Language";
 import React, { useState, useEffect, useRef } from "react";
+import { LanguageSwitch, useTranslation } from "@/components/Language";
 import NavLogo from "./NavLogo";
 import NavLinks from "./NavLinks";
 import Navbtn from "./Navbtn";
@@ -38,6 +40,7 @@ const fetchAllInteriorItems = async () => {
 };
 
 const Navbar = () => {
+  const t = useTranslation();
   const { menu, cta } = useSiteSettings();
   const wideMenu = menu.length > 4;
   const pathname = usePathname();
@@ -113,7 +116,7 @@ const Navbar = () => {
     <>
       {/* --- Main Navbar (Desktop & Mobile Top Bar) --- */}
       <header
-        aria-label="Site header"
+        aria-label={t("Site header")}
         className={`fixed top-0 left-0 w-full flex justify-between items-center h-20 md:h-24 z-40 border-b transition-[height,background-color,box-shadow,border-color] duration-300 motion-reduce:transition-none ${
           pathname === "/" && !scrolled
             ? "bg-[#111111] border-white/10 lg:bg-transparent lg:border-transparent"
@@ -132,14 +135,14 @@ const Navbar = () => {
 
         {/* Desktop Button */}
         <div className={`${wideMenu ? "hidden 2xl:flex" : "hidden lg:flex"} items-center flex-shrink-0 ml-4 mr-6 xl:mr-8`}>
-          <Navbtn />
+          <div className="flex items-center gap-2"><LanguageSwitch /><Navbtn /></div>
         </div>
 
         {/* Mobile Hamburger Button */}
         <button
           onClick={() => setMobileMenuOpen(true)}
           className={`${wideMenu ? "2xl:hidden" : "lg:hidden"} text-white/80 hover:text-primary transition-colors p-4 focus:outline-none`}
-          aria-label="Open Menu"
+          aria-label={t("Open Menu")}
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-navigation"
           aria-haspopup="dialog"
@@ -152,7 +155,7 @@ const Navbar = () => {
       <dialog
         ref={menuRef}
         id="mobile-navigation"
-        aria-label="Main navigation"
+        aria-label={t("Main navigation")}
         onCancel={handleLink}
         onClick={(event) => {
           if (event.target === event.currentTarget) {
@@ -166,10 +169,11 @@ const Navbar = () => {
         {/* Header / Close Button */}
         <div className="flex shrink-0 items-center justify-between gap-4 px-5 py-3 border-b border-white/5">
           <NavLogo onClick={handleLink} />
+          <LanguageSwitch />
           <button
             onClick={handleLink}
             className="text-white/60 hover:text-primary bg-white/5 hover:bg-white/10 p-2.5 rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-primary"
-            aria-label="Close Menu"
+            aria-label={t("Close Menu")}
           >
             <X size={24} />
           </button>
@@ -187,8 +191,8 @@ const Navbar = () => {
             <input
               type="text"
               className="w-full bg-white/5 border border-white/10 text-white rounded-2xl py-3.5 pl-11 pr-4 outline-none focus:bg-white/10 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 text-sm placeholder:text-white/30 transition-all duration-300"
-              aria-label="Search projects"
-              placeholder="Search projects..."
+              aria-label={t("Search projects")}
+              placeholder={t("Search projects...")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -215,7 +219,7 @@ const Navbar = () => {
                               {item.name}
                             </p>
                             <span className="text-[10px] text-gray-500 bg-gray-100 px-2 py-0.5 rounded-md w-fit capitalize font-medium">
-                              {item._type}
+                              {t(item._type)}
                             </span>
                           </div>
                           <ChevronRight
@@ -231,18 +235,15 @@ const Navbar = () => {
                         onClick={handleLink}
                         className="block w-full text-center py-2.5 text-xs font-bold text-primary bg-white rounded-xl shadow-sm hover:shadow-md hover:bg-gray-50 transition-all border border-gray-200"
                       >
-                        View all projects
-                      </Link>
+                        <LocalizedText>{"View all projects"}</LocalizedText></Link>
                     </div>
                   </>
                 ) : (
                   <div className="text-center py-8 px-4">
                     <p className="text-gray-400 text-sm font-medium">
-                      No results found
-                    </p>
+                      <LocalizedText>{"No results found"}</LocalizedText></p>
                     <p className="text-gray-300 text-xs mt-1">
-                      Try a different keyword
-                    </p>
+                      <LocalizedText>{"Try a different keyword"}</LocalizedText></p>
                   </div>
                 )}
               </div>
@@ -252,8 +253,7 @@ const Navbar = () => {
           {/* Navigation Links */}
           <nav className="flex flex-col gap-2">
             <p className="text-[10px] font-bold tracking-widest text-white/40 uppercase mb-2 pl-2">
-              Menu
-            </p>
+              <LocalizedText>{"Menu"}</LocalizedText></p>
             {links.map((link, index) => (
               <Link
                 href={link.href}

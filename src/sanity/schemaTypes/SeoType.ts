@@ -1,3 +1,4 @@
+import { banglaString, banglaText } from "./banglaFields";
 import { defineField, defineType } from "sanity";
 
 export const SeoType = defineType({
@@ -7,6 +8,8 @@ export const SeoType = defineType({
   description: "Leave empty to use the post title, content and cover image automatically.",
   options: { collapsible: true, collapsed: true },
   fields: [
+    banglaString("title", "SEO title"),
+    banglaText("description", "Search description"),
     defineField({ name: "title", title: "SEO title", type: "string",
       description: "Optional full search title, including BE Interior if needed. Aim for about 50–60 characters; Google may show a different title.",
       validation: (rule) => rule.max(60).warning("This title may be shortened in search results.") }),

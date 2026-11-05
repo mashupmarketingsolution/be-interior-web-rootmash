@@ -1,6 +1,7 @@
 // app/error.tsx
 'use client' // এটি অবশ্যই থাকতে হবে
 
+import { LocalizedText } from "@/components/Language";
 import { useEffect } from 'react'
 
 export default function Error({
@@ -17,8 +18,8 @@ export default function Error({
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[50vh]">
-      <h2 data-heading-tone="dark">কিছু একটা ভুল হয়েছে!</h2>
-      <button onClick={() => reset()}>আবার চেষ্টা করুন</button>
+      <h2 data-heading-tone="dark"><LocalizedText>{"Something went wrong."}</LocalizedText></h2>
+      <button onClick={() => reset()}><LocalizedText>{"Try again"}</LocalizedText></button>
     </div>
   )
 }

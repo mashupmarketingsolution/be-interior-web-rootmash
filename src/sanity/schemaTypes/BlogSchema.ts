@@ -1,4 +1,5 @@
 import { Flame } from "lucide-react";
+import { banglaString, banglaList } from "./banglaFields";
 import { defineField, defineType } from "sanity";
 
 export const BlogSchemtype = defineType({
@@ -7,6 +8,12 @@ export const BlogSchemtype = defineType({
   type: "document",
   icon: Flame,
   fields: [
+    banglaString("blogname", "Blog title"),
+    banglaString("authorname", "Author name"),
+    banglaString("authorrole", "Author role"),
+    banglaString("readTime", "Read time"),
+    banglaList("tags", "Tags"),
+    defineField({ name: "contentBn", title: "Content (Bangla)", type: "array", of: [{ type: "block" }, { type: "image", options: { hotspot: true } }] }),
     defineField({ name: "seo", title: "SEO (optional)", type: "seo" }),
     defineField({
       name: "blogname",

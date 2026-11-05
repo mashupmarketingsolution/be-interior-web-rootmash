@@ -1,4 +1,6 @@
 "use client";
+import { LocalizedText } from "@/components/Language";
+import { useLanguage, useTranslation } from "@/components/Language";
 import { CmsText, CmsInput, CmsImage, CmsSection } from "@/components/cms/Editable";
 import { useCms } from "@/components/cms/ContentProvider";
 import { leadErrorMessage } from "@/axios/axios";
@@ -147,6 +149,9 @@ interface Formtype {
 type FormErrors = Partial<Formtype>;
 type ProjectType = "" | "home" | "office";
 const BudgetCalculator = () => {
+  const t = useTranslation();
+  const language = useLanguage();
+  const numberLocale = language === "bn" ? "bn-BD" : "en-IN";
   const searchParams = useSearchParams();
   const [projectType, setProjectType] = useState<ProjectType>(() => { const type = searchParams.get("type"); return type === "home" || type === "office" ? type : ""; });
   const { data, isLoading, isError , error } = useQuery<PackageType>({
@@ -533,7 +538,7 @@ const projectInfo =
       if (isBedroom) {
         if (getTotalBedrooms() >= maxBedrooms) {
           return triggerError(
-            `You can only select up to ${maxBedrooms} bedrooms based on your ${selectedBHK.toUpperCase()} selection.`,
+            language === "bn" ? `নির্বাচিত ফ্ল্যাটে সর্বোচ্চ ${maxBedrooms.toLocaleString(numberLocale)}টি শয়নকক্ষ বেছে নিতে পারবেন।` : `You can only select up to ${maxBedrooms} bedrooms based on your ${selectedBHK.toUpperCase()} selection.`,
           );
         }
       }
@@ -549,7 +554,7 @@ const projectInfo =
     if (isBedroom) {
       if (getTotalBedrooms() >= maxBedrooms) {
         return triggerError(
-          `Maximum limit reached! You can't add more than ${maxBedrooms} bedrooms.`,
+          language === "bn" ? `সর্বোচ্চ ${maxBedrooms.toLocaleString(numberLocale)}টি শয়নকক্ষ যোগ করা যাবে।` : `Maximum limit reached! You can't add more than ${maxBedrooms} bedrooms.`,
         );
       }
     } else if (room === "Toilet") {
@@ -649,7 +654,7 @@ const renderHomeStep1 = () => (
                   aria-label="Enter exact flat size, e.g. 1450"
                   type="number"
           min="300"
-          placeholder="Enter exact flat size, e.g. 1450"
+          placeholder={t("Enter exact flat size, e.g. 1450")}
           value={customArea}
           onChange={(e) => {
             setCustomArea(e.target.value);
@@ -666,14 +671,14 @@ const renderHomeStep1 = () => (
           }}
           className="w-full px-4 py-4 rounded-xl bg-white border-2 border-transparent focus:border-[#C87A31] outline-none"
         >
-          <option value="">Quick Select</option>
-          <option value="800">800 sft</option>
-          <option value="1000">1000 sft</option>
-          <option value="1200">1200 sft</option>
-          <option value="1500">1500 sft</option>
-          <option value="1800">1800 sft</option>
-          <option value="2200">2200 sft</option>
-          <option value="2700">2700 sft</option>
+          <option value=""><LocalizedText>{"Quick Select"}</LocalizedText></option>
+          <option value="800"><LocalizedText>{"800 sft"}</LocalizedText></option>
+          <option value="1000"><LocalizedText>{"1000 sft"}</LocalizedText></option>
+          <option value="1200"><LocalizedText>{"1200 sft"}</LocalizedText></option>
+          <option value="1500"><LocalizedText>{"1500 sft"}</LocalizedText></option>
+          <option value="1800"><LocalizedText>{"1800 sft"}</LocalizedText></option>
+          <option value="2200"><LocalizedText>{"2200 sft"}</LocalizedText></option>
+          <option value="2700"><LocalizedText>{"2700 sft"}</LocalizedText></option>
         </select>
       </div>
     </div>
@@ -686,13 +691,13 @@ const renderHomeStep1 = () => (
         onChange={(e) => setSelectedBHK(e.target.value)}
         className="w-full px-4 py-4 rounded-xl bg-white border-2 border-transparent focus:border-[#C87A31] outline-none"
       >
-        <option value="">Select BHK</option>
-        <option value="1bhk">1 BHK</option>
-        <option value="2bhk">2 BHK</option>
-        <option value="3bhk">3 BHK</option>
-        <option value="4bhk">4 BHK</option>
-        <option value="5bhk">5 BHK</option>
-        <option value="6bhk">6+ BHK</option>
+        <option value=""><LocalizedText>{"Select BHK"}</LocalizedText></option>
+        <option value="1bhk"><LocalizedText>{"1 BHK"}</LocalizedText></option>
+        <option value="2bhk"><LocalizedText>{"2 BHK"}</LocalizedText></option>
+        <option value="3bhk"><LocalizedText>{"3 BHK"}</LocalizedText></option>
+        <option value="4bhk"><LocalizedText>{"4 BHK"}</LocalizedText></option>
+        <option value="5bhk"><LocalizedText>{"5 BHK"}</LocalizedText></option>
+        <option value="6bhk"><LocalizedText>{"6+ BHK"}</LocalizedText></option>
       </select>
     </div>
 
@@ -710,7 +715,7 @@ const renderHomeStep1 = () => (
       <span className="text-[#111111] font-medium">
         {Object.keys(selectedRooms).length > 0
           ? `${Object.keys(selectedRooms).length} room type(s) selected`
-          : "Select rooms"}
+          : t("Select rooms")}
       </span>
 
       <FiChevronDown
@@ -734,7 +739,7 @@ const renderHomeStep1 = () => (
               className="w-full flex items-center justify-between px-3 py-3 hover:bg-[#FAF5E9] rounded-lg transition-colors"
             >
               <span className="text-sm font-medium text-[#111111]">
-                {room}
+                {t(room)}
               </span>
 
               <span
@@ -760,7 +765,7 @@ const renderHomeStep1 = () => (
           key={room}
           className="inline-flex items-center gap-1.5 bg-white border border-[#C87A31]/20 text-[#111111] text-xs font-medium px-3 py-1.5 rounded-full"
         >
-          {room}
+          {t(room)}
           {qty > 1 ? ` ×${qty}` : ""}
         </span>
       ))}
@@ -778,7 +783,7 @@ const renderOfficeStep1 = () => (
                   aria-label="Enter office size, e.g. 2200"
                   type="number"
         min="200"
-        placeholder="Enter office size, e.g. 2200"
+        placeholder={t("Enter office size, e.g. 2200")}
         value={officeArea}
         onChange={(e) => setOfficeArea(e.target.value)}
         className="w-full px-4 py-4 rounded-xl bg-white border-2 border-transparent focus:border-[#C87A31] outline-none"
@@ -792,7 +797,7 @@ const renderOfficeStep1 = () => (
                   aria-label="Enter employee count, e.g. 30"
                   type="number"
         min="1"
-        placeholder="Enter employee count, e.g. 30"
+        placeholder={t("Enter employee count, e.g. 30")}
         value={employeeCount}
         onChange={(e) => setEmployeeCount(e.target.value)}
         className="w-full px-4 py-4 rounded-xl bg-white border-2 border-transparent focus:border-[#C87A31] outline-none"
@@ -815,7 +820,7 @@ const renderOfficeStep1 = () => (
           <span className="text-[#111111] font-medium">
             {Object.keys(selectedOfficeSpaces).length > 0
               ? `${Object.keys(selectedOfficeSpaces).length} space type(s) selected`
-              : "Select office spaces"}
+              : t("Select office spaces")}
           </span>
 
           <FiChevronDown
@@ -850,7 +855,7 @@ const renderOfficeStep1 = () => (
                   className="w-full flex items-center justify-between px-3 py-3 hover:bg-[#FAF5E9] rounded-lg transition-colors"
                 >
                   <span className="text-sm font-medium text-[#111111]">
-                    {space}
+                    {t(space)}
                   </span>
 
                   <span
@@ -877,7 +882,7 @@ const renderOfficeStep1 = () => (
         <CmsInput section="section-0808fc405263"
                   aria-label="e.g. Training Room"
                   type="text"
-          placeholder="e.g. Training Room"
+          placeholder={t("e.g. Training Room")}
           value={customOfficeSpace}
           onChange={(e) => setCustomOfficeSpace(e.target.value)}
           className="flex-1 px-4 py-3 rounded-xl border border-zinc-200 focus:border-[#C87A31] outline-none"
@@ -909,7 +914,7 @@ const renderOfficeStep1 = () => (
             key={space}
             className="inline-flex items-center gap-1.5 bg-white border border-[#C87A31]/20 text-[#111111] text-xs font-medium px-3 py-1.5 rounded-full"
           >
-            {space}
+            {t(space)}
             {qty > 1 ? ` ×${qty}` : ""}
           </span>
         ))}
@@ -1021,7 +1026,7 @@ const renderOfficeStep1 = () => (
               <span
                 className={`font-medium ${isSelected ? "text-[#C87A31]" : "text-gray-700"}`}
               >
-                {room}
+                {t(room)}
               </span>
             </div>
 
@@ -1242,7 +1247,7 @@ const officePackages = [...(officePackageData?.result || [])].sort(
               : "border-zinc-200 bg-white text-zinc-600 hover:border-zinc-300"
           }`}
         >
-          {scope}
+          {t(scope)}
         </button>
       );
     })}
@@ -1268,7 +1273,7 @@ const officePackages = [...(officePackageData?.result || [])].sort(
                   <p className="text-xs uppercase tracking-widest text-[#C87A31] font-semibold"><CmsText section="section-0808fc405263" entryKey="text-48eb2faff774" fallback={"Office package"} /></p>
 
                   <h3 data-heading-tone="dark" className="text-xl font-bold text-[#111111] capitalize mt-1">
-                    {pkg.packagename}
+                    {t(pkg.packagename)}
                   </h3>
                 </div>
 
@@ -1336,7 +1341,7 @@ const officePackages = [...(officePackageData?.result || [])].sort(
           className="w-full md:w-1/2 flex flex-col gap-4"
           onSubmit={handleSubmit}
         >
-          {submitError && <p role="alert" className="p-4 rounded-xl bg-red-50 text-red-800">{submitError}</p>}
+          {submitError && <p role="alert" className="p-4 rounded-xl bg-red-50 text-red-800">{t(submitError)}</p>}
           <p className="text-center text-gray-500 font-medium mb-2"><CmsText section="section-0808fc405263" entryKey="text-7d1e1b37605b" fallback={"Your free quote is just a few clicks away!"} /></p>
           <div className="rounded-2xl bg-[#FAF5E9] border border-[#C87A31]/20 p-4 mb-2">
             <p className="text-xs uppercase tracking-widest text-[#C87A31] font-semibold mb-2"><CmsText section="section-0808fc405263" entryKey="text-ce74dcf4f192" fallback={"Your Selection"} /></p>
@@ -1347,16 +1352,16 @@ const officePackages = [...(officePackageData?.result || [])].sort(
                 {selectedSize}<CmsText section="section-0808fc405263" entryKey="text-c0d60051775c" fallback={" sft · "} />{selectedBHK.toUpperCase()} ·{" "}
                 {Object.values(selectedRooms).reduce((sum, qty) => sum + qty, 0)}<CmsText section="section-0808fc405263" entryKey="text-4a9ef7a13564" fallback={" Rooms ·"} />{" "}
                 {selectedPackage
-                  ? selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)
+                  ? t(selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1))
                   : ""}
               </>
             ) : (
               <>
                 {officeArea}<CmsText section="section-0808fc405263" entryKey="text-32540af056c7" fallback={" sft · "} />{employeeCount}<CmsText section="section-0808fc405263" entryKey="text-db93df1687ca" fallback={" Employees ·"} />{" "}
                 {Object.keys(selectedOfficeSpaces).length}<CmsText section="section-0808fc405263" entryKey="text-6339a52206c3" fallback={" Space Types ·"} />{" "}
-                {officeScope} ·{" "}
+                {t(officeScope)} ·{" "}
                 {selectedPackage
-                  ? selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)
+                  ? t(selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1))
                   : ""}
               </>
             )}
@@ -1373,12 +1378,12 @@ const officePackages = [...(officePackageData?.result || [])].sort(
               onChange={(e) => setTargetBudget(e.target.value)}
               className="w-full px-4 py-3.5 bg-white text-zinc-800 rounded-xl border-2 border-black focus:border-[#C87A31] outline-none"
             >
-              <option value="">Not decided yet</option>
-              <option value="Under 10 Lakh">Under ৳10 Lakh</option>
-              <option value="10-20 Lakh">৳10–20 Lakh</option>
-              <option value="20-40 Lakh">৳20–40 Lakh</option>
-              <option value="40-70 Lakh">৳40–70 Lakh</option>
-              <option value="70 Lakh+">৳70 Lakh+</option>
+              <option value=""><LocalizedText>{"Not decided yet"}</LocalizedText></option>
+              <option value="Under 10 Lakh"><LocalizedText>{"Under ৳10 Lakh"}</LocalizedText></option>
+              <option value="10-20 Lakh"><LocalizedText>{"৳10–20 Lakh"}</LocalizedText></option>
+              <option value="20-40 Lakh"><LocalizedText>{"৳20–40 Lakh"}</LocalizedText></option>
+              <option value="40-70 Lakh"><LocalizedText>{"৳40–70 Lakh"}</LocalizedText></option>
+              <option value="70 Lakh+"><LocalizedText>{"৳70 Lakh+"}</LocalizedText></option>
             </select>
           </div>
         )}
@@ -1389,10 +1394,10 @@ const officePackages = [...(officePackageData?.result || [])].sort(
           ].map((field) => (
             <div key={field.name} className="flex flex-col w-full">
               <input
-                  aria-label={field.placeholder}
+                  aria-label={t(field.placeholder)}
                   type={field.type}
                 name={field.name}
-                placeholder={field.placeholder}
+                placeholder={t(field.placeholder)}
                 value={formData[field.name as keyof Formtype]}
                 onChange={handleChange}
                 className={`w-full px-4 py-3.5 bg-white text-zinc-800 rounded-xl  outline-primary/80 transition-all placeholder:text-zinc-400 font-medium text-sm sm:text-base border-2 ${
@@ -1403,7 +1408,7 @@ const officePackages = [...(officePackageData?.result || [])].sort(
               />
               {formError[field.name as keyof Formtype] && (
                 <span className="text-red-400 text-xs mt-1.5 ml-1 font-medium">
-                  {formError[field.name as keyof Formtype]}
+                  {t(formError[field.name as keyof Formtype] ?? "")}
                 </span>
               )}
             </div>
@@ -1475,11 +1480,11 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
   }
 }
   const packageName = selectedPackage
-    ? selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)
+    ? t(selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1))
     : "Office Package";
 
   const spacesSummary = Object.entries(selectedOfficeSpaces)
-    .map(([space, qty]) => `${space}${qty > 1 ? ` ×${qty}` : ""}`)
+    .map(([space, qty]) => `${t(space)}${qty > 1 ? ` ×${qty.toLocaleString(numberLocale)}` : ""}`)
     .join(", ");
 
   return (
@@ -1488,20 +1493,20 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
         <p className="text-sm font-semibold uppercase tracking-widest text-[#C87A31] mb-2"><CmsText section="section-0808fc405263" entryKey="text-1aa36d14815c" fallback={"Preliminary Office Estimate"} /></p>
 
         <h2 data-heading-tone="dark" className="text-2xl md:text-3xl font-bold text-[#111111]">
-          {packageName}
+          {t(packageName)}
         </h2>
         <div className="flex flex-wrap gap-2 mt-4 mb-4">
 
 
-          <span className="inline-flex items-center rounded-full bg-[#FAF5E9] px-3 py-1.5 text-xs font-semibold text-[#111111]"><CmsText section="section-0808fc405263" entryKey="text-cd205cdf27a3" fallback={"Scope: "} />{officeScope}
+          <span className="inline-flex items-center rounded-full bg-[#FAF5E9] px-3 py-1.5 text-xs font-semibold text-[#111111]"><CmsText section="section-0808fc405263" entryKey="text-cd205cdf27a3" fallback={"Scope: "} />{t(officeScope)}
           </span>
 
         </div>
         <p className="text-sm text-zinc-500 mb-1"><CmsText section="section-0808fc405263" entryKey="text-1d944c6f4250" fallback={"Scope-adjusted preliminary estimate"} /></p>
         <p className="text-3xl md:text-4xl font-bold text-[#C87A31] mt-3">
           {officeEstimatedCost > 0
-            ? `৳${officeEstimatedCost.toLocaleString("en-IN")}`
-            : "Rate not configured yet"}
+            ? `৳${officeEstimatedCost.toLocaleString(numberLocale)}`
+            : t("Rate not configured yet")}
         </p>
       </div>
 
@@ -1522,20 +1527,20 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
         <div className="bg-[#FAF5E9] rounded-xl p-4">
           <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1"><CmsText section="section-0808fc405263" entryKey="text-5cf22f02be7d" fallback={"Scope"} /></p>
           <p className="font-semibold text-[#111111]">
-            {officeScope}
+            {t(officeScope)}
           </p>
         </div>
 
         <div className="bg-[#FAF5E9] rounded-xl p-4">
           <p className="text-xs uppercase tracking-wider text-zinc-500 mb-1"><CmsText section="section-0808fc405263" entryKey="text-4b069735fe3c" fallback={"Target Budget"} /></p>
           <p className="font-semibold text-[#111111]">
-            {targetBudget || "Not decided yet"}
+            {t(targetBudget || "Not decided yet")}
           </p>
         </div>
         {budgetComparisonMessage && (
           <div className="md:col-span-2 rounded-xl border border-[#C87A31]/20 bg-[#FFF8F0] p-4">
             <p className="text-sm font-semibold text-[#111111]">
-              {budgetComparisonMessage}
+              {t(budgetComparisonMessage)}
             </p>
           </div>
         )}
@@ -1607,7 +1612,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
                                   <div>
                                     <p className="text-sm font-bold uppercase tracking-widest text-[#111111] mb-4 border-b border-[#111111]/20 pb-2 inline-block"><CmsText section="section-0808fc405263" entryKey="text-d03d421dbb73" fallback={"Accessories"} /></p>
                                     <p className="text-sm text-zinc-700 leading-relaxed">
-                                      {items.accessories?.join(", ")}
+                                      {items.accessories?.map(item => t(item)).join(", ")}
                                     </p>
                                   </div>
                                 </div>
@@ -1669,7 +1674,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
                                   <div>
                                     <p className="text-sm font-bold uppercase tracking-widest text-[#111111] mb-4 border-b border-[#111111]/20 pb-2 inline-block"><CmsText section="section-0808fc405263" entryKey="text-de063f3bc131" fallback={"Accessories"} /></p>
                                     <p className="text-sm text-zinc-700 leading-relaxed">
-                                      {items.accessories?.join(", ")}
+                                      {items.accessories?.map(item => t(item)).join(", ")}
                                     </p>
                                   </div>
                                 </div>
@@ -1731,7 +1736,7 @@ if (targetBudgetRange && officeEstimatedCost > 0) {
                                   <div>
                                     <p className="text-sm font-bold uppercase tracking-widest text-[#111111] mb-4 border-b border-[#111111]/20 pb-2 inline-block"><CmsText section="section-0808fc405263" entryKey="text-f7e74ac9aa9e" fallback={"Accessories"} /></p>
                                     <p className="text-sm text-zinc-700 leading-relaxed">
-                                      {items.accessories?.join(", ")}
+                                      {items.accessories?.map(item => t(item)).join(", ")}
                                     </p>
                                   </div>
                                 </div>
@@ -1873,7 +1878,7 @@ if (!projectType) {
           <div className="absolute top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-md ">
             <div className="flex items-center gap-3 px-6 py-4 bg-red-50 border-l-4 border-red-500 rounded-lg shadow-lg">
               <span className="text-red-500 text-xl"></span>
-              <p className="text-red-700 font-medium text-sm">{errorMsg}</p>
+              <p className="text-red-700 font-medium text-sm">{t(errorMsg)}</p>
             </div>
           </div>
         )}
@@ -1934,14 +1939,14 @@ if (!projectType) {
                       <p className="text-3xl font-bold text-primary">
                         {projectType === "office"
                           ? officeEstimatedCost > 0
-                            ? `৳${officeEstimatedCost.toLocaleString("en-IN")}`
-                            : "Rate not configured yet"
+                            ? `৳${officeEstimatedCost.toLocaleString(numberLocale)}`
+                            : t("Rate not configured yet")
                           : selectedPackage === "essential"
-                            ? `${essentialTotalPrice.toLocaleString("en-IN")} Tk`
+                            ? `${essentialTotalPrice.toLocaleString(numberLocale)} ${t("Tk")}`
                             : selectedPackage === "premium"
-                              ? `${premiumTotalPrice.toLocaleString("en-IN")} Tk`
+                              ? `${premiumTotalPrice.toLocaleString(numberLocale)} ${t("Tk")}`
                               : selectedPackage === "luxury"
-                                ? `${luxuryTotalPrice.toLocaleString("en-IN")} Tk`
+                                ? `${luxuryTotalPrice.toLocaleString(numberLocale)} ${t("Tk")}`
                                 : "Depends on Your requirement"}
                       </p>
 

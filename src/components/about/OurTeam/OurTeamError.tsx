@@ -1,4 +1,5 @@
 "use client";
+import { LocalizedText } from "@/components/Language";
 import React from "react";
 
 interface TeamSectionErrorFallbackProps {
@@ -19,12 +20,9 @@ const TeamSectionErrorFallback = ({ error, resetErrorBoundary }: TeamSectionErro
         {/* হেডার পার্ট - মেইন লেআউটের মতোই ফিক্সড রাখা হয়েছে */}
         <div className="text-center mb-12">
           <h2 data-heading-tone="dark" className="text-3xl sm:text-4xl font-black text-[#1b332a] uppercase tracking-wide font-montagu">
-            The minds behind the design
-          </h2>
+            <LocalizedText>{"The minds behind the design"}</LocalizedText></h2>
           <p className="mt-4 text-zinc-500 max-w-2xl mx-auto font-poppins">
-            Meet the talented architects and designers who turn your vision into
-            reality with precision, passion, and creativity.
-          </p>
+            <LocalizedText>{"Meet the talented architects and designers who turn your vision into reality with precision, passion, and creativity."}</LocalizedText></p>
         </div>
 
         {/* এরর বক্স কন্টেইনার (টিম গ্রিডের জায়গাটুকু জুড়ে বসবে) */}
@@ -37,12 +35,10 @@ const TeamSectionErrorFallback = ({ error, resetErrorBoundary }: TeamSectionErro
           </div>
 
           <h3 data-heading-tone="dark" className="text-xl font-bold text-[#1b332a] font-montagu mb-2">
-            Failed to load team profiles
-          </h3>
+            <LocalizedText>{"Failed to load team profiles"}</LocalizedText></h3>
           
           <p className="text-sm text-zinc-600 font-poppins max-w-md mb-6 leading-relaxed">
-            Something went wrong while fetching the team members data. Please check your internet connection or try again.
-          </p>
+            <LocalizedText>{"Something went wrong while fetching the team members data. Please check your internet connection or try again."}</LocalizedText></p>
 
           {/* রিট্রাই বাটন (আপনার থিমের সাথে মিলিয়ে ডিজাইন করা) */}
           <button
@@ -52,8 +48,7 @@ const TeamSectionErrorFallback = ({ error, resetErrorBoundary }: TeamSectionErro
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-4 h-4">
               <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
             </svg>
-            Try again
-          </button>
+            <LocalizedText>{"Try again"}</LocalizedText></button>
         </div>
 
       </div>

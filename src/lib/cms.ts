@@ -1,4 +1,4 @@
-export type CmsTextEntry = { key: string; label?: string; value?: string };
+export type CmsTextEntry = { key: string; label?: string; value?: string; valueBn?: string };
 export type CmsImageEntry = { key: string; label?: string; url?: string; alt?: string; fallbackUrl?: string };
 export type CmsLinkEntry = { key: string; label?: string; href?: string; page?: string };
 export type CmsCard = { _key?: string; enabled?: boolean; templateIndex?: number; title?: string; subtitle?: string; body?: string; points?: string[]; href?: string; url?: string; fallbackUrl?: string; alt?: string; featured?: boolean };
@@ -6,7 +6,7 @@ export type CmsSlide = { _key: string; enabled?: boolean; title: string; secondT
 export type CmsContact = { _id?: string; WhatsAppNumber?: string; footercontactnumber1?: string; footercontactnumber2?: string; footercontactemail?: string; footerlocation?: string; whatsappMessage?: string; openingHours?: string; mapUrl?: string; links?: { platformName: string; url: string }[] };
 export type CmsSectionDoc = { _id: string; _type: "siteSection"; title: string; previewPath?: string; enabled?: boolean; slideDelay?: number; slides?: CmsSlide[]; texts?: CmsTextEntry[]; images?: CmsImageEntry[]; links?: CmsLinkEntry[]; lists?: { key: string; label: string; items: CmsCard[] }[] };
 export type CmsPageBlock = { _key: string; kind: "existing" | "text" | "faq" | "cta" | "gallery"; sectionId?: string; title?: string; enabled?: boolean; body?: string; href?: string; buttonLabel?: string; url?: string; questions?: { _key: string; question: string; answer: string }[]; pictures?: { _key: string; url: string; alt?: string }[] };
-export type CmsPageDoc = { _id: string; _type: "sitePage"; title: string; path: string; updatedDate?: string; sections?: CmsPageBlock[]; seo?: { title?: string; description?: string; noIndex?: boolean; image?: string } };
+export type CmsPageDoc = { _id: string; _type: "sitePage"; title: string; titleBn?: string; path: string; updatedDate?: string; sections?: CmsPageBlock[]; seo?: { title?: string; description?: string; noIndex?: boolean; image?: string } };
 export type CmsGlobals = {pricing?:{interiorMultiplier?:number;furnitureMultiplier?:number;completeMultiplier?:number};announcement?:{enabled?:boolean;text?:string;href?:string;startsAt?:string;endsAt?:string}};
 export type CmsBundle = {globals?:CmsGlobals; sections: CmsSectionDoc[]; pages: CmsPageDoc[]; contact?: CmsContact };
 export const emptyCms: CmsBundle = { sections: [], pages: [] };
@@ -28,16 +28,16 @@ export const cmsQuery = `{
   "globals":*[_id == "siteSettings"][0]{pricing,announcement},
   "sections": *[_type == "siteSection" && !(_id in path("drafts.**"))]{
     _id,_type,title,previewPath,enabled,slideDelay,texts,links,
-    "slides":slides[]{_key,enabled,title,secondTitle,body,buttonLabel,href,action,fallbackUrl,alt,"url":image.asset->url,"mobileUrl":mobileImage.asset->url},
+    "slides":slides[]{_key,enabled,title,titleBn,secondTitle,secondTitleBn,body,bodyBn,buttonLabel,buttonLabelBn,href,action,fallbackUrl,alt,altBn,"url":image.asset->url,"mobileUrl":mobileImage.asset->url},
     "images":images[]{key,label,alt,fallbackUrl,"url":image.asset->url},
-    "lists":lists[]{key,label,"items":items[]{_key,templateIndex,enabled,title,subtitle,body,points,href,alt,featured,fallbackUrl,"url":image.asset->url}}
+    "lists":lists[]{key,label,"items":items[]{_key,templateIndex,enabled,title,titleBn,subtitle,subtitleBn,body,bodyBn,points,pointsBn,href,alt,altBn,featured,fallbackUrl,"url":image.asset->url}}
   },
   "pages": *[_type == "sitePage" && !(_id in path("drafts.**"))]{
-    _id,_type,title,path,updatedDate,
-    "seo":seo{title,description,noIndex,"image":image.asset->url},
-    "sections":sections[]{_key,kind,"sectionId":section._ref,title,enabled,body,href,buttonLabel,questions,"url":image.asset->url,"pictures":pictures[]{_key,alt,"url":asset->url}}
+    _id,_type,title,titleBn,path,updatedDate,
+    "seo":seo{title,titleBn,description,descriptionBn,noIndex,"image":image.asset->url},
+    "sections":sections[]{_key,kind,"sectionId":section._ref,title,titleBn,enabled,body,bodyBn,href,buttonLabel,buttonLabelBn,questions,"url":image.asset->url,"pictures":pictures[]{_key,alt,"url":asset->url}}
   },
-  "contact":*[_type == "website-settings"] | order(_createdAt asc)[0]{_id,WhatsAppNumber,footercontactnumber1,footercontactnumber2,footercontactemail,footerlocation,whatsappMessage,openingHours,mapUrl,links}
+  "contact":*[_type == "website-settings"] | order(_createdAt asc)[0]{_id,WhatsAppNumber,footercontactnumber1,footercontactnumber2,footercontactemail,footerlocation,footerlocationBn,whatsappMessage,whatsappMessageBn,openingHours,openingHoursBn,mapUrl,links}
 }`;
 export function cmsApiUrl(query = cmsQuery) {
   const project = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;

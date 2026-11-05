@@ -1,3 +1,4 @@
+import { banglaText, banglaList } from "./banglaFields";
 import { defineField, defineType } from "sanity";
 import { Building2 } from "lucide-react";
 
@@ -11,6 +12,10 @@ export const OfficePackageSchema = defineType({
     defineField({name:"enabled",title:"Show package",type:"boolean",initialValue:true}),
     defineField({name:"sortOrder",title:"Display order",type:"number",initialValue:0}),
     defineField({name:"featured",title:"Highlight package",type:"boolean"}),
+    banglaText("description", "Package description"),
+    banglaList("inclusions", "Inclusions"),
+    banglaList("exclusions", "Exclusions"),
+    banglaList("marketingFeatures", "Website package features"),
     defineField({name:"marketingFeatures",title:"Website package features",type:"array",of:[{type:"string"}]}),
     defineField({name:"marketingImage",title:"Website package image",type:"image",options:{hotspot:true}}),
 

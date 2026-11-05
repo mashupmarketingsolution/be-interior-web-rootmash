@@ -1,4 +1,5 @@
 "use client";
+import { LocalizedText } from "@/components/Language";
 import React from "react";
 
 const TeamSectionSkeleton = () => {
@@ -11,12 +12,9 @@ const TeamSectionSkeleton = () => {
         
         <div className="text-center mb-16">
           <h2 data-heading-tone="dark" className="text-3xl sm:text-4xl font-black text-[#1b332a] uppercase tracking-wide font-montagu">
-            The minds behind the design
-          </h2>
+            <LocalizedText>{"The minds behind the design"}</LocalizedText></h2>
           <p className="mt-4 text-zinc-500 max-w-2xl mx-auto font-poppins">
-            Meet the talented architects and designers who turn your vision into
-            reality with precision, passion, and creativity.
-          </p>
+            <LocalizedText>{"Meet the talented architects and designers who turn your vision into reality with precision, passion, and creativity."}</LocalizedText></p>
         </div>
 
 

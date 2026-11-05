@@ -1,3 +1,4 @@
+import { banglaString } from "./banglaFields";
 import { defineField, defineType } from "sanity";
 import { UsersIcon } from "@sanity/icons";
 export const InteriorTeamType = defineType({
@@ -6,6 +7,8 @@ export const InteriorTeamType = defineType({
   type: "document",
   icon: UsersIcon,
   fields: [
+    banglaString("name", "Name"),
+    banglaString("designation", "Designation"),
     defineField({name:"enabled",title:"Show on website",type:"boolean",initialValue:true}),
     defineField({name:"sortOrder",title:"Display order (smaller first)",type:"number",initialValue:0}),
     defineField({name:"featured",title:"Featured item",type:"boolean",initialValue:false}),

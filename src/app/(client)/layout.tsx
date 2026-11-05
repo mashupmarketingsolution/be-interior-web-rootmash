@@ -1,12 +1,10 @@
-import { pageMetadata, staticPages } from "@/lib/seo";
-import type { Metadata } from "next";
+import { getLanguage } from "@/lib/language-server";
 import ClientGlobalWrapper from "@/globalwrapper/ClientGlobalWrapper";
 import { getCmsBundle, managedPageMetadata } from "@/lib/cms-server";
 
 
 
 
-const seo = staticPages.find(([route]) => route === "/")!;
 export async function generateMetadata() { return managedPageMetadata("/"); }
 
 export default async function RootLayout({
@@ -14,9 +12,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [cms, language] = await Promise.all([getCmsBundle(), getLanguage()]);
   return (
     <>
-      <ClientGlobalWrapper initialCms={await getCmsBundle()}>{children}</ClientGlobalWrapper>
+      <ClientGlobalWrapper initialCms={cms} initialLanguage={language}>{children}</ClientGlobalWrapper>
     </>
   );
 }

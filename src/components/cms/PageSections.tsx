@@ -1,4 +1,5 @@
 "use client";
+import { useLanguage } from "@/components/Language";
 import React, { type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,6 +31,7 @@ export function PageSections({ path, slots }: { path: string; slots: { id: strin
 }
 
 export function CmsUpdatedDate({ path }: { path: string }) {
+  const language = useLanguage();
   const page = useCms().pages.find(p => p.path === path);
-  return <>{new Date((page?.updatedDate || "2026-11-03") + "T00:00:00Z").toLocaleDateString("en-GB", { timeZone: "UTC" })}</>;
+  return <>{new Date((page?.updatedDate || "2026-11-03") + "T00:00:00Z").toLocaleDateString(language === "bn" ? "bn-BD" : "en-GB", { timeZone: "UTC" })}</>;
 }

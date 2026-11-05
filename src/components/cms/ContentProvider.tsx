@@ -1,10 +1,13 @@
 "use client";
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { useLanguage } from "@/components/Language";
+import { localizeContent } from "@/lib/localized-content";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { cmsApiUrl, emptyCms, validCms, type CmsBundle } from "@/lib/cms";
 const Context = createContext<CmsBundle>(emptyCms);
 export function ContentProvider({ children, initialData }: { children: ReactNode; initialData?: CmsBundle }) {
+  const language = useLanguage();
   const { data } = useQuery({
     queryKey: ["website-content"], initialData, initialDataUpdatedAt: 0,
     queryFn: async ({ signal }) => {
@@ -23,7 +26,7 @@ export function ContentProvider({ children, initialData }: { children: ReactNode
     window.parent.postMessage({ type: "be-cms-preview-ready" }, location.origin);
     return () => window.removeEventListener("message", receive);
   }, []);
-  const value = useMemo(() => preview || data || emptyCms, [preview, data]);
+  const value = useMemo(() => localizeContent(preview || data || emptyCms, language), [preview, data, language]);
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 export function useCms() { return useContext(Context); }

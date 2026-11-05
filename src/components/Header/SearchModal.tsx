@@ -1,7 +1,9 @@
 "use client";
+import { LocalizedText } from "@/components/Language";
 import { allModalInteriorApi } from "@/axios/axios";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
+import { useTranslation } from "@/components/Language";
 import React, { useState, useEffect, useRef } from "react";
 import { Search, X, ChevronRight, LayoutGrid, Loader2 } from "lucide-react"; // lucide-react আইকন
 
@@ -47,6 +49,7 @@ export default function SearchModal({
 }: SearchModalProps) {
   const [searchQuery, setSearchQuery] = useState("");
 
+  const t = useTranslation();
   const dialogRef = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -96,7 +99,7 @@ export default function SearchModal({
     <>
 
       {/* Modal Container */}
-      <dialog ref={dialogRef} aria-label="Search projects" onCancel={() => setSearchModal(false)}
+      <dialog ref={dialogRef} aria-label={t("Search projects")} onCancel={() => setSearchModal(false)}
         onClick={(event) => {
           if (event.target !== event.currentTarget) return;
           const rect = event.currentTarget.getBoundingClientRect();
@@ -111,16 +114,16 @@ export default function SearchModal({
           <form onSubmit={(e) => e.preventDefault()} className="flex-1">
             <input
               type="text"
-              aria-label="Search projects by name, space, or style"
+              aria-label={t("Search projects by name, space, or style")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-transparent text-white placeholder:text-white/30 outline-none text-lg md:text-xl py-1 focus:ring-0"
-              placeholder="Search projects by name, space, or style..."
+              placeholder={t("Search projects by name, space, or style...")}
             />
           </form>
 
-          {searchQuery && <button type="button" onClick={() => setSearchQuery("")} className="p-2 text-sm hover:text-primary focus-visible:outline-2 focus-visible:outline-primary">Clear</button>}
-          <button type="button" aria-label="Close search" onClick={() => setSearchModal(false)} className="p-2.5 rounded-full hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-primary"><X size={22} /></button>
+          {searchQuery && <button type="button" onClick={() => setSearchQuery("")} className="p-2 text-sm hover:text-primary focus-visible:outline-2 focus-visible:outline-primary"><LocalizedText>{"Clear"}</LocalizedText></button>}
+          <button type="button" aria-label={t("Close search")} onClick={() => setSearchModal(false)} className="p-2.5 rounded-full hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-primary"><X size={22} /></button>
         </div>
 
         {/* Results Area */}
@@ -130,17 +133,16 @@ export default function SearchModal({
           {isLoading ? (
             <div className="flex flex-col items-center justify-center py-20 text-white/50 gap-3">
               <Loader2 className="w-8 h-8 animate-spin text-primary" />
-              <p className="text-sm font-medium tracking-wide">Searching projects...</p>
+              <p className="text-sm font-medium tracking-wide"><LocalizedText>{"Searching projects..."}</LocalizedText></p>
             </div>
           ) : isError ? (
             <div className="text-center py-20 text-red-400 text-sm">
-              Unable to load projects. Please try again.
-              <button type="button" onClick={() => void refetch()} className="block mx-auto mt-4 underline">Try again</button>
+              <LocalizedText>{"Unable to load projects. Please try again."}</LocalizedText><button type="button" onClick={() => void refetch()} className="block mx-auto mt-4 underline"><LocalizedText>{"Try again"}</LocalizedText></button>
             </div>
           ) : searchQuery.trim() === "" ? (
             <div className="flex flex-col items-center justify-center py-20 text-white/30">
               <LayoutGrid className="w-12 h-12 mb-4 opacity-20" />
-              <p className="text-sm tracking-wide">Discover your dream interior</p>
+              <p className="text-sm tracking-wide"><LocalizedText>{"Discover your dream interior"}</LocalizedText></p>
             </div>
           ) : filteredResults.length > 0 ? (
             <div className="flex flex-col p-2 gap-1">
@@ -164,7 +166,7 @@ export default function SearchModal({
                       </p>
                       <div className="flex items-center gap-2">
                         <span className="text-[10px] text-primary bg-primary/10 px-2 py-0.5 rounded-full capitalize font-semibold tracking-wider border border-primary/20">
-                          {item._type}
+                          {t(item._type)}
                         </span>
                         {item.location && (
                            <span className="text-[10px] text-white/40">• {item.location}</span>
@@ -186,14 +188,14 @@ export default function SearchModal({
                   onClick={handleLink}
                   className="w-full flex items-center justify-center gap-2 py-3.5 text-sm font-bold text-white bg-white/5 hover:bg-primary hover:text-white rounded-xl transition-all duration-300 border border-white/5 hover:border-primary/50 shadow-sm"
                 >
-                  Show all projects <ChevronRight className="w-4 h-4" />
+                  <LocalizedText>{"Show all projects"}</LocalizedText><ChevronRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
           ) : (
             <div className="text-center py-20">
-              <p className="text-white/50 text-sm font-medium mb-1">No projects found for &quot;{searchQuery}&quot;</p>
-              <p className="text-white/30 text-xs">Check for typos or try different keywords</p>
+              <p className="text-white/50 text-sm font-medium mb-1"><LocalizedText>{"No projects found for \""}</LocalizedText>{searchQuery}&quot;</p>
+              <p className="text-white/30 text-xs"><LocalizedText>{"Check for typos or try different keywords"}</LocalizedText></p>
             </div>
           )}
         </div>

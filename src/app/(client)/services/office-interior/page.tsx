@@ -1,3 +1,4 @@
+import { LocalizedText } from "@/components/Language";
 import { PageSections } from "@/components/cms/PageSections";
 import OfficeChoose from "@/components/office-interior/office-choose/OfficeChoose";
 import OfficeClients from "@/components/office-interior/office-clients/OfficeClients";
@@ -17,7 +18,7 @@ import OfficeProjectErr from "@/components/home/officeproject/OfficeProjectError
 const OfficePage = () => {
   return (
     <div>
-      <h1 data-heading-tone="dark" className="sr-only">Office interior design in Dhaka</h1>
+      <h1 data-heading-tone="dark" className="sr-only"><LocalizedText>{"Office interior design in Dhaka"}</LocalizedText></h1>
       <PageSections path="/services/office-interior" slots={[{ id: "section-ada934298a1e", node: (<OfficeInteriorSlider />) },
 { id: "section-8abdd6e09c4b", node: (<OfficeService />) },
 { id: "section-0173da3c8617", node: (<OfficeChoose />) },

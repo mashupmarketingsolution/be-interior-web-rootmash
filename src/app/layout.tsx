@@ -1,4 +1,5 @@
 import { pageMetadata, staticPages, siteUrl } from "@/lib/seo";
+import { getLanguage } from "@/lib/language-server";
 import type { Metadata } from "next";
 import { Geist, Poppins } from "next/font/google";
 import "@/app/globals.css";
@@ -22,15 +23,16 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.ico", shortcut: "/favicon.ico" },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const language = await getLanguage() ?? "en";
   return (
     <html
-      lang="en"
+      lang={language}
       suppressHydrationWarning={true}
       className={`${geistSans.variable} ${poppins.variable} h-full antialiased`}
     >

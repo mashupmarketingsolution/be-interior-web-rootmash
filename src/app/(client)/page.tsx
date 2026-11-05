@@ -1,3 +1,4 @@
+import { LocalizedText } from "@/components/Language";
 import { PageSections } from "@/components/cms/PageSections";
 import Navbar from "@/components/Header/Navbar";
 import BeinteriorProject from "@/components/home/beinteriorproj/BeinteriorProject";
@@ -37,7 +38,7 @@ export default function Home() {
 { id: "section-6bda2feda9af", node: (<ErrorBoundary fallback={<HappyCustomererr />}>
           <HappyCustomers />
       </ErrorBoundary>) },
-{ id: "section-adb0c734da06", node: (<ErrorBoundary fallback={<div>প্রজেক্ট লোড করতে সমস্যা হয়েছে।</div>}>
+{ id: "section-adb0c734da06", node: (<ErrorBoundary fallback={<div><LocalizedText>{"Failed to load projects."}</LocalizedText></div>}>
         <Suspense fallback={<JustClickSuspense />}>
           <JustClick />
         </Suspense>

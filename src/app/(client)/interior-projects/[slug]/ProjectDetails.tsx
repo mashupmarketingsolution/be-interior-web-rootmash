@@ -1,4 +1,5 @@
 "use client";
+import { LocalizedText } from "@/components/Language";
 import { whatsappNumber } from "@/lib/contact-links";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import Image from "next/image";
@@ -163,8 +164,7 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
       <div className="min-h-screen bg-ivory flex flex-col items-center justify-center font-sans">
         <div className="w-12 h-12 border-4 border-zinc-300 border-t-primary rounded-full animate-spin mb-4"></div>
         <p className="text-primary font-medium animate-pulse">
-          Loading project details...
-        </p>
+          <LocalizedText>{"Loading project details..."}</LocalizedText></p>
       </div>
     );
   }
@@ -174,7 +174,7 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
       <div className="min-h-screen bg-[#F0F4EC] flex items-center justify-center font-sans">
         <div className="bg-red-50 border border-red-100 p-8 rounded-2xl max-w-md text-center shadow-sm">
           <p className="text-red-500 font-medium">
-            Failed to load project: {error?.message}
+            <LocalizedText>{"Failed to load project:"}</LocalizedText>{error?.message}
           </p>
         </div>
       </div>
@@ -211,24 +211,21 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
                 />
               ) : (
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-6 space-y-4 bg-zinc-900">
-                  <p className="text-sm text-zinc-400">Media Not Available</p>
+                  <p className="text-sm text-zinc-400"><LocalizedText>{"Media Not Available"}</LocalizedText></p>
                   <p className="text-xs text-zinc-500">
-                    Provided by Be Interior Design Team
-                  </p>
+                    <LocalizedText>{"Provided by Be Interior Design Team"}</LocalizedText></p>
                 </div>
               )}
             </div>
 
             <div className="p-8 bg-[#FAF5E9]/50 border border-[#111111]/10 rounded-2xl h-full flex flex-col justify-baseline">
               <h3 data-heading-tone="dark" className="font-montagu text-2xl font-bold text-[#111111] mb-6">
-                About this project
-              </h3>
+                <LocalizedText>{"About this project"}</LocalizedText></h3>
 
               <div className="space-y-6">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">
-                    Total Area
-                  </p>
+                    <LocalizedText>{"Total Area"}</LocalizedText></p>
                   <p className="font-medium text-lg text-[#111111]">
                     {project?.size || "Not specified"}
                   </p>
@@ -236,8 +233,7 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
                 <div className="h-px w-full bg-[#111111]/10" /> {/* Divider */}
                 <div>
                   <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">
-                    Location
-                  </p>
+                    <LocalizedText>{"Location"}</LocalizedText></p>
                   <p className="font-medium text-lg text-[#111111]">
                     {project?.location || "Not specified"}
                   </p>
@@ -251,16 +247,14 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
               onClick={handleWhatsAppRedirect}
               className="bg-secondary text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-[#1a2924] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
             >
-              Talk to our designers
-            </button>
+              <LocalizedText>{"Talk to our designers"}</LocalizedText></button>
 
            <a
             href={`tel:${contactItems?.result[0].footercontactnumber1 as string}`}
             onClick={() => trackPhoneClick("project_details")}
             className="inline-flex items-center justify-center border-2 border-primary px-8 py-3 rounded-full text-sm font-medium leading-5 hover:bg-primary/10 transition-colors duration-300"
           >
-            Call now
-          </a>
+            <LocalizedText>{"Call now"}</LocalizedText></a>
 
           </div>
         </div>
@@ -270,8 +264,7 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
         <div className="max-w-7xl mx-auto py-8">
           <div className="text-center mb-12">
             <h2 data-heading-tone="dark" className="text-3xl font-serif font-semibold text-secondary inline-block relative">
-              Project gallery
-              <span className="absolute -bottom-3 left-1/4 right-1/4 h-1 bg-primary rounded-full"></span>
+              <LocalizedText>{"Project gallery"}</LocalizedText><span className="absolute -bottom-3 left-1/4 right-1/4 h-1 bg-primary rounded-full"></span>
             </h2>
           </div>
 
@@ -298,8 +291,7 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
           ) : (
             <div className="text-center py-20 bg-zinc-50 rounded-2xl border border-dashed border-zinc-200">
               <p className="text-zinc-500 font-medium">
-                No gallery images available for this project yet.
-              </p>
+                <LocalizedText>{"No gallery images available for this project yet."}</LocalizedText></p>
             </div>
           )}
 

@@ -1,3 +1,4 @@
+import { LocalizedText } from "@/components/Language";
 import { PageSections } from "@/components/cms/PageSections";
 import HomeComment from "@/components/home-interior/home-comment/HomeComment";
 import HomeInteriorProjects from "@/components/home-interior/home-interior-projects/HomeInteriorProject";
@@ -20,8 +21,8 @@ import { ErrorBoundary } from "react-error-boundary";
 const HomeInterior = () => {
   return (
     <div className="">
-      <h1 data-heading-tone="dark" className="sr-only">Home interior design in Dhaka</h1>
-      <PageSections path="/services/home-interior" slots={[{ id: "section-4d67118a0e1e", node: (<ErrorBoundary fallback={<div>প্রজেক্ট লোড করতে সমস্যা হয়েছে।</div>}>
+      <h1 data-heading-tone="dark" className="sr-only"><LocalizedText>{"Home interior design in Dhaka"}</LocalizedText></h1>
+      <PageSections path="/services/home-interior" slots={[{ id: "section-4d67118a0e1e", node: (<ErrorBoundary fallback={<div><LocalizedText>Failed to load projects.</LocalizedText></div>}>
         <HomeInteriorSlider />
       </ErrorBoundary>) },
 { id: "section-8c426c953f30", node: (<HomeSolution />) },

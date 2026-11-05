@@ -1,3 +1,4 @@
+import { banglaText, banglaList } from "./banglaFields";
 import { defineField, defineType } from "sanity";
 import { Package, Subtitles } from "lucide-react";
 
@@ -10,6 +11,7 @@ export const PackageSchema = defineType({
     defineField({name:"enabled",title:"Show package",type:"boolean",initialValue:true}),
     defineField({name:"sortOrder",title:"Display order",type:"number",initialValue:0}),
     defineField({name:"featured",title:"Highlight package",type:"boolean"}),
+    banglaList("marketingFeatures", "Website package features"),
     defineField({name:"marketingFeatures",title:"Website package features",type:"array",of:[{type:"string"}]}),
     defineField({name:"marketingImage",title:"Website package image",type:"image",options:{hotspot:true}}),
 
@@ -28,6 +30,9 @@ export const PackageSchema = defineType({
           type: "object",
           title: "Package Item",
           fields: [
+            banglaText("slogan", "Item description"),
+            banglaList("furniture", "Furniture"),
+            banglaList("accessories", "Accessories"),
             {
               name: "name",
               title: "Item Name",

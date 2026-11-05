@@ -11,7 +11,8 @@ export const SiteSettingsType = defineType({
   fields: [
     defineField({name:"announcement",title:"Announcement / offer",type:"object",group:"offers",fields:[
       defineField({name:"enabled",title:"Show announcement",type:"boolean",initialValue:false}),
-      defineField({name:"text",title:"Message",type:"string",validation:r=>r.max(180)}),
+      defineField({name:"textBn",title:"Message (Bangla)",type:"string",validation:r=>r.max(180)}),
+    defineField({name:"text",title:"Message",type:"string",validation:r=>r.max(180)}),
       defineField({name:"href",title:"Page link (optional)",type:"string",validation:r=>r.custom(v=>!v||(/^\/(?!\/)/.test(v)||/^https:\/\//.test(v))||"Use a page path or HTTPS address")}),
       defineField({name:"startsAt",title:"Start date / time (optional)",type:"datetime"}),
       defineField({name:"endsAt",title:"End date / time (optional)",type:"datetime"})

@@ -1,3 +1,4 @@
+import { banglaString, banglaText } from "./banglaFields";
 import { defineField, defineType, defineArrayMember } from "sanity";
 import { WrenchIcon } from "@sanity/icons";
 
@@ -7,6 +8,9 @@ export const WebsiteSettingsType = defineType({
   type: "document",
   icon: WrenchIcon,
   fields: [
+    banglaText("footerlocation", "Address"),
+    banglaString("openingHours", "Opening hours"),
+    banglaText("whatsappMessage", "Default WhatsApp greeting"),
     defineField({name:"openingHours",title:"Opening hours",type:"string"}),
     defineField({name:"whatsappMessage",title:"Default WhatsApp greeting",type:"text",rows:3}),
     defineField({

@@ -1,4 +1,5 @@
 "use client"
+import { LocalizedText } from "@/components/Language";
 import React from "react";
 const roomsAccessoryTypes = [
   {
@@ -863,8 +864,7 @@ const HappyCustomersSuspense = () => {
     <div className="flex flex-col w-full items-center justify-center mt-16 px-4 p-10 bg-ivory animate-pulse">
    
       <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-[#111111] tracking-wide font-bold ">
-        Trusted by visionaries
-      </h2>
+        <LocalizedText>{"Trusted by visionaries"}</LocalizedText></h2>
 
     
       <div className="w-full max-w-7xl mt-8">

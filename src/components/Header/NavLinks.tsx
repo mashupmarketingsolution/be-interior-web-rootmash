@@ -1,6 +1,8 @@
 "use client";
+import { LocalizedText } from "@/components/Language";
 import { ChevronDown, Search } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "@/components/Language";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SearchModal from "./SearchModal";
@@ -8,6 +10,7 @@ import { useSiteSettings } from "./useSiteSettings";
 
 const itemClass = "inline-flex items-center gap-2 whitespace-nowrap rounded-full px-3 xl:px-4 py-2 text-sm xl:text-base hover:bg-white/5 hover:text-white focus-visible:outline-2 focus-visible:outline-primary";
 export default function NavLinks() {
+  const t = useTranslation();
   const { menu } = useSiteSettings();
   const pathname = usePathname();
   const [openGroup, setOpenGroup] = useState<string | null>(null);
@@ -22,7 +25,7 @@ export default function NavLinks() {
     return () => document.removeEventListener("pointerdown", outside);
   }, []);
   return (
-    <nav ref={navRef} aria-label="Desktop navigation" className="flex items-center gap-1 xl:gap-3 text-white/80 font-medium"
+    <nav ref={navRef} aria-label={t("Desktop navigation")} className="flex items-center gap-1 xl:gap-3 text-white/80 font-medium"
       onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setOpenGroup(null); }}
       onKeyDown={event => {
         if (event.key === "Escape" && openGroup) {
@@ -54,10 +57,10 @@ export default function NavLinks() {
           onClick={() => { setOpenGroup(null); if (item.href === "/" && pathname === "/") window.scrollTo({ top: 0, behavior: "smooth" }); }}
           className={itemClass + (active(item.href!) ? " text-primary bg-primary/10" : "")}><span className="max-w-24 xl:max-w-28 truncate" title={item.label}>{item.label}</span></Link>
       ))}
-      <button type="button" aria-label="Search projects" aria-haspopup="dialog" aria-expanded={searchModal}
+      <button type="button" aria-label={t("Search projects")} aria-haspopup="dialog" aria-expanded={searchModal}
         onClick={() => { setOpenGroup(null); setSearchModal(true); }}
         className="inline-flex items-center gap-2 p-3 xl:px-4 rounded-full hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-primary">
-        <Search size={20} /><span className="hidden xl:inline text-sm">Search projects</span>
+        <Search size={20} /><span className="hidden xl:inline text-sm"><LocalizedText>{"Search projects"}</LocalizedText></span>
       </button>
       {searchModal && <SearchModal searchModal={searchModal} setSearchModal={setSearchModal} />}
     </nav>

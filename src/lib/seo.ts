@@ -1,8 +1,9 @@
+import type { Language } from "./language";
 import type { Metadata } from "next";
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://beinterior.com.bd").replace(/\/$/, "");
-export function pageMetadata(title: string, description: string, route: string, image = "/opengraph-image"): Metadata {
+export function pageMetadata(title: string, description: string, route: string, image = "/opengraph-image", language: Language = "en"): Metadata {
   return { title, description, metadataBase: new URL(siteUrl), alternates: { canonical: route },
-    openGraph: { type: "website", siteName: "BE Interior", title, description, url: route, images: [{ url: image, alt: title }] },
+    openGraph: { type: "website", locale: language === "bn" ? "bn_BD" : "en_BD", siteName: "BE Interior", title, description, url: route, images: [{ url: image, alt: title }] },
     twitter: { card: "summary_large_image", title, description, images: [image] } };
 }
 export const staticPages = [
@@ -21,10 +22,10 @@ export const staticPages = [
 ] as const;
 
 export type SeoOverrides = { title?: string; description?: string; image?: string; noIndex?: boolean };
-export function contentMetadata(title: string, description: string, route: string, coverImage?: string, seo?: SeoOverrides | null): Metadata {
+export function contentMetadata(title: string, description: string, route: string, coverImage?: string, seo?: SeoOverrides | null, language: Language = "en"): Metadata {
   const clean = (value?: string) => value?.replace(/\s+/g, " ").trim();
   return {
-    ...pageMetadata(clean(seo?.title) || title, clean(seo?.description) || description, route, clean(seo?.image) || coverImage || undefined),
+    ...pageMetadata(clean(seo?.title) || title, clean(seo?.description) || description, route, clean(seo?.image) || coverImage || undefined, language),
     robots: { index: seo?.noIndex !== true, follow: true },
   };
 }

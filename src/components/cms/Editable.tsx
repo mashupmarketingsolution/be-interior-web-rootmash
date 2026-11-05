@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/components/Language";
 import React, { type ComponentProps, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,26 +8,29 @@ import { safeContentImage, safeContentLink, textKey } from "@/lib/cms";
 import { imageKeys } from "@/content/image-registry";
 
 export function CmsText({ section, entryKey, fallback, original }: { section: string; entryKey?: string; fallback: ReactNode; original?: ReactNode }) {
+  const t = useTranslation();
   const doc = useCmsSection(section);
   if (typeof fallback !== "string") return <>{fallback}</>;
   const entry = doc?.texts?.find(t => t.key === (entryKey || textKey(fallback)));
-  if (entry?.value === undefined || entry.value === fallback.trim()) return <>{original ?? fallback}</>;
+  const value = t(entry?.value ?? fallback.trim(), entry?.valueBn);
+  if (value === fallback.trim()) return <>{original ?? fallback}</>;
   const prefix = /^\s/.test(fallback) ? " " : "";
   const suffix = /\s$/.test(fallback) ? " " : "";
-  return <>{prefix + entry.value + suffix}</>;
+  return <>{prefix + value + suffix}</>;
 }
 export function CmsSection({ section, children }: { section: string; children: ReactNode }) {
   const doc = useCmsSection(section);
   return doc?.enabled === false ? null : <div data-cms-section={section} style={{ display: "contents" }}>{children}</div>;
 }
 export function CmsImage({ section, ...props }: ComponentProps<typeof Image> & { section: string }) {
+  const t = useTranslation();
   const doc = useCmsSection(section);
   const rawSrc = typeof props.src === "string" ? props.src : "src" in props.src ? props.src.src : props.src.default.src;
   const key = imageKeys[rawSrc];
   const card = doc?.lists?.flatMap(list => list.items).find(item => item.url === rawSrc || (!!key && item.fallbackUrl?.includes(key)));
   const entry = doc?.images?.find(i => i.key === key) || card;
   const src = safeContentImage(entry?.url) ? entry.url : props.src;
-  return <Image {...props} src={src} alt={entry?.alt || props.alt} />;
+  return <Image {...props} src={src} alt={t(entry?.alt || props.alt)} />;
 }
 export function CmsLink({ section, entryKey, ...props }: ComponentProps<typeof Link> & { section: string; entryKey?: string }) {
   const doc = useCmsSection(section);
@@ -36,13 +40,15 @@ export function CmsLink({ section, entryKey, ...props }: ComponentProps<typeof L
 }
 export function CmsInput({ section, ...props }: ComponentProps<"input"> & { section: string }) {
   const doc = useCmsSection(section);
+  const t = useTranslation();
   const entry = props.placeholder ? doc?.texts?.find(t => t.key === textKey(props.placeholder!)) : undefined;
-  return <input {...props} placeholder={entry?.value ?? props.placeholder} />;
+  return <input {...props} placeholder={props.placeholder === undefined ? undefined : t(entry?.value ?? props.placeholder, entry?.valueBn)} />;
 }
 export function CmsTextarea({ section, ...props }: ComponentProps<"textarea"> & { section: string }) {
   const doc = useCmsSection(section);
+  const t = useTranslation();
   const entry = props.placeholder ? doc?.texts?.find(t => t.key === textKey(props.placeholder!)) : undefined;
-  return <textarea {...props} placeholder={entry?.value ?? props.placeholder} />;
+  return <textarea {...props} placeholder={props.placeholder === undefined ? undefined : t(entry?.value ?? props.placeholder, entry?.valueBn)} />;
 }
 export function useCmsList<T extends Record<string, unknown>>(section: string, key: string, fallback: T[]): T[] {
   const list = useCmsSection(section)?.lists?.find(l => l.key === key);

@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/components/Language";
 import { CmsImage, CmsText, CmsTextarea, CmsSection } from "@/components/cms/Editable";
 import Image from "next/image";
 import React, { ChangeEvent, FormEvent, useState, useRef } from "react";
@@ -16,6 +17,7 @@ interface FormType {
 type FormErrors = Partial<FormType>;
 
 const ContactForm = () => {
+  const t = useTranslation();
   const [formData, setFormData] = useState<FormType>({
     name: "",
     email: "",
@@ -142,7 +144,7 @@ const ContactForm = () => {
           )}
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-            {submitError && <p role="alert" className="rounded-xl bg-red-50 text-red-800 p-4 text-sm">{submitError}</p>}
+            {submitError && <p role="alert" className="rounded-xl bg-red-50 text-red-800 p-4 text-sm">{t(submitError)}</p>}
             {/* Input fields */}
             {[
               {
@@ -170,10 +172,10 @@ const ContactForm = () => {
                     className={`absolute left-4 w-5 h-5 transition-colors duration-300 ${errors[field.name as keyof FormType] ? "text-red-400" : "text-zinc-400 group-focus-within:text-primary"}`}
                   />
                   <input
-                  aria-label={field.placeholder}
+                  aria-label={t(field.placeholder)}
                   type={field.type}
                     name={field.name}
-                    placeholder={field.placeholder}
+                    placeholder={t(field.placeholder)}
                     value={formData[field.name as keyof FormType]}
                     onChange={handleChange}
                     className={`w-full pl-12 pr-4 py-3.5 bg-[#FAF5E9]/50 text-[#111111] rounded-xl outline-none transition-all placeholder:text-zinc-400 font-medium text-sm border-2 ${
@@ -185,7 +187,7 @@ const ContactForm = () => {
                 </div>
                 {errors[field.name as keyof FormType] && (
                   <span className="text-red-500 text-xs mt-1.5 ml-2 font-semibold">
-                    {errors[field.name as keyof FormType]}
+                    {t(errors[field.name as keyof FormType] ?? "")}
                   </span>
                 )}
               </div>
@@ -193,7 +195,7 @@ const ContactForm = () => {
 
             {/* Textarea */}
             <div className="flex flex-col w-full">
-              <CmsTextarea section="section-63787ee750fd" aria-label="Project details" name="projectInfo"
+              <CmsTextarea section="section-63787ee750fd" aria-label={t("Project details")} name="projectInfo"
                 rows={4}
                 placeholder="Tell us about your project (location, floor area, style preferences, etc.)"
                 value={formData.projectInfo}
@@ -206,7 +208,7 @@ const ContactForm = () => {
               />
               {errors.projectInfo && (
                 <span className="text-red-500 text-xs mt-1.5 ml-2 font-semibold">
-                  {errors.projectInfo}
+                  {t(errors.projectInfo)}
                 </span>
               )}
             </div>

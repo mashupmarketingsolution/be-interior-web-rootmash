@@ -1,3 +1,4 @@
+import { banglaString } from "./banglaFields";
 import { defineField, defineType } from "sanity";
 import { DesktopIcon } from "@sanity/icons";
 
@@ -7,6 +8,8 @@ export const OfficeProjectType = defineType({
   type: "document",
   icon: DesktopIcon,
   fields: [
+    banglaString("name", "Project name"),
+    banglaString("location", "Location"),
     defineField({name:"enabled",title:"Show on website",type:"boolean",initialValue:true}),
     defineField({name:"sortOrder",title:"Display order (smaller first)",type:"number",initialValue:0}),
     defineField({name:"featured",title:"Featured item",type:"boolean",initialValue:false}),

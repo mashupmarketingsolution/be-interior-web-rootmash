@@ -1,5 +1,5 @@
-export interface MenuLink { label: string; href: string }
-export interface MenuItem { id: string; label: string; href?: string; children?: MenuLink[] }
+export interface MenuLink { label: string; labelBn?: string; href: string }
+export interface MenuItem { id: string; label: string; labelBn?: string; href?: string; children?: MenuLink[] }
 
 export const defaultMenu: MenuItem[] = [
   { id: "home", label: "Home", href: "/" },
@@ -55,7 +55,7 @@ function parseLink(value: unknown): MenuLink | null {
   if (!value || typeof value !== "object") return null;
   const item = value as Record<string, unknown>;
   const href = menuItemHref(item);
-  return label(item.label) && safeMenuHref(href) ? { label: label(item.label), href } : null;
+  return label(item.label) && safeMenuHref(href) ? { label: label(item.label), labelBn: label(item.labelBn) || undefined, href } : null;
 }
 export function parseMenu(value: unknown): MenuItem[] {
   if (!Array.isArray(value) || value.length === 0) return defaultMenu;
@@ -70,7 +70,7 @@ export function parseMenu(value: unknown): MenuItem[] {
       if (!visibleChildren.length) continue;
       const children = visibleChildren.map(parseLink).filter((link): link is MenuLink => !!link);
       if (children.length !== visibleChildren.length) return defaultMenu;
-      parsed.push({ id: `menu-${index}`, label: label(item.label), children });
+      parsed.push({ id: `menu-${index}`, label: label(item.label), labelBn: label(item.labelBn) || undefined, children });
       continue;
     }
     const link = parseLink(item);

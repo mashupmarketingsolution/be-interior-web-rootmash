@@ -1,4 +1,7 @@
 import "server-only";
+import { getLanguage } from "./language-server";
+import { translate } from "./language";
+import { localizeContent } from "./localized-content";
 import { cmsApiUrl, emptyCms, validCms } from "./cms";
 import { pageMetadata, staticPages } from "./seo";
 export async function getCmsBundle() {
@@ -11,7 +14,10 @@ export async function getCmsBundle() {
 }
 export async function managedPageMetadata(path: string) {
   const fallback = staticPages.find(p => p[0] === path) || staticPages[0];
-  const page = (await getCmsBundle()).pages.find(p => p.path === path);
+  const [cms, preference] = await Promise.all([getCmsBundle(), getLanguage()]);
+  const language = preference ?? "en";
+  const page = localizeContent(cms.pages.find(p => p.path === path), language);
   const seo = page?.seo;
-  return { ...pageMetadata(seo?.title || page?.title || fallback[1], seo?.description || fallback[2], path, seo?.image), ...(seo?.noIndex ? { robots: { index: false, follow: true } } : {}) };
+  const title = seo?.title || (language === "bn" && path === fallback[0] ? page?.titleBn?.trim() || fallback[1] : page?.title || fallback[1]);
+  return { ...pageMetadata(translate(language, title), translate(language, seo?.description || fallback[2]), path, seo?.image, language), ...(seo?.noIndex ? { robots: { index: false, follow: true } } : {}) };
 }

@@ -1,4 +1,5 @@
 "use client";
+import { LocalizedText } from "@/components/Language";
 import React from "react";
 
 const HomeCustomersSuspense = () => {
@@ -6,11 +7,9 @@ const HomeCustomersSuspense = () => {
     <div className="flex flex-col w-full items-center justify-center mt-16 px-4 p-10 bg-ivory animate-pulse">
       {/* হেডিং প্লেসহোল্ডার */}
       <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-[#111111] tracking-wide font-bold ">
-        Check some review
-      </h2>
+        <LocalizedText>{"Check some review"}</LocalizedText></h2>
       <h2 data-heading-tone="dark" className="text-2xl md:text-3xl lg:text-5xl font-montagu text-[#111111] tracking-wide font-bold ">
-        Of our customers
-      </h2>
+        <LocalizedText>{"Of our customers"}</LocalizedText></h2>
 
       {/* মেইন কন্টেইনার (Swiper এর মতোই w-full max-w-7xl) */}
       <div className="w-full max-w-7xl mt-8">

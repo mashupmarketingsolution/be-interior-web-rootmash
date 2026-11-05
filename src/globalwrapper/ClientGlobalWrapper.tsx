@@ -3,6 +3,8 @@ import { Announcement } from "@/components/cms/Announcement";
 import React, { useEffect, useState } from "react";
 import SiteTheme from "@/components/SiteTheme";
 import { ContentProvider } from "@/components/cms/ContentProvider";
+import { LanguageProvider } from "@/components/Language";
+import type { Language } from "@/lib/language";
 import type { CmsBundle } from "@/lib/cms";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Navbar from "@/components/Header/Navbar";
@@ -13,9 +15,11 @@ import { useRouter } from "next/navigation";
 const ClientGlobalWrapper = ({
   children,
   initialCms,
+  initialLanguage,
 }: Readonly<{
   children: React.ReactNode;
   initialCms?: CmsBundle;
+  initialLanguage?: Language;
 }>) => {
   const [queryClient] = useState(() => new QueryClient());
 
@@ -40,6 +44,7 @@ const ClientGlobalWrapper = ({
 
   return (
     <>
+      <LanguageProvider initialLanguage={initialLanguage}>
       <QueryClientProvider client={queryClient}>
         <ContentProvider initialData={initialCms}>
         <Announcement /><SiteTheme>
@@ -51,6 +56,7 @@ const ClientGlobalWrapper = ({
         </SiteTheme>
         </ContentProvider>
       </QueryClientProvider>
+      </LanguageProvider>
     </>
   );
 };

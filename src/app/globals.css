@@ -17,6 +17,18 @@
   font-family: var(--site-font-family, var(--font-poppins)), sans-serif;
 }
 
+html[lang="bn"] .site-typography,
+html[lang="bn"] .site-typography :where(*),
+dialog[aria-labelledby="language-title"] :lang(bn) {
+  font-family: "Noto Sans Bengali", "Nirmala UI", "Vrinda", sans-serif;
+  letter-spacing: normal;
+}
+
+html[lang="bn"] .site-typography :is(h1, h2, [data-main-heading]) {
+  line-height: 1.35;
+  letter-spacing: normal;
+}
+
 .site-typography [data-heading-tone="dark"] { color: var(--site-heading-dark, #111111); }
 .site-typography [data-heading-tone="light"] { color: var(--site-heading-light, #ffffff); }
 
