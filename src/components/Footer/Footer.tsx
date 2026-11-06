@@ -1,25 +1,19 @@
 "use client";
 import { CmsText, CmsLink, CmsImage, CmsSection, useCmsList } from "@/components/cms/Editable";
-import React from "react";
 import { useCms } from "@/components/cms/ContentProvider";
-import Link from "next/link";
 import NavLogo from "../Header/NavLogo";
 import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
-  FaPinterestP,
-  FaTiktok,
   FaYoutube,
   FaPhoneAlt,
   FaEnvelope,
   FaFacebook,
 } from "react-icons/fa";
-import { RiTwitterXFill } from "react-icons/ri";
 import { HiMapPin } from "react-icons/hi2";
 import { useQuery } from "@tanstack/react-query";
 import { footerContactApi } from "@/axios/axios";
-import Image from "next/image";
 import logo from "@/logo/Gemini_Generated_Image_be-interior.png";
 import {
   trackPhoneClick,
@@ -128,7 +122,7 @@ const footerLinkdIn = getSocialLink("LinkedIn");
 const footerYT = getSocialLink("YouTube");
 
   return (
-    <CmsSection section="section-784ee3257dd1"><footer className="relative w-full bg-secondary/90 text-white pt-20 pb-20 overflow-hidden">
+    <CmsSection section="section-784ee3257dd1"><footer className="relative w-full bg-secondary/90 text-white pt-12 pb-24 md:py-16 lg:py-20 overflow-hidden">
       {/* Abstract Background Decoration */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-[120px]"></div>
@@ -136,7 +130,7 @@ const footerYT = getSocialLink("YouTube");
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-10 lg:gap-8 mb-10 lg:mb-16">
           {/* Column 1: Branding */}
           <div className="flex flex-col gap-6">
               <NavLogo className="" />
@@ -235,7 +229,7 @@ const footerYT = getSocialLink("YouTube");
                 <a
                   href={`mailto:${footerEmail}`}
                   onClick={() => trackEmailClick("footer_email")}
-                  className="hover:text-white transition-colors truncate"
+                  className="hover:text-white transition-colors min-w-0 [overflow-wrap:anywhere]"
                 >
                   {isLoading ? "..." : `${footerEmail}`}
                 </a>
@@ -294,9 +288,9 @@ const footerYT = getSocialLink("YouTube");
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-500">
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-center text-xs md:text-left text-zinc-500">
           <p>© {new Date().getFullYear()}<CmsText section="section-784ee3257dd1" entryKey="text-4c384b9fdcb0" fallback={" BE INTERIOR. All Rights Reserved."} /></p>
-          <div className="flex gap-8">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
             <CmsLink section="section-784ee3257dd1" entryKey="link-64f33c59cc80"
               href="/privacy-policy"
               className="hover:text-white transition-colors"

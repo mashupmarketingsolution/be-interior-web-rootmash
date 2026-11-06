@@ -2,20 +2,17 @@
 import { useLanguage, useTranslation } from "@/components/Language";
 import { CmsText, CmsLink, CmsImage, CmsSection } from "@/components/cms/Editable";
 import React, { useState } from "react";
-import Link from "next/link";
 import { FiArrowRight, FiAlertCircle } from "react-icons/fi";
 import { allBlogApi } from "@/axios/axios";
 import { useQuery } from "@tanstack/react-query";
-import Image from "next/image";
 
 interface BlogTypes {
   ms: number;
   query: number;
   result: {
-    authorimage: string;
     authorname: string;
     blogcategory: string;
-    coverImage: string;
+    coverImage?: string | null;
     blogname: string;
     publishedDate: string;
     slug: string;
@@ -38,73 +35,10 @@ const fetchAllBlogs = async () => {
   }
 };
 
-const blogPosts = [
-  {
-    id: 1,
-    title: "10 Modern Minimalist Living Room Ideas",
-    excerpt:
-      "Discover how to strip back the clutter and create a serene, stylish, and functional minimalist living space.",
-    image:
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800",
-    category: "Home Interior",
-    date: "Jun 12, 2026",
-  },
-  {
-    id: 2,
-    title: "How to Choose the Perfect Color Palette",
-    excerpt:
-      "A comprehensive guide to understanding color theory and selecting the right shades for your bedroom and living areas.",
-    image:
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=800",
-    category: "Styling",
-    date: "Jun 08, 2026",
-  },
-  {
-    id: 3,
-    title: "Maximizing Small Spaces: Clever Storage",
-    excerpt:
-      "Struggling with space? Learn how hidden storage and multi-functional furniture can transform compact apartments.",
-    image:
-      "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=800",
-    category: "Tips & Tricks",
-    date: "May 28, 2026",
-  },
-  {
-    id: 4,
-    title: "The Ultimate Guide to Office Ergonomics",
-    excerpt:
-      "Boost productivity and employee well-being with these modern ergonomic workspace layout ideas.",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800",
-    category: "Office Interior",
-    date: "May 15, 2026",
-  },
-  {
-    id: 5,
-    title: "Trending Materials for Kitchen Countertops",
-    excerpt:
-      "From classic marble to durable quartz, explore the best materials to use for your next kitchen renovation.",
-    image:
-      "https://images.unsplash.com/photo-1556910103-1c02745a872f?auto=format&fit=crop&q=80&w=800",
-    category: "Kitchen",
-    date: "May 02, 2026",
-  },
-  {
-    id: 6,
-    title: "Bringing Nature Indoors: Biophilic Design",
-    excerpt:
-      "Learn how to seamlessly integrate plants, natural light, and organic textures to breathe life into your home.",
-    image:
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800",
-    category: "Design Trends",
-    date: "Apr 20, 2026",
-  },
-];
-
 const BlogSection = () => {
   const t = useTranslation();
   const language = useLanguage();
-  const [currentPage, setCurrentPage] = useState(1);
+  const [requestedPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
   const { data, isLoading, isError } = useQuery<BlogTypes>({
@@ -112,29 +46,16 @@ const BlogSection = () => {
     queryFn: fetchAllBlogs,
   });
 
-  const blogs = data?.result || [];
-  if(process.env.NODE_ENV === 'development') {
-    console.log("Blogs" , blogs)
-  }
-
+  const blogs = (data?.result ?? []).filter((blog) => blog.slug?.trim() && blog.blogname?.trim());
   const totalPages = Math.ceil(blogs.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * totalPages;
-  const currentBlog = blogs.slice(startIndex, startIndex + itemsPerPage);
-
-  const handlePrevious = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prev) => prev - 1);
-    }
-  };
-  const handleNext = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage((prev) => prev + 1);
-    }
-  };
+  const currentPage = Math.min(requestedPage, Math.max(1, totalPages));
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentBlogs = blogs.slice(startIndex, startIndex + itemsPerPage);
 
   const formatDate = (dateString: string) => {
     if (!dateString) return "";
     const date = new Date(dateString);
+    if (Number.isNaN(date.getTime())) return "";
     return date.toLocaleDateString(language === "bn" ? "bn-BD" : "en-US", {
       month: "short",
       day: "numeric",
@@ -184,32 +105,34 @@ const BlogSection = () => {
           </>} /></h3>
           <p className="text-red-600/80 text-sm"><CmsText section="section-720af0ba771b" entryKey="text-ade7b92cbd1f" fallback={"We couldn't load the articles right now. Please check your internet connection or try refreshing the page."} /></p>
         </div>
-      ) : !isLoading && !isError && blogs.length > 0 ? (
+      ) : blogs.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {currentBlog.map((blog) => (
+          {currentBlogs.map((blog) => (
             <CmsLink section="section-720af0ba771b" href={`/blogs/${blog.slug}`} key={blog.slug}>
               <article className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-zinc-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 cursor-pointer">
-                {/* Image Container */}
-                <div className="relative h-60 w-full overflow-hidden bg-zinc-100">
-                  <CmsImage section="section-720af0ba771b"
-                    src={blog.coverImage || "/placeholder-image.jpg"}
-                    fill
-                    quality={100}
-                    alt={blog.blogname}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
-                  />
-                  {/* Category Badge over image */}
-                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 text-xs font-semibold text-primary rounded-full uppercase tracking-wider shadow-sm">
-                    {t(blog.blogcategory)}
+                {blog.coverImage?.trim() && (
+                  <div className="relative h-60 w-full overflow-hidden bg-zinc-100">
+                    <CmsImage section="section-720af0ba771b"
+                      src={blog.coverImage}
+                      fill
+                      sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                      quality={100}
+                      alt={blog.blogname}
+                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                    />
                   </div>
-                </div>
-
-                {/* Content Container */}
+                )}
                 <div className="p-6 sm:p-8 flex flex-col grow">
-                  <div className="flex items-center gap-2 text-xs text-zinc-400 font-medium mb-3">
-                    <span>{formatDate(blog.publishedDate)}</span>
-                    <span className="w-1 h-1 rounded-full bg-zinc-300" />
-                    <span><CmsText section="section-720af0ba771b" entryKey="text-e98ad8c3c4ec" fallback={"by "} />{blog.authorname}</span>
+                  {blog.blogcategory && (
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-primary">
+                      {t(blog.blogcategory)}
+                    </p>
+                  )}
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-zinc-500 font-medium mb-3 empty:hidden">
+                    <span className="empty:hidden">{formatDate(blog.publishedDate)}</span>
+                    {blog.authorname && (
+                      <span><CmsText section="section-720af0ba771b" entryKey="text-e98ad8c3c4ec" fallback={"by "} />{blog.authorname}</span>
+                    )}
                   </div>
 
                   <h3 data-heading-tone="dark" className="text-xl font-bold text-zinc-800 mb-4  transition-colors duration-300 font-montagu leading-snug line-clamp-2 flex-grow">
@@ -225,20 +148,16 @@ const BlogSection = () => {
           ))}
         </div>
       ) : (
-        !isLoading &&
-        !isError &&
-        blogs.length === 0 && (
           <div className="py-20 text-center bg-zinc-50 rounded-2xl border border-zinc-100">
             <p className="text-zinc-500 font-medium"><CmsText section="section-720af0ba771b" entryKey="text-835de4a5c931" fallback={"No articles have been published yet. Check back soon!"} /></p>
           </div>
-        )
       )}
       {!isLoading && !isError && totalPages > 1 && (
         <div className="flex flex-col gap-5 lg:flex-row items-center justify-between mt-16 border-t border-zinc-200 pt-8">
           <span className="text-zinc-500 font-medium text-sm"><CmsText section="section-720af0ba771b" entryKey="text-47e8168063bd" fallback={"Showing "} />{currentPage}<CmsText section="section-720af0ba771b" entryKey="text-49642a246ad0" fallback={" of "} />{totalPages}<CmsText section="section-720af0ba771b" entryKey="text-27dd0ee9135a" fallback={" Pages"} /></span>
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-3">
             <button
-              onClick={handlePrevious}
+              onClick={() => setCurrentPage(currentPage - 1)}
               disabled={currentPage === 1}
               className="px-6 py-3 rounded-xl transition-all duration-300 font-medium tracking-wide flex items-center gap-2 border border-primary text-primary hover:bg-primary hover:text-white disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-primary"
             >
@@ -258,7 +177,7 @@ const BlogSection = () => {
               </svg><CmsText section="section-720af0ba771b" entryKey="text-7a38027b5b9d" fallback={"Previous"} /></button>
 
             <button
-              onClick={handleNext}
+              onClick={() => setCurrentPage(currentPage + 1)}
               disabled={currentPage === totalPages}
               className="px-6 py-3 rounded-xl transition-all duration-300 font-medium tracking-wide flex items-center gap-2 border border-primary text-white bg-primary hover:bg-primary/90 disabled:opacity-40 disabled:cursor-not-allowed"
             ><CmsText section="section-720af0ba771b" entryKey="text-00a53855053f" fallback={"Next"} /><svg

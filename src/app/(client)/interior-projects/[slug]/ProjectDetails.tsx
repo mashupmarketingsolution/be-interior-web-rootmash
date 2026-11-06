@@ -1,17 +1,17 @@
 "use client";
 import { LocalizedText } from "@/components/Language";
+import { useCms } from "@/components/cms/ContentProvider";
 import { whatsappNumber } from "@/lib/contact-links";
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import {
   contactItemApi,
   homeProjectApi,
   officeProjectApi,
 } from "@/axios/axios";
-import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { FiX } from "react-icons/fi";
-import Link from "next/link";
 import { trackWhatsAppClick } from "@/components/Analytics/dataLayer";
 import { trackPhoneClick } from "@/components/Analytics/dataLayer";
 export interface ProjectResultType {
@@ -93,7 +93,7 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
   }, [selectedImageUrl]);
 
   const { slug } = useParams();
-  const searchparams = useSearchParams();
+  const { contact } = useCms();
   const projectType = initialProject._type;
 
   const queryKey =
@@ -124,6 +124,10 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
     console.log("contactItems", contactItems);
   }
 
+  const callNumber =
+    contact?.footercontactnumber1?.trim() ||
+    contactItems?.result?.[0]?.footercontactnumber1?.trim() ||
+    "01618995918";
   const phoneNumber = whatsappNumber(contactItems?.result?.[0]?.WhatsAppNumber);
 
   const defaultMessage =
@@ -149,7 +153,7 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
       try {
         const urlObj = new URL(url);
         videoId = urlObj.searchParams.get("v") || "";
-      } catch (e) {
+      } catch {
         return "";
       }
     }
@@ -242,20 +246,21 @@ export default function ProjectDetailsPage({ initialProject }: { initialProject:
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-4 justify-center py-6 mt-4">
+          <div className="mx-auto flex max-w-sm flex-col gap-3 py-6 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
             <button
+              type="button"
               onClick={handleWhatsAppRedirect}
-              className="bg-secondary text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-[#1a2924] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border-2 px-6 py-2.5 text-center text-sm font-medium leading-5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary sm:px-8 border-transparent bg-secondary text-white hover:bg-[#1a2924]"
             >
-              <LocalizedText>{"Talk to our designers"}</LocalizedText></button>
-
-           <a
-            href={`tel:${contactItems?.result[0].footercontactnumber1 as string}`}
-            onClick={() => trackPhoneClick("project_details")}
-            className="inline-flex items-center justify-center border-2 border-primary px-8 py-3 rounded-full text-sm font-medium leading-5 hover:bg-primary/10 transition-colors duration-300"
-          >
-            <LocalizedText>{"Call now"}</LocalizedText></a>
-
+              <LocalizedText>{"Talk to our designers"}</LocalizedText>
+            </button>
+            <a
+              href={`tel:${callNumber}`}
+              onClick={() => trackPhoneClick("project_details")}
+              className="inline-flex min-h-12 items-center justify-center rounded-full border-2 px-6 py-2.5 text-center text-sm font-medium leading-5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary sm:px-8 border-primary text-secondary hover:bg-primary/10"
+            >
+              <LocalizedText>{"Call now"}</LocalizedText>
+            </a>
           </div>
         </div>
       </section>
